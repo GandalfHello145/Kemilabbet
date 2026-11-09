@@ -12,6 +12,18 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 - Sju helt omarbetade originalfilmer på 3–5 minuter, renderade i 1920×1080 med 30 bilder/sekund. De innehåller 95 förklarande avsnitt, LaTeX-text, avancerad 2D/2.5D/3D-animation, svenska undertexter och originalmusik. Ljudspåret innehåller enbart musik, utan berättarröst.
 - Rutherford förklaras med en solsystemsliknelse. Liknelsens begränsningar, Bohrs energinivåer och dagens elektronmoln hålls isär.
 
+## Vattenlabbet
+
+[Öppna experimentet](https://gandalfhello145.github.io/Kemilabbet/?lab=vatten&v=20261109-water1#omrade-6). Det finns överst i steg 2, Förstå, i område 6 och nås också med knappen Öppna Vattenlabbet ovanför filmen.
+
+Eleverna kan värma och kyla 50 g rent vatten, vrida och zooma en 3D-modell med 48 representativa H₂O-molekyler, följa en markerad molekyl och undersöka temperaturkurvan. Ett försök kan sparas som jämförelse och mätdata exporteras som CSV. Hastighet kan väljas till 1×, 10× eller 30×. Simuleringen stannar när den döljs eller när sidan lämnas; pausen bevarar försöket mellan lektionsstegen.
+
+water-model.js använder en entalpimodell med konstanta, avrundade värmekapaciteter och latenta värmen. Smältning/frysning sker vid 0 °C och kokning/kondensation vid 100 °C. Massan och det yttre trycket hålls konstanta med ett schematiskt rörligt lock. Modellen inkluderar inte värmeförluster, temperaturgradienter eller avdunstning under kokpunkten. Modellkort och primärkällor finns i experimentet.
+
+water-scene.js använder lokalt Three.js 0.184.0 (MIT; licens i vendor/three/). Grafiken visar schematiska positioner och rörelser, utan att ändra molekylernas uppbyggnad. WebGL2-vyn kompletteras av en 2D-reservvy. water-lab.js, water-lab.css och water-graph.js innehåller reglage, tillgänglighetsstöd och graf. Inga externa bibliotek hämtas när sidan körs.
+
+Kör modellkontrollerna med node --test water-model.test.mjs från webbplatsens projektmapp.
+
 ## Filer och källor
 
 `index.html`, `styles.css` och `script.js` innehåller webbplatsen. `study-galleries.js` och `study-assets.js` visar de nya ritningarna och miljöbilderna. Originalens bildkällor finns i `assets/environment/credits.json` och bredvid varje bild på sidan. Nya filmer, affischbilder och undertexter ligger i respektive `assets/*/v3/`.

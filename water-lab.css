@@ -1,0 +1,118 @@
+/* Vattenlabbet: a self-contained experiment inside the existing lesson. */
+.interactive.water-lab-host{padding:0;border:0;background:none;margin:12px 0 48px;max-width:none}
+.water-lab{--wl-navy:#102b3b;--wl-teal:#087e88;--wl-cyan:#79e6e5;--wl-paper:#fbfcf8;--wl-line:#d4e1dc;color:var(--wl-navy);background:var(--wl-paper);border:1px solid #b9d0c8;border-radius:12px;overflow:hidden;box-shadow:0 14px 46px #143a3a0c;font-family:LMSans,Arial,sans-serif}
+.water-lab *{box-sizing:border-box}
+.water-lab button,.water-lab input,.water-lab select{font-family:LMSans,Arial,sans-serif}
+.water-lab button{cursor:pointer;min-height:42px;transition:background .16s,border-color .16s,color .16s;line-height:1.4}
+.water-lab button:focus-visible,.water-lab input:focus-visible,.water-lab select:focus-visible,.water-lab canvas:focus-visible,.water-lab svg[tabindex]:focus-visible{outline:3px solid #ce9444;outline-offset:3px}
+.wl-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px 30px 24px}
+.water-lab .wl-kicker{margin:0 0 8px;color:#50716f;font-family:LMSans,Arial,sans-serif;font-size:10px;letter-spacing:.12em;font-weight:700;line-height:1.6}
+.wl-kicker>span{display:inline-block;width:7px;height:7px;background:#128883;border-radius:50%;margin-right:6px;box-shadow:0 0 0 4px #12888313}
+.water-lab .wl-header h2{font-family:LMRoman,Georgia,serif!important;font-size:43px;line-height:1;margin:0 0 11px;font-weight:400}
+.wl-header h2>span{color:#168f91}
+.water-lab .wl-header p:not(.wl-kicker){font-family:LMSans,Arial,sans-serif;font-size:14px;line-height:1.6;margin:0;color:#506c70}
+.wl-spec{font-size:8px;line-height:1.9;letter-spacing:.09em;text-align:right;color:#607e7e;flex:none}
+.wl-spec strong{font-size:11px;font-weight:500;letter-spacing:0;color:#264c50}
+.wl-start{display:flex;align-items:center;gap:13px;padding:14px 25px;border-top:1px solid var(--wl-line);background:#eef4ef}
+.wl-start>span{font-size:11px;color:#516f6d;white-space:nowrap}
+.wl-segment{display:flex;gap:4px;flex:1}
+.wl-segment button{border:1px solid transparent;background:transparent;padding:8px 11px;border-radius:6px;color:#36565d;font-size:12px}
+.wl-segment button small{display:block;font-size:10px;color:#6c8484}
+.wl-segment button[aria-pressed=true]{border-color:#adcac4;background:#fff;box-shadow:0 2px 5px #244d3e08;color:#0a6c73}
+.wl-reset{background:none;border:0;color:#526d6d;font-size:11px;padding:7px}
+.wl-stage{display:grid;grid-template-columns:minmax(180px,.65fr) minmax(0,1.6fr);color:#e6f3f5;background:radial-gradient(ellipse at 72% 35%,#193e51 0,#0b2334 65%,#0a1e2d 100%);min-height:400px}
+.wl-sample{padding:22px 15px 14px 26px;border-right:1px solid #a6d6df16;position:relative}
+.water-lab .wl-panel-label{font-family:LMSans,Arial,sans-serif;font-size:8px;letter-spacing:.12em;color:#a8c4cb;margin:0;line-height:1.6}
+.wl-temperature{display:flex;align-items:start;gap:5px;margin:16px 0 0;font-variant-numeric:tabular-nums}
+.wl-temperature output{font-size:51px;line-height:1;letter-spacing:-.05em;font-weight:400}
+.wl-temperature>span{font-size:17px;margin-top:5px;color:#9ebec8}
+.water-lab .wl-phase{font-family:LMSans,Arial,sans-serif;font-size:12px;line-height:1.5;margin:9px 0 0;color:#b7e9e7;min-height:18px}
+.wl-vessel{display:block;width:100%;max-width:240px;height:221px;margin:-4px auto 0}
+.water-lab .wl-vessel-note{font-family:LMSans,Arial,sans-serif;color:#96b4c2;font-size:9px;line-height:1.65;margin:0;text-align:center}
+.wl-molecules{position:relative;min-width:0;display:flex;flex-direction:column;min-height:410px}
+.wl-scene-top{display:flex;justify-content:space-between;gap:10px;align-items:center;position:absolute;left:20px;right:20px;top:22px;z-index:2;pointer-events:none}
+.wl-view-mode{font-size:8px;color:#b2d7dd;border:1px solid #8abcc833;border-radius:4px;padding:4px 7px;white-space:nowrap}
+.wl-three,.wl-fallback{display:block;width:100%;height:320px;flex:1;min-height:300px;max-height:430px}
+.wl-fallback{position:absolute;top:0;left:0;pointer-events:none}
+.wl-three{touch-action:pan-y;cursor:grab}
+.wl-three:active{cursor:grabbing}
+.wl-scene-hint{position:absolute;top:57px;left:20px;right:20px;color:#80a3b4;font-size:9px;z-index:1;pointer-events:none}
+.wl-scene-tools{display:flex;align-items:center;gap:8px;padding:0 16px 10px;z-index:3;position:relative}
+.wl-scene-tools button{background:#a8d8e909;border:1px solid #8abcc82f;color:#bcd9e4;font-size:9px;padding:6px 9px;border-radius:5px;white-space:nowrap;min-height:32px}
+.wl-scene-tools button[aria-pressed=true]{background:#ffd0761a;border-color:#cda45c;color:#ffd791}
+.wl-target{font-size:15px;vertical-align:middle}
+.wl-scene-tools label{display:flex;align-items:center;gap:7px;margin:0 0 0 auto;font-size:9px;color:#a4c3cd;min-width:60px}
+.water-lab input[type=range]{height:24px;accent-color:#138d93;min-width:0;padding:0;border:0;box-shadow:none;background:transparent;cursor:pointer;width:100%}
+.wl-scene-tools input[type=range]{width:70px;accent-color:#88dce6}
+.wl-atom-key{border-top:1px solid #93b9c819;display:flex;flex-wrap:wrap;gap:9px 17px;align-items:center;padding:11px 18px;color:#91b0bd;font-size:8px;line-height:1.5}
+.wl-atom-key span{display:flex;align-items:center;gap:6px}
+.wl-atom-key span:last-child{flex:1 1 180px}
+.wl-atom-key i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.wl-oxygen{background:#e67e74}.wl-hydrogen{background:#dcecf6}
+.wl-fractions{padding:17px 28px 15px;background:#f3f7f2;border-bottom:1px solid var(--wl-line)}
+.wl-fraction-bar{height:6px;display:flex;border-radius:5px;overflow:hidden;background:#dfe8e5}
+.wl-fraction-bar span{height:100%;transition:width .15s linear}
+.wl-fraction-bar span:nth-child(1){background:#8bbaca}.wl-fraction-bar span:nth-child(2){background:#168f9b}.wl-fraction-bar span:nth-child(3){background:#c3b48c}
+.wl-fraction-labels{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-size:10px;color:#547173}
+.wl-fraction-labels span{display:flex;gap:5px;align-items:center;white-space:nowrap}
+.wl-fraction-labels i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#8bbaca}
+.wl-fraction-labels span:nth-child(2) i{background:#168f9b}.wl-fraction-labels span:nth-child(3) i{background:#b6a574}
+.wl-controls{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;padding:23px 28px}
+.wl-control-title{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.wl-control-title label{font-size:12px;font-weight:700;margin:0}
+.wl-control-title output{font-size:14px;font-variant-numeric:tabular-nums;color:#687d7d;white-space:nowrap}
+.wl-control-title output[data-direction=heat]{color:#ba6331}.wl-control-title output[data-direction=cool]{color:#2b79a8}
+.water-lab #wl-power{margin:13px 0 0;accent-color:#168f95}
+.wl-power-ends{display:flex;justify-content:space-between;font-size:9px;color:#6a8181;margin-bottom:13px}
+.wl-action-buttons{display:flex;gap:7px}
+.wl-action-buttons button{border:1px solid #c3d5d0;flex:1;font-size:11px;border-radius:5px;padding:7px 9px;white-space:nowrap}
+.wl-cool{background:#e9f3f8;color:#256f9c}.wl-cool[aria-pressed=true]{background:#d1e8f7;border-color:#5e9bbd}
+.wl-neutral{background:#f4f6f1;color:#617373}.wl-neutral[aria-pressed=true]{border-color:#799e96}
+.wl-heat{background:#fbefe4;color:#a95a2e}.wl-heat[aria-pressed=true]{background:#f8dfc8;border-color:#c18b5a}
+.wl-time-control{border-left:1px solid var(--wl-line);padding-left:25px;display:grid;grid-template-columns:105px 1fr;gap:8px 15px;align-items:center}
+.wl-play{border:0;border-radius:5px;background:#123c48;color:#eefcf7;padding:10px 14px;font-size:12px;grid-row:span 2}
+.wl-time-control label{font-size:9px;font-weight:400;color:#5e7877;margin:0}
+.wl-time-control select{display:block;width:100%;border:1px solid #bfd2cb;border-radius:4px;background:#fff;font-size:11px;padding:7px;margin-top:4px;color:#294f53;min-height:34px}
+.water-lab .wl-time-control p{font-family:LMSans,Arial,sans-serif;font-size:9px;line-height:1.5;margin:0;color:#7b8d89}
+.wl-insight{display:flex;gap:15px;margin:0 28px 25px;padding:17px 18px;border:1px solid #c9ded5;background:#edf5ed;border-radius:6px}
+.wl-insight>span{font-size:26px;color:#348e89;line-height:1.1}
+.wl-insight strong{font-size:12px;line-height:1.5}
+.water-lab .wl-insight p{font-family:LMSans,Arial,sans-serif;font-size:11px;line-height:1.75;margin:6px 0 0;color:#53736e;max-width:none}
+.wl-chart{padding:23px 28px 10px;border-top:1px solid var(--wl-line);background:#fffefa}
+.wl-chart-header{display:flex;gap:15px;justify-content:space-between;align-items:center}
+.water-lab .wl-chart h3{font-family:LMRoman,Georgia,serif;font-size:26px;margin:0;font-weight:400;line-height:1.2}
+.wl-chart-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.wl-chart-actions button{background:transparent;border:1px solid #c7d6cf;padding:6px 10px;font-size:9px;color:#3c686a;border-radius:4px;min-height:33px}
+.wl-chart-metrics{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:18px 0 5px;color:#7a8e89;font-size:9px}
+.wl-chart-metrics strong{font-weight:500;color:#2d6268;font-size:12px;margin-left:5px;font-variant-numeric:tabular-nums}
+.wl-reference{color:#ab833e}
+.wl-motion{margin:0 0 0 auto!important;display:flex;align-items:center;gap:6px;font-size:9px!important;font-weight:400!important;color:#6a827c}
+.wl-motion input{width:13px;height:13px;accent-color:#138d93}
+.wl-graph{display:block;width:100%;height:auto;min-height:160px;touch-action:pan-y;overflow:visible}
+.water-lab .wl-chart-readout{font-family:LMSans,Arial,sans-serif;margin:2px 0 12px;font-size:10px;color:#688980;min-height:19px;line-height:1.5}
+.wl-challenges{padding:21px 28px;background:#eef4ee;border-top:1px solid var(--wl-line)}
+.wl-challenges>div{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
+.water-lab .wl-challenges p:not(.wl-kicker){font-family:LMSans,Arial,sans-serif;font-size:11px;line-height:1.8;margin:5px 0;color:#486964}
+.wl-challenges b{color:#11818a;margin-right:5px}
+.wl-model{padding:17px 28px;border-top:1px solid var(--wl-line);font-size:11px;color:#607d73}
+.wl-model summary{font-size:11px;font-weight:500;color:#426d67;line-height:1.6}
+.water-lab .wl-model p,.wl-model li{font-family:LMSans,Arial,sans-serif;font-size:11px;line-height:1.85;margin:14px 0;color:#5d7c74}
+.wl-model a{color:#167780;text-decoration-thickness:1px;text-underline-offset:3px}
+.water-lab .wl-equation{font-size:13px;font-weight:700;color:#295e62}
+.wl-launch{display:flex;gap:17px;align-items:center;justify-content:space-between;border:1px solid #9bc5c1;background:#eef5ec;border-radius:6px;padding:18px 23px;margin:20px 0}
+.wl-launch p{margin:0;font-size:15px;line-height:1.6;color:#3b6664}
+.wl-launch button{white-space:nowrap}
+@media(max-width:1000px){.wl-stage{grid-template-columns:minmax(170px,.6fr) minmax(0,1fr)}.wl-scene-tools{gap:5px;flex-wrap:wrap}.wl-scene-tools label{margin-left:0}.wl-controls{gap:18px}.wl-time-control{grid-template-columns:1fr;padding-left:18px;gap:9px}.wl-play{grid-row:auto}.wl-chart-header{align-items:flex-start}.wl-chart-actions{max-width:220px}}
+@media(max-width:650px){.wl-header{padding:22px 18px 19px;align-items:start}.water-lab .wl-header h2{font-size:35px}.wl-spec{max-width:110px;font-size:7px}.wl-spec strong{font-size:9px}.water-lab .wl-header p:not(.wl-kicker){font-size:12px}.wl-start{padding:12px;gap:6px;flex-wrap:wrap}.wl-start>span{flex-basis:100%;font-size:10px;padding-left:5px}.wl-segment button{font-size:10px;padding:7px 9px;min-height:42px}.wl-reset{font-size:9px;margin-left:auto}.wl-stage{grid-template-columns:112px minmax(0,1fr);min-height:340px}.wl-sample{padding:18px 9px 12px 12px}.water-lab .wl-panel-label{font-size:6px;letter-spacing:.07em}.wl-temperature{margin-top:19px;gap:2px}.wl-temperature output{font-size:34px}.wl-temperature>span{font-size:11px;margin-top:2px}.water-lab .wl-phase{font-size:9px;min-height:28px}.wl-vessel{height:158px;width:112px;margin:3px 0 0 -6px}.water-lab .wl-vessel-note{font-size:7px}.wl-molecules{min-height:345px}.wl-scene-top{left:11px;right:10px;top:18px;display:block}.wl-view-mode{display:inline-block;font-size:6px;padding:3px 5px;margin-top:6px}.wl-scene-hint{font-size:7px;left:11px;top:62px;line-height:1.5}.wl-three,.wl-fallback{min-height:240px;height:250px;max-height:310px}.wl-scene-tools{padding:0 10px 8px;gap:6px}.wl-scene-tools button{font-size:8px;padding:5px 7px;min-height:33px}.wl-scene-tools label{font-size:8px;flex:1}.wl-scene-tools input[type=range]{flex:1;width:65px}.wl-atom-key{padding:9px 11px;font-size:7px;gap:6px 10px}.wl-atom-key span:last-child{flex-basis:100%}.wl-fractions{padding:14px 15px}.wl-fraction-labels{font-size:8px;gap:6px}.wl-fraction-labels span{gap:3px}.wl-controls{grid-template-columns:1fr;padding:19px 17px;gap:20px}.wl-control-title label{font-size:11px}.wl-time-control{grid-template-columns:110px 1fr;padding:17px 0 0;border-left:0;border-top:1px solid var(--wl-line);gap:7px 15px}.wl-play{grid-row:span 2}.wl-time-control select{font-size:11px}.water-lab .wl-time-control p{font-size:8px}.wl-insight{margin:0 17px 20px;padding:14px 13px;gap:10px}.wl-insight strong{font-size:11px}.water-lab .wl-insight p{font-size:10px}.wl-chart{padding:20px 16px 8px}.wl-chart-header{display:block}.water-lab .wl-chart h3{font-size:25px}.wl-chart-actions{max-width:none;justify-content:start;margin-top:13px}.wl-chart-actions button{font-size:8px;padding:5px 8px;min-height:33px}.wl-chart-metrics{gap:10px;font-size:8px}.wl-chart-metrics strong{font-size:11px;margin-left:3px}.wl-motion{font-size:8px!important;margin-left:0!important}.water-lab .wl-chart-readout{font-size:9px}.wl-challenges{padding:18px 17px}.wl-challenges>div{grid-template-columns:1fr;gap:6px}.water-lab .wl-challenges p:not(.wl-kicker){font-size:11px}.wl-model{padding:16px 17px}.wl-model summary{font-size:10px}.water-lab .wl-model p,.wl-model li{font-size:11px}.wl-launch{display:block;padding:17px}.wl-launch p{font-size:14px;margin-bottom:12px}.wl-graph{min-height:140px}}
+@media(prefers-reduced-motion:reduce){.water-lab *{transition:none!important;scroll-behavior:auto!important}}
+@media print{.water-lab,.wl-launch{display:none!important}}
+/* Readable controls and generous targets on student touch screens. */
+.wl-control-title label{font-size:14px}.wl-control-title output{font-size:16px}
+.wl-action-buttons button,.wl-play{font-size:13px;min-height:44px}
+.wl-segment button{font-size:13px;min-height:44px}.wl-segment button small{font-size:11px}
+.wl-scene-tools button{font-size:11px;min-height:40px}.wl-scene-tools label{font-size:11px}
+.wl-insight strong{font-size:14px}.water-lab .wl-insight p{font-size:13px}
+.wl-chart-actions button{font-size:11px;min-height:40px}.wl-chart-metrics{font-size:11px}
+.water-lab .wl-chart-readout{font-size:12px}.water-lab .wl-challenges p:not(.wl-kicker){font-size:13px}
+@media(max-width:650px){.wl-segment button{font-size:11px;padding:7px}.wl-segment button small{font-size:10px}.wl-reset{font-size:10px}.wl-scene-tools button{font-size:9px;min-height:40px}.wl-scene-tools label{font-size:10px}.wl-control-title label{font-size:13px}.wl-action-buttons button,.wl-play{font-size:12px}.wl-insight strong{font-size:13px}.water-lab .wl-insight p{font-size:12px}.wl-chart-actions button{font-size:10px}.wl-chart-metrics{font-size:10px}.water-lab .wl-chart-readout{font-size:11px}.water-lab .wl-challenges p:not(.wl-kicker){font-size:12px}}
+@media(max-width:650px){.wl-graph text{font-size:24px}.wl-graph .wl-graph-legend{display:none}}

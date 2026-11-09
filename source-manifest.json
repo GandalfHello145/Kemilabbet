@@ -11,7 +11,8 @@
     "95explanatory chapters with LaTeX typography and original2D/2.5D/3D choreography",
     "Swedish captions, original instrumental music and chapter navigation",
     "Visual explanation inspired by3Blue1Brown public videos and code; original chemistry scenes",
-    "Removed narration from all seven films; original video frames, music, captions and chapters preserved"
+    "Removed narration from all seven films; original video frames, music, captions and chapters preserved",
+    "Added Vattenlabbet: interactive constant-pressure water energy model, local 3D molecular view, live temperature graph and CSV export"
   ],
   "active_movies": [
     {
@@ -1018,8 +1019,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3436,
-      "sha256": "da906be5d04b5390249e382308365ce4d9504377f53388d8ec19484955fb62d2"
+      "bytes": 4962,
+      "sha256": "96621be390d8898749783d6028c2c7502e39b5abc071300cf674f48d31097c6f"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1623,8 +1624,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 1997,
-      "sha256": "0f51802ff26f48e7e77bfaeb1361d5338fc25505fb0c12c6842f957c7d773625"
+      "bytes": 2066,
+      "sha256": "430a5d8cd9b79b7c4b08cfb6f54a32ac8570f6c9fa8f50fa08e511a70e514ffe"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
@@ -1853,8 +1854,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 479127,
-      "sha256": "9ad3a48781148d4409201de97af0b93f0836f169f83b995fd7a8087ef462aeac"
+      "bytes": 476946,
+      "sha256": "5724bfcc3a59bed2f93e79462fc5d683746491d1643aa9b1c892d3e543fcbc6b"
     },
     {
       "path": "study-assets.js",
@@ -1870,9 +1871,59 @@
       "path": "styles.css",
       "bytes": 56107,
       "sha256": "b8e87ab0ba640809448c965998c7090670366a321a6fee1a5e43c8fb5ff8a239"
+    },
+    {
+      "path": "vendor/three/LICENSE",
+      "bytes": 1081,
+      "sha256": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
+    },
+    {
+      "path": "vendor/three/NOTICE.md",
+      "bytes": 471,
+      "sha256": "6b94f5c70f9391f9280b1f1f959921600135a923d94e0c47fbe08af3826c0598"
+    },
+    {
+      "path": "vendor/three/three.core.min.js",
+      "bytes": 384222,
+      "sha256": "6486aa0d719cfa87ec88dc47223b59b1fb8417a1a407fc0e52467c943e2f8cc9"
+    },
+    {
+      "path": "vendor/three/three.module.min.js",
+      "bytes": 364998,
+      "sha256": "36a60b0120335f89a80a0dab70292292b0ec414b3d05e83cd09a3ea428c6712a"
+    },
+    {
+      "path": "water-graph.js",
+      "bytes": 11740,
+      "sha256": "f8cf082daec0646c01d61d32c81361eb8e9fdc20e36cc05aab579d06b4ccfbde"
+    },
+    {
+      "path": "water-lab.css",
+      "bytes": 15516,
+      "sha256": "95c5e4d2ba69a4b15e519640b62654d01dbd3a98f5c93484329223b2986a56b9"
+    },
+    {
+      "path": "water-lab.js",
+      "bytes": 24038,
+      "sha256": "3f00e317e4d29f5436d4b631fef18af4394b0bf013a6b7626d6b4b2e5583429e"
+    },
+    {
+      "path": "water-model.js",
+      "bytes": 7673,
+      "sha256": "fc700ca3377683167d21041d2be576b0534d4ea2fc7486649975afbe3a0c2378"
+    },
+    {
+      "path": "water-model.test.mjs",
+      "bytes": 7771,
+      "sha256": "723467257c797f90405122b463f57ccfe8b22da331dfabe8ef26bde747da48d4"
+    },
+    {
+      "path": "water-scene.js",
+      "bytes": 24243,
+      "sha256": "f3e529bf42d0524311252a4016901216ea585d2902d2f4456434046939d07c4b"
     }
   ],
-  "patch": 1,
+  "patch": 2,
   "diagram_conversion": "pdfLaTeX to PDF, then PyMuPDF to self-contained SVG with text paths and embedded shading images",
   "video_production": {
     "render": "Native1920x1080at30fps",
@@ -1884,5 +1935,28 @@
     "source": "manim/v3/README.md",
     "narration": false,
     "music": "Original instrumental score"
-  }
+  },
+  "simulations": [
+    {
+      "id": "vattenlabbet",
+      "module": 6,
+      "entry": "?lab=vatten#omrade-6",
+      "source": [
+        "water-model.js",
+        "water-lab.js",
+        "water-scene.js",
+        "water-graph.js",
+        "water-lab.css"
+      ],
+      "massKg": 0.05,
+      "pressureKPa": 101.3,
+      "temperatureRangeC": [
+        -30,
+        120
+      ],
+      "renderer": "Three.js 0.184.0, WebGL2 with 2D fallback",
+      "tests": "water-model.test.mjs",
+      "license": "vendor/three/LICENSE"
+    }
+  ]
 }
