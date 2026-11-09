@@ -1,0 +1,484 @@
+{
+  "source_filename": "Kemilabbet (2).html",
+  "source_bytes": 72443406,
+  "source_sha256": "e266f90f52eb2ae810299479db104facdff4079c54c67ca2ec22dfc0b671bcbe",
+  "source_archive": "code-20261109-082349.zip",
+  "archive_index_identical": true,
+  "transformation": "Externalized embedded base64 assets and inline CSS/JavaScript without changing learning content or UI behavior. Original document reconstruction verified byte-for-byte.",
+  "movie_count": 7,
+  "assets": [
+    {
+      "path": "assets/fonts/lmroman-regular.woff",
+      "mime_type": "font/woff",
+      "bytes": 55780,
+      "sha256": "a1295b9d584e2a291206a9305c63467434161f118bd78b367bceec84f340cc29"
+    },
+    {
+      "path": "assets/fonts/lmroman-italic.woff",
+      "mime_type": "font/woff",
+      "bytes": 58620,
+      "sha256": "24ac4c5ef1cb5972654aadf95cfa2b8f875c3ca498113d2b24e596e09d88f0b0"
+    },
+    {
+      "path": "assets/fonts/lmroman-bold.woff",
+      "mime_type": "font/woff",
+      "bytes": 54800,
+      "sha256": "cd74e339c1649bd08efb550c79c58520050fc3d5d68dde30f291b1d50c172f24"
+    },
+    {
+      "path": "assets/fonts/lmsans-regular.woff",
+      "mime_type": "font/woff",
+      "bytes": 45436,
+      "sha256": "77101b9b6f02ed3324cf3bf8c99f0532163b2196b70f9bed1be770bffbf4967c"
+    },
+    {
+      "path": "assets/fonts/lmsans-bold.woff",
+      "mime_type": "font/woff",
+      "bytes": 53992,
+      "sha256": "7c9be7b91cc8465619cf56f85fb9c532f7baf3d28b491b84cd9eaed51325c27e"
+    },
+    {
+      "path": "assets/fonts/lmmath.woff",
+      "mime_type": "font/woff",
+      "bytes": 483808,
+      "sha256": "a1965e4a0f5ad2600b1033c5c2034a696be428a7a2faf1cf0c47b541fe6e9e0a"
+    },
+    {
+      "path": "assets/diagrams/01-atomer.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 220022,
+      "sha256": "13b691e8181ca04fc048fe5f13153bd98c74f9ba01a03193d43dd0d4af58988d"
+    },
+    {
+      "path": "assets/diagrams/02-modeller.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 327332,
+      "sha256": "efdddfa57a8ed323474cb6b22904576c4e76dc5fec5a61e6c019212572f59061"
+    },
+    {
+      "path": "assets/diagrams/03-elektroner.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 226822,
+      "sha256": "61d905ec35b1d102e9770fe7af113870ffce0c209939406fee774afb78d5e93f"
+    },
+    {
+      "path": "assets/diagrams/04-forandringar.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 296010,
+      "sha256": "be292f960917a47362ab780ec1553f65fc93177334483005f66d93100301b881"
+    },
+    {
+      "path": "assets/diagrams/05-egenskaper.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 214296,
+      "sha256": "311a99337879632142fd20dcfc7dbf5b0af614847ae54d98985535e3ad842d53"
+    },
+    {
+      "path": "assets/diagrams/06-faser.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 350509,
+      "sha256": "3e80279da8c28ecde70f4ba597df4abe448418e3bd9ef83778ad716fb6c2b336"
+    },
+    {
+      "path": "assets/diagrams/07-miljo.svg",
+      "mime_type": "image/svg+xml",
+      "bytes": 195102,
+      "sha256": "4f0c4c60582e32fe10bc867efb4628991a5732df8b54b3fb748cc7ebc3cd4f0a"
+    },
+    {
+      "path": "assets/films/01-atomer.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 6867450,
+      "sha256": "3429f5df0ebde4e749c3c9edfd94bd72e55a6b652260e7aafc2962d863506456"
+    },
+    {
+      "path": "assets/posters/01-atomer.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 72417,
+      "sha256": "5eacae9fbbc5527faf7d17af2209d919e247aa466085ecc7d22a4c376faeeb9c"
+    },
+    {
+      "path": "assets/films/02-modeller.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 7129037,
+      "sha256": "4a09caee102c024543bc25ce986b767d4f4bd8ad5d3b4f8375e9f0cec4326726"
+    },
+    {
+      "path": "assets/posters/02-modeller.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 100324,
+      "sha256": "49163eb446542d2c2881f2db1bdbba41a5e9de4c9336ef668c6c98e827609b23"
+    },
+    {
+      "path": "assets/films/03-elektroner.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 6583499,
+      "sha256": "0a8b15b80a3ead0a4867a0b6224ce68ba4ad8a4cf66493aaa330b620f5a3127c"
+    },
+    {
+      "path": "assets/posters/03-elektroner.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 89569,
+      "sha256": "b2106003a82510586570815b3ca1af93c5372b13b11214189fe1a5be3fb82748"
+    },
+    {
+      "path": "assets/films/04-forandringar.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 8122054,
+      "sha256": "57e994e8308c0e9a3789ed0168b9cb5ba53f8bbc45e004ae0c20f4bc5e02e8d2"
+    },
+    {
+      "path": "assets/posters/04-forandringar.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 76947,
+      "sha256": "c5d08a9ae79756c6835645d76fae28b0d26d494fb50c7f5f7502c6e6a9abe25b"
+    },
+    {
+      "path": "assets/films/05-egenskaper.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 6778165,
+      "sha256": "23b17d6df89959e70d25b29f48ed4b6eeed9dc18a0af809f07906a284f6a734c"
+    },
+    {
+      "path": "assets/posters/05-egenskaper.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 80104,
+      "sha256": "08c3c7eb2348c645d4704066199b50e7cf8ca157d3918494752889492fcfa024"
+    },
+    {
+      "path": "assets/films/06-faser.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 6522302,
+      "sha256": "e6096e138af31325a8a1198e703245a8e3b46ff660d0f7fcfedee0c77e14c7d2"
+    },
+    {
+      "path": "assets/posters/06-faser.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 71684,
+      "sha256": "ca9db34d8187989dde1a1f4ce57b3d4207b580cc61035de98221fb09c32a7035"
+    },
+    {
+      "path": "assets/films/07-miljo.mp4",
+      "mime_type": "video/mp4",
+      "bytes": 6891655,
+      "sha256": "f7252721436ccde2320ec32a13b43d8b181b14a8acfc7847c3a87869d1b3271c"
+    },
+    {
+      "path": "assets/posters/07-miljo.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 83185,
+      "sha256": "3957e14bee93d4c35ac29e1f31fa9b3ea2e23bd14691d96f378689de05efe101"
+    },
+    {
+      "path": "assets/photos/01-atomer.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 116658,
+      "sha256": "3b96a40f899f2b6b1e63a845af765cd4504cc5dc52ced3a6df37eed6ba9694f7"
+    },
+    {
+      "path": "assets/photos/02-modeller.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 382480,
+      "sha256": "d71ba7f3aa860bb768308baf60c8b98910b64ffafcda3e098a083b85ea3b4183"
+    },
+    {
+      "path": "assets/photos/03-elektroner.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 90316,
+      "sha256": "aee720197646d642ef71e568180864ddf06e0c51517d5d7e6a192010305a7775"
+    },
+    {
+      "path": "assets/photos/04-forandringar.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 538873,
+      "sha256": "b5e4f7bad6741412408477b5d87115005ff38b73d9f98ab01f7af0cab8679cf5"
+    },
+    {
+      "path": "assets/photos/05-egenskaper.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 166209,
+      "sha256": "f61a08e7e7425397fba4d9a87825483025ff8ec8ffa82441ea43c4931ff2ce7c"
+    },
+    {
+      "path": "assets/photos/06-faser.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 159724,
+      "sha256": "c1d17ae26f304d7e91f0ab2839d9820c83098bea04abacfd61dd9ddbe04843e2"
+    },
+    {
+      "path": "assets/photos/07-miljo.jpg",
+      "mime_type": "image/jpeg",
+      "bytes": 466420,
+      "sha256": "4da958be8ea56da1277ccbf23676838f3ba6130df6dc359f78250210f1327708"
+    },
+    {
+      "path": "assets/captions/01-atomer.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1472,
+      "sha256": "021769eb969c9ea81b8d8f7abd97b85e96f67680b28eb0e9ccc5f087b1d246af"
+    },
+    {
+      "path": "assets/captions/02-modeller.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1885,
+      "sha256": "cd7b57a918d309dee682925e04b4878c3f91c8a45ce81167b44155bab02dd5f4"
+    },
+    {
+      "path": "assets/captions/03-elektroner.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1798,
+      "sha256": "aa3b265ade7d5f44884213a6d706eff603a2cad1ffa7e6bd0145c61953478c3e"
+    },
+    {
+      "path": "assets/captions/04-forandringar.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1705,
+      "sha256": "2b15e842ddb07bb272ed8a8072c07792e7d13b4adb2e19737dfc798a0bfbbb40"
+    },
+    {
+      "path": "assets/captions/05-egenskaper.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1686,
+      "sha256": "7c9ede209ead5456e15f04940efa586d497fad91dc13cb125c5277500e263671"
+    },
+    {
+      "path": "assets/captions/06-faser.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1870,
+      "sha256": "f8a67649b2f53d5e4db922d2a13b5c93a952b9e80b1d8d4acb66a28a307237e3"
+    },
+    {
+      "path": "assets/captions/07-miljo.vtt",
+      "mime_type": "text/vtt",
+      "bytes": 1632,
+      "sha256": "1a3cd7e1f467b7e812f982ee772aa6c83440ba861feba1bf2ddabe845a45f680"
+    }
+  ],
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/captions/01-atomer.vtt",
+      "bytes": 1472,
+      "sha256": "021769eb969c9ea81b8d8f7abd97b85e96f67680b28eb0e9ccc5f087b1d246af"
+    },
+    {
+      "path": "assets/captions/02-modeller.vtt",
+      "bytes": 1885,
+      "sha256": "cd7b57a918d309dee682925e04b4878c3f91c8a45ce81167b44155bab02dd5f4"
+    },
+    {
+      "path": "assets/captions/03-elektroner.vtt",
+      "bytes": 1798,
+      "sha256": "aa3b265ade7d5f44884213a6d706eff603a2cad1ffa7e6bd0145c61953478c3e"
+    },
+    {
+      "path": "assets/captions/04-forandringar.vtt",
+      "bytes": 1705,
+      "sha256": "2b15e842ddb07bb272ed8a8072c07792e7d13b4adb2e19737dfc798a0bfbbb40"
+    },
+    {
+      "path": "assets/captions/05-egenskaper.vtt",
+      "bytes": 1686,
+      "sha256": "7c9ede209ead5456e15f04940efa586d497fad91dc13cb125c5277500e263671"
+    },
+    {
+      "path": "assets/captions/06-faser.vtt",
+      "bytes": 1870,
+      "sha256": "f8a67649b2f53d5e4db922d2a13b5c93a952b9e80b1d8d4acb66a28a307237e3"
+    },
+    {
+      "path": "assets/captions/07-miljo.vtt",
+      "bytes": 1632,
+      "sha256": "1a3cd7e1f467b7e812f982ee772aa6c83440ba861feba1bf2ddabe845a45f680"
+    },
+    {
+      "path": "assets/diagrams/01-atomer.svg",
+      "bytes": 220022,
+      "sha256": "13b691e8181ca04fc048fe5f13153bd98c74f9ba01a03193d43dd0d4af58988d"
+    },
+    {
+      "path": "assets/diagrams/02-modeller.svg",
+      "bytes": 327332,
+      "sha256": "efdddfa57a8ed323474cb6b22904576c4e76dc5fec5a61e6c019212572f59061"
+    },
+    {
+      "path": "assets/diagrams/03-elektroner.svg",
+      "bytes": 226822,
+      "sha256": "61d905ec35b1d102e9770fe7af113870ffce0c209939406fee774afb78d5e93f"
+    },
+    {
+      "path": "assets/diagrams/04-forandringar.svg",
+      "bytes": 296010,
+      "sha256": "be292f960917a47362ab780ec1553f65fc93177334483005f66d93100301b881"
+    },
+    {
+      "path": "assets/diagrams/05-egenskaper.svg",
+      "bytes": 214296,
+      "sha256": "311a99337879632142fd20dcfc7dbf5b0af614847ae54d98985535e3ad842d53"
+    },
+    {
+      "path": "assets/diagrams/06-faser.svg",
+      "bytes": 350509,
+      "sha256": "3e80279da8c28ecde70f4ba597df4abe448418e3bd9ef83778ad716fb6c2b336"
+    },
+    {
+      "path": "assets/diagrams/07-miljo.svg",
+      "bytes": 195102,
+      "sha256": "4f0c4c60582e32fe10bc867efb4628991a5732df8b54b3fb748cc7ebc3cd4f0a"
+    },
+    {
+      "path": "assets/films/01-atomer.mp4",
+      "bytes": 6867450,
+      "sha256": "3429f5df0ebde4e749c3c9edfd94bd72e55a6b652260e7aafc2962d863506456"
+    },
+    {
+      "path": "assets/films/02-modeller.mp4",
+      "bytes": 7129037,
+      "sha256": "4a09caee102c024543bc25ce986b767d4f4bd8ad5d3b4f8375e9f0cec4326726"
+    },
+    {
+      "path": "assets/films/03-elektroner.mp4",
+      "bytes": 6583499,
+      "sha256": "0a8b15b80a3ead0a4867a0b6224ce68ba4ad8a4cf66493aaa330b620f5a3127c"
+    },
+    {
+      "path": "assets/films/04-forandringar.mp4",
+      "bytes": 8122054,
+      "sha256": "57e994e8308c0e9a3789ed0168b9cb5ba53f8bbc45e004ae0c20f4bc5e02e8d2"
+    },
+    {
+      "path": "assets/films/05-egenskaper.mp4",
+      "bytes": 6778165,
+      "sha256": "23b17d6df89959e70d25b29f48ed4b6eeed9dc18a0af809f07906a284f6a734c"
+    },
+    {
+      "path": "assets/films/06-faser.mp4",
+      "bytes": 6522302,
+      "sha256": "e6096e138af31325a8a1198e703245a8e3b46ff660d0f7fcfedee0c77e14c7d2"
+    },
+    {
+      "path": "assets/films/07-miljo.mp4",
+      "bytes": 6891655,
+      "sha256": "f7252721436ccde2320ec32a13b43d8b181b14a8acfc7847c3a87869d1b3271c"
+    },
+    {
+      "path": "assets/fonts/lmmath.woff",
+      "bytes": 483808,
+      "sha256": "a1965e4a0f5ad2600b1033c5c2034a696be428a7a2faf1cf0c47b541fe6e9e0a"
+    },
+    {
+      "path": "assets/fonts/lmroman-bold.woff",
+      "bytes": 54800,
+      "sha256": "cd74e339c1649bd08efb550c79c58520050fc3d5d68dde30f291b1d50c172f24"
+    },
+    {
+      "path": "assets/fonts/lmroman-italic.woff",
+      "bytes": 58620,
+      "sha256": "24ac4c5ef1cb5972654aadf95cfa2b8f875c3ca498113d2b24e596e09d88f0b0"
+    },
+    {
+      "path": "assets/fonts/lmroman-regular.woff",
+      "bytes": 55780,
+      "sha256": "a1295b9d584e2a291206a9305c63467434161f118bd78b367bceec84f340cc29"
+    },
+    {
+      "path": "assets/fonts/lmsans-bold.woff",
+      "bytes": 53992,
+      "sha256": "7c9be7b91cc8465619cf56f85fb9c532f7baf3d28b491b84cd9eaed51325c27e"
+    },
+    {
+      "path": "assets/fonts/lmsans-regular.woff",
+      "bytes": 45436,
+      "sha256": "77101b9b6f02ed3324cf3bf8c99f0532163b2196b70f9bed1be770bffbf4967c"
+    },
+    {
+      "path": "assets/photos/01-atomer.jpg",
+      "bytes": 116658,
+      "sha256": "3b96a40f899f2b6b1e63a845af765cd4504cc5dc52ced3a6df37eed6ba9694f7"
+    },
+    {
+      "path": "assets/photos/02-modeller.jpg",
+      "bytes": 382480,
+      "sha256": "d71ba7f3aa860bb768308baf60c8b98910b64ffafcda3e098a083b85ea3b4183"
+    },
+    {
+      "path": "assets/photos/03-elektroner.jpg",
+      "bytes": 90316,
+      "sha256": "aee720197646d642ef71e568180864ddf06e0c51517d5d7e6a192010305a7775"
+    },
+    {
+      "path": "assets/photos/04-forandringar.jpg",
+      "bytes": 538873,
+      "sha256": "b5e4f7bad6741412408477b5d87115005ff38b73d9f98ab01f7af0cab8679cf5"
+    },
+    {
+      "path": "assets/photos/05-egenskaper.jpg",
+      "bytes": 166209,
+      "sha256": "f61a08e7e7425397fba4d9a87825483025ff8ec8ffa82441ea43c4931ff2ce7c"
+    },
+    {
+      "path": "assets/photos/06-faser.jpg",
+      "bytes": 159724,
+      "sha256": "c1d17ae26f304d7e91f0ab2839d9820c83098bea04abacfd61dd9ddbe04843e2"
+    },
+    {
+      "path": "assets/photos/07-miljo.jpg",
+      "bytes": 466420,
+      "sha256": "4da958be8ea56da1277ccbf23676838f3ba6130df6dc359f78250210f1327708"
+    },
+    {
+      "path": "assets/posters/01-atomer.jpg",
+      "bytes": 72417,
+      "sha256": "5eacae9fbbc5527faf7d17af2209d919e247aa466085ecc7d22a4c376faeeb9c"
+    },
+    {
+      "path": "assets/posters/02-modeller.jpg",
+      "bytes": 100324,
+      "sha256": "49163eb446542d2c2881f2db1bdbba41a5e9de4c9336ef668c6c98e827609b23"
+    },
+    {
+      "path": "assets/posters/03-elektroner.jpg",
+      "bytes": 89569,
+      "sha256": "b2106003a82510586570815b3ca1af93c5372b13b11214189fe1a5be3fb82748"
+    },
+    {
+      "path": "assets/posters/04-forandringar.jpg",
+      "bytes": 76947,
+      "sha256": "c5d08a9ae79756c6835645d76fae28b0d26d494fb50c7f5f7502c6e6a9abe25b"
+    },
+    {
+      "path": "assets/posters/05-egenskaper.jpg",
+      "bytes": 80104,
+      "sha256": "08c3c7eb2348c645d4704066199b50e7cf8ca157d3918494752889492fcfa024"
+    },
+    {
+      "path": "assets/posters/06-faser.jpg",
+      "bytes": 71684,
+      "sha256": "ca9db34d8187989dde1a1f4ce57b3d4207b580cc61035de98221fb09c32a7035"
+    },
+    {
+      "path": "assets/posters/07-miljo.jpg",
+      "bytes": 83185,
+      "sha256": "3957e14bee93d4c35ac29e1f31fa9b3ea2e23bd14691d96f378689de05efe101"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2037,
+      "sha256": "f7c0575458770d58c95d90636bc19db4303deec58fe72342734ddc3199900954"
+    },
+    {
+      "path": "script.js",
+      "bytes": 411415,
+      "sha256": "b490d9434ecf26b726a0856b473d8ab5b46e24f74e1d9c0b76230757db9956e0"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 51916,
+      "sha256": "bc742b4ee86ff71ac3729268b52c46608504ea3cfb688c6a401d93916e8bb777"
+    }
+  ]
+}
