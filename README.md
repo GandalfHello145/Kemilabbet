@@ -24,7 +24,7 @@ Faktakällor är bland annat American Chemical Society, Institute of Physics, Ke
 
 För sidan behövs ingen byggprocess: kör `python3 -m http.server 8000` i projektmappen och öppna `http://localhost:8000/`.
 
-TikZ: installera TeX Live med svenska och TikZ samt dvisvgm och kör `python3 latex/build_diagrams.py`.
+TikZ: installera TeX Live med svenska och TikZ, installera `latex/requirements.txt` i Pythonmiljön och kör `python latex/build_diagrams.py`. Ritningarna kompileras först till PDF och konverteras med PyMuPDF till SVG med inbäddade former och teckenkonturer.
 
 Filmer: använd Python 3.13, installera `manim/requirements.txt` och systemberoendena Cairo, Pango, FFmpeg samt TeX Live med svenska och dvisvgm. Kör sedan `python manim/render_all.py`. Det renderar sju filmer, lägger till musiken och skapar affischbilder och metadata.
 

@@ -6,8 +6,8 @@ export const diagrams = [
     "alt": "Tre jämförelsepaneler visar en väteatom H, en vätemolekyl H₂ och en vattenmolekyl H₂O. Antalet atomer och atomslag anges under varje modell.",
     "caption": "En molekyl innehåller minst två bundna atomer. Atomslagen behöver inte vara olika.",
     "question": "Varför har H₂ två atomer men bara ett atomslag?",
-    "file": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg",
-    "tex": "latex/01-01-atom-molekyl-atomslag.tex"
+    "file": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg?v=20261109-3",
+    "tex": "latex/01-01-atom-molekyl-atomslag.tex?v=20261109-3"
   },
   {
     "module": 1,
@@ -16,8 +16,8 @@ export const diagrams = [
     "alt": "En formel med pilar från H₂ och O förklarar två väteatomer och en syreatom. Bredvid visas 2 H₂O som två separata vattenmolekyler.",
     "caption": "Den nedsänkta tvåan ändrar antalet H i varje molekyl. Tvåan framför ändrar antalet hela molekyler.",
     "question": "Hur många atomer av varje slag finns i 3 H₂O?",
-    "file": "assets/diagrams-v2/01-02-formel-siffror.svg",
-    "tex": "latex/01-02-formel-siffror.tex"
+    "file": "assets/diagrams-v2/01-02-formel-siffror.svg?v=20261109-3",
+    "tex": "latex/01-02-formel-siffror.tex?v=20261109-3"
   },
   {
     "module": 1,
@@ -26,8 +26,8 @@ export const diagrams = [
     "alt": "Partikelbilder jämför enbart O₂, enbart H₂O och en blandning av O₂ och H₂O. Bindningar och atomslag är tydligt färgkodade.",
     "caption": "Ett grundämne innehåller ett atomslag. En kemisk förening innehåller flera grundämnen som är kemiskt bundna.",
     "question": "Vilken bild innehåller två ämnen, och hur kan du se det?",
-    "file": "assets/diagrams-v2/01-03-grundamne-forening-blandning.svg",
-    "tex": "latex/01-03-grundamne-forening-blandning.tex"
+    "file": "assets/diagrams-v2/01-03-grundamne-forening-blandning.svg?v=20261109-3",
+    "tex": "latex/01-03-grundamne-forening-blandning.tex?v=20261109-3"
   },
   {
     "module": 2,
@@ -36,8 +36,8 @@ export const diagrams = [
     "alt": "Tidslinje med Daltons kula, Thomsons russinkaka, Rutherfords kärnmodell och Bohrs energinivåer. Varje modell får en kort förklaring.",
     "caption": "Nya observationer kan visa att en tidigare modell inte räcker. Modellerna blir mer användbara för det som ska förklaras.",
     "question": "Vilken ny del av atomen hjälper Thomsons modell oss att beskriva?",
-    "file": "assets/diagrams-v2/02-01-modeller-utvecklas.svg",
-    "tex": "latex/02-01-modeller-utvecklas.tex"
+    "file": "assets/diagrams-v2/02-01-modeller-utvecklas.svg?v=20261109-3",
+    "tex": "latex/02-01-modeller-utvecklas.tex?v=20261109-3"
   },
   {
     "module": 2,
@@ -46,8 +46,8 @@ export const diagrams = [
     "alt": "Två parallella paneler jämför solsystem med Rutherfords förenklade kärnmodell. Sol och positiv atomkärna är centrum, planeter och negativa elektroner finns omkring. En tydlig ruta förklarar liknelsens begränsningar.",
     "caption": "Liknelsen visar ett centrum och ett stort område omkring det. Kraften i atomen är elektrisk, och dagens modeller beskriver inga fasta planetbanor för elektroner.",
     "question": "Nämn en sak som liknelsen hjälper dig att förstå och en sak där den inte stämmer.",
-    "file": "assets/diagrams-v2/02-02-rutherford-solsystem.svg",
-    "tex": "latex/02-02-rutherford-solsystem.tex"
+    "file": "assets/diagrams-v2/02-02-rutherford-solsystem.svg?v=20261109-3",
+    "tex": "latex/02-02-rutherford-solsystem.tex?v=20261109-3"
   },
   {
     "module": 2,
@@ -56,8 +56,8 @@ export const diagrams = [
     "alt": "Parallella alfapartikelbanor träffar en tunn guldfolie. De flesta går vidare, några böjs av och en vänder tillbaka. En förstoringsruta kopplar observationen till en liten positiv kärna.",
     "caption": "Det viktiga är kombinationen: många nästan raka banor och några mycket kraftiga avböjningar.",
     "question": "Varför var de få kraftigt avböjda partiklarna viktiga, trots att de flesta gick rakt fram?",
-    "file": "assets/diagrams-v2/02-03-guldfolie-spridning.svg",
-    "tex": "latex/02-03-guldfolie-spridning.tex"
+    "file": "assets/diagrams-v2/02-03-guldfolie-spridning.svg?v=20261109-3",
+    "tex": "latex/02-03-guldfolie-spridning.tex?v=20261109-3"
   },
   {
     "module": 3,
@@ -66,8 +66,8 @@ export const diagrams = [
     "alt": "En neutral natriumatom med elva protoner och elva elektroner lämnar en elektron och blir natriumjon Na⁺ med tio elektroner. Protonerna är oförändrade.",
     "caption": "En positiv jon har färre elektroner än protoner. Jon betyder en partikel som har elektrisk laddning.",
     "question": "Varför blir laddningen positiv när en negativ elektron lämnar atomen?",
-    "file": "assets/diagrams-v2/03-01-laddning-jon.svg",
-    "tex": "latex/03-01-laddning-jon.tex"
+    "file": "assets/diagrams-v2/03-01-laddning-jon.svg?v=20261109-3",
+    "tex": "latex/03-01-laddning-jon.tex?v=20261109-3"
   },
   {
     "module": 3,
@@ -76,8 +76,8 @@ export const diagrams = [
     "alt": "Tre steg visar neutral natrium- och kloratom, överföring av en elektron och attraktion mellan Na⁺ och Cl⁻. Notisen förklarar att fast salt bildar ett jongitter.",
     "caption": "Elektronöverföringen bildar jonerna. Den elektriska attraktionen mellan jonerna håller samman saltet.",
     "question": "Vilken atom lämnar en elektron och vilken tar upp den?",
-    "file": "assets/diagrams-v2/03-02-jonbindning.svg",
-    "tex": "latex/03-02-jonbindning.tex"
+    "file": "assets/diagrams-v2/03-02-jonbindning.svg?v=20261109-3",
+    "tex": "latex/03-02-jonbindning.tex?v=20261109-3"
   },
   {
     "module": 3,
@@ -86,8 +86,8 @@ export const diagrams = [
     "alt": "Två H₂-molekyler och en O₂-molekyl ombildas till två H₂O-molekyler. Före- och efterräkningen visar fyra väteatomer och två syreatomer.",
     "caption": "Det bildas ett nytt ämne, men samma antal atomer av varje slag finns före och efter.",
     "question": "Varför räcker det inte med en H₂-molekyl för att bilda två vattenmolekyler?",
-    "file": "assets/diagrams-v2/03-03-reaktion-atomer-bevaras.svg",
-    "tex": "latex/03-03-reaktion-atomer-bevaras.tex"
+    "file": "assets/diagrams-v2/03-03-reaktion-atomer-bevaras.svg?v=20261109-3",
+    "tex": "latex/03-03-reaktion-atomer-bevaras.tex?v=20261109-3"
   },
   {
     "module": 4,
@@ -96,8 +96,8 @@ export const diagrams = [
     "alt": "Vänster panel visar oförändrade vattenmolekyler som ordnas om när is smälter. Höger panel visar en kolatom och en syremolekyl som bildar en koldioxidmolekyl med samma antal atomer.",
     "caption": "En fysikalisk förändring ger inget nytt ämne. Vid en kemisk förändring bildas minst ett nytt ämne.",
     "question": "Vilken skillnad syns i partikelbilderna, även om du inte känner igen exemplen?",
-    "file": "assets/diagrams-v2/04-01-fysikalisk-kemisk.svg",
-    "tex": "latex/04-01-fysikalisk-kemisk.tex"
+    "file": "assets/diagrams-v2/04-01-fysikalisk-kemisk.svg?v=20261109-3",
+    "tex": "latex/04-01-fysikalisk-kemisk.tex?v=20261109-3"
   },
   {
     "module": 4,
@@ -106,8 +106,8 @@ export const diagrams = [
     "alt": "Tre tydliga observationspaneler visar bubblor, färgförändring och termometer. Varje panel ger en kontrollfråga och ett motexempel.",
     "caption": "En naturvetenskaplig förklaring skiljer på vad du såg och hur du tolkar det.",
     "question": "Varför är bubblor inte ensamt ett säkert bevis för en kemisk reaktion?",
-    "file": "assets/diagrams-v2/04-02-undersok-tecken.svg",
-    "tex": "latex/04-02-undersok-tecken.tex"
+    "file": "assets/diagrams-v2/04-02-undersok-tecken.svg?v=20261109-3",
+    "tex": "latex/04-02-undersok-tecken.tex?v=20261109-3"
   },
   {
     "module": 4,
@@ -116,8 +116,8 @@ export const diagrams = [
     "alt": "Två slutna behållare på vågar visar samma totalmassa 250,0 g före och efter en reaktion. Partiklar sprids i gasutrymmet men stannar innanför locket.",
     "caption": "Väg samma system före och efter. Gas väger också och måste räknas med.",
     "question": "Vad kan hända med vågens visning om locket öppnas och gas lämnar behållaren?",
-    "file": "assets/diagrams-v2/04-03-slutet-system-massa.svg",
-    "tex": "latex/04-03-slutet-system-massa.tex"
+    "file": "assets/diagrams-v2/04-03-slutet-system-massa.svg?v=20261109-3",
+    "tex": "latex/04-03-slutet-system-massa.tex?v=20261109-3"
   },
   {
     "module": 5,
@@ -126,8 +126,8 @@ export const diagrams = [
     "alt": "Tre materialval kopplas till elektrisk ledningsförmåga, löslighet och värmeledningsförmåga: kabel, saltlösning och sked.",
     "caption": "Ämnens och materials egenskaper hjälper oss att välja hur de kan användas.",
     "question": "Vilken egenskap vill du ha i en kastrull och vilken vill du ha i handtaget?",
-    "file": "assets/diagrams-v2/05-01-egenskaper-material.svg",
-    "tex": "latex/05-01-egenskaper-material.tex"
+    "file": "assets/diagrams-v2/05-01-egenskaper-material.svg?v=20261109-3",
+    "tex": "latex/05-01-egenskaper-material.tex?v=20261109-3"
   },
   {
     "module": 5,
@@ -136,8 +136,8 @@ export const diagrams = [
     "alt": "Två kuber med samma volym 100 kubikcentimeter har massorna 100 g och 270 g. En separat beräkningspanel visar densiteterna 1,0 och 2,7 g/cm³.",
     "caption": "För samma volym innebär större massa högre densitet. Symbolen ρ uttalas rho.",
     "question": "Om båda kuberna får dubbelt så stor volym av samma material, ändras deras densitet?",
-    "file": "assets/diagrams-v2/05-02-densitet.svg",
-    "tex": "latex/05-02-densitet.tex"
+    "file": "assets/diagrams-v2/05-02-densitet.svg?v=20261109-3",
+    "tex": "latex/05-02-densitet.tex?v=20261109-3"
   },
   {
     "module": 5,
@@ -146,8 +146,8 @@ export const diagrams = [
     "alt": "Tre detaljerade principbilder visar filter med kvarhållna korn, avdunstning med kvarvarande salt och magnet som skiljer ut järn.",
     "caption": "Partikelstorlek, flyktighet och magnetiska egenskaper ger olika sätt att separera.",
     "question": "Varför fungerar inte ett vanligt kaffefilter för att ta bort löst salt ur vatten?",
-    "file": "assets/diagrams-v2/05-03-separera-blandningar.svg",
-    "tex": "latex/05-03-separera-blandningar.tex"
+    "file": "assets/diagrams-v2/05-03-separera-blandningar.svg?v=20261109-3",
+    "tex": "latex/05-03-separera-blandningar.tex?v=20261109-3"
   },
   {
     "module": 6,
@@ -156,8 +156,8 @@ export const diagrams = [
     "alt": "Tre lika stora paneler visar vattenmolekyler i ett ordnat fast mönster, oordnade nära varandra i vätska och glest med rörelsepilar i gas.",
     "caption": "En fasförändring ändrar hur molekylerna är ordnade och rör sig, men inte vilket ämne de är.",
     "question": "Vad skiljer partiklarnas rörelse i fast form från rörelsen i flytande form?",
-    "file": "assets/diagrams-v2/06-01-partiklar-faser.svg",
-    "tex": "latex/06-01-partiklar-faser.tex"
+    "file": "assets/diagrams-v2/06-01-partiklar-faser.svg?v=20261109-3",
+    "tex": "latex/06-01-partiklar-faser.tex?v=20261109-3"
   },
   {
     "module": 6,
@@ -166,8 +166,8 @@ export const diagrams = [
     "alt": "Temperaturkurva med lutande delar och platåer vid noll och hundra grader. Fem numrerade steg visar uppvärmning av is, smältning, uppvärmning av vatten, kokning och uppvärmning av ånga.",
     "caption": "Tillförd energi behöver inte alltid höja temperaturen. Under en fasövergång av ett rent ämne kan temperaturen vara konstant.",
     "question": "Varför kan vi fortsätta värma medan termometern visar samma temperatur vid smältningen?",
-    "file": "assets/diagrams-v2/06-02-varmekurva.svg",
-    "tex": "latex/06-02-varmekurva.tex"
+    "file": "assets/diagrams-v2/06-02-varmekurva.svg?v=20261109-3",
+    "tex": "latex/06-02-varmekurva.tex?v=20261109-3"
   },
   {
     "module": 6,
@@ -176,8 +176,8 @@ export const diagrams = [
     "alt": "Tre fasrutor med dubbelriktade pilar för smältning, stelning, förångning, kondensation, sublimering och deposition. Färgkodning anger energi in eller ut.",
     "caption": "Vardagssituationer blir lättare att beskriva när riktningen och namnet hör ihop.",
     "question": "Vilken pil passar när vattenånga blir droppar på ett kallt fönster?",
-    "file": "assets/diagrams-v2/06-03-fasovergangar.svg",
-    "tex": "latex/06-03-fasovergangar.tex"
+    "file": "assets/diagrams-v2/06-03-fasovergangar.svg?v=20261109-3",
+    "tex": "latex/06-03-fasovergangar.tex?v=20261109-3"
   },
   {
     "module": 7,
@@ -186,8 +186,8 @@ export const diagrams = [
     "alt": "Tre paneler skiljer farliga egenskaper, hur mycket någon exponeras och risken för skada. Symbolerna är ett utropstecken, kontakt med ett ämne och en riskmätare.",
     "caption": "Fara beskriver ämnets egenskaper. Exponering beskriver kontakten. Risk handlar om möjlig skada i en viss situation.",
     "question": "Hur kan risken minska även om ämnet fortfarande har samma farliga egenskaper?",
-    "file": "assets/diagrams-v2/07-01-fara-exponering-risk.svg",
-    "tex": "latex/07-01-fara-exponering-risk.tex"
+    "file": "assets/diagrams-v2/07-01-fara-exponering-risk.svg?v=20261109-3",
+    "tex": "latex/07-01-fara-exponering-risk.tex?v=20261109-3"
   },
   {
     "module": 7,
@@ -196,8 +196,8 @@ export const diagrams = [
     "alt": "Näringskedja från plankton till småfisk, större fisk och fågel. Lika stora vävnadsrutor innehåller ökande antal röda punkter för ett svårnedbrytbart ämne.",
     "caption": "Bioackumulering betyder ansamling i en organism över tid. Biomagnifikation betyder att halten kan öka mellan nivåer i en näringskedja.",
     "question": "Varför jämför bilden lika stor mängd vävnad i varje ruta?",
-    "file": "assets/diagrams-v2/07-02-naringskedja-anrikning.svg",
-    "tex": "latex/07-02-naringskedja-anrikning.tex"
+    "file": "assets/diagrams-v2/07-02-naringskedja-anrikning.svg?v=20261109-3",
+    "tex": "latex/07-02-naringskedja-anrikning.tex?v=20261109-3"
   },
   {
     "module": 7,
@@ -206,8 +206,8 @@ export const diagrams = [
     "alt": "Fyra steg visar en produkt som källa, spridning med vatten, en fisk som mottagare och förebyggande åtgärder. Varje steg får en konkret förklaring.",
     "caption": "Giftfri miljö handlar bland annat om att minska skadliga ämnens spridning, välja bättre alternativ och lämna avfall rätt.",
     "question": "Var på kedjan kan du göra störst skillnad innan ämnet har spridits?",
-    "file": "assets/diagrams-v2/07-03-stoppa-spridning.svg",
-    "tex": "latex/07-03-stoppa-spridning.tex"
+    "file": "assets/diagrams-v2/07-03-stoppa-spridning.svg?v=20261109-3",
+    "tex": "latex/07-03-stoppa-spridning.tex?v=20261109-3"
   }
 ];
 export const environmentImages = [

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Rebuild the 21 original educational TikZ diagrams as SVG (TeX Live + dvisvgm)."""
+"""Rebuild 21 TikZ diagrams as self-contained SVG using pdfLaTeX and PyMuPDF.
+
+Run with a Python environment containing the requirements in this directory.
+PDF export preserves TikZ shading and all positioning; glyphs become paths.
+"""
 from pathlib import Path
 import concurrent.futures
 import json
@@ -7,9 +11,12 @@ import re
 import shutil
 import subprocess
 import tempfile
+import threading
+import pymupdf
 
 ROOT = Path(__file__).resolve().parent
 DEST = ROOT.parent / 'assets' / 'diagrams-v2'
+SVG_EXPORT_LOCK = threading.Lock()
 
 PREAMBLE = r'''\documentclass[tikz,border=0pt,11pt]{standalone}
 \usepackage[T1]{fontenc}
@@ -126,7 +133,7 @@ diagram(2, 'modeller-utvecklas', 'Atommodellen ändras när nya spår upptäcks'
  'Vilken ny del av atomen hjälper Thomsons modell oss att beskriva?')
 
 diagram(2, 'rutherford-solsystem', 'Rutherfords atom: en solsystemsliknelse',
- 'Liknelsen hjälper oss att se en liten mitt och ett stort område runt den. Den är inte en exakt bild av en atom.', r'''
+ 'Jämför en liten kärna och elektroner med solen och planeterna.', r'''
 \panel{.5}{2.4}{7.1}{5.7}\panel{8.1}{2.4}{7.4}{5.7}
 \node[badge] at (4.05,7.6){SOLSYSTEM};\node[badge] at (11.8,7.6){FÖRENKLAD KÄRNMODELL}
 \foreach \rx/\ry in {1/.48,1.9/.92,2.8/1.35}{\draw[gold!55] (4.05,5.2) ellipse[x radius=\rx cm,y radius=\ry cm];\draw[teal!45] (11.8,5.2) ellipse[x radius=\rx cm,y radius=\ry cm];}
@@ -136,8 +143,8 @@ diagram(2, 'rutherford-solsystem', 'Rutherfords atom: en solsystemsliknelse',
 \foreach \x/\y in {13.45/5.65,9.2/5.7,12.55/4.76}{\fill[teal] (\x,\y) circle(.12);\node[text=white,font=\tiny] at (\x,\y){$-$};}
 \draw[goldarrow] (6.3,6.5)--(5.72,5.77);\node[smalllabel,text width=2cm] at (6.2,6.85){planeter};
 \draw[arrow] (14.05,6.5)--(13.48,5.78);\node[smalllabel,text width=2.3cm] at (13.9,6.85){elektroner};
-\note{.9}{3.65}{6.2}{\textbf{Gravitation} håller planeter i banor kring solen. Solen är mycket större än planeterna.}
-\note{8.5}{3.65}{6.3}{\textbf{Elektrisk attraktion} verkar mellan positiv kärna och negativa elektroner. Kärnan är mycket liten.}
+\note{.9}{3.65}{6.2}{\textbf{Gravitation} håller planeter kring solen. Solen är större än planeterna.}
+\note{8.5}{3.65}{6.3}{\textbf{Elektrisk attraktion} verkar mellan positiv kärna och negativa elektroner.}
 \node[label,text width=14.6cm,fill=palegold,rounded corners=4pt,inner sep=8pt] at (8,1.35){\textbf{Här tar liknelsen slut:} elektroner följer inte verkliga planetbanor. Dagens atommodell beskriver elektronmoln. Storlekar och avstånd här är inte i skala.};
 ''',
  'Två parallella paneler jämför solsystem med Rutherfords förenklade kärnmodell. Sol och positiv atomkärna är centrum, planeter och negativa elektroner finns omkring. En tydlig ruta förklarar liknelsens begränsningar.',
@@ -419,7 +426,7 @@ diagram(7, 'stoppa-spridning', 'Stoppa föroreningen nära källan',
 
 def tex_for(item):
     header = (r'\node[head] at (.6,9.4){' + item['title'] + '};\n'
-              + r'\note{.6}{8.9}{14.8}{\textcolor{muted}{' + item['subtitle'] + '}}\n'
+              + r'\note{.6}{9.05}{14.8}{\textcolor{muted}{' + item['subtitle'] + '}}\n'
               + r'\draw[line] (.6,8.2)--(15.4,8.2);' + '\n')
     footer = (r'\node[anchor=west,text=muted,font=\scriptsize] at (.6,.38){Kemins grunder (i)\quad /\quad Område '
               + str(item['module']) + r'\quad /\quad Förklarande modell};' + '\n'
@@ -432,17 +439,16 @@ def compile_one(item):
     source = ROOT / (name + '.tex')
     source.write_text(tex_for(item), encoding='utf-8')
     with tempfile.TemporaryDirectory(prefix='kemins-tikz-') as temp:
-        args = ['latex', '-interaction=nonstopmode', '-halt-on-error', '-output-directory', temp, str(source)]
+        args = ['pdflatex', '-interaction=nonstopmode', '-halt-on-error', '-output-directory', temp, str(source)]
         result = subprocess.run(args, cwd=ROOT, capture_output=True, text=True)
         if result.returncode:
             log = Path(temp, name + '.log').read_text(errors='replace')
             raise RuntimeError(name + '\n' + log[-6000:])
         svg = DEST / (name + '.svg')
-        result = subprocess.run(['dvisvgm', '--no-fonts', '--exact', '--bbox=papersize',
-                                 '--output=' + str(svg), str(Path(temp, name + '.dvi'))],
-                                cwd=ROOT, capture_output=True, text=True)
-        if result.returncode:
-            raise RuntimeError(name + '\n' + result.stderr)
+        # Serialize MuPDF access: the library is not re-entrant across threads.
+        with SVG_EXPORT_LOCK:
+            with pymupdf.open(Path(temp, name + '.pdf')) as document:
+                svg.write_text(document[0].get_svg_image(text_as_path=True), encoding='utf-8')
     return name
 
 def main():

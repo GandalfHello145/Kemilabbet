@@ -1,4 +1,4 @@
-import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261109-2';
+import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261109-3';
 // Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
 const modules = [
   {
