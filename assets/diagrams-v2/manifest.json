@@ -1,0 +1,212 @@
+[
+  {
+    "module": 1,
+    "id": "01-01-atom-molekyl-atomslag",
+    "title": "En byggsten, flera byggstenar, olika sorter",
+    "alt": "Tre jämförelsepaneler visar en väteatom H, en vätemolekyl H₂ och en vattenmolekyl H₂O. Antalet atomer och atomslag anges under varje modell.",
+    "caption": "En molekyl innehåller minst två bundna atomer. Atomslagen behöver inte vara olika.",
+    "question": "Varför har H₂ två atomer men bara ett atomslag?",
+    "src": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg",
+    "source": "latex/01-01-atom-molekyl-atomslag.tex"
+  },
+  {
+    "module": 1,
+    "id": "01-02-formel-siffror",
+    "title": "Läs formeln som en ritning",
+    "alt": "En formel med pilar från H₂ och O förklarar två väteatomer och en syreatom. Bredvid visas 2 H₂O som två separata vattenmolekyler.",
+    "caption": "Den nedsänkta tvåan ändrar antalet H i varje molekyl. Tvåan framför ändrar antalet hela molekyler.",
+    "question": "Hur många atomer av varje slag finns i 3 H₂O?",
+    "src": "assets/diagrams-v2/01-02-formel-siffror.svg",
+    "source": "latex/01-02-formel-siffror.tex"
+  },
+  {
+    "module": 1,
+    "id": "01-03-grundamne-forening-blandning",
+    "title": "Samma atomslag, olika atomslag eller en blandning?",
+    "alt": "Partikelbilder jämför enbart O₂, enbart H₂O och en blandning av O₂ och H₂O. Bindningar och atomslag är tydligt färgkodade.",
+    "caption": "Ett grundämne innehåller ett atomslag. En kemisk förening innehåller flera grundämnen som är kemiskt bundna.",
+    "question": "Vilken bild innehåller två ämnen, och hur kan du se det?",
+    "src": "assets/diagrams-v2/01-03-grundamne-forening-blandning.svg",
+    "source": "latex/01-03-grundamne-forening-blandning.tex"
+  },
+  {
+    "module": 2,
+    "id": "02-01-modeller-utvecklas",
+    "title": "Atommodellen ändras när nya spår upptäcks",
+    "alt": "Tidslinje med Daltons kula, Thomsons russinkaka, Rutherfords kärnmodell och Bohrs energinivåer. Varje modell får en kort förklaring.",
+    "caption": "Nya observationer kan visa att en tidigare modell inte räcker. Modellerna blir mer användbara för det som ska förklaras.",
+    "question": "Vilken ny del av atomen hjälper Thomsons modell oss att beskriva?",
+    "src": "assets/diagrams-v2/02-01-modeller-utvecklas.svg",
+    "source": "latex/02-01-modeller-utvecklas.tex"
+  },
+  {
+    "module": 2,
+    "id": "02-02-rutherford-solsystem",
+    "title": "Rutherfords atom: en solsystemsliknelse",
+    "alt": "Två parallella paneler jämför solsystem med Rutherfords förenklade kärnmodell. Sol och positiv atomkärna är centrum, planeter och negativa elektroner finns omkring. En tydlig ruta förklarar liknelsens begränsningar.",
+    "caption": "Liknelsen visar ett centrum och ett stort område omkring det. Kraften i atomen är elektrisk, och dagens modeller beskriver inga fasta planetbanor för elektroner.",
+    "question": "Nämn en sak som liknelsen hjälper dig att förstå och en sak där den inte stämmer.",
+    "src": "assets/diagrams-v2/02-02-rutherford-solsystem.svg",
+    "source": "latex/02-02-rutherford-solsystem.tex"
+  },
+  {
+    "module": 2,
+    "id": "02-03-guldfolie-spridning",
+    "title": "Guldfolieförsöket: vad berättar banorna?",
+    "alt": "Parallella alfapartikelbanor träffar en tunn guldfolie. De flesta går vidare, några böjs av och en vänder tillbaka. En förstoringsruta kopplar observationen till en liten positiv kärna.",
+    "caption": "Det viktiga är kombinationen: många nästan raka banor och några mycket kraftiga avböjningar.",
+    "question": "Varför var de få kraftigt avböjda partiklarna viktiga, trots att de flesta gick rakt fram?",
+    "src": "assets/diagrams-v2/02-03-guldfolie-spridning.svg",
+    "source": "latex/02-03-guldfolie-spridning.tex"
+  },
+  {
+    "module": 3,
+    "id": "03-01-laddning-jon",
+    "title": "En elektron kan ändra laddningen",
+    "alt": "En neutral natriumatom med elva protoner och elva elektroner lämnar en elektron och blir natriumjon Na⁺ med tio elektroner. Protonerna är oförändrade.",
+    "caption": "En positiv jon har färre elektroner än protoner. Jon betyder en partikel som har elektrisk laddning.",
+    "question": "Varför blir laddningen positiv när en negativ elektron lämnar atomen?",
+    "src": "assets/diagrams-v2/03-01-laddning-jon.svg",
+    "source": "latex/03-01-laddning-jon.tex"
+  },
+  {
+    "module": 3,
+    "id": "03-02-jonbindning",
+    "title": "Elektronöverföring och elektrisk attraktion",
+    "alt": "Tre steg visar neutral natrium- och kloratom, överföring av en elektron och attraktion mellan Na⁺ och Cl⁻. Notisen förklarar att fast salt bildar ett jongitter.",
+    "caption": "Elektronöverföringen bildar jonerna. Den elektriska attraktionen mellan jonerna håller samman saltet.",
+    "question": "Vilken atom lämnar en elektron och vilken tar upp den?",
+    "src": "assets/diagrams-v2/03-02-jonbindning.svg",
+    "source": "latex/03-02-jonbindning.tex"
+  },
+  {
+    "module": 3,
+    "id": "03-03-reaktion-atomer-bevaras",
+    "title": "En reaktion ordnar om atomerna",
+    "alt": "Två H₂-molekyler och en O₂-molekyl ombildas till två H₂O-molekyler. Före- och efterräkningen visar fyra väteatomer och två syreatomer.",
+    "caption": "Det bildas ett nytt ämne, men samma antal atomer av varje slag finns före och efter.",
+    "question": "Varför räcker det inte med en H₂-molekyl för att bilda två vattenmolekyler?",
+    "src": "assets/diagrams-v2/03-03-reaktion-atomer-bevaras.svg",
+    "source": "latex/03-03-reaktion-atomer-bevaras.tex"
+  },
+  {
+    "module": 4,
+    "id": "04-01-fysikalisk-kemisk",
+    "title": "Byter partiklarna plats eller bildas nya ämnen?",
+    "alt": "Vänster panel visar oförändrade vattenmolekyler som ordnas om när is smälter. Höger panel visar en kolatom och en syremolekyl som bildar en koldioxidmolekyl med samma antal atomer.",
+    "caption": "En fysikalisk förändring ger inget nytt ämne. Vid en kemisk förändring bildas minst ett nytt ämne.",
+    "question": "Vilken skillnad syns i partikelbilderna, även om du inte känner igen exemplen?",
+    "src": "assets/diagrams-v2/04-01-fysikalisk-kemisk.svg",
+    "source": "latex/04-01-fysikalisk-kemisk.tex"
+  },
+  {
+    "module": 4,
+    "id": "04-02-undersok-tecken",
+    "title": "Spår av en reaktion behöver undersökas",
+    "alt": "Tre tydliga observationspaneler visar bubblor, färgförändring och termometer. Varje panel ger en kontrollfråga och ett motexempel.",
+    "caption": "En naturvetenskaplig förklaring skiljer på vad du såg och hur du tolkar det.",
+    "question": "Varför är bubblor inte ensamt ett säkert bevis för en kemisk reaktion?",
+    "src": "assets/diagrams-v2/04-02-undersok-tecken.svg",
+    "source": "latex/04-02-undersok-tecken.tex"
+  },
+  {
+    "module": 4,
+    "id": "04-03-slutet-system-massa",
+    "title": "Massan finns kvar i ett slutet system",
+    "alt": "Två slutna behållare på vågar visar samma totalmassa 250,0 g före och efter en reaktion. Partiklar sprids i gasutrymmet men stannar innanför locket.",
+    "caption": "Väg samma system före och efter. Gas väger också och måste räknas med.",
+    "question": "Vad kan hända med vågens visning om locket öppnas och gas lämnar behållaren?",
+    "src": "assets/diagrams-v2/04-03-slutet-system-massa.svg",
+    "source": "latex/04-03-slutet-system-massa.tex"
+  },
+  {
+    "module": 5,
+    "id": "05-01-egenskaper-material",
+    "title": "Välj material efter egenskaper",
+    "alt": "Tre materialval kopplas till elektrisk ledningsförmåga, löslighet och värmeledningsförmåga: kabel, saltlösning och sked.",
+    "caption": "Ämnens och materials egenskaper hjälper oss att välja hur de kan användas.",
+    "question": "Vilken egenskap vill du ha i en kastrull och vilken vill du ha i handtaget?",
+    "src": "assets/diagrams-v2/05-01-egenskaper-material.svg",
+    "source": "latex/05-01-egenskaper-material.tex"
+  },
+  {
+    "module": 5,
+    "id": "05-02-densitet",
+    "title": "Densitet jämför massa med volym",
+    "alt": "Två kuber med samma volym 100 kubikcentimeter har massorna 100 g och 270 g. En separat beräkningspanel visar densiteterna 1,0 och 2,7 g/cm³.",
+    "caption": "För samma volym innebär större massa högre densitet. Symbolen ρ uttalas rho.",
+    "question": "Om båda kuberna får dubbelt så stor volym av samma material, ändras deras densitet?",
+    "src": "assets/diagrams-v2/05-02-densitet.svg",
+    "source": "latex/05-02-densitet.tex"
+  },
+  {
+    "module": 5,
+    "id": "05-03-separera-blandningar",
+    "title": "Skilj en blandning med rätt egenskap",
+    "alt": "Tre detaljerade principbilder visar filter med kvarhållna korn, avdunstning med kvarvarande salt och magnet som skiljer ut järn.",
+    "caption": "Partikelstorlek, flyktighet och magnetiska egenskaper ger olika sätt att separera.",
+    "question": "Varför fungerar inte ett vanligt kaffefilter för att ta bort löst salt ur vatten?",
+    "src": "assets/diagrams-v2/05-03-separera-blandningar.svg",
+    "source": "latex/05-03-separera-blandningar.tex"
+  },
+  {
+    "module": 6,
+    "id": "06-01-partiklar-faser",
+    "title": "Samma molekyler i tre faser",
+    "alt": "Tre lika stora paneler visar vattenmolekyler i ett ordnat fast mönster, oordnade nära varandra i vätska och glest med rörelsepilar i gas.",
+    "caption": "En fasförändring ändrar hur molekylerna är ordnade och rör sig, men inte vilket ämne de är.",
+    "question": "Vad skiljer partiklarnas rörelse i fast form från rörelsen i flytande form?",
+    "src": "assets/diagrams-v2/06-01-partiklar-faser.svg",
+    "source": "latex/06-01-partiklar-faser.tex"
+  },
+  {
+    "module": 6,
+    "id": "06-02-varmekurva",
+    "title": "Värme kan ändra temperatur eller fas",
+    "alt": "Temperaturkurva med lutande delar och platåer vid noll och hundra grader. Fem numrerade steg visar uppvärmning av is, smältning, uppvärmning av vatten, kokning och uppvärmning av ånga.",
+    "caption": "Tillförd energi behöver inte alltid höja temperaturen. Under en fasövergång av ett rent ämne kan temperaturen vara konstant.",
+    "question": "Varför kan vi fortsätta värma medan termometern visar samma temperatur vid smältningen?",
+    "src": "assets/diagrams-v2/06-02-varmekurva.svg",
+    "source": "latex/06-02-varmekurva.tex"
+  },
+  {
+    "module": 6,
+    "id": "06-03-fasovergangar",
+    "title": "Sex namn för vägar mellan faserna",
+    "alt": "Tre fasrutor med dubbelriktade pilar för smältning, stelning, förångning, kondensation, sublimering och deposition. Färgkodning anger energi in eller ut.",
+    "caption": "Vardagssituationer blir lättare att beskriva när riktningen och namnet hör ihop.",
+    "question": "Vilken pil passar när vattenånga blir droppar på ett kallt fönster?",
+    "src": "assets/diagrams-v2/06-03-fasovergangar.svg",
+    "source": "latex/06-03-fasovergangar.tex"
+  },
+  {
+    "module": 7,
+    "id": "07-01-fara-exponering-risk",
+    "title": "Fara och exponering påverkar risken",
+    "alt": "Tre paneler skiljer farliga egenskaper, hur mycket någon exponeras och risken för skada. Symbolerna är ett utropstecken, kontakt med ett ämne och en riskmätare.",
+    "caption": "Fara beskriver ämnets egenskaper. Exponering beskriver kontakten. Risk handlar om möjlig skada i en viss situation.",
+    "question": "Hur kan risken minska även om ämnet fortfarande har samma farliga egenskaper?",
+    "src": "assets/diagrams-v2/07-01-fara-exponering-risk.svg",
+    "source": "latex/07-01-fara-exponering-risk.tex"
+  },
+  {
+    "module": 7,
+    "id": "07-02-naringskedja-anrikning",
+    "title": "Svårnedbrytbara ämnen kan följa näringskedjan",
+    "alt": "Näringskedja från plankton till småfisk, större fisk och fågel. Lika stora vävnadsrutor innehåller ökande antal röda punkter för ett svårnedbrytbart ämne.",
+    "caption": "Bioackumulering betyder ansamling i en organism över tid. Biomagnifikation betyder att halten kan öka mellan nivåer i en näringskedja.",
+    "question": "Varför jämför bilden lika stor mängd vävnad i varje ruta?",
+    "src": "assets/diagrams-v2/07-02-naringskedja-anrikning.svg",
+    "source": "latex/07-02-naringskedja-anrikning.tex"
+  },
+  {
+    "module": 7,
+    "id": "07-03-stoppa-spridning",
+    "title": "Stoppa föroreningen nära källan",
+    "alt": "Fyra steg visar en produkt som källa, spridning med vatten, en fisk som mottagare och förebyggande åtgärder. Varje steg får en konkret förklaring.",
+    "caption": "Giftfri miljö handlar bland annat om att minska skadliga ämnens spridning, välja bättre alternativ och lämna avfall rätt.",
+    "question": "Var på kedjan kan du göra störst skillnad innan ämnet har spridits?",
+    "src": "assets/diagrams-v2/07-03-stoppa-spridning.svg",
+    "source": "latex/07-03-stoppa-spridning.tex"
+  }
+]

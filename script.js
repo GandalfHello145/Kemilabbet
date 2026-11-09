@@ -1,4 +1,5 @@
-// Swedish year-7 learning content. Displayed prose is authored in latex/web_content.tex.
+import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261109-2';
+// Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
 const modules = [
   {
     "id": 1,
@@ -9,9 +10,12 @@ const modules = [
     "goal": "Vi kan skilja på atom, molekyl och atomslag.",
     "firstQuestion": "Är en atom och en molekyl samma sak? Skriv vad ni tror.",
     "explanation": [
-      "En vattendroppe innehåller väldigt många vattenmolekyler. För att förstå hur en enda molekyl är byggd börjar vi med atomerna. En atom är en mycket liten byggsten. Det finns olika atomslag, alltså olika sorter av atomer. H betyder väte och O betyder syre.",
-      "En molekyl består av två eller flera atomer som sitter ihop med kemiska bindningar. I en vattenmolekyl sitter två väteatomer och en syreatom ihop. Formeln H₂O berättar samma sak: den lilla tvåan hör till H. Vid O står ingen siffra, vilket betyder en syreatom.",
-      "Räkna därför på två sätt. H₂O har tre atomer sammanlagt, men bara två atomslag: väte och syre. O₂ har två atomer och ett atomslag. Båda är molekyler. Vatten är också en kemisk förening, eftersom olika grundämnen är kemiskt bundna till varandra. Förklara med bilden: vilka atomer räknar ni, och vilka sorter finns?"
+      "Allt som tar plats och har massa kallas materia. Vattnet i glaset, luften omkring oss och metallen i en sked är materia. För att förklara hur ämnen är uppbyggda använder vi mycket små byggstenar: atomer. De är så små att vi behöver modeller för att visa dem. En kula i en ritning föreställer en atom; den är ingen bild tagen med en vanlig kamera.",
+      "Det finns olika sorter av atomer. Vi kallar sorterna atomslag. Väte är ett atomslag och skrivs H. Syre är ett annat och skrivs O. Ett grundämne innehåller bara ett atomslag. Tänk skillnaden mellan antal och sort: fem väteatomer är fem atomer, men bara ett atomslag. Antalet protoner i atomkärnan bestämmer vilket atomslag det är.",
+      "Atomer kan sitta ihop med kemiska bindningar. Två eller flera atomer som bildar en avgränsad grupp kallas en molekyl. En syrgasmolekyl består av två syreatomer som sitter ihop. Därför skriver vi O₂. Den lilla tvåan hör till O och betyder två syreatomer i varje molekyl. Två atomer som bara ligger bredvid varandra behöver däremot inte vara bundna till varandra.",
+      "I en vattenmolekyl sitter två väteatomer och en syreatom ihop. Formeln är H₂O. Läs den steg för steg: H₂ ger två H-atomer; O utan en liten siffra ger en O-atom. Sammanlagt blir det tre atomer av två atomslag. Vattenmolekylen består alltså varken av två atomer eller av tre atomslag.",
+      "En stor siffra framför formeln räknar hela molekyler. 2H₂O betyder två vattenmolekyler. Rita två grupper med H–O–H. Nu finns fyra väteatomer och två syreatomer, alltså sex atomer sammanlagt. Antalet atomslag är fortfarande två. Den stora tvåan ändrar antalet molekyler; den lilla tvåan berättar hur varje vattenmolekyl är byggd.",
+      "Vatten är en kemisk förening eftersom olika grundämnen är kemiskt bundna till varandra. Syrgas är ett grundämne, även om atomerna sitter ihop i O₂-molekyler: där finns bara syre. Skilj därför på frågorna: Är atomer bundna i molekyler? Vilka atomslag ingår i ämnet? Alla ämnen består inte av egna små molekyler; i exempelvis koksalt bildar partiklarna ett stort nätverk."
     ],
     "figure": "assets/diagrams/01-atomer.svg",
     "figureAlt": "Modeller av vätemolekylen H₂, syremolekylen O₂ och vattenmolekylen H₂O. Bokstäver visar vilka atomslag som ingår.",
@@ -40,9 +44,13 @@ const modules = [
     "goal": "Vi kan beskriva hur nya upptäckter kan förändra en modell.",
     "firstQuestion": "Vad kan en kulmodell och en kärnmodell hjälpa oss att förstå om samma atom? Skriv er första tanke.",
     "explanation": [
-      "Hur vet vi vad en atom innehåller? Forskare gör försök och bygger modeller som förklarar resultaten. Dalton beskrev atomen som en hel kula. När elektronen upptäcktes behövdes en modell med mindre delar inuti atomen. En elektron har negativ laddning.",
-      "Thomsons modell från 1904 liknar en russinkaka. Russinen föreställer negativa elektroner. Smeten föreställer positiv laddning utspridd genom atomen. I Rutherfords modell från 1911 är den positiva laddningen i stället samlad i en liten kärna. Det förklarade varför några positiva partiklar böjdes av kraftigt när de sköts mot en tunn guldfolie.",
-      "Bohrs modell från 1913 ordnar elektronerna på bestämda energinivåer, som vi visar med skal. Dagens elektronmoln visar var elektroner kan finnas. Tätare moln betyder större chans att hitta en elektron där. Jämför nu modellerna: var finns den positiva laddningen, och vilket försöksresultat hjälper modellen oss att förstå?"
+      "En vetenskaplig modell är en förenklad beskrivning som hjälper oss att förstå något. En karta kan hjälpa oss att hitta utan att visa varje grässtrå. På liknande sätt hjälper en atommodell oss att förklara försök. Modellen är ingen vanlig bild av atomens insida. När forskare får resultat som modellen inte kan förklara behöver beskrivningen utvecklas.",
+      "Dalton beskrev atomen som en liten hel kula. Senare upptäcktes elektronen, en mycket liten del med negativ laddning. Då räckte en odelad kula inte längre. I Thomsons russinkakemodell från 1904 är elektronerna russinen. Positiv laddning är utspridd som smeten i hela kakan. Modellen innehåller ingen liten positiv kärna i mitten.",
+      "Geiger och Marsden undersökte, under Rutherfords ledning, vad som hände när positivt laddade alfapartiklar sköts mot en tunn guldfolie. De flesta passerade nästan rakt fram. Några böjdes av kraftigt, och mycket få vände tillbaka. Det överraskande var att en så tunn folie kunde påverka vissa partiklar så starkt.",
+      "Rutherford föreslog 1911 en kärnmodell: nästan hela atomens massa och dess positiva laddning är samlade i en mycket liten kärna. Elektronerna finns i det mycket större området runt kärnan. En positiv alfapartikel som kommer nära den positiva kärnan stöts bort kraftigt. Eftersom kärnan tar upp en mycket liten del av atomens volym passerar de flesta partiklar utan en stor avböjning.",
+      "När kärnmodellen ritas som ett litet solsystem får kärnan likna solen och elektronerna planeter omkring den. Liknelsen hjälper oss att se en central kärna och ett stort område runt omkring. Men elektroner är inte små planeter som följer de ritade cirklarna. I en atom verkar elektriska krafter mellan laddningar; i solsystemet håller gravitationen planeterna kvar. Använd liknelsen för placeringen, inte som en exakt beskrivning av elektronernas rörelse.",
+      "Bohr utvecklade modellen 1913 genom att beskriva bestämda energinivåer för elektronen i väte. I skolan ritar vi sådana nivåer som elektronskal. Ett skal är ingen hård vägg runt atomen. Det hjälper oss att ordna elektronerna efter deras energi. De bestämda energinivåerna är ett tillägg till Rutherfords kärnmodell; enbart en kärna med elektroner omkring förklarar inte hela atomen.",
+      "I dagens modell används elektronmoln för att visa var det är störst chans att hitta elektroner. Tätare moln betyder större sannolikhet att hitta en elektron där. Det är ingen dimma av pyttesmå elektroner och ingen bestämd planetbana. Många prickar kan visa möjliga lägen för samma elektron. Kärnmodell, skalmodell och elektronmoln hjälper oss därmed att svara på olika frågor om samma atom."
     ],
     "figure": "assets/diagrams/02-modeller.svg",
     "figureAlt": "Atommodellens utveckling: Daltons hela kula, Thomsons russinkaka med utspridd positiv laddning, Rutherfords kärna, Bohrs energinivåer och ett elektronmoln.",
@@ -71,9 +79,12 @@ const modules = [
     "goal": "Vi kan förklara varför elektroner är viktiga när atomer binds ihop.",
     "firstQuestion": "Vad tror ni kan förändras när atomer binds ihop: elektronerna, atomkärnorna eller båda?",
     "explanation": [
-      "Vad håller ihop atomerna i en molekyl? Titta först på laddningarna. Atomkärnan är positiv och elektronerna är negativa. Plus och minus dras till varandra. I en neutral atom tar laddningarna ut varandra. En väteatom har en positiv proton i kärnan och en negativ elektron.",
-      "Två väteatomer kan dela två elektroner: ett gemensamt elektronpar. Elektronerna dras till båda de positiva kärnorna och hjälper till att hålla ihop atomerna. Då bildas vätemolekylen H₂. Följ delarna i bilden. Det finns två kärnor och två elektroner både före och efter att bindningen bildas.",
-      "Vid vanliga kemiska reaktioner kan bindningar brytas och nya bindningar bildas. Elektroner kan delas eller flyttas mellan atomer. Atomkärnorna finns kvar. Därför är väte fortfarande väte och syre fortfarande syre, även när de ingår i ett nytt ämne. Förklara vad som förändras och visa samtidigt vilka delar som finns kvar."
+      "En atom innehåller en kärna och elektroner omkring den. I kärnan finns positivt laddade protoner och, i de flesta atomer, oladdade neutroner. Elektronerna är negativt laddade. Olika laddningar dras till varandra, medan lika laddningar stöter bort varandra. Elektronernas negativa laddning och kärnans positiva laddning är därför viktiga för hur atomer hålls samman och binds till varandra.",
+      "En neutral atom har lika många elektroner som protoner. Tänk på en väteatom med en proton och en elektron: ett plus och ett minus tar ut varandra. Neutral betyder att laddningarna tillsammans blir noll, inte att det saknas laddade delar. Protonerna bestämmer atomslaget. Elektronerna är särskilt viktiga när atomer bildar bindningar.",
+      "Följ två väteatomer. Tillsammans har de två positiva kärnor och två negativa elektroner. När de bildar en vätemolekyl, H₂, delar de två elektronerna ett gemensamt område mellan kärnorna. Vi beskriver det som ett gemensamt elektronpar. De negativa elektronerna dras till båda kärnorna och bidrar till att hålla ihop molekylen. Bindningen kallas elektronparbindning.",
+      "Elektronerna är inte ett snöre mellan atomerna. Kulor, prickar och streck hjälper oss att räkna delar och visa bindningar. I modellen av H₂ ska ni kunna följa samma två kärnor och samma två elektroner före och efter. När bindningen bildas har delarna ordnats på ett nytt sätt; inga väteatomer har försvunnit eller blivit ett annat grundämne.",
+      "Atomer kan också lämna ifrån sig eller ta upp elektroner. Då bildas joner, som är laddade partiklar. En natriumatom med elva protoner och elva elektroner är neutral. Om den lämnar ifrån sig en elektron finns elva plus men tio minus: jonen blir positiv och skrivs Na⁺. En kloratom som tar upp en elektron blir en negativ kloridjon, Cl⁻. Motsatta laddningar dras till varandra i koksalt.",
+      "Vid vanliga kemiska reaktioner bryts bindningar och nya bindningar bildas. Det är särskilt de yttersta elektronerna som deltar. Atomkärnorna finns kvar, så antalet atomer av varje atomslag bevaras. Det kan bildas ämnen med helt andra egenskaper när atomerna binds på nya sätt. Förklara därför både vad som ändras, bindningarna, och vad som finns kvar, atomslagen."
     ],
     "figure": "assets/diagrams/03-elektroner.svg",
     "figureAlt": "Två väteatomer delar ett elektronpar och bildar H₂. Bilden följer båda kärnorna och båda elektronerna genom bindningens bildning.",
@@ -102,9 +113,12 @@ const modules = [
     "goal": "Vi kan avgöra om en förändring bildar nya ämnen.",
     "firstQuestion": "Is smälter och järn rostar. Är det samma slags förändring? Skriv er första tanke.",
     "explanation": [
-      "En isbit smälter på ett fat. Järn på en cykel börjar rosta. Båda förändras, men på olika sätt. Frågan som hjälper oss att skilja dem åt är: bildas nya ämnen? Börja med att säga vilket ämne som finns före förändringen och vilket som finns efter.",
-      "När is smälter är ämnet vatten både före och efter. Vattenmolekylerna kan röra sig på ett nytt sätt, men de är fortfarande H₂O. Det är en fysikalisk förändring. När vatten kokar är det också en fysikalisk förändring: flytande vatten övergår till vattenånga.",
-      "När järn rostar reagerar det med sin omgivning. Syre och fukt behövs för vanlig rostbildning. Då bildas nya ämnen med andra egenskaper än järnet. Det är en kemisk förändring. Ved som brinner är ett annat exempel. Förklara med orden nytt ämne. Bubblor eller en ny färg kan vara ledtrådar; jämför alltid ämnena före och efter."
+      "En isbit smälter och en cykelkedja rostar. Båda förändras, men förändringarna är av olika slag. Den viktigaste frågan är: bildas nya ämnen? Börja med ämnena före förändringen och jämför med ämnena efter. Att något ändrar färg, form eller temperatur räcker inte ensamt för att avgöra svaret.",
+      "När is smälter blir fast vatten till flytande vatten. Molekylerna kan röra sig förbi varandra, men varje molekyl är fortfarande H₂O. Ämnet är vatten både före och efter. Det är en fysikalisk förändring. Samma sak gäller när vatten kokar och övergår till gas: vattenmolekylerna finns kvar som vattenånga.",
+      "En fysikalisk förändring kan också ändra formen eller storleken på ett föremål. Ett papper kan rivas i bitar och en metalltråd kan böjas utan att nya ämnen bildas genom just rivningen eller böjningen. En förändring behöver alltså inte vara lätt att göra ogjord för att vara fysikalisk. Avgör genom ämnena, inte genom om det är enkelt att återställa föremålet.",
+      "När järn rostar reagerar järnet med sin omgivning. Syre och fukt behövs för vanlig rostbildning. Rost innehåller järnföreningar med andra egenskaper än metallen järn. Nya ämnen har bildats, så förändringen är kemisk. Järnatomerna finns kvar men ingår nu i andra ämnen. En kemisk förändring kallas också en kemisk reaktion.",
+      "När ved brinner reagerar ämnen i veden med syre. Det bildas bland annat koldioxid och vatten, och energi överförs till omgivningen som värme och ljus. En del av produkterna är gaser som blandas med luften. Att askan väger mindre än veden betyder därför inte att atomer har försvunnit. För att följa allt behöver vi räkna med både veden, syret och alla produkter.",
+      "Bubblor, ny färg och värme kan vara ledtrådar till en kemisk reaktion. Men kokande vatten bubblar också, trots att ämnet är oförändrat. Ett tydligt svar behöver därför en motivering: ”Is som smälter är en fysikalisk förändring eftersom vatten fortfarande är vatten.” Jämför med: ”Järn som rostar förändras kemiskt eftersom nya järnföreningar bildas.”"
     ],
     "figure": "assets/diagrams/04-forandringar.svg",
     "figureAlt": "Jämförelse mellan smältande is, där vatten förblir vatten, och rostande järn, där ett nytt ämne bildas.",
@@ -133,9 +147,12 @@ const modules = [
     "goal": "Vi kan använda egenskaper för att jämföra ämnen och välja material.",
     "firstQuestion": "Två ämnen har samma färg. Måste det vara samma ämne? Förklara er tanke.",
     "explanation": [
-      "En kastrulls botten ska föra värme till maten. Handtaget ska gå att hålla i. Därför behöver delarna olika egenskaper. En egenskap beskriver hur ett ämne eller material är och beter sig, till exempel om det leder värme bra eller dras till en magnet.",
-      "Till botten väljer vi ett material som leder värme bra, till exempel en lämplig metall. Då kan värmen spridas till maten. Till handtaget behöver vi ett material som överför värme långsammare till handen. Det måste också tåla temperaturen och hålla när kastrullen lyfts. Materialvalet ska passa delens uppgift.",
-      "Egenskaper hjälper oss även att jämföra ämnen. Järn dras tydligt till en vanlig magnet, medan koppar inte gör det. Båda leder elektricitet. Välj alltså ett test som visar en skillnad. Två ämnen kan ha samma färg, så flera undersökningar kan behövas. Smaka aldrig på okända prov."
+      "Varför använder vi metall till en kastrulls botten men ofta ett annat material till handtaget? Delarna har olika uppgifter. Botten ska föra värme till maten, medan handtaget ska gå att hålla i. Ett material väljs därför efter sina egenskaper, alltså hur det är och beter sig.",
+      "Exempel på egenskaper är hårdhet, löslighet, smältpunkt, densitet och förmågan att leda värme eller elektricitet. Löslighet beskriver hur mycket av ett ämne som kan lösas i till exempel vatten vid en viss temperatur. Smältpunkten är temperaturen där ett fast ämne övergår till vätska. Samma ämne kan ha flera användbara egenskaper samtidigt.",
+      "Densitet betyder massa per volym. Jämför två lika stora klossar: om den ena har större massa, har dess material högre densitet. En liten järnbit kan samtidigt väga mindre än en stor träbit. Därför räcker det inte att säga att ”det tyngsta föremålet har högst densitet”. Vi behöver jämföra samma volym eller räkna massa delat med volym.",
+      "Egenskaper kan hjälpa oss att skilja ämnen åt. Om ett prov är antingen järn eller koppar kan en vanlig magnet ge svar: järn dras tydligt till magneten, koppar gör det inte. Ett test av elektrisk ledningsförmåga hjälper mindre just här, eftersom båda leder elektricitet. Välj ett test där de möjliga ämnena ger olika resultat.",
+      "En bra jämförelse ska vara rättvis. Om ni undersöker löslighet behöver ni till exempel hålla mängden vatten och temperaturen lika och jämföra tydligt bestämda mängder ämne. Annars kan skillnaden bero på hur testet gjordes. Två vita pulver behöver inte vara samma ämne. Undersök kända prov enligt instruktionerna och smaka aldrig på okända ämnen.",
+      "Koppla alltid materialvalet till följden. Kastrullens botten behöver leda värme bra så att energi överförs till maten. Handtaget bör överföra värme långsammare till handen och dessutom tåla temperaturen och belastningen. Koppartråd i en elkabel leder ström; plasten runt tråden isolerar. Olika material samarbetar när delarna ska göra olika saker."
     ],
     "figure": "assets/diagrams/05-egenskaper.svg",
     "figureAlt": "Kastrullens botten leder värme till maten, medan handtaget överför värme långsammare till handen. Ritningen jämför värmespridning i koppar och trä.",
@@ -164,9 +181,12 @@ const modules = [
     "goal": "Vi kan beskriva vatten som is, vätska och gas med en partikelmodell.",
     "firstQuestion": "När vatten blir vattenånga: försvinner vattenmolekylerna, ändras de eller händer något annat?",
     "explanation": [
-      "En isbit, vatten i ett glas och vattenånga består av samma sorts molekyler: H₂O. Varje vattenmolekyl har två väteatomer och en syreatom. Följ en markerad molekyl i filmen. Dess atomer sitter ihop när vattnet byter tillstånd.",
-      "I is vibrerar molekylerna kring bestämda platser i en öppen struktur. När isen smälter kan de röra sig förbi varandra: vattnet kan rinna. I vattenånga är avstånden mellan molekylerna mycket större. Molekylerna rör sig fritt mellan kollisionerna. Uppvärmning kan få dem att röra sig mer eller få vattnet att byta tillstånd.",
-      "Smältning betyder fast form till vätska. Förångning betyder vätska till gas. När gas blir vätska kallas det kondensation, som dropparna på utsidan av ett kallt glas. Vattenånga är osynlig; det vita molnet vid en kastrull består av små vattendroppar. Förklara vad som ändras mellan molekylerna och vad som finns kvar i varje molekyl."
+      "Is, flytande vatten och vattenånga är samma ämne i olika aggregationstillstånd: fast form, vätska och gas. Alla tre består av vattenmolekyler, H₂O. Varje molekyl har två väteatomer och en syreatom. När vattnet byter tillstånd är det framför allt ordningen, avstånden och rörelsen mellan molekylerna som ändras.",
+      "I is har molekylerna bestämda platser omkring vilka de vibrerar, alltså rör sig fram och tillbaka. Därför behåller isbiten sin form. Molekylerna ligger i en öppen struktur. När isen smälter kan molekylerna röra sig förbi varandra och vatten kan rinna. De kemiska bindningarna mellan atomerna i varje H₂O-molekyl bryts inte sönder när isen smälter.",
+      "Vatten är speciellt: dess öppna struktur i is gör att samma massa tar större plats som is än som flytande vatten. Is har därför lägre densitet och flyter. I många andra ämnen ligger partiklarna tätast i fast form. Använd alltså vattnets modell för att förklara vatten och tänk inte att alla fasta ämnen alltid är glesare än sina vätskor.",
+      "När vatten övergår till gas ökar avstånden mellan molekylerna kraftigt. De rör sig fritt mellan kollisionerna och sprids i det tillgängliga utrymmet. Molekylerna själva har inte svällt, blivit luft eller delats upp i väte och syre. Vattenånga är osynlig. Det vita molnet nära en kokande kastrull består av små vattendroppar som bildats när vattenånga har kylts.",
+      "Smältning är fast form till vätska och stelning är vätska till fast form. Förångning är vätska till gas; kondensation är gas till vätska. Avdunstning sker vid vätskans yta även under kokpunkten. Därför kan en våt tröja torka i ett rum. Vid kokning bildas gasbubblor inne i vätskan. Rent vatten kokar vid ungefär 100 °C vid normalt lufttryck.",
+      "Vid uppvärmning överförs energi till vattnet. När temperaturen stiger rör sig molekylerna mer i genomsnitt. Under smältning eller kokning kan energin i stället ändra hur molekylerna hålls ihop med sina grannar, medan temperaturen är oförändrad för rent vatten vid konstant tryck. När vattenånga kondenserar lämnas energi till omgivningen. Följ alltid både vattnets tillstånd och vart energin tar vägen."
     ],
     "figure": "assets/diagrams/06-faser.svg",
     "figureAlt": "Samma antal vattenmolekyler i isens öppna struktur, tätare i flytande vatten och mycket glest i vattenånga. Pilar visar partiklarnas rörelse.",
@@ -195,9 +215,13 @@ const modules = [
     "goal": "Vi kan beskriva hur skadliga ämnen kan spridas och hur vi kan minska spridningen.",
     "firstQuestion": "Ett gammalt batteri ligger vid en bäck. Spelar det någon roll om ingen människa rör batteriet?",
     "explanation": [
-      "Ett batteri ligger vid en bäck. Varför ska det lämnas till insamling även om ingen rör det? Om batteriet skadas och börjar läcka kan ämnen komma ut i marken. Regn och rinnande vatten kan sedan föra ämnen vidare till bäcken.",
-      "Djur och växter kan komma i kontakt med ämnena genom vattnet eller födan. Den kontakten kallas exponering. Vissa ämnen kan skada organismer, alltså levande varelser. Hur stor risken blir beror bland annat på vilket ämne det är, mängden och hur organismen utsätts. Ett möjligt förlopp behöver därför förklaras steg för steg.",
-      "Batteriinsamling hjälper oss att ta hand om batteriet innan ämnen sprids från det. Använd kedjan källa → spridningsväg → organism → möjlig följd. Lägg sedan till en åtgärd. Säg till exempel: Om batteriet läcker kan ämnen följa med vatten till bäcken. Därför lämnar vi det till insamling. Förklara både vad som kan hända och varför åtgärden hjälper."
+      "En giftfri miljö betyder att vi vill skydda människor, djur och växter från skadlig påverkan av farliga ämnen. Det betyder inte en miljö utan kemi. Vatten, syre, trä och våra kroppar består av kemiska ämnen. För att förstå ett miljöproblem behöver vi veta vilket ämne det gäller, hur det kan spridas och vilka organismer som utsätts.",
+      "Tänk er ett skadat batteri som ligger vid en bäck. Om det läcker kan ämnen komma ut i marken. Regn kan lösa upp eller föra med sig en del av dem, och rinnande vatten kan transportera dem till bäcken. Det händer inte på exakt samma sätt med alla batterier eller ämnen. Därför beskriver vi en möjlig spridningsväg: batteri → mark → vatten.",
+      "En organism är en levande varelse, till exempel en växt, ett smådjur eller en fisk. Organismer kan komma i kontakt med ämnen genom vatten, luft eller föda. Den kontakten kallas exponering. Ett smådjur i bäcken kan exempelvis utsättas genom vattnet det lever i. Vissa ämnen kan också tas upp i kroppen. Att ett ämne finns på en plats berättar inte ensamt hur mycket en organism får i sig.",
+      "Skilj på fara och risk. Fara handlar om att ett ämne kan orsaka skada. Risken beror också på hur mycket en organism utsätts för, på vilket sätt och under hur lång tid. Två organismer kan utsättas olika mycket även i samma miljö. Naturligt betyder inte automatiskt ofarligt, och ett ämnes namn räcker inte för att avgöra hela risken.",
+      "Vissa farliga ämnen bryts ned långsamt och kan finnas kvar länge. En del kan samlas i organismer och föras vidare när ett djur äter ett annat. Om organismer skadas kan det också påverka andra delar av ett ekosystem, alltså de levande varelserna och deras omgivning. Men alla ämnen samlas inte i näringskedjor på samma sätt. Följ det aktuella ämnet och förklara vad som kan hända steg för steg.",
+      "Den bästa åtgärden kan vara att hindra spridningen redan vid källan. Batterier ska lämnas till batteriinsamling, där de kan tas om hand. De ska inte lämnas i naturen eller kastas i vanliga sopor. Rör inte innehållet i ett läckande batteri; be en vuxen hjälpa till. Insamling gör att ämnen och material kan hanteras och minskar risken att just batteriet läcker i mark och vatten.",
+      "Bygg ett utvecklat svar med kedjan källa → spridningsväg → organism → möjlig följd → åtgärd. Till exempel: ”Om ett skadat batteri läcker kan ämnen följa med regnvatten till bäcken. Där kan smådjur utsättas och skadas, beroende på ämnet och mängden. Därför lämnar vi batterier till insamling innan de hamnar i naturen.” Orden om, kan och därför visar både villkor och samband."
     ],
     "figure": "assets/diagrams/07-miljo.svg",
     "figureAlt": "Ett möjligt spridningsförlopp från ett skadat batteri via mark och vatten till levande organismer, samt alternativet att lämna batteriet till insamling.",
@@ -219,7 +243,7 @@ const modules = [
   }
 ];
 
-// Swedish year-7 learning content. Displayed prose is authored in latex/web_content.tex.
+// Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
 const lessons = {
   "1": {
     "opener": "Hur många atomer gömmer sig i en enda vattenmolekyl?",
@@ -242,6 +266,11 @@ const lessons = {
         "heading": "Molekyl och kemisk förening",
         "body": "O₂ är en molekyl eftersom två atomer sitter ihop. Syrgas är samtidigt ett grundämne eftersom alla atomer är syre. H₂O är också en molekyl, men vatten är en kemisk förening: det innehåller olika grundämnen som är kemiskt bundna till varandra. Orden svarar alltså på olika frågor. Molekyl beskriver en grupp bundna atomer. Kemisk förening beskriver vilka grundämnen ett ämne innehåller. Alla ämnen består inte av avgränsade molekyler. I en metall sitter många atomer samman, och vanligt koksalt har ett stort nätverk av laddade partiklar. På den här sidan börjar vi med molekylerna O₂ och H₂O.",
         "question": "Förklara varför O₂ är en molekyl men inte en kemisk förening."
+      },
+      {
+        "heading": "Atomslag ändras inte när ni räknar fler grupper",
+        "body": "Tänk er tre O₂-molekyler. Varje molekyl innehåller två syreatomer. Tre gånger två ger sex atomer sammanlagt. Alla sex är syre, så det finns fortfarande bara ett atomslag. Gör sedan samma sak med tre H₂O-molekyler: sex H och tre O ger nio atomer av två atomslag. Säg alltid vad talet räknar: atomer, molekyler eller atomslag. Då går det att följa förklaringen.",
+        "question": "Hur många molekyler, atomer och atomslag finns i 3O₂?"
       }
     ],
     "conceptMap": [
@@ -256,6 +285,10 @@ const lessons = {
       {
         "term": "Kemisk förening",
         "meaning": "Ett ämne som innehåller olika grundämnen kemiskt bundna till varandra."
+      },
+      {
+        "term": "Atomslag och grundämne",
+        "meaning": "Atomslag är sorten av atom, bestämd av antalet protoner. Ett grundämne innehåller bara ett atomslag."
       }
     ],
     "workedExample": {
@@ -271,8 +304,8 @@ const lessons = {
       "correction": "En molekyl kan bestå av samma atomslag, som O₂, eller olika atomslag, som H₂O. För att ämnet ska vara en kemisk förening krävs olika grundämnen kemiskt bundna till varandra."
     },
     "film": {
-      "src": "assets/films/01-atomer.mp4",
-      "poster": "assets/posters/01-atomer.jpg",
+      "src": "assets/films/v2/01-atomer.mp4",
+      "poster": "assets/posters/v2/01-atomer.jpg",
       "title": "Från atom till molekyl: följ varje byggsten",
       "before": "Följ en vattenmolekyl. Lägg märke till vilka delar som räknas när filmen visar atomer, atomslag och molekyler.",
       "after": "Pausa vid H₂O och 2H₂O. Räkna högt tillsammans och förklara vad varje tvåa betyder."
@@ -302,10 +335,10 @@ const lessons = {
     ]
   },
   "2": {
-    "opener": "Vad har en russinkaka med en atom att göra?",
+    "opener": "Hur blev en russinkaka till en kärna med elektroner omkring?",
     "intro": [
-      "Forskare kan lära sig om atomens insida genom försök. Sedan bygger de en modell som förklarar vad som hände. Om ett nytt resultat är svårt att förklara behöver de tänka vidare.",
-      "Följ särskilt den positiva laddningen. I Thomsons modell finns den utspridd som smeten i en russinkaka. I Rutherfords modell är den samlad i en liten kärna. Försöket hjälper oss att förstå varför beskrivningen ändrades."
+      "En atommodell ska hjälpa oss att förklara det forskarna mäter. Börja med russinkakans utspridda positiva laddning och följ sedan guldfolieförsöket. Vad visar de nästan raka banorna? Vad kräver en förklaring när några partiklar böjs av kraftigt?",
+      "Jämför därefter kärnmodellen, solsystemsliknelsen, Bohrs skal och elektronmolnet. Lägg märke till vilken fråga varje bild besvarar. Ingen av bilderna är en vanlig film av en elektron på väg runt kärnan."
     ],
     "sections": [
       {
@@ -320,8 +353,13 @@ const lessons = {
       },
       {
         "heading": "Skal och moln hjälper oss med olika frågor",
-        "body": "Bohr beskrev 1913 bestämda energinivåer för elektronen i väte. Vi ritar nivåerna som skal. En elektron kan ta upp energi och gå till en högre nivå. När atomen avger energi kan ljus bildas. Skalmodellen hjälper oss att ordna och räkna elektroner, särskilt de yttersta. Ett elektronmoln hjälper oss i stället att beskriva var en elektron kan finnas. Sannolikhet betyder hur stor chans det är att något händer. Ett tätare område i molnet visar större chans att hitta elektronen där. Många prickar i ett moln visar möjliga lägen; de betyder inte att en väteatom har många elektroner.",
+        "body": "Bohr beskrev 1913 bestämda energinivåer för elektronen i väte. Det kan liknas vid trappsteg: elektronen kan ha vissa energier, inte alla energier däremellan. Vi ritar nivåerna som skal, men skalen är inga väggar och trappan är bara en liknelse för bestämda nivåer. Elektronen kan ta upp energi och övergå till en högre nivå. När den övergår till en lägre nivå kan atomen avge ljus. I dagens modell visar elektronmolnet i vilka områden det är störst chans att hitta en elektron. Många prickar kan beskriva möjliga lägen för samma elektron. Ett tätare moln betyder större chans att hitta den där, inte att den är större eller att fler elektroner måste finnas i atomen.",
         "question": "Vad berättar ett tätare område i elektronmolnet?"
+      },
+      {
+        "heading": "Solsystemsliknelsen: vad hjälper den oss att se?",
+        "body": "Rita en liten kärna i mitten och elektroner i området omkring. Det liknar solsystemets sol och planeter, men likheten gäller framför allt att en central del omges av ett mycket större område. Protoner och elektroner har elektrisk laddning; planeterna hålls i sina banor av gravitation. Bohrs bestämda energinivåer är ytterligare en idé, inte något som guldfolieförsöket i sig visade. I dagens beskrivning använder vi elektronmoln i stället för bestämda planetbanor. När ni visar en bild, säg därför också vad den ska hjälpa er att förklara: kärnans placering, elektronernas energi eller möjliga lägen.",
+        "question": "Nämn en användbar likhet med solsystemet och en viktig skillnad."
       }
     ],
     "conceptMap": [
@@ -336,6 +374,14 @@ const lessons = {
       {
         "term": "Elektronmoln",
         "meaning": "En bild av var elektroner kan finnas. Tätare moln betyder större chans att hitta en elektron där."
+      },
+      {
+        "term": "Elektronskal",
+        "meaning": "Ett sätt att ordna elektroner efter bestämda energinivåer. Skalet är ingen hård vägg."
+      },
+      {
+        "term": "Sannolikhet",
+        "meaning": "Hur stor chans det är att något händer, till exempel att en elektron hittas i ett visst område."
       }
     ],
     "workedExample": {
@@ -351,13 +397,13 @@ const lessons = {
       "correction": "I Thomsons modell är den positiva laddningen utspridd genom atomen. En liten central kärna med samlad positiv laddning är den avgörande förändringen i Rutherfords modell."
     },
     "film": {
-      "src": "assets/films/02-modeller.mp4",
-      "poster": "assets/posters/02-modeller.jpg",
-      "title": "Från russinkaka till kärna och elektronmoln",
-      "before": "Titta efter var den positiva laddningen finns. Följ sedan vad som händer när en positiv partikel kommer nära kärnan.",
-      "after": "Pausa vid russinkakan och kärnmodellen. Förklara smet, russin och kärna. Koppla kärnan till partiklarnas avböjning."
+      "src": "assets/films/v2/02-modeller.mp4",
+      "poster": "assets/posters/v2/02-modeller.jpg",
+      "title": "Atommodeller: från guldfolie till solsystemsliknelse",
+      "before": "Följ hur försöken förändrar atommodellen. Jämför sedan kärna och elektroner med solen och planeterna.",
+      "after": "Pausa vid solsystemsliknelsen. Vad hjälper den oss att förstå? Varför kan elektroner ändå inte beskrivas som små planeter i bestämda banor?"
     },
-    "summary": "Jag kan förklara russinkakan: negativa elektroner är russinen och positiv laddning är smeten. I kärnmodellen samlas den positiva laddningen i en liten kärna. Nya försöksresultat kan leda till nya modeller.",
+    "summary": "Jag kan förklara hur försöksresultat ledde från utspridd positiv laddning till en liten positiv kärna. Solsystemet är en liknelse för placeringen. Bohr tillför bestämda energinivåer, medan elektronmolnet visar var det är störst chans att hitta elektroner.",
     "extraExamples": [
       {
         "title": "Två observationer kräver två delar av förklaringen",
@@ -373,6 +419,14 @@ const lessons = {
           "Fråga: var finns atomens positiva laddning? Välj kärnmodellen och peka ut kärnan.",
           "Fråga: vilka elektroner finns ytterst? Välj en skalmodell och följ de elektroner som ligger i det yttersta upptagna skalet.",
           "Fråga: i vilka områden kan elektroner påträffas? Välj ett elektronmoln och använd ordet sannolikhet. Förklara för varandra varför ni valde just den bilden."
+        ]
+      },
+      {
+        "title": "Skilj på kärna, skal och moln",
+        "steps": [
+          "Kärnmodellen: peka ut den lilla positiva kärnan och förklara guldfolieförsökets kraftiga avböjningar.",
+          "Skalmodellen: använd bestämda energinivåer för att förklara att elektronen kan ta upp eller avge vissa mängder energi. Rita inte skalen som hårda väggar.",
+          "Elektronmolnet: visa möjliga lägen och tala om sannolikhet. Säg varför elektronen inte ska beskrivas som en liten planet på en bestämd ritad bana."
         ]
       }
     ],
@@ -402,6 +456,11 @@ const lessons = {
         "heading": "Bindningar ändras; atomslagen finns kvar",
         "body": "I en vanlig kemisk reaktion kan bindningar brytas och nya bindningar bildas. Elektroner kan delas mellan atomer eller flyttas från en atom till en annan. En natriumatom som lämnar ifrån sig en elektron blir till exempel en positiv natriumjon, Na⁺. En kloratom som tar upp en elektron blir en negativ kloridjon, Cl⁻. De motsatta laddningarna dras till varandra i koksalt. Det är ett annat sätt att binda partiklar än i H₂. Kärnorna bevaras i båda fallen. Väte blir fortfarande väte, och natrium blir fortfarande natrium. Börja därför varje reaktionsförklaring med att följa samma atomslag före och efter.",
         "question": "En partikel har elva protoner och tio elektroner. Vilken laddning har den, och varför?"
+      },
+      {
+        "heading": "Ett plus kan betyda att en elektron har lämnat",
+        "body": "När en atom blir positiv är det lätt att tro att den har fått en extra proton. I en vanlig kemisk reaktion sker jonbildning i stället genom att antalet elektroner ändras. En atom med elva protoner är natrium. Med elva elektroner är den neutral; med tio elektroner är den en positiv natriumjon. Kärnan och atomslaget är desamma. Säg ”en elektron har lämnats ifrån sig” och kontrollera genom att räkna plus och minus.",
+        "question": "Varför blir en atom positiv när en negativ elektron lämnar den?"
       }
     ],
     "conceptMap": [
@@ -416,6 +475,18 @@ const lessons = {
       {
         "term": "Jon",
         "meaning": "En laddad atom eller atomgrupp. En atom blir en jon om den tar upp eller lämnar ifrån sig elektroner."
+      },
+      {
+        "term": "Proton",
+        "meaning": "En positivt laddad partikel i kärnan. Antalet protoner bestämmer atomslaget."
+      },
+      {
+        "term": "Neutron",
+        "meaning": "En oladdad partikel i kärnan. Den vanliga väteatomen saknar neutron."
+      },
+      {
+        "term": "Ytterelektroner",
+        "meaning": "Elektronerna i atomens yttersta upptagna skal. De är särskilt viktiga när bindningar bildas."
       }
     ],
     "workedExample": {
@@ -431,8 +502,8 @@ const lessons = {
       "correction": "Vid vanliga kemiska reaktioner finns atomkärnorna kvar. Elektroner och bindningar kan ordnas på nya sätt. Atomslaget bestäms av protonerna i kärnan, så väte är fortfarande väte även när det ingår i ett nytt ämne."
     },
     "film": {
-      "src": "assets/films/03-elektroner.mp4",
-      "poster": "assets/posters/03-elektroner.jpg",
+      "src": "assets/films/v2/03-elektroner.mp4",
+      "poster": "assets/posters/v2/03-elektroner.jpg",
       "title": "Laddning, delade elektroner och bevarade kärnor",
       "before": "Välj en kärna och en elektron att följa. Räkna hur många av varje som finns före och efter bindningen.",
       "after": "Visa H₂ och säg vad gemensamt elektronpar betyder. Förklara sedan varför väte fortfarande är väte efter reaktionen."
@@ -482,6 +553,11 @@ const lessons = {
         "heading": "Ledtrådar behöver en förklaring",
         "body": "Bubblor, en temperaturändring eller en ny färg kan hjälpa oss att upptäcka en förändring. Men en enda sådan observation avgör inte om nya ämnen har bildats. Kokande vatten bubblar när vattenånga bildas, och ämnet är fortfarande vatten. När ett vedträ brinner bildas däremot bland annat koldioxid och vatten, alltså nya ämnen. Uppvärmning kan därför leda till både fysikaliska och kemiska förändringar. Ett bra svar innehåller ett exempel och en motivering. Säg vad som finns före, vad som finns efter och varför ni väljer just den gruppen.",
         "question": "Varför räcker meningen ”det bubblar” inte som bevis för en kemisk förändring?"
+      },
+      {
+        "heading": "Följ även sådant som lämnar föremålet som gas",
+        "body": "När ett ljus brinner blir det mindre. Stearinets ämnen reagerar med syre från luften, och bland annat koldioxid och vatten bildas. Gaserna sprids i rummet. Om ni bara väger ljuset före och efter missar ni både det syre som kom in och de produkter som lämnade ljuset. Vid en kemisk reaktion bevaras atomerna, även när en del ämnen är osynliga gaser. För en rättvis jämförelse av total massa behöver allt som deltar och bildas räknas med.",
+        "question": "Varför kan ni inte följa hela reaktionen genom att enbart väga ljuset?"
       }
     ],
     "conceptMap": [
@@ -511,8 +587,8 @@ const lessons = {
       "correction": "Det avgörande är om nya ämnen bildas. Klippt papper visar hur ett föremål kan vara svårt att återställa efter en fysikalisk förändring. Vid en kemisk förändring behöver förklaringen visa vilka nya ämnen som bildas."
     },
     "film": {
-      "src": "assets/films/04-forandringar.mp4",
-      "poster": "assets/posters/04-forandringar.jpg",
+      "src": "assets/films/v2/04-forandringar.mp4",
+      "poster": "assets/posters/v2/04-forandringar.jpg",
       "title": "Från isens ordning till järnets nya bindningar",
       "before": "Följ en vattenmolekyl när isen smälter. Jämför sedan med järnatomerna när ett nytt ämne bildas.",
       "after": "Välj en fysikalisk och en kemisk förändring. Beskriv vad som finns före och efter och använd orden nytt ämne."
@@ -562,6 +638,11 @@ const lessons = {
         "heading": "Koppla materialets egenskap till delens uppgift",
         "body": "Kastrullens botten ska föra värme från spisen till maten. Där är god värmeledningsförmåga användbar. I handtaget vill vi i stället att värmen ska överföras långsammare till handen. Men ett material som leder värme långsamt måste också tåla temperaturen där handtaget sitter. Det behöver vara hållfast och gå att greppa. Därför behöver vi ofta jämföra flera egenskaper samtidigt. Förklara i tre steg: delens uppgift, materialets egenskap och följden av egenskapen. Säg till exempel att botten ska värma maten, att metallen leder värme bra och att värmen därför kan spridas till maten.",
         "question": "Ett material leder värme långsamt men mjuknar när kastrullen används. Vad behöver ni också kräva av handtaget?"
+      },
+      {
+        "heading": "Samma föremål kan behöva både ledare och isolator",
+        "body": "I en elkabel är metalltråden en elektrisk ledare. Laddningar kan förflytta sig genom metallen så att elektrisk ström kan gå. Plasten runt tråden leder ström mycket dåligt och fungerar som isolering. Den hjälper till att hålla strömmen i rätt väg och gör kabeln användbar. På liknande sätt kan en jacka behöva ett material som håller värmen och ett annat som står emot regn. Fråga först vad varje del ska göra och välj sedan egenskaper som passar.",
+        "question": "Varför vore en elkabel med enbart oskyddad metall en dålig konstruktion?"
       }
     ],
     "conceptMap": [
@@ -576,6 +657,14 @@ const lessons = {
       {
         "term": "Densitet",
         "meaning": "Massa per volym: hur mycket massa som ryms i en viss volym."
+      },
+      {
+        "term": "Löslighet",
+        "meaning": "Hur mycket av ett ämne som kan lösas i en viss mängd lösningsmedel vid en viss temperatur."
+      },
+      {
+        "term": "Isolator",
+        "meaning": "Ett material som leder elektricitet eller värme dåligt. Ange vilken sorts ledning ni menar."
       }
     ],
     "workedExample": {
@@ -591,8 +680,8 @@ const lessons = {
       "correction": "Färg är en egenskap bland flera. Salt och socker kan båda vara vita och lösliga i vatten. För att skilja prov åt behöver vi välja undersökningar som ger användbar information. Smaka aldrig på okända prov."
     },
     "film": {
-      "src": "assets/films/05-egenskaper.mp4",
-      "poster": "assets/posters/05-egenskaper.jpg",
+      "src": "assets/films/v2/05-egenskaper.mp4",
+      "poster": "assets/posters/v2/05-egenskaper.jpg",
       "title": "Värme på väg: egenskap blir funktion",
       "before": "Följ värmen från spisen. Var ska den lätt kunna gå vidare, och var är långsammare värmeöverföring användbar?",
       "after": "Förklara materialvalen med eftersom: ett material till botten och ett till handtaget. Nämn också ett andra krav."
@@ -642,6 +731,11 @@ const lessons = {
         "heading": "Energi kan värma eller ändra tillstånd",
         "body": "När temperaturen stiger rör sig partiklarna mer i genomsnitt. Under smältning eller kokning kan tillförd energi i stället användas till att ändra hur molekylerna hålls ihop med sina grannar. För rent vatten vid konstant tryck kan temperaturen då vara oförändrad medan övergången pågår. På en uppvärmningskurva syns det som en plan del. En stigande del betyder att temperaturen ökar. Smältning är fast form till vätska; stelning är vätska till fast form. Förångning är vätska till gas; kondensation är gas till vätska. Vid kondensation lämnar vattnet energi till omgivningen. Koppla varje ord till tillståndet före och efter.",
         "question": "Hur kan värme tillföras under smältning medan termometern visar samma temperatur?"
+      },
+      {
+        "heading": "Dropparna på glaset kommer från luften",
+        "body": "Ställ ett kallt glas i varm, fuktig luft. Vattenånga i luften nära glaset kyls. När ytan är tillräckligt kall bildas flytande droppar på utsidan genom kondensation. Dropparna har alltså inte sipprat genom glasväggen. Vatten från luften har gått från gas till vätska. En liten vattenpöl kan sedan försvinna genom avdunstning. Följ ämnet i båda riktningarna: det är fortfarande H₂O, men tillståndet och placeringen ändras.",
+        "question": "Vilket ämne bildar dropparna, varifrån kommer det och vad heter förändringen?"
       }
     ],
     "conceptMap": [
@@ -656,6 +750,14 @@ const lessons = {
       {
         "term": "Kondensation",
         "meaning": "När ett ämne övergår från gas till vätska, som droppar som bildas ur vattenånga."
+      },
+      {
+        "term": "Avdunstning",
+        "meaning": "När molekyler lämnar en vätskas yta och går över till gas. Det kan ske utan att vätskan kokar."
+      },
+      {
+        "term": "Stelning",
+        "meaning": "När en vätska övergår till fast form. För vatten säger vi också att det fryser."
       }
     ],
     "workedExample": {
@@ -671,8 +773,8 @@ const lessons = {
       "correction": "Gasens stora volym hänger framför allt ihop med stora avstånd mellan molekylerna. Varje H₂O-molekyl behåller sin uppbyggnad med två väteatomer och en syreatom."
     },
     "film": {
-      "src": "assets/films/06-faser.mp4",
-      "poster": "assets/posters/06-faser.jpg",
+      "src": "assets/films/v2/06-faser.mp4",
+      "poster": "assets/posters/v2/06-faser.jpg",
       "title": "Molekyler i rörelse: is, vätska och gas",
       "before": "Följ den markerade vattenmolekylen genom tre tillstånd. Lägg märke till dess grannar, rörelse och avstånd.",
       "after": "Förklara vad som ändras mellan molekylerna och vad som finns kvar i varje H₂O-molekyl. Använd ett fasord."
@@ -722,6 +824,11 @@ const lessons = {
         "heading": "Förebygg genom att ta hand om källan",
         "body": "Batterier lämnas till batteriinsamling så att de kan tas om hand på rätt sätt. Då förebygger vi att just det batteriet skadas och läcker ämnen i mark och vatten. Förebygga betyder att hindra ett problem innan det uppstår. När ni föreslår en åtgärd ska ni också visa vilken del av kedjan den påverkar. Insamling tar hand om källan. En annan åtgärd kan hindra ett läckage från att nå en bäck. En giftfri miljö betyder att vi vill minska skadlig spridning och kontakt med farliga ämnen. Allt omkring oss består av kemiska ämnen; vi behöver undersöka deras egenskaper och hur de används.",
         "question": "Hur hjälper batteriinsamling organismer längre ned i spridningskedjan?"
+      },
+      {
+        "heading": "Förklara pilarna i en spridningskedja",
+        "body": "En pil behöver betyda något bestämt. Mellan batteri och mark kan den betyda ”läcker ut”. Mellan mark och bäck kan den betyda ”följer med vatten”. Mellan vatten och organism kan den betyda ”tas upp” eller ”kommer i kontakt med”. Säg sedan vad som kan påverkas, till exempel ett djurs tillväxt eller fortplantning. En möjlig följd måste kopplas till ämnets egenskaper och exponeringen. Det är inte säkert att varje steg sker, så använd om och kan där ett villkor behövs.",
+        "question": "Vilken pil försvinner från ert exempel om batteriet lämnas till insamling i tid?"
       }
     ],
     "conceptMap": [
@@ -736,6 +843,18 @@ const lessons = {
       {
         "term": "Förebygga",
         "meaning": "Att hindra ett problem innan det uppstår."
+      },
+      {
+        "term": "Fara",
+        "meaning": "Ett ämnes förmåga att orsaka skada."
+      },
+      {
+        "term": "Risk",
+        "meaning": "Risken för skada i en viss situation beror på ämnets farliga egenskaper och hur organismer utsätts för det."
+      },
+      {
+        "term": "Ekosystem",
+        "meaning": "Organismerna i ett område och deras omgivning, som samspelar med varandra."
       }
     ],
     "workedExample": {
@@ -751,8 +870,8 @@ const lessons = {
       "correction": "All materia består av kemiska ämnen. Målet är att förebygga skadlig exponering och minska spridning av farliga ämnen. Risk bedöms genom ämnets egenskaper tillsammans med mängd och exponering."
     },
     "film": {
-      "src": "assets/films/07-miljo.mp4",
-      "poster": "assets/posters/07-miljo.jpg",
+      "src": "assets/films/v2/07-miljo.mp4",
+      "poster": "assets/posters/v2/07-miljo.jpg",
       "title": "Följ spridningen och bryt kedjan",
       "before": "Följ ett ämne från det skadade batteriet. Vad behöver hända för att det ska nå vattnet och sedan en organism?",
       "after": "Återberätta med om, först, sedan och därför. Visa vilken del av kedjan batteriinsamlingen påverkar."
@@ -892,144 +1011,144 @@ const photos = [
 ];
 const films = {
   "1": {
-    "duration": 133.333333,
-    "captions": "assets/captions/01-atomer.vtt",
+    "module": 1,
+    "file": "assets/films/v2/01-atomer.mp4",
+    "poster": "assets/posters/v2/01-atomer.jpg",
+    "captions": "assets/captions/v2/01-atomer.vtt",
+    "duration": 86.6,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Byggstenar",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -23.87,
-        "true_peak_dbtp": -12.15,
-        "loudness_range_lu": 2.4
-      },
-      "source": "assets/music/01-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 1",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "2": {
-    "duration": 139.966667,
-    "captions": "assets/captions/02-modeller.vtt",
+    "module": 2,
+    "file": "assets/films/v2/02-modeller.mp4",
+    "poster": "assets/posters/v2/02-modeller.jpg",
+    "captions": "assets/captions/v2/02-modeller.vtt",
+    "duration": 88.5,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Spår av en atom",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -23.93,
-        "true_peak_dbtp": -11.44,
-        "loudness_range_lu": 2.6
-      },
-      "source": "assets/music/02-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 2",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "3": {
-    "duration": 133.166667,
-    "captions": "assets/captions/03-elektroner.vtt",
+    "module": 3,
+    "file": "assets/films/v2/03-elektroner.mp4",
+    "poster": "assets/posters/v2/03-elektroner.jpg",
+    "captions": "assets/captions/v2/03-elektroner.vtt",
+    "duration": 90.6,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "I rörelse",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -23.92,
-        "true_peak_dbtp": -11.47,
-        "loudness_range_lu": 2.3
-      },
-      "source": "assets/music/03-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 3",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "4": {
-    "duration": 129.933333,
-    "captions": "assets/captions/04-forandringar.vtt",
+    "module": 4,
+    "file": "assets/films/v2/04-forandringar.mp4",
+    "poster": "assets/posters/v2/04-forandringar.jpg",
+    "captions": "assets/captions/v2/04-forandringar.vtt",
+    "duration": 88.0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Nya samband",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -23.87,
-        "true_peak_dbtp": -11.32,
-        "loudness_range_lu": 2.5
-      },
-      "source": "assets/music/04-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 4",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "5": {
-    "duration": 129.466667,
-    "captions": "assets/captions/05-egenskaper.vtt",
+    "module": 5,
+    "file": "assets/films/v2/05-egenskaper.mp4",
+    "poster": "assets/posters/v2/05-egenskaper.jpg",
+    "captions": "assets/captions/v2/05-egenskaper.vtt",
+    "duration": 88.8,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Avtryck",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -23.88,
-        "true_peak_dbtp": -11.51,
-        "loudness_range_lu": 2.6
-      },
-      "source": "assets/music/05-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 5",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "6": {
-    "duration": 132.733333,
-    "captions": "assets/captions/06-faser.vtt",
+    "module": 6,
+    "file": "assets/films/v2/06-faser.mp4",
+    "poster": "assets/posters/v2/06-faser.jpg",
+    "captions": "assets/captions/v2/06-faser.vtt",
+    "duration": 86.2,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Värmens resa",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -24.0,
-        "true_peak_dbtp": -11.41,
-        "loudness_range_lu": 2.2
-      },
-      "source": "assets/music/06-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 6",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   },
   "7": {
-    "duration": 126.2,
-    "captions": "assets/captions/07-miljo.vtt",
+    "module": 7,
+    "file": "assets/films/v2/07-miljo.mp4",
+    "poster": "assets/posters/v2/07-miljo.jpg",
+    "captions": "assets/captions/v2/07-miljo.vtt",
+    "duration": 89.7,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
     "audio": true,
-    "music": {
-      "title": "Vår gemensamma miljö",
-      "credit": "Originalmusik för Kemilabbet · syntes och komposition skapad för dessa filmer",
-      "original": true,
-      "version": "4.2",
-      "target_lufs": -24,
-      "measured": {
-        "integrated_lufs": -24.0,
-        "true_peak_dbtp": -11.46,
-        "loudness_range_lu": 2.2
-      },
-      "source": "assets/music/07-score.m4a"
-    },
+    "text": "LaTeX Tex/MathTex",
+    "version": 6,
     "threeD": true,
-    "version": 5
+    "music": {
+      "title": "Kemins grunder – originalkomposition 7",
+      "credit": "Original instrumental music synthesized for these films",
+      "original": true,
+      "source": "manim/compose_score.py"
+    }
   }
 };
 
@@ -3791,27 +3910,27 @@ const latexText = [
   },
   {
     "key": "ui/68",
-    "plain": "Kemilabbet",
-    "tex": "Kemilabbet",
-    "html": "Kemilabbet"
+    "plain": "Kemins grunder (i)",
+    "tex": "Kemins grunder (i)",
+    "html": "Kemins grunder (i)"
   },
   {
     "key": "ui/69",
-    "plain": "Kemilabbet · Sju steg mot provet",
-    "tex": "Kemilabbet · Sju steg mot provet",
-    "html": "Kemilabbet · Sju steg mot provet"
+    "plain": "Kemins grunder (i) · Sju steg mot provet",
+    "tex": "Kemins grunder (i) · Sju steg mot provet",
+    "html": "Kemins grunder (i) · Sju steg mot provet"
   },
   {
     "key": "ui/70",
-    "plain": "Kemilabbet · Åk 7",
-    "tex": "Kemilabbet · Åk 7",
-    "html": "Kemilabbet · Åk 7"
+    "plain": "Kemins grunder (i)",
+    "tex": "Kemins grunder (i)",
+    "html": "Kemins grunder (i)"
   },
   {
     "key": "ui/71",
-    "plain": "Kemilabbet, område 1",
-    "tex": "Kemilabbet, område 1",
-    "html": "Kemilabbet, område 1"
+    "plain": "Kemins grunder (i), område 1",
+    "tex": "Kemins grunder (i), område 1",
+    "html": "Kemins grunder (i), område 1"
   },
   {
     "key": "ui/72",
@@ -4595,15 +4714,15 @@ const latexText = [
   },
   {
     "key": "ui/202",
-    "plain": "ÅRSKURS 7 · DA13c",
-    "tex": "ÅRSKURS 7 · DA13c",
-    "html": "ÅRSKURS 7 · DA13c"
+    "plain": "KEMI · SJU OMRÅDEN",
+    "tex": "KEMI · SJU OMRÅDEN",
+    "html": "KEMI · SJU OMRÅDEN"
   },
   {
     "key": "ui/203",
-    "plain": "Årskurs 7 · Kemi",
-    "tex": "Årskurs 7 · Kemi",
-    "html": "Årskurs 7 · Kemi"
+    "plain": "Kemi · Sju områden",
+    "tex": "Kemi · Sju områden",
+    "html": "Kemi · Sju områden"
   },
   {
     "key": "ui/204",
@@ -5632,7 +5751,7 @@ const exampleMarkup = (example, label='ETT EXEMPEL ATT FÖLJA') => `<section cla
 
 function chapterHero(m) {
  const photo=photos.find(p=>p.module===m.id);
- return `<div class="chapter-breadcrumb"><a href="#omrade-1">Kemilabbet</a><span aria-hidden="true">/</span><span>Område ${m.id} av 7</span></div><section class="chapter-hero student-header" data-chapter="${m.id}"><div class="chapter-heading"><h1>${esc(m.title)}</h1><p class="chapter-focus"><strong>Det här tränar ni:</strong> ${esc(m.goal)}</p><span class="page-reference">Kemi Direkt · ${esc(m.pages)}</span></div>${photo ? `<details class="chapter-source"><summary>Bildkälla</summary><figure class="chapter-photo"><img src="${photo.file}" alt="${esc(photo.alt)}" loading="lazy"><figcaption><p>${esc(photo.caption)}</p><p><a href="${esc(photo.sourceUrl)}" target="_blank" rel="noopener">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener">${esc(photo.license)}</a></p>${photo.changes?`<p>${esc(photo.changes)}</p>`:''}</figcaption></figure></details>`:''}</section>`;
+ return `<div class="chapter-breadcrumb"><a href="#omrade-1">Kemins grunder (i)</a><span aria-hidden="true">/</span><span>Område ${m.id} av 7</span></div><section class="chapter-hero student-header" data-chapter="${m.id}"><div class="chapter-heading"><h1>${esc(m.title)}</h1><p class="chapter-focus"><strong>Det här tränar ni:</strong> ${esc(m.goal)}</p><span class="page-reference">Kemi Direkt · ${esc(m.pages)}</span></div>${photo ? `<details class="chapter-source"><summary>Bildkälla</summary><figure class="chapter-photo"><img src="${photo.file}" alt="${esc(photo.alt)}" loading="lazy"><figcaption><p>${esc(photo.caption)}</p><p><a href="${esc(photo.sourceUrl)}" target="_blank" rel="noopener">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener">${esc(photo.license)}</a></p>${photo.changes?`<p>${esc(photo.changes)}</p>`:''}</figcaption></figure></details>`:''}</section>`;
 }
 
 function filmSection(m) {
@@ -5643,13 +5762,14 @@ function filmSection(m) {
 
 function readingSection(m) {
  const l=lessons[m.id];
- return `<div class="reading-heading"><span class="margin-label">FRÅN BILD TILL FÖRKLARING</span><span class="reading-note">Läs tillsammans. Stanna vid det ni undrar över.</span></div><div class="explanation chapter-explanation">${m.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}</div><figure class="tikz-figure"><div class="diagram-heading"><span class="margin-label">FÖLJ SAMBANDEN</span><button class="text-button" id="diagram-zoom">Öppna stor ritning ↗</button></div><img class="diagram" src="${m.figure}" alt="${esc(m.figureAlt)}"><figcaption>Följ ritningens pilar, färger och förklaringar. Berätta för varandra vad som händer.</figcaption></figure><div class="widget-heading"><span class="margin-label">NU UNDERSÖKER NI</span><span>Prova en förändring. Förklara vad ni ser.</span></div><div id="widget" class="interactive"></div>
+ return `<div class="reading-heading"><span class="margin-label">FRÅN BILD TILL FÖRKLARING</span><span class="reading-note">Läs tillsammans. Stanna vid det ni undrar över.</span></div><div class="explanation chapter-explanation">${m.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}</div><figure class="tikz-figure"><div class="diagram-heading"><span class="margin-label">FÖLJ SAMBANDEN</span><button class="text-button" id="diagram-zoom">Öppna stor ritning ↗</button></div><img class="diagram" src="${m.figure}" alt="${esc(m.figureAlt)}"><figcaption>Följ ritningens pilar, färger och förklaringar. Berätta för varandra vad som händer.</figcaption></figure>${renderStudyGalleries(m.id)}<div class="widget-heading"><span class="margin-label">NU UNDERSÖKER NI</span><span>Prova en förändring. Förklara vad ni ser.</span></div><div id="widget" class="interactive"></div>
  <details class="deep-reading"><summary><span>Gå ett steg djupare</span><small>Fler förklaringar, exempel och viktiga begrepp</small></summary><div class="deep-intro">${l.intro.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="reading-sequence">${l.sections.map((section,i)=>`<section class="reading-section"><span class="section-number">${String(i+1).padStart(2,'0')}</span><div><h3>${esc(section.heading)}</h3><p>${esc(section.body)}</p><p class="think-question">${esc(section.question)}</p></div></section>`).join('')}</div>${exampleMarkup(l.workedExample)}${(l.extraExamples||[]).map(example=>exampleMarkup(example,'PROVA RESONEMANGET')).join('')}<section class="concept-section"><p class="margin-label">ORD ATT ANVÄNDA I ER FÖRKLARING</p><dl class="concept-list">${l.conceptMap.map(c=>`<div><dt>${esc(c.term)}</dt><dd>${esc(c.meaning)}</dd></div>`).join('')}</dl></section>${l.reflectionPrompts?.length?`<section class="reflection-section"><h3>Prata vidare</h3><ol>${l.reflectionPrompts.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></section>`:''}</details>
  <aside class="misconception"><p class="margin-label">TÄNK ETT VARV TILL</p><h3>En vanlig missuppfattning</h3><p class="misconception-claim">${esc(l.misconception.claim)}</p><p>${esc(l.misconception.correction)}</p></aside><div class="takeaway-wrap"><span class="margin-label">TA MED ER DET HÄR</span><p class="chapter-takeaway">${esc(l.summary)}</p></div>`;
 }
 
 function connectChapter(m) {
  const player=document.querySelector('#lesson-film');
+ connectStudyGalleries(player);
  if(player){
   const errorNode=document.querySelector('#video-error');
   const showError=()=>{if(errorNode?.isConnected)errorNode.hidden=false;};
@@ -5683,7 +5803,7 @@ const fresh = () => ({schema:'kemilabbet-v1',pairCode:'',updatedAt:'',modules:{}
 let data = fresh(), storageOK = true, animation = 0, toastTimer;
 try { const raw = localStorage.getItem(KEY); if(raw) data = validate(JSON.parse(raw)); } catch { storageOK = false; }
 function validate(raw) {
- if (!raw || raw.schema !== 'kemilabbet-v1' || typeof raw.modules !== 'object' || !raw.modules || Array.isArray(raw.modules)) throw new Error('Det här är inte en svarsfil från Kemilabbet.');
+ if (!raw || raw.schema !== 'kemilabbet-v1' || typeof raw.modules !== 'object' || !raw.modules || Array.isArray(raw.modules)) throw new Error('Det här är inte en svarsfil från Kemins grunder (i).');
  const d = fresh(); d.pairCode = String(raw.pairCode || '').slice(0,40); d.updatedAt = String(raw.updatedAt || '').slice(0,60);
  for(const m of modules) { const a = raw.modules[m.id]; if(!a || typeof a !== 'object') continue;
   d.modules[m.id] = {first:String(a.first||'').slice(0,10000),answer:String(a.answer||'').slice(0,20000),revealed:!!a.revealed,exampleSeen:!!a.exampleSeen,rating:['själv','med stöd','öva'].includes(a.rating)?a.rating:'',done:!!a.done,choice:Number.isInteger(a.choice)&&a.choice>=0&&a.choice<m.check.options.length?a.choice:null,checked:!!a.checked,widget:a.widget && typeof a.widget==='object'&&!Array.isArray(a.widget)?a.widget:{}};
@@ -5758,11 +5878,11 @@ function setupWidget(m,s){const el=document.querySelector('#widget');if(!el)retu
  } else {w.path=['leak','collect'].includes(w.path)?w.path:'leak';el.innerHTML=`<h3>Två möjliga vägar</h3>${tools([['leak','Lämnas vid bäcken'],['collect','Lämnas till insamling']],'path',w.path)}<div class="chain" id="path-picture"></div><p class="widget-result" id="path-result" role="status"></p>`;const draw=()=>{const c=w.path==='collect';el.querySelector('#path-picture').innerHTML=c?'<span>Batteri</span> → <span>Insamling</span> → <span>Hantering</span>':'<span>Skadat batteri</span> → <span>Mark / vatten</span> → <span>Organismer</span>';el.querySelector('#path-result').textContent=c?'Batteriinsamling hjälper oss att hantera batteriets ämnen och material. Då minskar risken att de sprids i naturen.':'Om batteriet skadas och läcker kan ämnen spridas med vatten. Vilken skada som kan uppstå beror på ämnen, mängd och exponering.';el.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.value===w.path)));};draw();el.querySelectorAll('button').forEach(b=>b.onclick=()=>{w.path=b.dataset.value;save();draw();});
  }
 }
-function plainReport(d=data){const lines=['KEMILABBET – PARARBETE ÅK 7','Prov: 3 december 2026',`Sparat: ${d.updatedAt||'ännu inte sparat'}`,''];for(const m of modules){const s=d.modules[m.id]||{};lines.push(`${m.id}. ${m.title} (${m.pages})`,`Mål: ${m.goal}`,`Första tanke: ${s.first||'[inte besvarat]'}`,`Uppgift: ${m.task}`,`Vår förklaring: ${s.answer||'[inte besvarat]'}`,`Självskattning: ${s.rating||'inte vald'}`,`Snabbkoll: ${s.checked?(s.choice===m.check.correct?'rätt efter kontroll':'behöver övas'):'inte kontrollerad'}`,`Exempelförklaring öppnad: ${s.exampleSeen?'ja':'nej'}`,`Markerat klart: ${s.done?'ja':'nej'}`,'');}lines.push('PRÖVA SJÄLV',`Elev A: ${d.exitA||'[inte besvarat]'}`,`Elev B: ${d.exitB||'[inte besvarat]'}`);return lines.join('\n');}
-function download(content,extension,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Kemilabbet_svar_${new Date().toLocaleDateString('sv-SE')}.${extension}`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function plainReport(d=data){const lines=['KEMINS GRUNDER (i) – ERA SVAR','Prov: 3 december 2026',`Sparat: ${d.updatedAt||'ännu inte sparat'}`,''];for(const m of modules){const s=d.modules[m.id]||{};lines.push(`${m.id}. ${m.title} (${m.pages})`,`Mål: ${m.goal}`,`Första tanke: ${s.first||'[inte besvarat]'}`,`Uppgift: ${m.task}`,`Vår förklaring: ${s.answer||'[inte besvarat]'}`,`Självskattning: ${s.rating||'inte vald'}`,`Snabbkoll: ${s.checked?(s.choice===m.check.correct?'rätt efter kontroll':'behöver övas'):'inte kontrollerad'}`,`Exempelförklaring öppnad: ${s.exampleSeen?'ja':'nej'}`,`Markerat klart: ${s.done?'ja':'nej'}`,'');}lines.push('PRÖVA SJÄLV',`Elev A: ${d.exitA||'[inte besvarat]'}`,`Elev B: ${d.exitB||'[inte besvarat]'}`);return lines.join('\n');}
+function download(content,extension,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Kemins_grunder_i_svar_${new Date().toLocaleDateString('sv-SE')}.${extension}`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function downloadJSON(){save();download(JSON.stringify(data,null,2),'json','application/json');notify('Svarsfilen laddas ned. Ni kan öppna den här nästa gång.');}
-async function restore(e){const file=e.target.files?.[0];if(!file)return;try{if(file.size>2e6)throw new Error('Filen är för stor. Välj en svarsfil under 2 MB.');const parsed=validate(JSON.parse(await file.text()));if(Object.values(data.modules).some(s=>s.first||s.answer)&&!confirm('Öppna filen och ersätta svaren i den här arbetsytan? Ladda ned nuvarande svar först om ni vill behålla dem.'))return;data=parsed;save();notify('Svarsfilen är öppnad.');render();}catch(error){notify(error instanceof SyntaxError?'Filen går inte att läsa som JSON. Välj en svarsfil från Kemilabbet.':error.message);}e.target.value='';}
-function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensamma förklaringar</span><span>Årskurs 7 · Kemi</span></div><h1>Vad har ni<br><em>kommit fram till?</em></h1><p class="lead">Läs igenom era svar tillsammans. Vad kan ni förklara nu? Vad vill ni öva på en gång till?</p><div class="export-grid"><section class="panel"><h2>Era sju områden</h2>${modules.map(m=>{const s=state(m.id);return `<article class="summary-module"><h3>${m.id}. ${escape(m.title)} <a href="#omrade-${m.id}" aria-label="Ändra svaret för ${escape(m.title)}">↗</a></h3><p class="tiny">Första tanke: ${escape(s.first||'Inte besvarat')}</p><p class="answer-text">${escape(s.answer||'Ni har inte skrivit en förklaring än.')}</p><p class="tiny">Självskattning: ${escape(s.rating||'inte vald')} · ${s.done?'Markerat klart':'Inte markerat klart'}</p></article>`;}).join('')}</section><div><section class="panel teal"><h2>Spara ert arbete</h2><p class="tiny">Spara en kopia när ni avslutar. Då kan ni fortsätta där ni slutade.</p><div class="actions"><button class="button" id="download-json">Spara svarsfil</button><button class="button secondary" id="copy-report">Kopiera svaren</button><button class="button secondary" id="download-text">Ladda ned som text</button><button class="button secondary" id="print-report">Skriv ut / spara som PDF</button></div><p class="tiny">Ni kan också kopiera sammanställningen som vanlig text.</p><p class="important-note">Arbeta två vid samma dator. Svarsfilen är er kopia av arbetet.</p><details class="hint"><summary>Visa kopierbar text</summary><label class="sr-only" for="report-text">Alla svar som kopierbar text</label><textarea id="report-text" class="export-preview" readonly>${escape(plainReport())}</textarea></details></section><section class="panel" style="margin-top:20px"><h3>Fortsätt med ett sparat arbete</h3><p class="tiny">Spara en svarsfil här. Öppna den på nästa dator med knappen nedanför.</p><div class="actions"><button id="restore-trigger" class="button small secondary">Öppna svarsfil</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden aria-label="Öppna svarsfil"><details class="hint"><summary>Börja ett nytt arbete</summary><p>Spara en kopia först om ni vill behålla era svar.</p><button class="button small secondary" id="new-work">Öppna en tom arbetsyta</button></details></section></div></div>
+async function restore(e){const file=e.target.files?.[0];if(!file)return;try{if(file.size>2e6)throw new Error('Filen är för stor. Välj en svarsfil under 2 MB.');const parsed=validate(JSON.parse(await file.text()));if(Object.values(data.modules).some(s=>s.first||s.answer)&&!confirm('Öppna filen och ersätta svaren i den här arbetsytan? Ladda ned nuvarande svar först om ni vill behålla dem.'))return;data=parsed;save();notify('Svarsfilen är öppnad.');render();}catch(error){notify(error instanceof SyntaxError?'Filen går inte att läsa som JSON. Välj en svarsfil från Kemins grunder (i).':error.message);}e.target.value='';}
+function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensamma förklaringar</span><span>Kemi · Sju områden</span></div><h1>Vad har ni<br><em>kommit fram till?</em></h1><p class="lead">Läs igenom era svar tillsammans. Vad kan ni förklara nu? Vad vill ni öva på en gång till?</p><div class="export-grid"><section class="panel"><h2>Era sju områden</h2>${modules.map(m=>{const s=state(m.id);return `<article class="summary-module"><h3>${m.id}. ${escape(m.title)} <a href="#omrade-${m.id}" aria-label="Ändra svaret för ${escape(m.title)}">↗</a></h3><p class="tiny">Första tanke: ${escape(s.first||'Inte besvarat')}</p><p class="answer-text">${escape(s.answer||'Ni har inte skrivit en förklaring än.')}</p><p class="tiny">Självskattning: ${escape(s.rating||'inte vald')} · ${s.done?'Markerat klart':'Inte markerat klart'}</p></article>`;}).join('')}</section><div><section class="panel teal"><h2>Spara ert arbete</h2><p class="tiny">Spara en kopia när ni avslutar. Då kan ni fortsätta där ni slutade.</p><div class="actions"><button class="button" id="download-json">Spara svarsfil</button><button class="button secondary" id="copy-report">Kopiera svaren</button><button class="button secondary" id="download-text">Ladda ned som text</button><button class="button secondary" id="print-report">Skriv ut / spara som PDF</button></div><p class="tiny">Ni kan också kopiera sammanställningen som vanlig text.</p><p class="important-note">Arbeta två vid samma dator. Svarsfilen är er kopia av arbetet.</p><details class="hint"><summary>Visa kopierbar text</summary><label class="sr-only" for="report-text">Alla svar som kopierbar text</label><textarea id="report-text" class="export-preview" readonly>${escape(plainReport())}</textarea></details></section><section class="panel" style="margin-top:20px"><h3>Fortsätt med ett sparat arbete</h3><p class="tiny">Spara en svarsfil här. Öppna den på nästa dator med knappen nedanför.</p><div class="actions"><button id="restore-trigger" class="button small secondary">Öppna svarsfil</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden aria-label="Öppna svarsfil"><details class="hint"><summary>Börja ett nytt arbete</summary><p>Spara en kopia först om ni vill behålla era svar.</p><button class="button small secondary" id="new-work">Öppna en tom arbetsyta</button></details></section></div></div>
  <section class="panel" style="margin-top:24px"><div class="field-heading">Pröva själva · arbeta var för sig</div><h2>Vad kan du förklara nu?</h2><p class="tiny">Välj en sak du nu kan förklara. Skriv din förklaring utan att läsa parets svar. Avsluta med något du fortfarande undrar över.</p><div class="exit-grid"><div><label for="exit-a">Elev A</label><textarea id="exit-a" maxlength="10000" placeholder="Nu kan jag förklara … Jag undrar fortfarande …">${escape(data.exitA)}</textarea></div><div><label for="exit-b">Elev B</label><textarea id="exit-b" maxlength="10000" placeholder="Nu kan jag förklara … Jag undrar fortfarande …">${escape(data.exitB)}</textarea></div></div><p class="tiny">Spara en ny kopia efter att ni skrivit era sista förklaringar.</p></section>`;
  for(const [id,key] of [['exit-a','exitA'],['exit-b','exitB']])document.querySelector('#'+id).oninput=e=>{data[key]=e.target.value;save();document.querySelector('#report-text').value=plainReport();};
  document.querySelector('#download-json').onclick=downloadJSON;document.querySelector('#download-text').onclick=()=>{save();download(plainReport(),'txt','text/plain;charset=utf-8');};document.querySelector('#print-report').onclick=()=>window.print();
@@ -5771,7 +5891,7 @@ function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensam
  document.querySelector('#new-work').onclick=()=>{if(!confirm('Börja ett nytt arbete? Spara era nuvarande svar först om ni vill behålla dem.'))return;data=fresh();save();location.hash='#omrade-1';};
 }
 function resolveRoute(hash){return /^#omrade-[1-7]$/.test(hash)||hash==='#svar'?hash:'#omrade-1';}
-function render(){document.querySelectorAll('video').forEach(video=>video.pause());cancelAnimationFrame(animation);const route=resolveRoute(location.hash);document.querySelectorAll('.step-link').forEach(a=>{const active=a.hash===route;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});document.querySelector('#student-link').classList.toggle('active',route!=='#svar');document.querySelector('#answers-link').classList.toggle('active',route==='#svar');const match=route.match(/^#omrade-([1-7])$/);if(match)moduleView(modules[Number(match[1])-1]);else reportView();updateProgress();document.title=(match?modules[Number(match[1])-1].title+' · ':'Era svar · ')+'Kemilabbet · Åk 7';window.scrollTo({top:0,behavior:'instant'});main.classList.remove('chapter-enter');requestAnimationFrame(()=>main.classList.add('chapter-enter'));applyTextRendering(document.body);}
+function render(){document.querySelectorAll('video').forEach(video=>video.pause());cancelAnimationFrame(animation);const route=resolveRoute(location.hash);document.querySelectorAll('.step-link').forEach(a=>{const active=a.hash===route;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});document.querySelector('#student-link').classList.toggle('active',route!=='#svar');document.querySelector('#answers-link').classList.toggle('active',route==='#svar');const match=route.match(/^#omrade-([1-7])$/);if(match)moduleView(modules[Number(match[1])-1]);else reportView();updateProgress();document.title=(match?modules[Number(match[1])-1].title+' · ':'Era svar · ')+'Kemins grunder (i)';window.scrollTo({top:0,behavior:'instant'});main.classList.remove('chapter-enter');requestAnimationFrame(()=>main.classList.add('chapter-enter'));applyTextRendering(document.body);}
 document.querySelector('#module-nav').addEventListener('click',e=>{const link=e.target.closest('a[data-step]');if(link&&link.hash===location.hash){e.preventDefault();moduleView(modules[Number(link.dataset.step)-1]);applyTextRendering(main);window.scrollTo({top:0,behavior:'instant'});}});
 main.addEventListener('click',()=>queueMicrotask(()=>applyTextRendering(main)));
 main.addEventListener('change',()=>queueMicrotask(()=>applyTextRendering(main)));

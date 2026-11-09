@@ -74,3 +74,32 @@ math{font-family:LMMath,LMRoman,serif;font-size:1.06em;line-height:normal}
 math[display=block]{margin:1em 0;overflow-x:auto;overflow-y:hidden}
 .latex-prose .math.inline{white-space:nowrap}
 @media(max-width:600px){.explanation,.chapter-explanation,.deep-reading,.task,.reading-section p{font-size:17px}.step-link{font-size:13px}}
+
+/* Detailed study illustrations and source-attributed environmental pictures. */
+.study-gallery,.environment-gallery{margin:46px 0 52px;padding-top:34px;border-top:1px solid var(--line)}
+.study-gallery>h2,.environment-gallery>h2{font-size:clamp(28px,3vw,39px);margin-bottom:15px}
+.gallery-intro{max-width:760px;color:var(--muted);font-size:17px;line-height:1.75}
+.study-drawings{display:grid;gap:26px;margin-top:28px}
+.study-drawing{margin:0;background:var(--white);border:1px solid var(--line);overflow:hidden}
+.study-drawing-heading{display:flex;align-items:center;gap:16px;padding:22px 24px;border-bottom:1px solid #e6eae2}
+.drawing-index{font-size:12px;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid #b9d5ca;border-radius:50%;color:var(--teal);flex:none}
+.study-drawing-heading h3{font-size:22px;margin:0;line-height:1.3;flex:1}
+.study-drawing-heading button{flex:none;font-size:12px}
+.study-drawing>img{width:100%;display:block;background:#fffefa;padding:14px 10px}
+.study-drawing figcaption{padding:20px 26px 24px;border-top:1px solid #e6eae2;font-size:16px;line-height:1.75}
+.study-drawing figcaption>p{max-width:900px}
+.picture-question{margin:15px 0 12px;padding:14px 18px;background:var(--teal-pale);border-left:3px solid var(--teal);font-size:16px;line-height:1.7}
+.diagram-source{font-size:12px}
+.environment-picture{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:0;margin:30px 0;background:var(--white);border:1px solid var(--line)}
+.environment-image-wrap{position:relative;align-self:start;padding:22px;background:#eef2e9}
+.environment-image-wrap img{display:block;width:100%;max-height:520px;object-fit:contain;margin:auto}
+.picture-zoom{display:block;margin:18px auto 0;background:transparent;border:1px solid #9cbab0;padding:7px 15px;color:var(--teal);font-size:13px;border-radius:3px}
+.environment-picture figcaption{padding:26px;min-width:0}
+.environment-picture h3{font-size:26px;line-height:1.2;margin:15px 0 18px}
+.environment-picture figcaption>p{font-size:16px;line-height:1.75}
+.environment-picture .picture-credit,.environment-picture .fact-credit{font-size:11px;color:var(--muted);line-height:1.6;overflow-wrap:anywhere;margin:12px 0 0}
+.study-dialog img{max-height:none!important;object-fit:contain}
+.study-dialog .diagram-dialog-heading{position:sticky;top:0;background:var(--white);z-index:1}
+@media(max-width:900px){.environment-picture{grid-template-columns:1fr}.environment-image-wrap img{max-height:470px}.study-drawing-heading{flex-wrap:wrap;padding:18px}.study-drawing-heading h3{font-size:20px}.study-drawing-heading button{margin-left:50px}.study-drawing figcaption{padding:18px}.topbar .brand{font-size:20px}}
+@media(max-width:560px){.topbar .brand{font-size:17px;gap:8px}.topbar .brandmark{width:32px;height:32px}.study-drawing-heading{gap:11px}.drawing-index{width:29px;height:29px}.study-drawing-heading button{margin-left:40px}.environment-picture figcaption{padding:20px}.environment-gallery,.study-gallery{margin-top:30px}.picture-question{padding:12px}}
+@media print{.study-drawing,.environment-picture{break-inside:avoid}.picture-zoom,.diagram-source,.study-drawing-heading button{display:none}}

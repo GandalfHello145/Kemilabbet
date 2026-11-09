@@ -1,0 +1,86 @@
+[
+  {
+    "module": 1,
+    "file": "assets/films/v2/01-atomer.mp4",
+    "poster": "assets/posters/v2/01-atomer.jpg",
+    "captions": "assets/captions/v2/01-atomer.vtt",
+    "duration": 86.6,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 2,
+    "file": "assets/films/v2/02-modeller.mp4",
+    "poster": "assets/posters/v2/02-modeller.jpg",
+    "captions": "assets/captions/v2/02-modeller.vtt",
+    "duration": 88.5,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 3,
+    "file": "assets/films/v2/03-elektroner.mp4",
+    "poster": "assets/posters/v2/03-elektroner.jpg",
+    "captions": "assets/captions/v2/03-elektroner.vtt",
+    "duration": 90.6,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 4,
+    "file": "assets/films/v2/04-forandringar.mp4",
+    "poster": "assets/posters/v2/04-forandringar.jpg",
+    "captions": "assets/captions/v2/04-forandringar.vtt",
+    "duration": 88.0,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 5,
+    "file": "assets/films/v2/05-egenskaper.mp4",
+    "poster": "assets/posters/v2/05-egenskaper.jpg",
+    "captions": "assets/captions/v2/05-egenskaper.vtt",
+    "duration": 88.8,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 6,
+    "file": "assets/films/v2/06-faser.mp4",
+    "poster": "assets/posters/v2/06-faser.jpg",
+    "captions": "assets/captions/v2/06-faser.vtt",
+    "duration": 86.2,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  },
+  {
+    "module": 7,
+    "file": "assets/films/v2/07-miljo.mp4",
+    "poster": "assets/posters/v2/07-miljo.jpg",
+    "captions": "assets/captions/v2/07-miljo.vtt",
+    "duration": 89.7,
+    "width": 1280,
+    "height": 720,
+    "fps": 30,
+    "audio": true,
+    "text": "LaTeX Tex/MathTex"
+  }
+]
