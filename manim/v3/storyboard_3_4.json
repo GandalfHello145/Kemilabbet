@@ -1,0 +1,154 @@
+[
+  {
+    "scene": "ElectronMaster",
+    "beats": [
+      {
+        "title": "Hur kan en neutral atom bli laddad?",
+        "explanation": "En atom kan bli en jon om antalet elektroner ändras. Vi följer samma natriumatom hela vägen och räknar vad som händer.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Plus och minus kan ta ut varandra",
+        "explanation": "Protonerna har positiv laddning och elektronerna negativ. I en neutral natriumatom finns elva protoner och elva elektroner. Då är den sammanlagda laddningen noll.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Skalen är en förenklad skolmodell",
+        "explanation": "Skalbilden hjälper oss att hålla reda på elektronerna. Den visar inte små planeter som går i bestämda banor. Natrium har fördelningen två, åtta och en.",
+        "target_seconds": 16
+      },
+      {
+        "title": "En elektron lämnar -- kärnan finns kvar",
+        "explanation": "Om natriumatomen lämnar ifrån sig en elektron finns fortfarande elva protoner kvar. Nu finns bara tio elektroner. Elva minus tio ger laddningen plus ett.",
+        "target_seconds": 16
+      },
+      {
+        "title": "En extra elektron ger negativ laddning",
+        "explanation": "En kloratom har sjutton protoner. När den tar upp en elektron får den arton elektroner. Kärnan är oförändrad, men jonen får laddningen minus ett.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Följ överföringen mellan två atomer",
+        "explanation": "Här följer vi en elektron från natrium till klor. Pilen är ett sätt att visa överföringen, inte en uppmätt elektronbana. Atomerna blir en positiv och en negativ jon.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Olika laddningar attraherar varandra",
+        "explanation": "Den positiva natriumjonen och den negativa kloridjonen dras till varandra. Den elektriska attraktionen är viktig för jonbindning. Två likadant laddade joner stöter i stället bort varandra.",
+        "target_seconds": 16
+      },
+      {
+        "title": "I saltkristallen finns ett helt jongitter",
+        "explanation": "Fast natriumklorid består av många positiva och negativa joner i ett regelbundet mönster. En jon påverkas av flera grannar. Det är inte en samling fristående NaCl-molekyler.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Saltet är neutralt som helhet",
+        "explanation": "Varje natriumjon har laddningen plus ett och varje kloridjon minus ett. I vanligt natriumklorid finns lika många av båda. Då tar laddningarna ut varandra i kristallen som helhet.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Atomer kan också dela på elektroner",
+        "explanation": "Jonbindning är inte det enda sättet att binda atomer. Två väteatomer kan i stället dela på ett elektronpar. Elektronerna bidrar då till att hålla de två atomkärnorna ihop.",
+        "target_seconds": 16
+      },
+      {
+        "title": "En bindning håller ihop en molekyl",
+        "explanation": "Vätgas består av H₂-molekyler. Kulorna är en modell av atomerna och pinnen visar en bindning. När modellen vrids följer vi fortfarande samma två väteatomer.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Lagom avstånd i en stabil bindning",
+        "explanation": "I den här förenklade bilden visar kurvans dal ett stabilt avstånd. Atomerna kan röra sig kring det avståndet. Kurvan är en tankemodell, inte uppmätta värden för en viss molekyl.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Överföring och delning är olika modeller",
+        "explanation": "Vid jonbildning kan elektroner överföras och laddade joner bildas. I en elektronparbindning delar atomer på elektroner. I båda fallen deltar elektronerna; atomkärnornas protonantal ändras inte.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Pröva resonemanget på en ny jon",
+        "explanation": "En partikel har tolv protoner och tio elektroner. Räkna plus och minus. Vad är laddningen? Förklara också varför elektronerna kan ändra laddningen utan att atomslaget byts.",
+        "target_seconds": 16
+      }
+    ],
+    "inspiration": "Persistent objects, progressive construction and dimensional comparison; original code after studying 3b1b/videos adding_waves.py and block_collision_scenes.py."
+  },
+  {
+    "scene": "ReactionMaster",
+    "beats": [
+      {
+        "title": "Byter ämnet form, eller bildas ett nytt ämne?",
+        "explanation": "Is smälter, vatten kokar och kol kan reagera med syrgas. Allt förändras, men på olika sätt. Vi går från det vi kan se till en modell av partiklarna.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Is och flytande vatten: samma molekyler",
+        "explanation": "Vi följer sex vattenmolekyler. I is har de bestämda platser och vibrerar. När isen smälter kan molekylerna röra sig förbi varandra. Vattenmolekylerna finns kvar.",
+        "target_seconds": 16
+      },
+      {
+        "title": "I gas finns större avstånd mellan molekylerna",
+        "explanation": "När vattnet blir gas kan molekylerna röra sig fritt och är i genomsnitt längre från varandra. Molekylerna blir inte större och delas inte upp till H- och O-atomer.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Bindningarna inuti $\\mathrm H_2\\mathrm O$ finns kvar när is smälter",
+        "explanation": "Pinnarna i kulmodellen visar bindningar inuti vattenmolekylen. När is smälter är det främst ordningen och samspelet mellan molekyler som ändras, inte vilka atomer som bygger varje H₂O.",
+        "target_seconds": 16
+      },
+      {
+        "title": "En kemisk reaktion börjar med ämnen",
+        "explanation": "Här finns två vätemolekyler och en syrgasmolekyl. Modellen visar fyra H-atomer och två O-atomer. Nu ska vi hålla reda på varje atom när bindningarna förändras.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Atomerna ordnas om till nya molekyler",
+        "explanation": "Bindningar bryts och andra bindningar bildas. Samma sex atomer ordnas här till två vattenmolekyler. Banorna är ritade för att hjälpa oss att följa atomerna; detta är ingen instruktion till ett försök.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Reaktionsformeln måste stämma med atomerna",
+        "explanation": "Tvåan framför en formel räknar hela molekyler. Den lilla tvåan i H₂ räknar H-atomer i varje molekyl. På båda sidor måste antalet atomer av varje slag vara lika.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Samma princip gäller när kol reagerar med syre",
+        "explanation": "Kol kan reagera med syrgas och bilda koldioxid. En C-atom och två O-atomer blir en CO₂-molekyl. Det nya ämnet har andra egenskaper, men atomslagen och atomantalet finns kvar.",
+        "target_seconds": 16
+      },
+      {
+        "title": "En reaktion kan ta upp och ge ifrån sig energi",
+        "explanation": "När bindningar förändras deltar energi. I det här förenklade exemplet behöver reaktionen först komma i gång och ger sedan energi till omgivningen. Alla reaktioner har inte samma energiförändring.",
+        "target_seconds": 16
+      },
+      {
+        "title": "I ett slutet system finns all materia kvar",
+        "explanation": "Nu väger vi en stängd behållare tillsammans med allt innehåll. Partiklarna kan röra sig och ämnen kan reagera, men ingen materia passerar genom gränsen. Den totala massan är då densamma.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Öppna gränsen -- följ gasen som lämnar",
+        "explanation": "Om gas lämnar en öppen behållare kan vågen visa mindre massa. Materian har inte försvunnit; en del finns nu utanför det vi väger. Siffrorna är ett tänkt exempel, inte mätningar.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Bubblor är en ledtråd -- inte ensamma ett bevis",
+        "explanation": "Bubblor kan vara vattenånga när vatten kokar. Bubblor kan också vara en ny gas som bildas i en kemisk reaktion. För att avgöra vad som hänt måste vi undersöka vilka ämnen som finns.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Färg och temperatur behöver också förklaras",
+        "explanation": "En färg kan förändras när färgämnen blandas utan att nya ämnen bildas. Temperatur kan ändras både genom uppvärmning och genom reaktioner. Beskriv först vad ni ser och pröva sedan en förklaring.",
+        "target_seconds": 16
+      },
+      {
+        "title": "Bygg en förklaring som håller ihop",
+        "explanation": "Fråga om samma ämne finns kvar eller om nya ämnen har bildats. Följ atomerna och håll reda på systemets gräns. Förklara sedan skillnaden mellan en fysisk förändring och en kemisk reaktion.",
+        "target_seconds": 16
+      }
+    ],
+    "inspiration": "Persistent objects, progressive construction and dimensional comparison; original code after studying 3b1b/videos adding_waves.py and block_collision_scenes.py."
+  }
+]

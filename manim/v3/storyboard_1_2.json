@@ -1,0 +1,146 @@
+{
+  "AtomMaster": [
+    {
+      "seconds": 16,
+      "title": "Från en droppe till byggstenarna",
+      "action": "Ett vardagsföremål blir ett prov; kameran följer en markerad molekyl in i modellen."
+    },
+    {
+      "seconds": 16,
+      "title": "Bokstaven visar atomslaget",
+      "action": "H och O sorteras i två familjer; samma atom följs mellan bild, namn och bokstav."
+    },
+    {
+      "seconds": 16,
+      "title": "En molekyl byggs av bundna atomer",
+      "action": "Två H och en O möts på kurvade banor; bindningar följer ändpunkterna och molekylen stabiliseras."
+    },
+    {
+      "seconds": 16,
+      "title": "Två sätt att räkna",
+      "action": "Tre atomer följs av räkningsringar, sedan samlas färgerna i två atomslagsgrupper."
+    },
+    {
+      "seconds": 14,
+      "title": "Den lilla tvåan hör till H",
+      "action": "Formeln byggs från de synliga atomerna med färgkodade länkar och ledtrådar."
+    },
+    {
+      "seconds": 18,
+      "title": "Siffran framför räknar hela molekyler",
+      "action": "En molekyl kopieras till två och tre; separata räknare följer molekyler, H och O."
+    },
+    {
+      "seconds": 20,
+      "title": "Molekyl betyder inte alltid förening",
+      "action": "O2 och H2O jämförs genom elementfamiljer, bindningar och etiketter."
+    },
+    {
+      "seconds": 18,
+      "title": "En blandning har flera ämnen",
+      "action": "O2 och H2O rör sig utan att byta bindningar; sortering visar två ämnen i samma prov."
+    },
+    {
+      "seconds": 16,
+      "title": "Ett rent ämne kan vara en förening",
+      "action": "Vattenmolekyler samlas till ett prov; olika atomslag men endast ett ämne."
+    },
+    {
+      "seconds": 18,
+      "title": "Vi vrider modellen i tre dimensioner",
+      "action": "3D kamera visar samma böjda vattenmolekyl; modellens färger och skala diskuteras."
+    },
+    {
+      "seconds": 16,
+      "title": "Samma molekyl i olika faser",
+      "action": "Sex lika stora vattenmolekyler ändrar avstånd och rörelsemönster; identiteten bevaras."
+    },
+    {
+      "seconds": 18,
+      "title": "Atomerna kan få nya grannar",
+      "action": "H2/O2 blir H2O med samma fyra H och två O genom en explicit balanserad omordning."
+    },
+    {
+      "seconds": 18,
+      "title": "Pröva skillnaden mellan två siffror",
+      "action": "4H2O och H4O jämförs som symboler; rätt antal härleds genom fyra hela molekyler."
+    },
+    {
+      "seconds": 18,
+      "title": "Knyt ihop bild, formel och ord",
+      "action": "En droppe, en 3D molekyl och H2O förs samman med tre slutfrågor och svar."
+    }
+  ],
+  "ModelMaster": [
+    {
+      "seconds": 15,
+      "title": "Hur kan vi veta något så litet?",
+      "action": "Observationer, modell och ny prövning bildar en rörlig förklaringsloop."
+    },
+    {
+      "seconds": 15,
+      "title": "Daltons kulmodell",
+      "action": "Olika atomslag visas som hela kulor; begränsningen ingen inre struktur markeras."
+    },
+    {
+      "seconds": 16,
+      "title": "En upptäckt kräver mindre delar",
+      "action": "En katodstråle böjs mot en positiv platta; negativ elektron identifieras."
+    },
+    {
+      "seconds": 16,
+      "title": "Thomsons russinkaka",
+      "action": "Negativa elektroner placeras i utspridd positiv laddning; ingen liten kärna finns."
+    },
+    {
+      "seconds": 17,
+      "title": "Rikta en stråle mot guldfolie",
+      "action": "Alfapartiklar, tunn folie och detektor byggs upp stegvis i en tydlig rumslig modell."
+    },
+    {
+      "seconds": 18,
+      "title": "Förväntning möter observation",
+      "action": "Många raka utvalda banor jämförs med få stora avböjningar; ingen statistisk fördelning påstås."
+    },
+    {
+      "seconds": 17,
+      "title": "Varför kan en partikel vända?",
+      "action": "Kameran följer en positiv partikel nära en positiv kärna; repulsionspilar och spår förklarar."
+    },
+    {
+      "seconds": 18,
+      "title": "En mycket liten kärna",
+      "action": "Atomens volym och kärnans storlek separeras; zoom visar att figuren inte är skalenlig."
+    },
+    {
+      "seconds": 20,
+      "title": "Solsystemet hjälper oss att jämföra",
+      "action": "Sol/planet och kärna/elektron animeras samtidigt i3D, tydligt som en historisk liknelse."
+    },
+    {
+      "seconds": 16,
+      "title": "Här slutar liknelsen",
+      "action": "Gravitation och elektrisk attraktion skiljs åt; bestämda planetbanor stryks i dagens atommodell."
+    },
+    {
+      "seconds": 18,
+      "title": "Bohrs idé: bestämda energier",
+      "action": "En energistege kopplas till skal, absorption och en emitterad ljuspuls utan krav på avancerad formel."
+    },
+    {
+      "seconds": 19,
+      "title": "Moln är sannolikhet, inte rök",
+      "action": "Provtagna prickar bygger ett elektronmoln, ingen enskild känd elektronbana ritas."
+    },
+    {
+      "seconds": 17,
+      "title": "Modellen måste passa försöken",
+      "action": "Tidslinjens modeller kopplas tillbaka till olika observationer, med tydliga begränsningar."
+    },
+    {
+      "seconds": 18,
+      "title": "Berätta hur en modell förändras",
+      "action": "Tre elevfrågor om positiv laddning, guldfolie och solsystemsliknelsens gräns avslutar."
+    }
+  ]
+}

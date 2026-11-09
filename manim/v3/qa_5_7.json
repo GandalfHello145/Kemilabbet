@@ -1,0 +1,44 @@
+{
+  "5": {
+    "file": "work/v3-render-05/videos/scenes_5_7/1080p30/MaterialMaster.mp4",
+    "frames": 7738,
+    "duration_seconds": 257.91901,
+    "width": 1920,
+    "height": 1080,
+    "fps": "29713920/990409",
+    "untouched_frames_identical": {
+      "30": true,
+      "90": true,
+      "170": true,
+      "240": true
+    }
+  },
+  "6": {
+    "file": "work/v3-render-06/videos/scenes_5_7/1080p30/PhaseMaster.mp4",
+    "frames": 7900,
+    "duration_seconds": 263.320964,
+    "width": 1920,
+    "height": 1080,
+    "fps": "12134400/404461",
+    "untouched_frames_identical": {
+      "30": true,
+      "90": true,
+      "170": true,
+      "250": true
+    }
+  },
+  "7": {
+    "file": "work/v3-render-07/videos/scenes_5_7/1080p30/EnvironmentMaster.mp4",
+    "frames": 8255,
+    "duration_seconds": 275.154948,
+    "width": 1920,
+    "height": 1080,
+    "fps": "6339840/211319",
+    "untouched_frames_identical": {
+      "30": true,
+      "90": true,
+      "210": true,
+      "250": true
+    }
+  }
+}

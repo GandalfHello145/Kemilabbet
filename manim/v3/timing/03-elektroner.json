@@ -1,0 +1,120 @@
+{
+  "duration": 241.6333333333224,
+  "animation_seconds": 221.83333333332308,
+  "wait_seconds": 19.799999999999315,
+  "animation_calls": 130,
+  "beats": [
+    {
+      "title": "Hur kan en neutral atom bli laddad?",
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "animation_seconds": 14.466666666666622,
+      "wait_seconds": 1.5666666666667162,
+      "automatic_reading_hold": 1.5333333333333776
+    },
+    {
+      "title": "Plus och minus kan ta ut varandra",
+      "start": 17.70000000000004,
+      "end": 33.70000000000065,
+      "animation_seconds": 13.566666666667341,
+      "wait_seconds": 2.4333333333332696,
+      "automatic_reading_hold": 2.4333333333326586
+    },
+    {
+      "title": "Skalen är en förenklad skolmodell",
+      "start": 34.36666666666728,
+      "end": 50.3999999999997,
+      "animation_seconds": 15.166666666665805,
+      "wait_seconds": 0.8666666666666174,
+      "automatic_reading_hold": 0.8333333333341955
+    },
+    {
+      "title": "En elektron lämnar -- kärnan finns kvar",
+      "start": 51.06666666666633,
+      "end": 67.09999999999876,
+      "animation_seconds": 15.066666666665817,
+      "wait_seconds": 0.9666666666666117,
+      "automatic_reading_hold": 0.9333333333341827
+    },
+    {
+      "title": "En extra elektron ger negativ laddning",
+      "start": 67.76666666666539,
+      "end": 83.79999999999781,
+      "animation_seconds": 15.466666666665787,
+      "wait_seconds": 0.5666666666666345,
+      "automatic_reading_hold": 0.5333333333342125
+    },
+    {
+      "title": "Följ överföringen mellan två atomer",
+      "start": 84.46666666666444,
+      "end": 100.49999999999686,
+      "animation_seconds": 14.766666666665827,
+      "wait_seconds": 1.2666666666665947,
+      "automatic_reading_hold": 1.2333333333341727
+    },
+    {
+      "title": "Olika laddningar attraherar varandra",
+      "start": 101.16666666666349,
+      "end": 117.19999999999591,
+      "animation_seconds": 14.466666666665844,
+      "wait_seconds": 1.5666666666665776,
+      "automatic_reading_hold": 1.5333333333341557
+    },
+    {
+      "title": "I saltkristallen finns ett helt jongitter",
+      "start": 117.86666666666254,
+      "end": 133.89999999999498,
+      "animation_seconds": 15.066666666665824,
+      "wait_seconds": 0.9666666666666117,
+      "automatic_reading_hold": 0.9333333333341756
+    },
+    {
+      "title": "Saltet är neutralt som helhet",
+      "start": 134.5666666666616,
+      "end": 150.59999999999403,
+      "animation_seconds": 14.666666666665819,
+      "wait_seconds": 1.366666666666589,
+      "automatic_reading_hold": 1.333333333334167
+    },
+    {
+      "title": "Atomer kan också dela på elektroner",
+      "start": 151.26666666666065,
+      "end": 167.29999999999308,
+      "animation_seconds": 14.966666666665816,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.033333333334184
+    },
+    {
+      "title": "En bindning håller ihop en molekyl",
+      "start": 167.9666666666597,
+      "end": 183.99999999999213,
+      "animation_seconds": 15.76666666666577,
+      "wait_seconds": 0.2666666666666515,
+      "automatic_reading_hold": 0.23333333333422956
+    },
+    {
+      "title": "Lagom avstånd i en stabil bindning",
+      "start": 184.66666666665876,
+      "end": 200.69999999999118,
+      "animation_seconds": 15.266666666665799,
+      "wait_seconds": 0.7666666666666231,
+      "automatic_reading_hold": 0.7333333333342011
+    },
+    {
+      "title": "Överföring och delning är olika modeller",
+      "start": 201.3666666666578,
+      "end": 217.39999999999023,
+      "animation_seconds": 14.566666666665839,
+      "wait_seconds": 1.4666666666665833,
+      "automatic_reading_hold": 1.4333333333341614
+    },
+    {
+      "title": "Pröva resonemanget på en ny jon",
+      "start": 218.06666666665686,
+      "end": 234.09999999998928,
+      "animation_seconds": 15.366666666665793,
+      "wait_seconds": 0.6666666666666288,
+      "automatic_reading_hold": 0.6333333333342068
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "duration": 257.6333333333215,
+  "animation_seconds": 232.13333333332253,
+  "wait_seconds": 25.49999999999897,
+  "animation_calls": 129,
+  "beats": [
+    {
+      "title": "Hur undersöker vi något vi inte ser direkt?",
+      "start": 0.9999999999999999,
+      "end": 16.03333333333329,
+      "animation_seconds": 13.866666666666625,
+      "wait_seconds": 1.1666666666666643,
+      "automatic_reading_hold": 1.1333333333333755
+    },
+    {
+      "title": "Dalton: atomer som hela kulor",
+      "start": 16.69999999999999,
+      "end": 31.700000000000735,
+      "animation_seconds": 13.866666666667356,
+      "wait_seconds": 1.1333333333333897,
+      "automatic_reading_hold": 1.1333333333326436
+    },
+    {
+      "title": "Elektronen visar att atomen har mindre delar",
+      "start": 32.36666666666739,
+      "end": 48.399999999999814,
+      "animation_seconds": 14.466666666665844,
+      "wait_seconds": 1.5666666666665776,
+      "automatic_reading_hold": 1.5333333333341557
+    },
+    {
+      "title": "Thomson: russin i en positiv kaka",
+      "start": 49.06666666666644,
+      "end": 65.09999999999887,
+      "animation_seconds": 14.36666666666585,
+      "wait_seconds": 1.666666666666579,
+      "automatic_reading_hold": 1.63333333333415
+    },
+    {
+      "title": "Ett försök med tunn guldfolie",
+      "start": 65.7666666666655,
+      "end": 82.79999999999787,
+      "animation_seconds": 15.566666666665789,
+      "wait_seconds": 1.4666666666665833,
+      "automatic_reading_hold": 1.4333333333342182
+    },
+    {
+      "title": "De flesta gick rakt, några böjdes kraftigt",
+      "start": 83.4666666666645,
+      "end": 101.4999999999968,
+      "animation_seconds": 16.766666666665714,
+      "wait_seconds": 1.2666666666665947,
+      "automatic_reading_hold": 1.2333333333342864
+    },
+    {
+      "title": "Positivt och positivt stöter bort varandra",
+      "start": 102.16666666666343,
+      "end": 119.1999999999958,
+      "animation_seconds": 15.266666666665799,
+      "wait_seconds": 1.7666666666665662,
+      "automatic_reading_hold": 1.7333333333342011
+    },
+    {
+      "title": "Slutsatsen: en mycket liten positiv kärna",
+      "start": 119.86666666666243,
+      "end": 137.89999999999475,
+      "animation_seconds": 16.36666666666575,
+      "wait_seconds": 1.666666666666572,
+      "automatic_reading_hold": 1.6333333333342495
+    },
+    {
+      "title": "En solsystemsliknelse -- som jämförelse",
+      "start": 138.56666666666138,
+      "end": 158.59999999999357,
+      "animation_seconds": 19.266666666665557,
+      "wait_seconds": 0.7666666666666231,
+      "automatic_reading_hold": 0.7333333333344285
+    },
+    {
+      "title": "Här slutar solsystemsliknelsen",
+      "start": 159.2666666666602,
+      "end": 175.29999999999262,
+      "animation_seconds": 13.466666666665901,
+      "wait_seconds": 2.5666666666665208,
+      "automatic_reading_hold": 2.533333333334099
+    },
+    {
+      "title": "Bohr: elektronen kan ha bestämda energier",
+      "start": 175.96666666665925,
+      "end": 193.99999999999156,
+      "animation_seconds": 16.066666666665753,
+      "wait_seconds": 1.9666666666665549,
+      "automatic_reading_hold": 1.9333333333342466
+    },
+    {
+      "title": "Elektronmolnet visar sannolikhet",
+      "start": 194.6666666666582,
+      "end": 213.69999999999044,
+      "animation_seconds": 17.16666666666569,
+      "wait_seconds": 1.8666666666665606,
+      "automatic_reading_hold": 1.8333333333343091
+    },
+    {
+      "title": "En modell måste passa det vi undersöker",
+      "start": 214.36666666665707,
+      "end": 231.39999999998943,
+      "animation_seconds": 15.266666666665799,
+      "wait_seconds": 1.7666666666665662,
+      "automatic_reading_hold": 1.7333333333342011
+    },
+    {
+      "title": "Kan ni förklara modellens förändring?",
+      "start": 232.06666666665606,
+      "end": 250.09999999998837,
+      "animation_seconds": 17.16666666666569,
+      "wait_seconds": 0.8666666666666174,
+      "automatic_reading_hold": 0.8333333333343091
+    }
+  ]
+}

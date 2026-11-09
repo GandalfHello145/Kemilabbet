@@ -1,0 +1,120 @@
+{
+  "duration": 241.13333333332244,
+  "animation_seconds": 230.96666666665604,
+  "wait_seconds": 10.166666666666398,
+  "animation_calls": 135,
+  "beats": [
+    {
+      "title": "Byter ämnet form, eller bildas ett nytt ämne?",
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "animation_seconds": 15.266666666666634,
+      "wait_seconds": 0.7666666666667048,
+      "automatic_reading_hold": 0.7333333333333663
+    },
+    {
+      "title": "Is och flytande vatten: samma molekyler",
+      "start": 17.70000000000004,
+      "end": 33.70000000000065,
+      "animation_seconds": 15.166666666667329,
+      "wait_seconds": 0.833333333333286,
+      "automatic_reading_hold": 0.8333333333326749
+    },
+    {
+      "title": "I gas finns större avstånd mellan molekylerna",
+      "start": 34.36666666666728,
+      "end": 50.3999999999997,
+      "animation_seconds": 15.76666666666577,
+      "wait_seconds": 0.2666666666666515,
+      "automatic_reading_hold": 0.23333333333422956
+    },
+    {
+      "title": "Bindningarna inuti $\\mathrm H_2\\mathrm O$ finns kvar när is smälter",
+      "start": 51.06666666666633,
+      "end": 67.13333333333209,
+      "animation_seconds": 16.066666666665768,
+      "wait_seconds": 0.0,
+      "automatic_reading_hold": 0
+    },
+    {
+      "title": "En kemisk reaktion börjar med ämnen",
+      "start": 67.79999999999872,
+      "end": 83.83333333333114,
+      "animation_seconds": 15.266666666665799,
+      "wait_seconds": 0.7666666666666231,
+      "automatic_reading_hold": 0.7333333333342011
+    },
+    {
+      "title": "Atomerna ordnas om till nya molekyler",
+      "start": 83.83333333333114,
+      "end": 99.86666666666356,
+      "animation_seconds": 15.466666666665787,
+      "wait_seconds": 0.5666666666666345,
+      "automatic_reading_hold": 0.5333333333342125
+    },
+    {
+      "title": "Reaktionsformeln måste stämma med atomerna",
+      "start": 100.53333333333019,
+      "end": 116.56666666666261,
+      "animation_seconds": 15.566666666665782,
+      "wait_seconds": 0.46666666666664014,
+      "automatic_reading_hold": 0.4333333333342182
+    },
+    {
+      "title": "Samma princip gäller när kol reagerar med syre",
+      "start": 117.23333333332924,
+      "end": 133.26666666666168,
+      "animation_seconds": 15.666666666665776,
+      "wait_seconds": 0.3666666666666458,
+      "automatic_reading_hold": 0.33333333333420967
+    },
+    {
+      "title": "En reaktion kan ta upp och ge ifrån sig energi",
+      "start": 133.9333333333283,
+      "end": 149.96666666666073,
+      "animation_seconds": 15.866666666665765,
+      "wait_seconds": 0.1666666666666572,
+      "automatic_reading_hold": 0.13333333333423525
+    },
+    {
+      "title": "I ett slutet system finns all materia kvar",
+      "start": 150.63333333332736,
+      "end": 166.66666666665978,
+      "animation_seconds": 15.666666666665776,
+      "wait_seconds": 0.3666666666666458,
+      "automatic_reading_hold": 0.3333333333342239
+    },
+    {
+      "title": "Öppna gränsen -- följ gasen som lämnar",
+      "start": 167.3333333333264,
+      "end": 183.36666666665883,
+      "animation_seconds": 14.866666666665822,
+      "wait_seconds": 1.1666666666666003,
+      "automatic_reading_hold": 1.1333333333341784
+    },
+    {
+      "title": "Bubblor är en ledtråd -- inte ensamma ett bevis",
+      "start": 184.03333333332546,
+      "end": 200.06666666665788,
+      "animation_seconds": 15.76666666666577,
+      "wait_seconds": 0.2666666666666515,
+      "automatic_reading_hold": 0.23333333333422956
+    },
+    {
+      "title": "Färg och temperatur behöver också förklaras",
+      "start": 200.7333333333245,
+      "end": 216.89999999999026,
+      "animation_seconds": 16.166666666665748,
+      "wait_seconds": 0.0,
+      "automatic_reading_hold": 0
+    },
+    {
+      "title": "Bygg en förklaring som håller ihop",
+      "start": 217.5666666666569,
+      "end": 233.5999999999893,
+      "animation_seconds": 15.866666666665765,
+      "wait_seconds": 0.1666666666666572,
+      "automatic_reading_hold": 0.13333333333423525
+    }
+  ]
+}

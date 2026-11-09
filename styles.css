@@ -103,3 +103,14 @@ math[display=block]{margin:1em 0;overflow-x:auto;overflow-y:hidden}
 @media(max-width:900px){.environment-picture{grid-template-columns:1fr}.environment-image-wrap img{max-height:470px}.study-drawing-heading{flex-wrap:wrap;padding:18px}.study-drawing-heading h3{font-size:20px}.study-drawing-heading button{margin-left:50px}.study-drawing figcaption{padding:18px}.topbar .brand{font-size:20px}}
 @media(max-width:560px){.topbar .brand{font-size:17px;gap:8px}.topbar .brandmark{width:32px;height:32px}.study-drawing-heading{gap:11px}.drawing-index{width:29px;height:29px}.study-drawing-heading button{margin-left:40px}.environment-picture figcaption{padding:20px}.environment-gallery,.study-gallery{margin-top:30px}.picture-question{padding:12px}}
 @media print{.study-drawing,.environment-picture{break-inside:avoid}.picture-zoom,.diagram-source,.study-drawing-heading button{display:none}}
+
+.film-chapters{margin-top:16px;border:1px solid var(--line);background:var(--white);padding:17px 22px}
+.film-chapters>summary{font-size:16px;font-weight:600;color:var(--teal)}
+.film-chapters ol{list-style:none;margin:20px 0 0;padding:0}
+.film-chapters li{border-top:1px solid var(--line);padding:15px 0}
+.film-chapters li:last-child{padding-bottom:0}
+.film-chapters button{display:grid;grid-template-columns:52px minmax(0,1fr) 24px;gap:13px;align-items:start;width:100%;border:0;padding:4px 0;text-align:left;background:transparent;color:var(--ink);font-size:16px;line-height:1.5}
+.film-chapters button:hover{color:var(--teal)}
+.chapter-time{font-variant-numeric:tabular-nums;color:var(--teal);font-size:14px}
+.film-chapters li>p{font-size:15px;line-height:1.75;margin:9px 0 0 65px;color:var(--muted)}
+@media(max-width:560px){.film-chapters{padding:15px}.film-chapters button{grid-template-columns:43px minmax(0,1fr) 18px;gap:10px}.film-chapters li>p{margin-left:0}}

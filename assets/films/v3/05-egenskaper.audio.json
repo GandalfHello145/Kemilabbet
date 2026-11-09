@@ -1,0 +1,95 @@
+{
+  "file": "assets/films/v3/05-egenskaper.mp4",
+  "duration": 257.91901,
+  "narration_voice": "Alva",
+  "mix_version": 2,
+  "spoken_seconds": 217.5681632653061,
+  "segments": [
+    {
+      "start": 1.3,
+      "duration": 15.406666666666666,
+      "speed_factor": 1,
+      "text": "Ett kastrullhandtag och kastrullens botten har olika uppgifter. Vi följer värme, laddning och partiklar för att förstå hur en egenskap kan göra ett material lämpligt. Modellerna är förenklade, inte mätdata."
+    },
+    {
+      "start": 20.0,
+      "duration": 15.399410430839001,
+      "speed_factor": 1,
+      "text": "Vi jämför lika långa stavar vid samma starttemperatur. De värms på samma sätt. Om vi samtidigt ändrar längd, tjocklek och material blir det svårt att veta vilken förändring som förklarar resultatet."
+    },
+    {
+      "start": 38.666999999999994,
+      "duration": 14.324897959183673,
+      "speed_factor": 1,
+      "text": "I det här schemat sprids energi snabbare genom koppar än genom trä. Punkterna och pilarna visar en idé om värmeledning. Vi mäter inte en viss temperatur eller en exakt hastighet i den här animationen."
+    },
+    {
+      "start": 57.367,
+      "duration": 16.072154195011336,
+      "speed_factor": 1,
+      "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala."
+    },
+    {
+      "start": 77.067,
+      "duration": 18.993877551020407,
+      "speed_factor": 1.0113736722759277,
+      "text": "Ström kan gå när det finns en sammanhängande ledande väg. Metall leder ström, medan många plaster isolerar. Isoleringen runt en sladd skyddar kontakten med den ledande metallen. Modellen visar långsam nettodrift, inte elektronernas verkliga hastighet."
+    },
+    {
+      "start": 96.767,
+      "duration": 15.211020408163265,
+      "speed_factor": 1,
+      "text": "När natriumklorid löser sig i vatten sprids natriumjoner och kloridjoner. Det är inte små saltmolekyler som glider isär. Jonerna finns kvar, men de lämnar kristallens ordnade mönster och omges av vatten."
+    },
+    {
+      "start": 116.467,
+      "duration": 16.734331065759637,
+      "speed_factor": 1,
+      "text": "Vattenmolekylen har en ojämn fördelning av laddning. I den här förstorade modellen vänder sig syresidan mot en positiv jon, och vätesidan mot en negativ jon. Vattenmolekylerna byter inte identitet när de omger jonerna."
+    },
+    {
+      "start": 136.167,
+      "duration": 18.891383219954648,
+      "speed_factor": 1,
+      "text": "Två lika stora kuber kan ha olika massa. Därför är storlek inte samma sak som densitet. Här håller vi volymen lika och jämför massan. Båda kuberna har volymen hundra kubikcentimeter, men deras massor är hundra respektive tvåhundrasjuttio gram."
+    },
+    {
+      "start": 155.86700000000002,
+      "duration": 16.26798185941043,
+      "speed_factor": 1,
+      "text": "Densitet är massa delad med volym. Första kuben ger ett gram per kubikcentimeter. Den andra ger två komma sju gram per kubikcentimeter. Den andra har större massa per samma volym och därför högre densitet."
+    },
+    {
+      "start": 174.567,
+      "duration": 15.066485260770975,
+      "speed_factor": 1,
+      "text": "För att förstå om ett föremål flyter jämför vi också med vätskan. En kompakt metallbit och en ihålig metallbåt kan bete sig olika. Båten rymmer luft och får en lägre medeldensitet för hela sin yttre volym."
+    },
+    {
+      "start": 194.26700000000002,
+      "duration": 18.6037641723356,
+      "speed_factor": 1,
+      "text": "Vi kan skilja ämnen åt när de skiljer sig i någon användbar egenskap. Filtrering använder partikelstorlek. En magnet kan dra till sig järn. Vid indunstning lämnar vatten lösningen som gas, medan ett löst, icke flyktigt salt kan bli kvar."
+    },
+    {
+      "start": 214.967,
+      "duration": 15.68530612244898,
+      "speed_factor": 1,
+      "text": "Ett material är inte bäst till allt. Förklara uppgiften, välj en viktig egenskap och beskriv följden. Kastrullens botten ska sprida värme till maten. Ett handtag ska samtidigt ge ett säkrare grepp."
+    },
+    {
+      "start": 233.667,
+      "duration": 15.306530612244899,
+      "speed_factor": 1,
+      "text": "Välj en vardagsprodukt. Beskriv minst två material i produkten och hur deras egenskaper hjälper till. Använd orden eftersom och därför. Tänk också på om ett enkelt test skulle kunna stödja din förklaring."
+    },
+    {
+      "start": 251.36700000000002,
+      "duration": 5.604353741496599,
+      "speed_factor": 1,
+      "text": "Förklara nu med egna ord. Använd modellerna och sambanden från filmen."
+    }
+  ],
+  "original_music": true,
+  "video_frames": "Copied without re-encoding"
+}

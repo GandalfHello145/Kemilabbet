@@ -1,0 +1,266 @@
+[
+  {
+    "scene": "MaterialMaster",
+    "beats": [
+      {
+        "title": "Varför fungerar olika material på olika sätt?",
+        "explanation": "Ett kastrullhandtag och kastrullens botten har olika uppgifter. Vi följer värme, laddning och partiklar för att förstå hur en egenskap kan göra ett material lämpligt. Modellerna är förenklade, inte mätdata.",
+        "target_seconds": 18,
+        "visual_choreography": "Progressive cookware construction links task, property and consequence."
+      },
+      {
+        "title": "Ett rättvist test håller annat lika",
+        "explanation": "Vi jämför lika långa stavar vid samma starttemperatur. De värms på samma sätt. Om vi samtidigt ändrar längd, tjocklek och material blir det svårt att veta vilken förändring som förklarar resultatet.",
+        "target_seconds": 18,
+        "visual_choreography": "Matched copper and wood rods reveal controlled variables."
+      },
+      {
+        "title": "Följ värmen genom materialet",
+        "explanation": "I det här schemat sprids energi snabbare genom koppar än genom trä. Punkterna och pilarna visar en idé om värmeledning. Vi mäter inte en viss temperatur eller en exakt hastighet i den här animationen.",
+        "target_seconds": 18,
+        "visual_choreography": "A particle heat front travels at different rates beside evolving temperature profiles."
+      },
+      {
+        "title": "Zooma in: ordnade delar och rörliga elektroner",
+        "explanation": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala.",
+        "target_seconds": 19,
+        "visual_choreography": "A qualitative metal lattice carries drifting electron dots with dissipating trails."
+      },
+      {
+        "title": "En elektrisk ledare skapar en sluten väg",
+        "explanation": "Ström kan gå när det finns en sammanhängande ledande väg. Metall leder ström, medan många plaster isolerar. Isoleringen runt en sladd skyddar kontakten med den ledande metallen. Modellen visar långsam nettodrift, inte elektronernas verkliga hastighet.",
+        "target_seconds": 19,
+        "visual_choreography": "A cutaway cable separates conducting metal from insulating plastic; an interruption pauses net drift."
+      },
+      {
+        "title": "Löslighet: följ vad som lämnar kristallen",
+        "explanation": "När natriumklorid löser sig i vatten sprids natriumjoner och kloridjoner. Det är inte små saltmolekyler som glider isär. Jonerna finns kvar, men de lämnar kristallens ordnade mönster och omges av vatten.",
+        "target_seconds": 19,
+        "visual_choreography": "The same sodium and chloride ions disperse out of their lattice while a matching formula develops."
+      },
+      {
+        "title": "Vattenmolekyler omger jonerna",
+        "explanation": "Vattenmolekylen har en ojämn fördelning av laddning. I den här förstorade modellen vänder sig syresidan mot en positiv jon, och vätesidan mot en negativ jon. Vattenmolekylerna byter inte identitet när de omger jonerna.",
+        "target_seconds": 19,
+        "visual_choreography": "Hydration rings keep oxygen toward Na+ and hydrogen toward Cl-."
+      },
+      {
+        "title": "Densitet jämför massa med volym",
+        "explanation": "Två lika stora kuber kan ha olika massa. Därför är storlek inte samma sak som densitet. Här håller vi volymen lika och jämför massan. Båda kuberna har volymen hundra kubikcentimeter, men deras massor är hundra respektive tvåhundrasjuttio gram.",
+        "target_seconds": 19,
+        "visual_choreography": "Equal-volume solids separate volume from mass on an animated balance."
+      },
+      {
+        "title": "Räkna samma jämförelse i två steg",
+        "explanation": "Densitet är massa delad med volym. Första kuben ger ett gram per kubikcentimeter. Den andra ger två komma sju gram per kubikcentimeter. Den andra har större massa per samma volym och därför högre densitet.",
+        "target_seconds": 18,
+        "visual_choreography": "A dynamically constructed density ratio links 3D cubes, mass and volume."
+      },
+      {
+        "title": "Ett föremåls form kan ändra medeldensiteten",
+        "explanation": "För att förstå om ett föremål flyter jämför vi också med vätskan. En kompakt metallbit och en ihålig metallbåt kan bete sig olika. Båten rymmer luft och får en lägre medeldensitet för hela sin yttre volym.",
+        "target_seconds": 19,
+        "visual_choreography": "A hollow-object comparison explains average density without changing the material."
+      },
+      {
+        "title": "Skilj en blandning med rätt egenskap",
+        "explanation": "Vi kan skilja ämnen åt när de skiljer sig i någon användbar egenskap. Filtrering använder partikelstorlek. En magnet kan dra till sig järn. Vid indunstning lämnar vatten lösningen som gas, medan ett löst, icke flyktigt salt kan bli kvar.",
+        "target_seconds": 20,
+        "visual_choreography": "A magnet, filter and evaporation sequence track the separated substances."
+      },
+      {
+        "title": "En bra förklaring kopplar ihop flera led",
+        "explanation": "Ett material är inte bäst till allt. Förklara uppgiften, välj en viktig egenskap och beskriv följden. Kastrullens botten ska sprida värme till maten. Ett handtag ska samtidigt ge ett säkrare grepp.",
+        "target_seconds": 18,
+        "visual_choreography": "A progressively built task-property-consequence chain connects cookware requirements."
+      },
+      {
+        "title": "Pröva själv: förklara ett genomtänkt val",
+        "explanation": "Välj en vardagsprodukt. Beskriv minst två material i produkten och hur deras egenskaper hjälper till. Använd orden eftersom och därför. Tänk också på om ett enkelt test skulle kunna stödja din förklaring.",
+        "target_seconds": 17,
+        "visual_choreography": "Three familiar products and a staged question panel invite a two-material explanation."
+      }
+    ],
+    "inspiration": "Original identity-preserving geometric transformations and coordinated particle fields, after studying the official 3b1b/videos source: _2017/eoc/chapter1.py and _2018/div_curl.py. No scene code, recordings, music or artwork copied.",
+    "sources": [
+      "https://github.com/3b1b/videos/blob/master/_2017/eoc/chapter1.py",
+      "https://github.com/3b1b/videos/blob/master/_2018/div_curl.py"
+    ]
+  },
+  {
+    "scene": "PhaseMaster",
+    "beats": [
+      {
+        "title": "Följ samma tolv vattenmolekyler",
+        "explanation": "Vi följer samma tolv vattenmolekyler genom fast form, vätska och gas. Varje vattenmolekyl har två väteatomer och en syreatom. Molekylerna byter inte storlek eller atomslag när vattnet värms.",
+        "target_seconds": 18,
+        "visual_choreography": "The same twelve water molecules establish an identity and size invariant."
+      },
+      {
+        "title": "Fast form: lägen som håller ihop",
+        "explanation": "I is ligger molekylerna i en ordnad struktur. De är inte helt stilla: de kan vibrera kring sina lägen. Vi visar bara en liten och förenklad del av isens öppna struktur. Det finns mycket utrymme mellan molekylerna.",
+        "target_seconds": 18,
+        "visual_choreography": "Open ice structure and local vibration distinguish position from rest."
+      },
+      {
+        "title": "Smältning: strukturen släpper fram rörelse",
+        "explanation": "När is smälter försvinner den fasta ordningen. Molekylerna kan nu röra sig förbi varandra. Det är fortfarande vattenmolekyler. Vi bevarar alla tolv och ändrar deras lägen och rörelser, inte deras storlek.",
+        "target_seconds": 18,
+        "visual_choreography": "The structure loosens while the same molecules move to denser liquid positions."
+      },
+      {
+        "title": "Flytande vatten: nära men rörliga",
+        "explanation": "I flytande vatten är molekylerna nära varandra, men grannarna kan ändras. Vatten fyller därför en behållares form. För just vatten är vätskans struktur tätare än isens öppna struktur, vilket bidrar till att is flyter.",
+        "target_seconds": 19,
+        "visual_choreography": "Independent curved paths show adjacent molecules continually exchanging neighbours."
+      },
+      {
+        "title": "Gas: stora avstånd och fria vägar",
+        "explanation": "I gasform är vattenmolekylerna i genomsnitt långt ifrån varandra och rör sig fritt mellan kollisionerna. De har inte svällt. När en gas får mer utrymme kan samma antal molekyler spridas över en större volym.",
+        "target_seconds": 19,
+        "visual_choreography": "A dilute gas field preserves every molecule and its size."
+      },
+      {
+        "title": "Temperatur visar något om rörelsen",
+        "explanation": "Högre temperatur hänger ihop med mer rörelse hos partiklarna. I den här jämförelsen använder vi samma antal och samma storlek. Snabbare rörelser får därför inte misstolkas som att molekylerna blir större eller att nya vattenmolekyler bildas.",
+        "target_seconds": 18,
+        "visual_choreography": "A split view changes translational speed without enlarging the molecules."
+      },
+      {
+        "title": "Energikurvan kopplar ihop två bilder",
+        "explanation": "Vi tillför energi till rent vatten vid normalt lufttryck. I vissa delar stiger temperaturen. Under smältning och kokning kan energin i stället ändra hur molekylerna hålls tillsammans. Då kan temperaturen vara ungefär konstant.",
+        "target_seconds": 20,
+        "visual_choreography": "An evolving heating curve is coupled to a live particle panel."
+      },
+      {
+        "title": "En platå betyder inte att uppvärmningen har slutat",
+        "explanation": "Vid en fasövergång kan energi fortsätta att tillföras utan att temperaturen stiger. Energin bidrar då till att ändra samspelet mellan molekylerna. Vi skiljer därför på tillförd energi, temperatur och vilket tillstånd ämnet befinner sig i.",
+        "target_seconds": 18,
+        "visual_choreography": "A plateau separates energy transfer from temperature increase."
+      },
+      {
+        "title": "Avdunstning sker vid ytan",
+        "explanation": "Vatten kan avdunsta även när det inte kokar. En del molekyler kan lämna vätskans yta och bli gas. Därför kan en blöt tröja torka i ett rum utan att vattnet i tröjan kokar.",
+        "target_seconds": 18,
+        "visual_choreography": "Escaping surface molecules distinguish evaporation from bulk boiling."
+      },
+      {
+        "title": "Kokning sker i hela vätskan",
+        "explanation": "När vatten kokar bildas vattenånga även inne i vätskan. Bubblor med gas kan växa och stiga upp. Det är en viktig skillnad mot avdunstning, som sker från ytan. Kokpunkten beror också på trycket omkring vattnet.",
+        "target_seconds": 18,
+        "visual_choreography": "Growing internal vapour bubbles explain boiling throughout the liquid."
+      },
+      {
+        "title": "Osynlig ånga och synliga små droppar",
+        "explanation": "Vattenånga är en osynlig gas. Det vita molnet ovanför en kastrull består av mycket små vätskedroppar som bildats när gas kylts och kondenserat. Det synliga molnet är därför inte samma sak som själva vattenångan.",
+        "target_seconds": 20,
+        "visual_choreography": "A 3D molecule close-up leads to twelve unchanged molecules grouped into three schematic droplets."
+      },
+      {
+        "title": "Sex vägar mellan tre tillstånd",
+        "explanation": "Smältning och stelning går mellan fast form och vätska. Förångning och kondensation går mellan vätska och gas. Sublimering och deposition går direkt mellan fast form och gas. Pilarna visar riktning, inte hur snabbt det går.",
+        "target_seconds": 20,
+        "visual_choreography": "Six directional paths between solid, liquid and gas form a reversible phase map."
+      },
+      {
+        "title": "Pröva en förklaring som bevarar byggstenarna",
+        "explanation": "Förklara vad som ändras när is blir vatten och sedan gas. Ta med avstånd, ordning, rörelse och energi. Berätta också vad som är oförändrat: samma vattenmolekyler och samma atomer finns kvar i vår modell.",
+        "target_seconds": 18,
+        "visual_choreography": "An identity-preserving final challenge rejects atoms splitting or molecules growing."
+      }
+    ],
+    "inspiration": "Original identity-preserving geometric transformations and coordinated particle fields, after studying the official 3b1b/videos source: _2017/eoc/chapter1.py and _2018/div_curl.py. No scene code, recordings, music or artwork copied.",
+    "sources": [
+      "https://github.com/3b1b/videos/blob/master/_2017/eoc/chapter1.py",
+      "https://github.com/3b1b/videos/blob/master/_2018/div_curl.py"
+    ]
+  },
+  {
+    "scene": "EnvironmentMaster",
+    "beats": [
+      {
+        "title": "Giftfri miljö är inte en värld utan kemi",
+        "explanation": "Vatten, luft, trä och våra kroppar består av kemiska ämnen. En giftfri miljö handlar om att förebygga skadlig påverkan av farliga ämnen. Vi behöver därför undersöka både ämnets egenskaper och hur människor eller andra organismer utsätts.",
+        "target_seconds": 18,
+        "visual_choreography": "Matter examples separate a toxin-free environment from a world without chemistry."
+      },
+      {
+        "title": "Skilj en fara från en risk",
+        "explanation": "Fara beskriver att ett ämne kan orsaka skada. Risk handlar också om om en organism kan utsättas, hur mycket, på vilket sätt och hur länge. Samma ämne kan därför innebära olika risk i olika situationer.",
+        "target_seconds": 19,
+        "visual_choreography": "Hazard, amount and contact are varied as separate qualitative ideas."
+      },
+      {
+        "title": "En möjlig källa: ett skadat batteri",
+        "explanation": "Vi använder ett skadat batteri som exempel på en möjlig källa. Om det läcker kan ämnen nå marken. Regn kan sedan föra en del vidare. Det är ett tänkt spridningsförlopp, inte något som sker likadant med alla batterier eller ämnen.",
+        "target_seconds": 19,
+        "visual_choreography": "A damaged battery becomes an illustrative source of a generic contaminant."
+      },
+      {
+        "title": "Följ rörelsen genom ett vattendrag",
+        "explanation": "Ett ämne kan transporteras med vatten och spridas över ett större område. De lila punkterna visar här ett tänkt löst ämne. Flödets form avgör vilken väg punkterna tar. Vi visar principen, inte en prognos för en verklig bäck.",
+        "target_seconds": 20,
+        "visual_choreography": "A continuous curved flow field transports tracers down a watercourse."
+      },
+      {
+        "title": "Kontakt är inte samma sak som upptag",
+        "explanation": "En organism kan komma i kontakt med ett ämne via vatten, luft eller föda. En del av ämnet kan tas upp, medan annat kan passera eller lämna kroppen. Därför behöver vi veta mer än att ämnet finns någonstans i miljön.",
+        "target_seconds": 19,
+        "visual_choreography": "A semipermeable organism boundary separates exposure from uptake and release."
+      },
+      {
+        "title": "Bioackumulering följer samma organism över tid",
+        "explanation": "Om ett ämne tas upp snabbare än det lämnar kroppen kan mängden i organismen öka med tiden. Det kallas bioackumulering. Vi följer nu samma fisk och samma vävnadsmängd, så att jämförelsen blir tydlig.",
+        "target_seconds": 20,
+        "visual_choreography": "The same fish, same body mass and time graph distinguish accumulation."
+      },
+      {
+        "title": "Biomagnifikation jämför olika led i en näringskedja",
+        "explanation": "Vissa svårnedbrytbara ämnen kan få högre halt längre upp i en näringskedja. Ett rovdjur äter många byten. Vi jämför lika stora mängder kroppsvävnad för att visa halten, inte bara större kroppar. Det här gäller vissa ämnen, inte alla.",
+        "target_seconds": 21,
+        "visual_choreography": "Equal tissue-mass samples compare concentration across food-chain levels."
+      },
+      {
+        "title": "Två olika jämförelser ger två olika begrepp",
+        "explanation": "Bioackumulering jämför samma organism vid olika tider. Biomagnifikation jämför halten mellan olika led i en näringskedja. Båda kan vara viktiga, men de beskriver inte samma fråga.",
+        "target_seconds": 19,
+        "visual_choreography": "Two simultaneous views distinguish accumulation over time from magnification across levels."
+      },
+      {
+        "title": "Klart vatten kan behöva undersökas",
+        "explanation": "Ett fotografi kan inte avslöja alla ämnen i ett vattenprov. Många lösta ämnen syns inte med ögonen. Därför samlar forskare in prover och analyserar dem. Det behövs information om ämnet och halten för att bedöma problemet.",
+        "target_seconds": 19,
+        "visual_choreography": "A credited USGS sampling photograph is linked to a schematic analysis vial and scanning reveal."
+      },
+      {
+        "title": "Rening hjälper -- men tar inte bort allt",
+        "explanation": "Avloppsrening kan minska många föroreningar, men olika ämnen kräver olika behandling. Ett vanligt reningsverk är inte byggt för att avlägsna alla mikroföroreningar. Därför behöver vi också minska oönskade ämnens utsläpp redan från början.",
+        "target_seconds": 20,
+        "visual_choreography": "Particles are removed in stages while some dissolved contamination remains."
+      },
+      {
+        "title": "Bryt spridningsvägen vid källan",
+        "explanation": "Det är ofta lättare att förebygga spridning än att samla in ett ämne när det redan spridits i en sjö. Batterier lämnas till batteriinsamling. Då kan ämnen och material hanteras innan de riskerar att läcka till mark och vatten.",
+        "target_seconds": 20,
+        "visual_choreography": "A moving battery is redirected to collection before a possible spread path."
+      },
+      {
+        "title": "Riskbedömning behöver flera frågor",
+        "explanation": "Ett ämnes namn räcker inte för att förstå hela risken. Fråga vilket ämne det är, om det kan orsaka skada, hur mycket en organism utsätts för och på vilket sätt. Naturligt betyder inte automatiskt ofarligt.",
+        "target_seconds": 20,
+        "visual_choreography": "A 3D unknown cluster rotates before a progressive risk-question sequence."
+      },
+      {
+        "title": "Bygg ett svar där varje pil förklaras",
+        "explanation": "Ett utvecklat svar följer ett ämne från källa till möjlig följd och åtgärd. Beskriv också villkoren: om ämnet kan spridas, om en organism kan utsättas och vad åtgärden förändrar. Använd orden om, kan och därför.",
+        "target_seconds": 19,
+        "visual_choreography": "A five-node explanation graph links source, pathway, organism, possible effect and prevention."
+      }
+    ],
+    "inspiration": "Original identity-preserving geometric transformations and coordinated particle fields, after studying the official 3b1b/videos source: _2017/eoc/chapter1.py and _2018/div_curl.py. No scene code, recordings, music or artwork copied.",
+    "sources": [
+      "https://github.com/3b1b/videos/blob/master/_2017/eoc/chapter1.py",
+      "https://github.com/3b1b/videos/blob/master/_2018/div_curl.py"
+    ]
+  }
+]

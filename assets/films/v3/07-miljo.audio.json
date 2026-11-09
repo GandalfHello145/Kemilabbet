@@ -1,0 +1,95 @@
+{
+  "file": "assets/films/v3/07-miljo.mp4",
+  "duration": 275.154948,
+  "narration_voice": "Alva",
+  "mix_version": 2,
+  "spoken_seconds": 217.5449433106576,
+  "segments": [
+    {
+      "start": 1.3,
+      "duration": 18.04625850340136,
+      "speed_factor": 1,
+      "text": "Vatten, luft, trä och våra kroppar består av kemiska ämnen. En giftfri miljö handlar om att förebygga skadlig påverkan av farliga ämnen. Vi behöver därför undersöka både ämnets egenskaper och hur människor eller andra organismer utsätts."
+    },
+    {
+      "start": 20.433,
+      "duration": 15.650430839002267,
+      "speed_factor": 1,
+      "text": "Fara beskriver att ett ämne kan orsaka skada. Risk handlar också om om en organism kan utsättas, hur mycket, på vilket sätt och hur länge. Samma ämne kan därför innebära olika risk i olika situationer."
+    },
+    {
+      "start": 40.567,
+      "duration": 16.606848072562357,
+      "speed_factor": 1,
+      "text": "Vi använder ett skadat batteri som exempel på en möjlig källa. Om det läcker kan ämnen nå marken. Regn kan sedan föra en del vidare. Det är ett tänkt spridningsförlopp, inte något som sker likadant med alla batterier eller ämnen."
+    },
+    {
+      "start": 60.266999999999996,
+      "duration": 17.065079365079367,
+      "speed_factor": 1,
+      "text": "Ett ämne kan transporteras med vatten och spridas över ett större område. De lila punkterna visar här ett tänkt löst ämne. Flödets form avgör vilken väg punkterna tar. Vi visar principen, inte en prognos för en verklig bäck."
+    },
+    {
+      "start": 81.39999999999999,
+      "duration": 15.673650793650793,
+      "speed_factor": 1,
+      "text": "En organism kan komma i kontakt med ett ämne via vatten, luft eller föda. En del av ämnet kan tas upp, medan annat kan passera eller lämna kroppen. Därför behöver vi veta mer än att ämnet finns någonstans i miljön."
+    },
+    {
+      "start": 101.533,
+      "duration": 14.643083900226758,
+      "speed_factor": 1,
+      "text": "Om ett ämne tas upp snabbare än det lämnar kroppen kan mängden i organismen öka med tiden. Det kallas bioackumulering. Vi följer nu samma fisk och samma vävnadsmängd, så att jämförelsen blir tydlig."
+    },
+    {
+      "start": 122.667,
+      "duration": 18.569115646258503,
+      "speed_factor": 1,
+      "text": "Vissa svårnedbrytbara ämnen kan få högre halt längre upp i en näringskedja. Ett rovdjur äter många byten. Vi jämför lika stora mängder kroppsvävnad för att visa halten, inte bara större kroppar. Det här gäller vissa ämnen, inte alla."
+    },
+    {
+      "start": 144.8,
+      "duration": 14.247392290249433,
+      "speed_factor": 1,
+      "text": "Bioackumulering jämför samma organism vid olika tider. Biomagnifikation jämför halten mellan olika led i en näringskedja. Båda kan vara viktiga, men de beskriver inte samma fråga."
+    },
+    {
+      "start": 164.93300000000002,
+      "duration": 16.370294784580498,
+      "speed_factor": 1,
+      "text": "Ett fotografi kan inte avslöja alla ämnen i ett vattenprov. Många lösta ämnen syns inte med ögonen. Därför samlar forskare in prover och analyserar dem. Det behövs information om ämnet och halten för att bedöma problemet."
+    },
+    {
+      "start": 185.067,
+      "duration": 17.987165532879818,
+      "speed_factor": 1,
+      "text": "Avloppsrening kan minska många föroreningar, men olika ämnen kräver olika behandling. Ett vanligt reningsverk är inte byggt för att avlägsna alla mikroföroreningar. Därför behöver vi också minska oönskade ämnens utsläpp redan från början."
+    },
+    {
+      "start": 206.20000000000002,
+      "duration": 14.839954648526078,
+      "speed_factor": 1,
+      "text": "Det är ofta lättare att förebygga spridning än att samla in ett ämne när det redan spridits i en sjö. Batterier lämnas till batteriinsamling. Då kan ämnen och material hanteras innan de riskerar att läcka till mark och vatten."
+    },
+    {
+      "start": 227.33300000000003,
+      "duration": 15.69687074829932,
+      "speed_factor": 1,
+      "text": "Ett ämnes namn räcker inte för att förstå hela risken. Fråga vilket ämne det är, om det kan orsaka skada, hur mycket en organism utsätts för och på vilket sätt. Naturligt betyder inte automatiskt ofarligt."
+    },
+    {
+      "start": 248.467,
+      "duration": 16.544444444444444,
+      "speed_factor": 1,
+      "text": "Ett utvecklat svar följer ett ämne från källa till möjlig följd och åtgärd. Beskriv också villkoren: om ämnet kan spridas, om en organism kan utsättas och vad åtgärden förändrar. Använd orden om, kan och därför."
+    },
+    {
+      "start": 268.6,
+      "duration": 5.604353741496599,
+      "speed_factor": 1,
+      "text": "Förklara nu med egna ord. Använd modellerna och sambanden från filmen."
+    }
+  ],
+  "original_music": true,
+  "video_frames": "Copied without re-encoding"
+}

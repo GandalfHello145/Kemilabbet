@@ -1,4 +1,4 @@
-import { diagrams, environmentImages } from './study-assets.js?v=20261109-3';
+import { diagrams, environmentImages } from './study-assets.js?v=20261109-4';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
