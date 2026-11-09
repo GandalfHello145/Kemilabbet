@@ -18,6 +18,14 @@ Färgerna och byggstenarnas identitet följer med genom övergångarna. Skolmode
 
 ## Återskapa de publicerade filmerna
 
-Använd Python 3.13 och installera `../requirements.txt`. Kör `python manim/v3/render_all.py` från webbplatsens projektmapp. FFmpeg, TeX Live och dvisvgm behövs. Filmerna renderas i 1920×1080 med 30 bilder/sekund. Svenskt tal genereras lokalt med macOS-rösten Alva; det kräver macOS `say` och den installerade svenska rösten. Undertexter och avsnittstider genereras av scenerna.
+Använd Python 3.13 och installera `../requirements.txt`. Kör `python manim/v3/render_all.py` från webbplatsens projektmapp. FFmpeg, TeX Live och dvisvgm behövs. Filmerna renderas i 1920×1080 med 30 bilder/sekund och sparas i `assets/films/v3/`. Ljudspåret innehåller enbart originalmusik, utan berättarröst. Ingen talsyntes eller installerad röst behövs. Undertexter och avsnittstider genereras av scenerna.
 
-`narrate_score.py` lägger talet på rätt tidspositioner, blandar in originalmusiken och skriver MP4-kapitel. Bildrutorna i huvudfilmerna kopieras utan en extra omkodning. I korta avslutningar används en koncentrerad uppmaning i berättarspåret medan bildens fullständiga sammanfattning finns kvar att läsa.
+`narrate_score.py` behåller sitt tidigare filnamn men lägger nu bara till originalmusik. Videoströmmen kopieras utan omkodning. Befintliga MP4-kapitel bevaras; för nya råfilmer skapas kapitel från undertexterna. Undertextfilerna ändras inte av ljudverktyget. Ljudrapporten anger `narration: false`, `mix_version: 3` och noll talade sekunder.
+
+För att byta ljudspår i en befintlig film utan att rendera om bilderna, kör från projektmappen:
+
+```sh
+python manim/v3/narrate_score.py assets/films/v3/01-atomer.mp4 .build/music-only/01-atomer.mp4 assets/captions/v3/01-atomer.vtt --variation 1
+```
+
+Använd en separat utfil och variation 1–7 för respektive film. Kontrollera resultatet innan den publicerade filen ersätts.

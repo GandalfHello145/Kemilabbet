@@ -1,101 +1,11 @@
 {
   "file": "assets/films/v3/02-modeller.mp4",
-  "duration": 257.621615,
-  "narration_voice": "Alva",
-  "mix_version": 2,
-  "spoken_seconds": 209.97755102040816,
-  "segments": [
-    {
-      "start": 1.3,
-      "duration": 12.390748299319728,
-      "speed_factor": 1,
-      "text": "En vetenskaplig modell är en förklaring som vi kan pröva. Vi börjar med observationer, gör en modell och jämför sedan med nya försök. En modell kan behöva förändras."
-    },
-    {
-      "start": 17.0,
-      "duration": 12.891791383219955,
-      "speed_factor": 1,
-      "text": "Daltons kulmodell hjälpte människor att tänka på olika grundämnen som olika atomslag. Men modellen visade inga mindre delar inuti atomen. Det blev en viktig begränsning."
-    },
-    {
-      "start": 32.666999999999994,
-      "duration": 13.71124716553288,
-      "speed_factor": 1,
-      "text": "Undersökningar av elektriska strålar visade negativt laddade partiklar: elektroner. Då räckte bilden av en odelbar kula inte längre. Modellen behövde visa delar inuti atomen."
-    },
-    {
-      "start": 49.367,
-      "duration": 13.059637188208617,
-      "speed_factor": 1,
-      "text": "I Thomsons modell är de negativa elektronerna som russin. Positiv laddning är utspridd genom hela atomen som smeten i kakan. Här finns ingen liten positiv kärna i mitten."
-    },
-    {
-      "start": 66.067,
-      "duration": 15.168027210884354,
-      "speed_factor": 1,
-      "text": "Rutherfords grupp undersökte vad som hände när positivt laddade alfapartiklar träffade en mycket tunn guldfolie. En detektor visade i vilka riktningar partiklar kom ut. Alfapartiklarna är inte elektroner."
-    },
-    {
-      "start": 83.767,
-      "duration": 17.52408163265306,
-      "speed_factor": 1,
-      "text": "De flesta alfapartiklar passerade nästan rakt genom folien. Ett fåtal böjdes av kraftigt och några kunde vända tillbaka. De stora avböjningarna var särskilt viktiga ledtrådar. Vi visar utvalda banor, inte rätt antal."
-    },
-    {
-      "start": 102.467,
-      "duration": 14.431383219954649,
-      "speed_factor": 1,
-      "text": "En positiv alfapartikel påverkas starkt om den passerar nära en liten positiv kärna. Positiva laddningar stöter bort varandra. En partikel som passerar långt från kärnan påverkas mindre."
-    },
-    {
-      "start": 120.16699999999999,
-      "duration": 14.2740589569161,
-      "speed_factor": 1,
-      "text": "Rutherfords kärnmodell samlar den positiva laddningen och nästan hela atomens massa i en mycket liten kärna. Det mesta av atomens volym är området runt kärnan. Kärnan är förstorad i våra bilder."
-    },
-    {
-      "start": 138.86700000000002,
-      "duration": 14.33673469387755,
-      "speed_factor": 1,
-      "text": "I en historisk solsystemsliknelse motsvarar kärnan solen och elektronerna planeterna. Den hjälper oss att se en liten mitt och ett stort område omkring. Men den är inte en exakt beskrivning av en atom."
-    },
-    {
-      "start": 159.567,
-      "duration": 15.747346938775511,
-      "speed_factor": 1,
-      "text": "Gravitation håller planeter kring solen. I atomen verkar elektrisk attraktion mellan positiv kärna och negativa elektroner. Dagens atommodell beskriver inte elektroner som små planeter i bestämda banor."
-    },
-    {
-      "start": 176.267,
-      "duration": 14.842403628117914,
-      "speed_factor": 1,
-      "text": "Bohrs modell lade till bestämda energinivåer. En elektron kan ta upp energi och visas på en högre nivå i modellen. När den går till en lägre nivå kan ljus avges. Nivåerna är inte vanliga planetbanor."
-    },
-    {
-      "start": 194.967,
-      "duration": 15.724761904761905,
-      "speed_factor": 1,
-      "text": "Dagens modell beskriver var en elektron sannolikt kan finnas. Prickarna bygger en sannolikhetsbild. De visar inte många elektroner samtidigt och inte en känd bana för en enda elektron. Molnet är inte rök."
-    },
-    {
-      "start": 214.667,
-      "duration": 17.00403628117914,
-      "speed_factor": 1.0711031079098294,
-      "text": "Varje modell lyfter fram något och förenklar annat. Kulmodellen visar atomslag. Thomson visar elektroner, Rutherford en liten kärna, Bohr energinivåer och elektronmolnet sannolikhet. Nya resultat kan kräva en ny modell."
-    },
-    {
-      "start": 232.36700000000002,
-      "duration": 13.266938775510203,
-      "speed_factor": 1,
-      "text": "Förklara vad guldfolieförsöket lärde oss. Beskriv sedan vad solsystemsliknelsen hjälper oss att se och var den slutar fungera. En bra förklaring kopplar modellen till observationer."
-    },
-    {
-      "start": 251.067,
-      "duration": 5.604353741496599,
-      "speed_factor": 1,
-      "text": "Förklara nu med egna ord. Använd modellerna och sambanden från filmen."
-    }
-  ],
+  "duration": 257.622,
+  "narration": false,
+  "narration_voice": null,
+  "mix_version": 3,
+  "spoken_seconds": 0,
+  "segments": [],
   "original_music": true,
   "video_frames": "Copied without re-encoding"
 }

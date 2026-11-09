@@ -1,4 +1,4 @@
-"""Render the seven longer films at native 1080p30, then add Swedish audio."""
+"""Render the seven longer films at native 1080p30, then add music only."""
 from pathlib import Path
 import json
 import subprocess
@@ -32,10 +32,11 @@ def main():
             '-i',str(final),'-frames:v','1','-q:v','2',str(poster)],check=True)
         report=json.loads(final.with_suffix('.audio.json').read_text())
         timing=json.loads((ROOT/'manim/v3/timing'/(slug+'.json')).read_text())
-        manifest.append({'module':number,'file':final.relative_to(ROOT).as_posix(),
+        manifest.append({'module':number,'scene':scene,'file':final.relative_to(ROOT).as_posix(),
             'captions':captions.relative_to(ROOT).as_posix(),
             'poster':poster.relative_to(ROOT).as_posix(),'duration':report['duration'],
-            'width':1920,'height':1080,'fps':30,'audio':True,'narration':True,
+            'width':1920,'height':1080,'fps':30,'audio':True,'narration':False,
+            'music':True,'spoken_seconds':0,
             'animation_calls':timing['animation_calls'],'chapters':timing['beats']})
     (ROOT/'assets/films/v3/manifest.json').write_text(
         json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')

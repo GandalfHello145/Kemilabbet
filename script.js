@@ -304,7 +304,7 @@ const lessons = {
       "correction": "En molekyl kan bestå av samma atomslag, som O₂, eller olika atomslag, som H₂O. För att ämnet ska vara en kemisk förening krävs olika grundämnen kemiskt bundna till varandra."
     },
     "film": {
-      "src": "assets/films/v3/01-atomer.mp4",
+      "src": "assets/films/v3/01-atomer.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/01-atomer.jpg",
       "title": "Atomer och molekyler: följ byggstenarna",
       "before": "Följ en vattenmolekyl. Lägg märke till vilka delar som räknas när filmen visar atomer, atomslag och molekyler.",
@@ -397,7 +397,7 @@ const lessons = {
       "correction": "I Thomsons modell är den positiva laddningen utspridd genom atomen. En liten central kärna med samlad positiv laddning är den avgörande förändringen i Rutherfords modell."
     },
     "film": {
-      "src": "assets/films/v3/02-modeller.mp4",
+      "src": "assets/films/v3/02-modeller.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/02-modeller.jpg",
       "title": "Atommodeller: från guldfolie till elektronmoln",
       "before": "Följ hur försöken förändrar atommodellen. Jämför sedan kärna och elektroner med solen och planeterna.",
@@ -502,7 +502,7 @@ const lessons = {
       "correction": "Vid vanliga kemiska reaktioner finns atomkärnorna kvar. Elektroner och bindningar kan ordnas på nya sätt. Atomslaget bestäms av protonerna i kärnan, så väte är fortfarande väte även när det ingår i ett nytt ämne."
     },
     "film": {
-      "src": "assets/films/v3/03-elektroner.mp4",
+      "src": "assets/films/v3/03-elektroner.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/03-elektroner.jpg",
       "title": "Elektroner: laddning, överföring och delning",
       "before": "Välj en kärna och en elektron att följa. Räkna hur många av varje som finns före och efter bindningen.",
@@ -587,7 +587,7 @@ const lessons = {
       "correction": "Det avgörande är om nya ämnen bildas. Klippt papper visar hur ett föremål kan vara svårt att återställa efter en fysikalisk förändring. Vid en kemisk förändring behöver förklaringen visa vilka nya ämnen som bildas."
     },
     "film": {
-      "src": "assets/films/v3/04-forandringar.mp4",
+      "src": "assets/films/v3/04-forandringar.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/04-forandringar.jpg",
       "title": "Kemiska förändringar: följ atomerna",
       "before": "Följ en vattenmolekyl när isen smälter. Jämför sedan med järnatomerna när ett nytt ämne bildas.",
@@ -680,7 +680,7 @@ const lessons = {
       "correction": "Färg är en egenskap bland flera. Salt och socker kan båda vara vita och lösliga i vatten. För att skilja prov åt behöver vi välja undersökningar som ger användbar information. Smaka aldrig på okända prov."
     },
     "film": {
-      "src": "assets/films/v3/05-egenskaper.mp4",
+      "src": "assets/films/v3/05-egenskaper.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/05-egenskaper.jpg",
       "title": "Ämnens egenskaper: undersök och välj material",
       "before": "Följ värmen från spisen. Var ska den lätt kunna gå vidare, och var är långsammare värmeöverföring användbar?",
@@ -773,7 +773,7 @@ const lessons = {
       "correction": "Gasens stora volym hänger framför allt ihop med stora avstånd mellan molekylerna. Varje H₂O-molekyl behåller sin uppbyggnad med två väteatomer och en syreatom."
     },
     "film": {
-      "src": "assets/films/v3/06-faser.mp4",
+      "src": "assets/films/v3/06-faser.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/06-faser.jpg",
       "title": "Värme och faser: samma molekyler, nya rörelser",
       "before": "Följ den markerade vattenmolekylen genom tre tillstånd. Lägg märke till dess grannar, rörelse och avstånd.",
@@ -870,7 +870,7 @@ const lessons = {
       "correction": "All materia består av kemiska ämnen. Målet är att förebygga skadlig exponering och minska spridning av farliga ämnen. Risk bedöms genom ämnets egenskaper tillsammans med mängd och exponering."
     },
     "film": {
-      "src": "assets/films/v3/07-miljo.mp4",
+      "src": "assets/films/v3/07-miljo.mp4?v=music-only-20261109",
       "poster": "assets/posters/v3/07-miljo.jpg",
       "title": "Giftfri miljö: följ spridningen och bryt kedjan",
       "before": "Följ ett ämne från det skadade batteriet. Vad behöver hända för att det ska nå vattnet och sedan en organism?",
@@ -1016,15 +1016,15 @@ const films = {
     "file": "assets/films/v3/01-atomer.mp4",
     "poster": "assets/posters/v3/01-atomer.jpg",
     "captions": "assets/captions/v3/01-atomer.vtt",
-    "duration": 255.620313,
+    "duration": 255.620317,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 134,
@@ -1158,12 +1158,7 @@ const films = {
     ],
     "spoken_seconds": 190.0338775510204,
     "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "2": {
@@ -1172,15 +1167,15 @@ const films = {
     "file": "assets/films/v3/02-modeller.mp4",
     "poster": "assets/posters/v3/02-modeller.jpg",
     "captions": "assets/captions/v3/02-modeller.vtt",
-    "duration": 257.621615,
+    "duration": 257.622,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 129,
@@ -1314,12 +1309,7 @@ const films = {
     ],
     "spoken_seconds": 209.97755102040816,
     "max_voice_speed": 1.0711031079098294,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "3": {
@@ -1328,15 +1318,15 @@ const films = {
     "file": "assets/films/v3/03-elektroner.mp4",
     "poster": "assets/posters/v3/03-elektroner.jpg",
     "captions": "assets/captions/v3/03-elektroner.vtt",
-    "duration": 241.618359,
+    "duration": 241.618367,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 130,
@@ -1470,12 +1460,7 @@ const films = {
     ],
     "spoken_seconds": 182.65873015873012,
     "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "4": {
@@ -1484,15 +1469,15 @@ const films = {
     "file": "assets/films/v3/04-forandringar.mp4",
     "poster": "assets/posters/v3/04-forandringar.jpg",
     "captions": "assets/captions/v3/04-forandringar.vtt",
-    "duration": 241.120313,
+    "duration": 241.120317,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 135,
@@ -1626,12 +1611,7 @@ const films = {
     ],
     "spoken_seconds": 192.07678004535146,
     "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "5": {
@@ -1644,11 +1624,11 @@ const films = {
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 105,
@@ -1773,12 +1753,7 @@ const films = {
     ],
     "spoken_seconds": 217.5681632653061,
     "max_voice_speed": 1.0113736722759277,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "6": {
@@ -1787,15 +1762,15 @@ const films = {
     "file": "assets/films/v3/06-faser.mp4",
     "poster": "assets/posters/v3/06-faser.jpg",
     "captions": "assets/captions/v3/06-faser.vtt",
-    "duration": 263.320964,
+    "duration": 263.321,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 110,
@@ -1920,12 +1895,7 @@ const films = {
     ],
     "spoken_seconds": 212.08344671201817,
     "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   },
   "7": {
@@ -1938,11 +1908,11 @@ const films = {
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": {
       "original": true,
-      "source": "manim/v3/narrate_score.py",
+      "source": "manim/compose_score.py",
       "credit": "Originalmusik för dessa filmer"
     },
     "animation_calls": 114,
@@ -2067,12 +2037,7 @@ const films = {
     ],
     "spoken_seconds": 217.5449433106576,
     "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    },
-    "version": 7,
+    "version": 8,
     "threeD": true
   }
 };
@@ -6688,7 +6653,7 @@ function filmChapters(info) {
 function filmSection(m) {
  const f=lessons[m.id].film, info=films[m.id]||{};
  const seconds=Math.round(info.duration||0), duration=seconds?`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`:'Film';
- return `<section class="film-section" aria-labelledby="film-title"><div class="film-heading"><div><p class="eyebrow">TITTA TILLSAMMANS · PAUSA NÄR NI VILL</p><h2 id="film-title">${esc(f.title)}</h2></div><span class="film-meta">${duration} · ${info.narration?'svensk berättarröst och text':'svensk text'} · musik</span></div><div class="film-layout"><div class="film-controlbar"><div class="film-buttons"><button class="film-control primary-control" id="pause-film">Spela filmen</button><button class="film-control" id="replay-film">Från början ↻</button></div><button class="film-control sound-control" id="sound-toggle" aria-pressed="true" aria-label="Stäng av ljudet">Ljud på</button></div><div class="film-screen"><video id="lesson-film" controls playsinline preload="none" poster="${f.poster}" aria-label="${esc(f.title)}, animerad förklaring med svensk text, berättarröst och musik"><source src="${f.src}" type="video/mp4">${info.captions?`<track kind="captions" src="${info.captions}" srclang="sv" label="Svenska">`:''}Din webbläsare kan inte spela filmen. Läs förklaringen nedanför.</video><div id="video-error" class="video-error" hidden>Filmen kunde inte laddas. Ni kan fortfarande undersöka ritningen och läsa förklaringen på sidan.</div></div><aside class="film-aside"><div class="before-film"><p class="margin-label">TITTA EFTER</p><p>${esc(f.before)}</p></div><div class="after-film"><p class="margin-label">PAUSA OCH PRATA</p><p>${esc(f.after)}</p></div></aside></div><details class="film-transcript"><summary>Läs en kort sammanfattning</summary><p>${esc(lessons[m.id].summary)}</p><ol>${lessons[m.id].workedExample.steps.map(step=>`<li>${esc(step)}</li>`).join('')}</ol></details>${filmChapters(info)}</section>`;
+ return `<section class="film-section" aria-labelledby="film-title"><div class="film-heading"><div><p class="eyebrow">TITTA TILLSAMMANS · PAUSA NÄR NI VILL</p><h2 id="film-title">${esc(f.title)}</h2></div><span class="film-meta">${duration} · ${info.narration?'svensk berättarröst och text':'svensk text'} · musik</span></div><div class="film-layout"><div class="film-controlbar"><div class="film-buttons"><button class="film-control primary-control" id="pause-film">Spela filmen</button><button class="film-control" id="replay-film">Från början ↻</button></div><button class="film-control sound-control" id="sound-toggle" aria-pressed="true" aria-label="Stäng av ljudet">Ljud på</button></div><div class="film-screen"><video id="lesson-film" controls playsinline preload="none" poster="${f.poster}" aria-label="${esc(f.title)}, animerad förklaring med svensk text och musik"><source src="${f.src}" type="video/mp4">${info.captions?`<track kind="captions" src="${info.captions}" srclang="sv" label="Svenska">`:''}Din webbläsare kan inte spela filmen. Läs förklaringen nedanför.</video><div id="video-error" class="video-error" hidden>Filmen kunde inte laddas. Ni kan fortfarande undersöka ritningen och läsa förklaringen på sidan.</div></div><aside class="film-aside"><div class="before-film"><p class="margin-label">TITTA EFTER</p><p>${esc(f.before)}</p></div><div class="after-film"><p class="margin-label">PAUSA OCH PRATA</p><p>${esc(f.after)}</p></div></aside></div><details class="film-transcript"><summary>Läs en kort sammanfattning</summary><p>${esc(lessons[m.id].summary)}</p><ol>${lessons[m.id].workedExample.steps.map(step=>`<li>${esc(step)}</li>`).join('')}</ol></details>${filmChapters(info)}</section>`;
 }
 
 function readingSection(m) {

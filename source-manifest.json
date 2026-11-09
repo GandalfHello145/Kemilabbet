@@ -9,8 +9,9 @@
   "changes": [
     "Seven complete original3–5minuteManim films at native1080p30",
     "95explanatory chapters with LaTeX typography and original2D/2.5D/3D choreography",
-    "Synchronized Swedish narration, captions, original music and chapter navigation",
-    "Visual explanation inspired by3Blue1Brown public videos and code; original chemistry scenes"
+    "Swedish captions, original instrumental music and chapter navigation",
+    "Visual explanation inspired by3Blue1Brown public videos and code; original chemistry scenes",
+    "Removed narration from all seven films; original video frames, music, captions and chapters preserved"
   ],
   "active_movies": [
     {
@@ -19,11 +20,11 @@
       "file": "assets/films/v3/01-atomer.mp4",
       "poster": "assets/posters/v3/01-atomer.jpg",
       "captions": "assets/captions/v3/01-atomer.vtt",
-      "duration": 255.620313,
+      "duration": 255.620317,
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 134,
@@ -156,12 +157,7 @@
         }
       ],
       "spoken_seconds": 190.0338775510204,
-      "max_voice_speed": 1,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1
     },
     {
       "module": 2,
@@ -169,11 +165,11 @@
       "file": "assets/films/v3/02-modeller.mp4",
       "poster": "assets/posters/v3/02-modeller.jpg",
       "captions": "assets/captions/v3/02-modeller.vtt",
-      "duration": 257.621615,
+      "duration": 257.622,
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 129,
@@ -306,12 +302,7 @@
         }
       ],
       "spoken_seconds": 209.97755102040816,
-      "max_voice_speed": 1.0711031079098294,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1.0711031079098294
     },
     {
       "module": 3,
@@ -319,11 +310,11 @@
       "file": "assets/films/v3/03-elektroner.mp4",
       "poster": "assets/posters/v3/03-elektroner.jpg",
       "captions": "assets/captions/v3/03-elektroner.vtt",
-      "duration": 241.618359,
+      "duration": 241.618367,
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 130,
@@ -456,12 +447,7 @@
         }
       ],
       "spoken_seconds": 182.65873015873012,
-      "max_voice_speed": 1,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1
     },
     {
       "module": 4,
@@ -469,11 +455,11 @@
       "file": "assets/films/v3/04-forandringar.mp4",
       "poster": "assets/posters/v3/04-forandringar.jpg",
       "captions": "assets/captions/v3/04-forandringar.vtt",
-      "duration": 241.120313,
+      "duration": 241.120317,
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 135,
@@ -606,12 +592,7 @@
         }
       ],
       "spoken_seconds": 192.07678004535146,
-      "max_voice_speed": 1,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1
     },
     {
       "module": 5,
@@ -623,7 +604,7 @@
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 105,
@@ -747,12 +728,7 @@
         }
       ],
       "spoken_seconds": 217.5681632653061,
-      "max_voice_speed": 1.0113736722759277,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1.0113736722759277
     },
     {
       "module": 6,
@@ -760,11 +736,11 @@
       "file": "assets/films/v3/06-faser.mp4",
       "poster": "assets/posters/v3/06-faser.jpg",
       "captions": "assets/captions/v3/06-faser.vtt",
-      "duration": 263.320964,
+      "duration": 263.321,
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 110,
@@ -888,12 +864,7 @@
         }
       ],
       "spoken_seconds": 212.08344671201817,
-      "max_voice_speed": 1,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1
     },
     {
       "module": 7,
@@ -905,7 +876,7 @@
       "width": 1920,
       "height": 1080,
       "fps": 30,
-      "narration": true,
+      "narration": false,
       "audio": true,
       "music": true,
       "animation_calls": 114,
@@ -1029,12 +1000,7 @@
         }
       ],
       "spoken_seconds": 217.5449433106576,
-      "max_voice_speed": 1,
-      "narrator": {
-        "language": "sv-SE",
-        "voice": "Alva",
-        "synthetic": true
-      }
+      "max_voice_speed": 1
     }
   ],
   "new_diagram_manifest": "assets/diagrams-v2/manifest.json",
@@ -1052,8 +1018,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 3380,
-      "sha256": "33bbfe7a3ae687bae013a29edeb511208287030ed0d213107659728fd4f2f3cc"
+      "bytes": 3436,
+      "sha256": "da906be5d04b5390249e382308365ce4d9504377f53388d8ec19484955fb62d2"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1412,78 +1378,78 @@
     },
     {
       "path": "assets/films/v3/01-atomer.audio.json",
-      "bytes": 4472,
-      "sha256": "98b1ed0bcd85f5795674c79a24790ce32abc8e369cccda3a5a977de6f8b1d81b"
+      "bytes": 256,
+      "sha256": "c0474923d526e1d753d79ee05c923e7c13c4f030d154abccbccd5ffc8e5f3196"
     },
     {
       "path": "assets/films/v3/01-atomer.mp4",
-      "bytes": 20990522,
-      "sha256": "338c0bd368108f12963ee0b75ae41551b9f701f5facddab9111f04bdf2d6267f"
+      "bytes": 20991313,
+      "sha256": "1d8c4562de05115e277b4105993f592ef103811cb358ceef9620393703887d0a"
     },
     {
       "path": "assets/films/v3/02-modeller.audio.json",
-      "bytes": 4908,
-      "sha256": "a7b623fb74cdb33995777507da4135aecb6ff94ffcd4d84241f0702ca89f2b82"
+      "bytes": 255,
+      "sha256": "718658110bb9a89ade189780d78ad69d499b1a4e5d28f4de803e69c964b45b90"
     },
     {
       "path": "assets/films/v3/02-modeller.mp4",
-      "bytes": 18232108,
-      "sha256": "9a949c0e4a98aa76655117feb8489db56e0fb6e3abda68c082b219552a1efce8"
+      "bytes": 18221351,
+      "sha256": "8ec814884d96c514ac4ffb0b2038327cbb88d4bdc3e437f816aca1d3dde84c45"
     },
     {
       "path": "assets/films/v3/03-elektroner.audio.json",
-      "bytes": 4506,
-      "sha256": "1ac844ad80438d3378519e47d623694ab51611ffc519f2667385625b3d4f0df9"
+      "bytes": 260,
+      "sha256": "f360e5543e8bbedf6369904489e4a9a2befe909c063582cece4940340433fc67"
     },
     {
       "path": "assets/films/v3/03-elektroner.mp4",
-      "bytes": 16832939,
-      "sha256": "2d9c26313e0935dc0ada5b24aec75ce6995820b29f28fcf68b39fdc7551fe04d"
+      "bytes": 16830719,
+      "sha256": "d4e80479afbe0d3f0c4d1079542321822707d89d4fc92778676561d299c34192"
     },
     {
       "path": "assets/films/v3/04-forandringar.audio.json",
-      "bytes": 4707,
-      "sha256": "ae6ecc10542e6e3a5152f145897866504115ac1ac2337ef7c4d0445881d82f6e"
+      "bytes": 262,
+      "sha256": "d22ac99811f203cf56ba782ba1d784273c77af53485d8010247c2c2ea81f7771"
     },
     {
       "path": "assets/films/v3/04-forandringar.mp4",
-      "bytes": 17938181,
-      "sha256": "b2d5d6c38fa40dbab1fbf5e3d398c09eb3346f7c908895fd3ee32c61710dd8a5"
+      "bytes": 17929642,
+      "sha256": "3d224b8ef8edf45ec4c3ab4c58ce611fc335753d968278545abaca2af1c0035a"
     },
     {
       "path": "assets/films/v3/05-egenskaper.audio.json",
-      "bytes": 4930,
-      "sha256": "2708d0fcf9642f24f9c9edea7cd5c9b896c484b1d456f24758bf3c150d69a664"
+      "bytes": 259,
+      "sha256": "243ff5223d80c33f9c63cf62a380c6afaf3422fa2f62512fe76e3755026beabd"
     },
     {
       "path": "assets/films/v3/05-egenskaper.mp4",
-      "bytes": 17980521,
-      "sha256": "59267fc7a8fbdb8c4681c74c9bf761c8c66bcd55ee5939cd323895a392502843"
+      "bytes": 17976307,
+      "sha256": "7ce8e002aeb37af2714939e9e3d784403da2490385c78c3ae920ebd9c09f5a59"
     },
     {
       "path": "assets/films/v3/06-faser.audio.json",
-      "bytes": 4851,
-      "sha256": "c7de8ffd95cb38ab85e006fe41b741dee62dd4822b19e6d4e8ef56ac5d187ba7"
+      "bytes": 252,
+      "sha256": "0b6c1d64ade8f2203d5d7ef9161c27868d00c450d77cc40b03f2c8560900ff2e"
     },
     {
       "path": "assets/films/v3/06-faser.mp4",
-      "bytes": 20001701,
-      "sha256": "68d0becce567122316c0b07b9a053505cca5e83d4257a736793baa85cf9e63d3"
+      "bytes": 19998336,
+      "sha256": "c88ab2e56e840a84af87c0fcc6c45e9cd06ed6ae95f5603bfc6d2d03a1476033"
     },
     {
       "path": "assets/films/v3/07-miljo.audio.json",
-      "bytes": 4989,
-      "sha256": "aeebf9f18fb7bb7816737fb17fbf1b47d5bad2dcbde5572ba0f00abf43e88b4e"
+      "bytes": 255,
+      "sha256": "cbea180b938d242be7884756fef6318554c4b11de05280ef033f5044ba9b065c"
     },
     {
       "path": "assets/films/v3/07-miljo.mp4",
-      "bytes": 19227396,
-      "sha256": "b7d76a925df0f39fb4d9cb80c282a9ec9e65d5be3b7b83f81355c9991f0fb159"
+      "bytes": 19220884,
+      "sha256": "0922e68b7b14503569789246f23ce0ef11c622493ca079661321cf1123db579f"
     },
     {
       "path": "assets/films/v3/manifest.json",
-      "bytes": 52013,
-      "sha256": "450d639abc05771078bcb9abba232fddace65a44745598394e2138d44279ba08"
+      "bytes": 51321,
+      "sha256": "018e7aa460e69e836b7b3e1b14622c60f0d9027d7d84dbeed9f3652614f78626"
     },
     {
       "path": "assets/fonts/lmmath.woff",
@@ -1658,7 +1624,7 @@
     {
       "path": "index.html",
       "bytes": 1997,
-      "sha256": "6a2fd060159b3debb82d64e6455e5798f990bbe29589a1883977483f480beb1d"
+      "sha256": "0f51802ff26f48e7e77bfaeb1361d5338fc25505fb0c12c6842f957c7d773625"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
@@ -1797,8 +1763,8 @@
     },
     {
       "path": "manim/v3/README.md",
-      "bytes": 2374,
-      "sha256": "9f79560cbd17306c6dbea17234c44b2420525e8b69a9d1565a7f8100d7562fdd"
+      "bytes": 2826,
+      "sha256": "1b75a64d66cdabe121ce5ce35341a11cf632bb3bab3055eacc8b77888a4173eb"
     },
     {
       "path": "manim/v3/core.py",
@@ -1807,8 +1773,8 @@
     },
     {
       "path": "manim/v3/narrate_score.py",
-      "bytes": 7571,
-      "sha256": "47d18978b3061379d7e1ca975ed0dabc094a328a818f29ca329e9157fef9c389"
+      "bytes": 4387,
+      "sha256": "123a30fa987c70e650646860aa14565070bb5d5688e60d2cf6d7613087e0830d"
     },
     {
       "path": "manim/v3/qa_5_7.json",
@@ -1817,8 +1783,8 @@
     },
     {
       "path": "manim/v3/render_all.py",
-      "bytes": 2276,
-      "sha256": "5fbe04ad58fa3febd9ccb158cb9560900b1ec96f7292fa1d5b399ad1df28dfc4"
+      "bytes": 2333,
+      "sha256": "adac3096907c71ce76f2fb592ec95c58de3813f5a3a9ee660b95c6f89efc814e"
     },
     {
       "path": "manim/v3/scenes_1_2.py",
@@ -1887,8 +1853,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 479702,
-      "sha256": "405e4cc306ceba676c6bc55bdc6acd74bb39e4f7ba581250324cf2aeda10b389"
+      "bytes": 479127,
+      "sha256": "9ad3a48781148d4409201de97af0b93f0836f169f83b995fd7a8087ef462aeac"
     },
     {
       "path": "study-assets.js",
@@ -1906,7 +1872,7 @@
       "sha256": "b8e87ab0ba640809448c965998c7090670366a321a6fee1a5e43c8fb5ff8a239"
     }
   ],
-  "patch": 0,
+  "patch": 1,
   "diagram_conversion": "pdfLaTeX to PDF, then PyMuPDF to self-contained SVG with text paths and embedded shading images",
   "video_production": {
     "render": "Native1920x1080at30fps",
@@ -1916,7 +1882,7 @@
     ],
     "teaching_chapters": 95,
     "source": "manim/v3/README.md",
-    "narration": "Swedish synchronized synthetic voice",
+    "narration": false,
     "music": "Original instrumental score"
   }
 }

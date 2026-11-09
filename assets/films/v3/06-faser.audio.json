@@ -1,95 +1,11 @@
 {
   "file": "assets/films/v3/06-faser.mp4",
-  "duration": 263.320964,
-  "narration_voice": "Alva",
-  "mix_version": 2,
-  "spoken_seconds": 212.08344671201817,
-  "segments": [
-    {
-      "start": 1.3,
-      "duration": 15.532471655328798,
-      "speed_factor": 1,
-      "text": "Vi följer samma tolv vattenmolekyler genom fast form, vätska och gas. Varje vattenmolekyl har två väteatomer och en syreatom. Molekylerna byter inte storlek eller atomslag när vattnet värms."
-    },
-    {
-      "start": 20.033,
-      "duration": 15.80408163265306,
-      "speed_factor": 1,
-      "text": "I is ligger molekylerna i en ordnad struktur. De är inte helt stilla: de kan vibrera kring sina lägen. Vi visar bara en liten och förenklad del av isens öppna struktur. Det finns mycket utrymme mellan molekylerna."
-    },
-    {
-      "start": 39.166999999999994,
-      "duration": 15.107891156462586,
-      "speed_factor": 1,
-      "text": "När is smälter försvinner den fasta ordningen. Molekylerna kan nu röra sig förbi varandra. Det är fortfarande vattenmolekyler. Vi bevarar alla tolv och ändrar deras lägen och rörelser, inte deras storlek."
-    },
-    {
-      "start": 58.3,
-      "duration": 16.314920634920636,
-      "speed_factor": 1,
-      "text": "I flytande vatten är molekylerna nära varandra, men grannarna kan ändras. Vatten fyller därför en behållares form. För just vatten är vätskans struktur tätare än isens öppna struktur, vilket bidrar till att is flyter."
-    },
-    {
-      "start": 78.43299999999999,
-      "duration": 14.941904761904762,
-      "speed_factor": 1,
-      "text": "I gasform är vattenmolekylerna i genomsnitt långt ifrån varandra och rör sig fritt mellan kollisionerna. De har inte svällt. När en gas får mer utrymme kan samma antal molekyler spridas över en större volym."
-    },
-    {
-      "start": 98.567,
-      "duration": 17.732607709750567,
-      "speed_factor": 1,
-      "text": "Högre temperatur hänger ihop med mer rörelse hos partiklarna. I den här jämförelsen använder vi samma antal och samma storlek. Snabbare rörelser får därför inte misstolkas som att molekylerna blir större eller att nya vattenmolekyler bildas."
-    },
-    {
-      "start": 117.7,
-      "duration": 17.024807256235828,
-      "speed_factor": 1,
-      "text": "Vi tillför energi till rent vatten vid normalt lufttryck. I vissa delar stiger temperaturen. Under smältning och kokning kan energin i stället ändra hur molekylerna hålls tillsammans. Då kan temperaturen vara ungefär konstant."
-    },
-    {
-      "start": 138.4,
-      "duration": 17.45437641723356,
-      "speed_factor": 1,
-      "text": "Vid en fasövergång kan energi fortsätta att tillföras utan att temperaturen stiger. Energin bidrar då till att ändra samspelet mellan molekylerna. Vi skiljer därför på tillförd energi, temperatur och vilket tillstånd ämnet befinner sig i."
-    },
-    {
-      "start": 157.53300000000002,
-      "duration": 12.717233560090703,
-      "speed_factor": 1,
-      "text": "Vatten kan avdunsta även när det inte kokar. En del molekyler kan lämna vätskans yta och bli gas. Därför kan en blöt tröja torka i ett rum utan att vattnet i tröjan kokar."
-    },
-    {
-      "start": 176.667,
-      "duration": 16.106349206349208,
-      "speed_factor": 1,
-      "text": "När vatten kokar bildas vattenånga även inne i vätskan. Bubblor med gas kan växa och stiga upp. Det är en viktig skillnad mot avdunstning, som sker från ytan. Kokpunkten beror också på trycket omkring vattnet."
-    },
-    {
-      "start": 195.8,
-      "duration": 15.828707482993197,
-      "speed_factor": 1,
-      "text": "Vattenånga är en osynlig gas. Det vita molnet ovanför en kastrull består av mycket små vätskedroppar som bildats när gas kylts och kondenserat. Det synliga molnet är därför inte samma sak som själva vattenångan."
-    },
-    {
-      "start": 216.5,
-      "duration": 16.348027210884354,
-      "speed_factor": 1,
-      "text": "Smältning och stelning går mellan fast form och vätska. Förångning och kondensation går mellan vätska och gas. Sublimering och deposition går direkt mellan fast form och gas. Pilarna visar riktning, inte hur snabbt det går."
-    },
-    {
-      "start": 237.633,
-      "duration": 15.565714285714286,
-      "speed_factor": 1,
-      "text": "Förklara vad som ändras när is blir vatten och sedan gas. Ta med avstånd, ordning, rörelse och energi. Berätta också vad som är oförändrat: samma vattenmolekyler och samma atomer finns kvar i vår modell."
-    },
-    {
-      "start": 256.767,
-      "duration": 5.604353741496599,
-      "speed_factor": 1,
-      "text": "Förklara nu med egna ord. Använd modellerna och sambanden från filmen."
-    }
-  ],
+  "duration": 263.321,
+  "narration": false,
+  "narration_voice": null,
+  "mix_version": 3,
+  "spoken_seconds": 0,
+  "segments": [],
   "original_music": true,
   "video_frames": "Copied without re-encoding"
 }

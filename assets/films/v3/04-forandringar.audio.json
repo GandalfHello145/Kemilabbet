@@ -1,101 +1,11 @@
 {
   "file": "assets/films/v3/04-forandringar.mp4",
-  "duration": 241.120313,
-  "narration_voice": "Alva",
-  "mix_version": 2,
-  "spoken_seconds": 192.07678004535146,
-  "segments": [
-    {
-      "start": 1.3,
-      "duration": 11.915873015873016,
-      "speed_factor": 1,
-      "text": "Is smälter, vatten kokar och kol kan reagera med syrgas. Allt förändras, men på olika sätt. Vi går från det vi kan se till en modell av partiklarna."
-    },
-    {
-      "start": 18.0,
-      "duration": 12.729115646258503,
-      "speed_factor": 1,
-      "text": "Vi följer sex vattenmolekyler. I is har de bestämda platser och vibrerar. När isen smälter kan molekylerna röra sig förbi varandra. Vattenmolekylerna finns kvar."
-    },
-    {
-      "start": 34.666999999999994,
-      "duration": 10.822448979591837,
-      "speed_factor": 1,
-      "text": "När vattnet blir gas kan molekylerna röra sig fritt och är i genomsnitt längre från varandra. Molekylerna blir inte större och delas inte upp till H- och O-atomer."
-    },
-    {
-      "start": 51.367,
-      "duration": 13.467573696145125,
-      "speed_factor": 1,
-      "text": "Pinnarna i kulmodellen visar bindningar inuti vattenmolekylen. När is smälter är det främst ordningen och samspelet mellan molekyler som ändras, inte vilka atomer som bygger varje H₂O."
-    },
-    {
-      "start": 68.1,
-      "duration": 12.287528344671202,
-      "speed_factor": 1,
-      "text": "Här finns två vätemolekyler och en syrgasmolekyl. Modellen visar fyra H-atomer och två O-atomer. Nu ska vi hålla reda på varje atom när bindningarna förändras."
-    },
-    {
-      "start": 84.133,
-      "duration": 14.373197278911565,
-      "speed_factor": 1,
-      "text": "Bindningar bryts och andra bindningar bildas. Samma sex atomer ordnas här till två vattenmolekyler. Banorna är ritade för att hjälpa oss att följa atomerna; detta är ingen instruktion till ett försök."
-    },
-    {
-      "start": 100.833,
-      "duration": 13.376643990929706,
-      "speed_factor": 1,
-      "text": "Tvåan framför en formel räknar hela molekyler. Den lilla tvåan i H₂ räknar H-atomer i varje molekyl. På båda sidor måste antalet atomer av varje slag vara lika."
-    },
-    {
-      "start": 117.533,
-      "duration": 14.582131519274377,
-      "speed_factor": 1,
-      "text": "Kol kan reagera med syrgas och bilda koldioxid. En C-atom och två O-atomer blir en CO₂-molekyl. Det nya ämnet har andra egenskaper, men atomslagen och atomantalet finns kvar."
-    },
-    {
-      "start": 134.233,
-      "duration": 14.318412698412699,
-      "speed_factor": 1,
-      "text": "När bindningar förändras deltar energi. I det här förenklade exemplet behöver reaktionen först komma i gång och ger sedan energi till omgivningen. Alla reaktioner har inte samma energiförändring."
-    },
-    {
-      "start": 150.93300000000002,
-      "duration": 13.378004535147392,
-      "speed_factor": 1,
-      "text": "Nu väger vi en stängd behållare tillsammans med allt innehåll. Partiklarna kan röra sig och ämnen kan reagera, men ingen materia passerar genom gränsen. Den totala massan är då densamma."
-    },
-    {
-      "start": 167.633,
-      "duration": 14.012562358276645,
-      "speed_factor": 1,
-      "text": "Om gas lämnar en öppen behållare kan vågen visa mindre massa. Materian har inte försvunnit; en del finns nu utanför det vi väger. Siffrorna är ett tänkt exempel, inte mätningar."
-    },
-    {
-      "start": 184.333,
-      "duration": 13.158820861678004,
-      "speed_factor": 1,
-      "text": "Bubblor kan vara vattenånga när vatten kokar. Bubblor kan också vara en ny gas som bildas i en kemisk reaktion. För att avgöra vad som hänt måste vi undersöka vilka ämnen som finns."
-    },
-    {
-      "start": 201.03300000000002,
-      "duration": 14.09469387755102,
-      "speed_factor": 1,
-      "text": "En färg kan förändras när färgämnen blandas utan att nya ämnen bildas. Temperatur kan ändras både genom uppvärmning och genom reaktioner. Beskriv först vad ni ser och pröva sedan en förklaring."
-    },
-    {
-      "start": 217.86700000000002,
-      "duration": 13.955419501133786,
-      "speed_factor": 1,
-      "text": "Fråga om samma ämne finns kvar eller om nya ämnen har bildats. Följ atomerna och håll reda på systemets gräns. Förklara sedan skillnaden mellan en fysisk förändring och en kemisk reaktion."
-    },
-    {
-      "start": 234.567,
-      "duration": 5.604353741496599,
-      "speed_factor": 1,
-      "text": "Förklara nu med egna ord. Använd modellerna och sambanden från filmen."
-    }
-  ],
+  "duration": 241.120317,
+  "narration": false,
+  "narration_voice": null,
+  "mix_version": 3,
+  "spoken_seconds": 0,
+  "segments": [],
   "original_music": true,
   "video_frames": "Copied without re-encoding"
 }

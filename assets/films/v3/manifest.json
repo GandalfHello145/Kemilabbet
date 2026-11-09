@@ -5,11 +5,11 @@
     "file": "assets/films/v3/01-atomer.mp4",
     "poster": "assets/posters/v3/01-atomer.jpg",
     "captions": "assets/captions/v3/01-atomer.vtt",
-    "duration": 255.620313,
+    "duration": 255.620317,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 134,
@@ -142,12 +142,7 @@
       }
     ],
     "spoken_seconds": 190.0338775510204,
-    "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1
   },
   {
     "module": 2,
@@ -155,11 +150,11 @@
     "file": "assets/films/v3/02-modeller.mp4",
     "poster": "assets/posters/v3/02-modeller.jpg",
     "captions": "assets/captions/v3/02-modeller.vtt",
-    "duration": 257.621615,
+    "duration": 257.622,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 129,
@@ -292,12 +287,7 @@
       }
     ],
     "spoken_seconds": 209.97755102040816,
-    "max_voice_speed": 1.0711031079098294,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1.0711031079098294
   },
   {
     "module": 3,
@@ -305,11 +295,11 @@
     "file": "assets/films/v3/03-elektroner.mp4",
     "poster": "assets/posters/v3/03-elektroner.jpg",
     "captions": "assets/captions/v3/03-elektroner.vtt",
-    "duration": 241.618359,
+    "duration": 241.618367,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 130,
@@ -442,12 +432,7 @@
       }
     ],
     "spoken_seconds": 182.65873015873012,
-    "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1
   },
   {
     "module": 4,
@@ -455,11 +440,11 @@
     "file": "assets/films/v3/04-forandringar.mp4",
     "poster": "assets/posters/v3/04-forandringar.jpg",
     "captions": "assets/captions/v3/04-forandringar.vtt",
-    "duration": 241.120313,
+    "duration": 241.120317,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 135,
@@ -592,12 +577,7 @@
       }
     ],
     "spoken_seconds": 192.07678004535146,
-    "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1
   },
   {
     "module": 5,
@@ -609,7 +589,7 @@
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 105,
@@ -733,12 +713,7 @@
       }
     ],
     "spoken_seconds": 217.5681632653061,
-    "max_voice_speed": 1.0113736722759277,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1.0113736722759277
   },
   {
     "module": 6,
@@ -746,11 +721,11 @@
     "file": "assets/films/v3/06-faser.mp4",
     "poster": "assets/posters/v3/06-faser.jpg",
     "captions": "assets/captions/v3/06-faser.vtt",
-    "duration": 263.320964,
+    "duration": 263.321,
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 110,
@@ -874,12 +849,7 @@
       }
     ],
     "spoken_seconds": 212.08344671201817,
-    "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1
   },
   {
     "module": 7,
@@ -891,7 +861,7 @@
     "width": 1920,
     "height": 1080,
     "fps": 30,
-    "narration": true,
+    "narration": false,
     "audio": true,
     "music": true,
     "animation_calls": 114,
@@ -1015,11 +985,6 @@
       }
     ],
     "spoken_seconds": 217.5449433106576,
-    "max_voice_speed": 1,
-    "narrator": {
-      "language": "sv-SE",
-      "voice": "Alva",
-      "synthetic": true
-    }
+    "max_voice_speed": 1
   }
 ]
