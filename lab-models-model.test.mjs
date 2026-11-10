@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {forceAt,potentialEnergy,createParticle,advanceParticle,particleEnergy,createExperiment,advanceExperiment,COUPLING} from './lab-models-model.js';
+import {forceAt,potentialEnergy,createParticle,advanceParticle,particleEnergy,createExperiment,advanceExperiment,COUPLING,traceTrajectory,probeSummary,controlledCloserComparison} from './lab-models-model.js';
 function finish(p){for(let i=0;i<12000&&!p.done;i++)advanceParticle(p,.02);assert.ok(p.done);return p;}
 test('positive charge repels continuously, including through the diffuse Thomson interior',()=>{
  const a=forceAt('rutherford',40,1,0),b=forceAt('rutherford',40,2,0);
@@ -38,4 +38,20 @@ test('paired experiments use the same seeded incoming beam and count every resul
  }
  assert.deepEqual(a.models.thomson.particles.map(p=>p.path[0].y),a.models.rutherford.particles.map(p=>p.path[0].y));
  assert.ok(potentialEnergy('rutherford',40,.1,0)>potentialEnergy('thomson',40,.1,0));
+});
+test('the guided comparison requires a closer beam at the same charge, with a larger measured angle',()=>{
+ const far={impact:1.2,charge:40,rutherford:traceTrajectory({charge:40,impact:1.2}).angle};
+ const near={impact:.12,charge:40,rutherford:traceTrajectory({charge:40,impact:.12}).angle};
+ assert.equal(controlledCloserComparison(far,near),true);
+ assert.equal(controlledCloserComparison(far,{...near,charge:80}),false);
+ assert.equal(controlledCloserComparison(far,{...near,impact:1.4}),false);
+ assert.equal(controlledCloserComparison(far,{...near,rutherford:far.rutherford}),false);
+});
+test('slow playback changes observation time, not the resulting force-driven path',()=>{
+ const a=createExperiment({count:1,impact:.12,spread:0}),b=createExperiment({count:1,impact:.12,spread:0});
+ for(let i=0;i<5000;i++){if(advanceExperiment(a,1/60,{rate:.5}))break;}
+ for(let i=0;i<5000;i++){if(advanceExperiment(b,1/60,{rate:2.2}))break;}
+ const x=probeSummary(a),y=probeSummary(b);assert.ok(x&&y);
+ assert.ok(Math.abs(x.rutherford-y.rutherford)<.05);assert.ok(Math.abs(x.thomson-y.thomson)<.05);
+ assert.equal(probeSummary(createExperiment({count:1})),null);
 });

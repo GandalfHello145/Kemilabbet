@@ -63,3 +63,20 @@ test('unsupported actions fail without corrupting the model', () => {
   snapshot.sodium.electrons = 999;
   assert.equal(model.state.sodium.electrons, 11);
 });
+
+test('interactive H₂ approach preserves both electron identities at every overlap', () => {
+  const model = new BondsModel();
+  for (const value of [-1, 0, .25, .75, 1, 2]) {
+    const h = model.setOverlap(value).hydrogen;
+    assert.equal(h.overlap, Math.max(0, Math.min(1, value)));
+    assert.equal(h.totalElectrons, 2);
+    assert.equal(h.totalProtons, 2);
+    assert.deepEqual(h.electronIds, ['H-left-electron', 'H-right-electron']);
+    assert.equal(h.sharedPair, false);
+  }
+  assert.equal(model.share(true).hydrogen.overlap, 1);
+  assert.equal(model.state.hydrogen.sharedPair, true);
+  const initial = model.state;
+  assert.throws(() => model.setOverlap(NaN));
+  assert.deepEqual(model.state, initial);
+});

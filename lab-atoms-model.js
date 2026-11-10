@@ -50,6 +50,29 @@ export function moveComponent(state, id, dx, dy) {
   const group = components(state).find(g => g.some(a => a.id === id));
   for (const atom of group || []) { atom.x += dx; atom.y += dy; }
 }
+/** Suggest a valid bond for a dragged group. The caller commits on release. */
+export function snapCandidate(state, movingId, reach = 112) {
+  const moving = components(state).find(g => g.some(a => a.id === movingId));
+  if (!moving) return null;
+  const ids = new Set(moving.map(a => a.id));
+  let best = null;
+  for (const a of moving) for (const b of state.atoms) {
+    if (ids.has(b.id)) continue;
+    const distance = Math.hypot(a.x - b.x, a.y - b.y);
+    if (distance > reach || (best && distance >= best.distance)) continue;
+    const decision = bondDecision(state, a.id, b.id);
+    if (decision.ok) best = { a: a.id, b: b.id, distance, order: decision.order };
+  }
+  return best;
+}
+export function missionComplete(state, mission) {
+  const info = describeWorkspace(state);
+  const water = info.groups.filter(g => g.formula === 'H₂O').length;
+  if (mission === 0) return water >= 1;
+  if (mission === 1) return water >= 2 && info.classification === 'Rent ämne · kemisk förening';
+  if (mission === 2) return water >= 2 && info.species.includes('O₂') && info.classification === 'Blandning';
+  return false;
+}
 export function describeWorkspace(state) {
   const groups = components(state).map(atoms => {
     const h = atoms.filter(a => a.symbol === 'H').length, o = atoms.length - h;

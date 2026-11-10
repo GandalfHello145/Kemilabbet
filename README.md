@@ -14,7 +14,7 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 
 ## Interaktiva labb i alla sju områden
 
-[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs1#omrade-1). Varje område har en knapp ovanför filmen. Labbet ligger överst i steg 2, Förstå. Länken med lab=alla öppnar experimentet direkt även när ni växlar område.
+[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs2#omrade-1). Varje område har en knapp ovanför filmen. Labbet ligger överst i steg 2, Förstå. Länken med lab=alla öppnar experimentet direkt även när ni växlar område.
 
 | Område | Labb | Undersök |
 |---|---|---|
@@ -26,11 +26,11 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 | 6 | Vattenlabbet | Värm/kyl 50 g vatten och koppla ihop fasandelar, molekylvy och temperaturkurva. |
 | 7 | Miljölandskapet | Pröva åtgärder och följ ett påhittat ämnes relativa mängd och halt genom olika platser. |
 
-De sex nya labben använder Canvas 2D med zoom, tangentbordsreglage, direkt återkoppling och alternativ till dragning. Vattenlabbet behåller sin 3D-vy och 2D-reservvy. Modellerna är egna förklaringsmodeller med explicit beskrivna förenklingar och primärkällor i varje labb. Miljömodellen är inte en prognos eller en verklig riskbedömning.
+De sex ombyggda labben har guidade undersökningsuppdrag, direkt dragning med tydliga släppmål, animerad återkoppling och knappar som alternativ till dragning. Eleverna bygger molekyler, styr strålen, flyttar elektroner och väljer själva de molekyler som får reagera. Okända material kräver belägg och miljöförsök jämförs före och efter en åtgärd. Det större labbläget samlar bilden och verktygen på samma arbetsyta. Canvas 2D används med zoom, tangentbordsreglage och stöd för minskad rörelse. Vattenlabbet behåller sin 3D-vy och 2D-reservvy. Modellerna är egna förklaringsmodeller med explicit beskrivna förenklingar och primärkällor i varje labb. Miljömodellen är inte en prognos eller en verklig riskbedömning.
 
 lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje nytt labb har separat gränssnitt, ren modellfil och modelltester. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
 
-Kör alla 47 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
+Kör alla 59 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
 
 ## Vattenlabbet
 

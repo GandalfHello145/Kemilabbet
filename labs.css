@@ -75,3 +75,70 @@
 .cl-pan{display:flex;align-items:center;gap:4px;flex-wrap:wrap;font-size:10px;color:#b7d3dc}
 .cl-pan>span{margin-right:5px}.cl-pan button{padding:5px 8px;min-width:35px;min-height:37px}
 @media(max-width:600px){.cl-pan{flex-basis:100%}.cl-pan button{min-height:40px}}
+/* The experiment is the primary working surface. */
+.chem-lab{container-type:inline-size;border-radius:16px;--cl-teal:#076b78}
+.chem-lab [hidden]{display:none!important}
+.chem-lab button{font-size:14px;font-weight:600;min-height:46px;border-radius:9px;box-shadow:0 2px 0 #164f4710;transition:transform .18s,background .18s,border-color .18s,box-shadow .18s}
+.chem-lab button:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 12px #154e4516}
+.chem-lab button:active:not(:disabled){transform:translateY(1px)}
+.chem-lab button.cl-primary{background:linear-gradient(130deg,#087d88,#075763);border-color:#08707b;box-shadow:0 3px 10px #087d8828}
+.chem-lab button.cl-secondary{background:#fff;border-color:#b7d1c7}
+.cl-header{padding:23px 26px;align-items:flex-start}
+.chem-lab .cl-header h2{font-size:35px!important;margin-bottom:8px}
+.chem-lab .cl-header p:not(.cl-kicker){font-size:14px;line-height:1.65}
+.chem-lab .cl-focus-button{flex-shrink:0;max-width:165px;font-size:12px;min-height:44px;background:#eaf3ee;color:#21645f}
+.cl-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding:0 25px 20px;margin:0;gap:10px}
+.cl-steps li{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid #d8e3da;background:#f4f7f1;border-radius:10px;line-height:1.4;color:#6f847b;font-size:12px;min-width:0}
+.cl-steps strong{display:block;font-size:13px}.cl-steps small{display:block;font-size:11px;margin-top:3px;font-weight:400}
+.cl-step-number{display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;border:1px solid #c7d9cb;border-radius:50%;font-size:13px;font-weight:700}
+.cl-steps [aria-current=step]{background:#e3f4ed;border-color:#61b6a0;color:#145f59;box-shadow:0 2px 8px #1b806315}
+.cl-steps [aria-current=step] .cl-step-number{background:#117a72;color:#fff;border-color:transparent}
+.cl-steps .cl-step-done{color:#39766a;background:#edf6ef}.cl-step-done .cl-step-number{background:#d2e8da;border-color:#a9d2bc}
+.cl-objective{display:flex;align-items:center;gap:13px;padding:15px 25px;background:#fff2d9;border-top:1px solid #eddbb5;border-bottom:1px solid #eddbb5}
+.cl-objective>span{font-size:30px;line-height:1;color:#ba8035}.cl-objective-caption{display:block;font-size:9px;letter-spacing:.12em;font-weight:700;color:#946a34;margin-bottom:3px}
+.cl-objective strong{font-size:15px;line-height:1.5;display:block;color:#6f4f2a;font-weight:600}
+.cl-objective-done{background:#e6f4e9;border-color:#b8dbbe}.cl-objective-done strong,.cl-objective-done>span{color:#287451}
+.cl-workbench{display:flex;flex-direction:column;min-width:0}.cl-scene-column{min-width:0;order:2}
+.cl-insight{margin:0;border:0;border-bottom:1px solid #ccdcd4;border-radius:0;background:#f2f8f4;padding:15px 23px;gap:11px;min-height:88px}
+.cl-insight>span{font-size:23px}.cl-insight strong{font-size:15px}.chem-lab .cl-insight p{font-size:13px;line-height:1.6;margin:3px 0 0;color:#476b65}
+.cl-stage{background:radial-gradient(ellipse at 55% 20%,#153d51,#092536 65%,#071c2b);isolation:isolate}
+.cl-canvas{cursor:grab;touch-action:none}.cl-canvas:active{cursor:grabbing}
+.cl-view-tools{padding:9px 15px;min-height:50px;justify-content:space-between;background:#061b2940}
+.cl-view-tools button{font-size:12px;min-height:38px;padding:6px 11px;box-shadow:none}
+.cl-view-tools>button[data-kit=run]{background:#d2eee9;color:#144c51;border-color:#9fcfca}
+.cl-view-options{position:relative;margin-left:auto;color:#b6d3dc;font-size:12px}
+.cl-view-options summary{cursor:pointer;padding:9px 11px;border:1px solid #95c7d22e;border-radius:8px;list-style:none}
+.cl-view-options summary::after{content:' ▾';color:#72bbb9}
+.cl-view-options[open]>div{position:absolute;right:0;bottom:calc(100% + 9px);z-index:4;display:flex;flex-direction:column;align-items:stretch;gap:14px;padding:17px;background:#123748;border:1px solid #5a8899;box-shadow:0 8px 30px #0005;border-radius:12px;min-width:230px}
+.cl-view-options .cl-still,.cl-view-options .cl-zoom{margin-left:0!important}.cl-view-options .cl-zoom input{width:145px}
+.cl-metrics{padding:11px 20px;gap:10px;border-top:0;min-height:75px}.cl-metrics>div,.cl-metrics>p{font-size:11px!important;padding-right:8px;flex-basis:90px}.cl-metrics strong,.cl-metrics output,.cl-metrics [data-metric]{font-size:22px}
+.cl-controls-panel{order:1;min-width:0;background:#f7faf4;border-bottom:1px solid #cfdfd4}
+.cl-tool-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 23px 0;color:#386d66;font-size:10px;font-weight:700;letter-spacing:.09em}.cl-tool-heading small{font-size:11px;letter-spacing:0;color:#789086;font-weight:400}
+.cl-controls{padding:14px 23px 18px;gap:14px;max-height:340px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#9dbfb1 transparent}
+.cl-controls>.cl-grid,.cl-controls>.cl-control-grid{gap:12px}
+.cl-controls fieldset{background:#fffef9;border-color:#d0dfd4;border-radius:10px;padding:12px 13px}.cl-controls legend{font-size:12px;font-weight:700;color:#427367}
+.cl-task-hint,.chem-lab p.cl-task-hint{font-size:13px!important;line-height:1.65;margin:0 0 9px;background:#e8f2e9;color:#396b59;padding:10px 12px;border-left:3px solid #63ad8b;border-radius:0 7px 7px 0}
+.cl-controls input[type=range]{height:34px}.cl-controls input[type=number],.cl-controls select{min-height:46px;border-radius:8px}
+.cl-questions{padding:17px 25px}.cl-questions summary{font-size:14px;cursor:pointer;color:#3b7064;font-weight:600}.cl-questions ol{margin-top:15px}
+.cl-model{padding:15px 25px}.cl-model summary{font-size:12px;cursor:pointer}
+.cl-focus{position:fixed!important;inset:12px;z-index:10000;overflow:auto;max-width:none!important;width:calc(100vw - 24px)!important;max-height:calc(100dvh - 24px);margin:0!important;box-shadow:0 0 0 40px #062630c9,0 20px 100px #06263088}
+.cl-focus .cl-header{padding:17px 24px}.cl-focus .cl-header h2{font-size:30px!important}.cl-focus .cl-header p:not(.cl-kicker){font-size:13px}.cl-focus .cl-steps{padding-bottom:13px}.cl-focus .cl-objective{padding-top:11px;padding-bottom:11px}
+@container(min-width:900px){.cl-workbench{display:grid;grid-template-columns:minmax(0,1fr) 290px;align-items:start}.cl-scene-column{order:0;position:sticky;top:0}.cl-controls-panel{order:0;border-left:1px solid #cfdfd4;border-bottom:0;align-self:stretch}.cl-controls{padding:15px 17px;max-height:660px}.cl-controls .cl-grid,.cl-controls .cl-control-grid{grid-template-columns:1fr}.cl-tool-heading{display:block;padding:17px 17px 0}.cl-tool-heading small{display:block;margin-top:5px}.cl-controls .cl-buttons,.cl-controls .cl-actions{align-items:stretch}.cl-controls .cl-buttons button,.cl-controls .cl-actions button{flex:1 1 100%}.cl-controls label{font-size:13px}.cl-controls button{font-size:13px}.cl-focus .cl-controls{max-height:calc(100dvh - 240px)}.cl-focus .cl-canvas{max-height:calc(100dvh - 415px);min-height:270px;object-fit:contain}.cl-focus .cl-below,.cl-focus .cl-questions,.cl-focus .cl-model{position:relative}}
+@media(max-width:600px){.cl-header{padding:19px 16px;gap:10px;display:flex}.chem-lab .cl-header h2{font-size:27px!important}.chem-lab .cl-header p:not(.cl-kicker){font-size:12px}.chem-lab .cl-focus-button{font-size:11px;max-width:108px;padding:7px;min-height:46px}.cl-steps{padding:0 13px 14px;gap:5px}.cl-steps li{padding:8px 6px;gap:6px;align-items:flex-start}.cl-step-number{width:22px;height:22px;font-size:11px}.cl-steps strong{font-size:11px}.cl-steps small{display:none}.cl-objective{padding:12px 16px;gap:10px}.cl-objective strong{font-size:13px}.cl-objective>span{font-size:25px}.cl-insight{padding:13px 16px;min-height:90px}.cl-insight strong{font-size:13px}.chem-lab .cl-insight p{font-size:12px}.cl-controls{padding:12px 15px 15px;max-height:290px}.cl-tool-heading{padding:12px 15px 0}.cl-controls button{min-height:46px;font-size:13px}.cl-canvas{aspect-ratio:960/520}.cl-metrics{padding:11px 15px;gap:8px}.cl-metrics strong,.cl-metrics output,.cl-metrics [data-metric]{font-size:20px}.cl-focus{inset:0;border-radius:0;width:100vw!important;max-height:100dvh}.cl-focus .cl-header{padding:15px}.cl-focus .cl-header h2{font-size:25px!important}.cl-focus .cl-steps{padding-bottom:10px}.cl-focus .cl-controls{max-height:235px}}
+body:has(.cl-focus) #main{animation:none!important;transform:none!important}
+.cl-focus .cl-header p:not(.cl-kicker){display:none}
+.cl-focus .cl-kicker{margin-bottom:5px}.cl-focus .cl-header h2{margin-bottom:0}
+.cl-focus .cl-steps li{padding-top:8px;padding-bottom:8px}
+.cl-steps:has(li:nth-child(4)){grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:600px){.cl-steps:has(li:nth-child(4)){grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cl-tools-shortcut{display:none}
+@container(max-width:899px){.cl-focus .cl-scene-column{order:0;position:sticky;top:0;z-index:2}.cl-focus .cl-controls-panel{order:1;position:relative;z-index:1}.cl-focus .cl-canvas{height:clamp(200px,34dvh,290px);min-height:0;max-height:none;aspect-ratio:auto}.cl-focus .cl-steps small{display:none}.cl-focus .cl-steps li{padding-top:8px;padding-bottom:8px}.cl-focus .cl-tools-shortcut{display:inline-flex}.cl-focus .cl-controls{max-height:290px}.cl-focus .cl-header{padding:14px 20px}.cl-focus .cl-header h2{font-size:27px!important}.cl-focus .cl-steps{padding-bottom:10px}.cl-focus .cl-insight{min-height:72px;padding:11px 16px}.cl-focus .cl-insight p{font-size:12px;line-height:1.5}.cl-focus .cl-metrics{min-height:58px}.cl-focus .cl-metrics [data-metric]{font-size:18px}.cl-focus .cl-objective{padding:10px 18px}.cl-focus .cl-objective strong{font-size:13px}}
+.chem-lab .cl-view-tools button:hover:not(:disabled){background:#254d5e;color:#f4ffff;border-color:#719caa}
+.chem-lab .cl-view-tools button[data-kit=run]:hover:not(:disabled){background:#b1e2d9;color:#164c51}
+.cl-focus-exit{display:none}
+.cl-focus.cl-scrolled .cl-focus-exit{display:block;position:fixed;top:22px;right:24px;width:40px;min-height:40px;padding:5px;z-index:8;border-radius:50%;background:#f5fcf8;color:#1c6866;border-color:#a3cbbf;box-shadow:0 3px 12px #123f4230}
+.cl-focus.cl-scrolled .cl-insight{padding-right:63px}
+@media(max-width:600px){.cl-focus.cl-scrolled .cl-focus-exit{top:10px;right:10px}}
+@container(max-width:899px){.cl-focus.cl-tools-open .cl-controls-panel{position:fixed;left:12px;right:12px;bottom:12px;z-index:5;height:32dvh;max-height:300px;border:1px solid #a8cdbd;border-radius:12px 12px 0 0;box-shadow:0 -5px 20px #0c3b3d20;display:flex;flex-direction:column}.cl-focus.cl-tools-open .cl-tool-heading{flex-shrink:0;padding:11px 16px 7px}.cl-focus.cl-tools-open .cl-controls{max-height:none;overflow:auto;min-height:0;padding:8px 16px 15px}.cl-focus.cl-tools-open .cl-scene-column{padding-bottom:32dvh}}
+@media(max-width:600px){.cl-focus.cl-tools-open .cl-controls-panel{left:0;right:0;bottom:0}}
+@media(max-height:550px){.cl-focus .cl-scene-column{position:relative!important;top:auto!important}.cl-focus.cl-tools-open .cl-controls-panel{position:relative;left:auto;right:auto;bottom:auto;height:auto;max-height:none}.cl-focus.cl-tools-open .cl-scene-column{padding-bottom:0}.cl-focus .cl-controls{max-height:none}.cl-focus .cl-canvas{min-height:0!important;height:200px!important}.cl-focus .cl-tool-heading{padding:12px 17px}.cl-focus .cl-focus-exit{top:10px}}

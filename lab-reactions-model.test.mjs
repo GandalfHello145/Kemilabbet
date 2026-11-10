@@ -75,3 +75,68 @@ test('reset and returned snapshots cannot duplicate, lose, or mutate atoms', () 
   s.molecules[0].atoms[0].id = 'changed';
   assert.equal(model.state.molecules[0].atoms[0].id, 'H-0');
 });
+
+test('the pupil must select exactly two H₂ and one O₂ before a batch can react', () => {
+  const model = new ReactionsModel();
+  model.selectNext('H₂'); model.selectNext('O₂');
+  const incomplete = model.state;
+  assert.equal(incomplete.canReact, false);
+  assert.throws(() => model.reactSelection());
+  assert.deepEqual(model.state, incomplete);
+  model.selectNext('H₂');
+  assert.equal(model.state.canReact, true);
+  const selectedIds = model.state.molecules.filter(m => model.state.selectedIds.includes(m.id)).flatMap(m => m.atoms.map(a => a.id)).sort();
+  let s = model.reactSelection();
+  assert.equal(s.counts.water, 2);
+  assert.equal(s.completedBatches, 1);
+  assert.equal(s.availableGroups, 1);
+  assert.deepEqual(s.lastBatchAtomIds.sort(), selectedIds);
+  assert.deepEqual(s.molecules.filter(m => m.formula === 'H₂O').flatMap(m => m.atoms.map(a => a.id)).sort(), selectedIds);
+  assert.equal(s.totalMass, 72);
+  model.selectNext('H₂'); model.selectNext('H₂'); model.selectNext('O₂');
+  s = model.reactSelection();
+  assert.equal(s.counts.water, 4);
+  assert.equal(s.complete, true);
+  assert.deepEqual(s.beforeAtoms, s.afterAtoms);
+});
+
+test('excess selection, product selection and escaped molecules cannot create a batch', () => {
+  const model = new ReactionsModel({hydrogen: 4, oxygen: 2});
+  model.selectNext('H₂'); model.selectNext('H₂'); model.selectNext('H₂'); model.selectNext('O₂');
+  assert.equal(model.state.canReact, false);
+  assert.throws(() => model.reactSelection());
+  model.clearSelection();
+  model.selectNext('H₂'); model.selectNext('H₂'); model.selectNext('O₂'); model.reactSelection();
+  assert.equal(model.select('water-0'), false);
+  model.setSystem('open'); const escaped = model.releaseGas();
+  assert.equal(model.select(escaped), false);
+  assert.equal(model.state.selectedIds.length, 0);
+  assert.equal(model.state.sampleMass + model.state.surroundingsMass, model.state.massBefore);
+});
+
+test('all 81 pupil-driven batch flows match the bulk result and conserve every identity', () => {
+  for (let hydrogen = 0; hydrogen <= 8; hydrogen += 1) for (let oxygen = 0; oxygen <= 8; oxygen += 1) {
+    const model = new ReactionsModel({hydrogen, oxygen});
+    const ids = model.state.molecules.flatMap(m => m.atoms.map(a => a.id)).sort();
+    const initialMass = model.state.totalMass;
+    let batches = 0;
+    while (model.state.availableGroups > 0) {
+      assert.ok(model.selectNext('H₂'));
+      assert.ok(model.selectNext('H₂'));
+      assert.ok(model.selectNext('O₂'));
+      assert.equal(model.state.canReact, true);
+      const state = model.reactSelection();
+      batches += 1;
+      assert.equal(state.completedBatches, batches);
+      assert.equal(state.counts.water, 2 * batches);
+      assert.equal(state.totalMass, initialMass);
+      assert.deepEqual(state.beforeAtoms, state.afterAtoms);
+      assert.deepEqual(state.molecules.flatMap(m => m.atoms.map(a => a.id)).sort(), ids);
+    }
+    const bulk = new ReactionsModel({hydrogen, oxygen}).react();
+    assert.deepEqual(model.state.counts, bulk.counts);
+    assert.equal(model.state.complete, true);
+    assert.equal(model.state.availableGroups, 0);
+    assert.equal(model.state.selectedIds.length, 0);
+  }
+});

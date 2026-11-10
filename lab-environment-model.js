@@ -35,3 +35,20 @@ export class EnvironmentModel{
       waterConcentration:this.water/C.waterVolume,organismConcentration:this.organisms/C.organismMass,emissionRate:this.emissionRate,prevention:this.prevention,treatment:this.treatment});
   }
 }
+
+/** Read a saved experiment only at a matching time; never extrapolate. */
+export function sampleEnvironmentReference(history,timeMinutes){
+  if(!Array.isArray(history)||!history.length||!Number.isFinite(timeMinutes))return null;
+  const first=history[0],last=history.at(-1);
+  if(timeMinutes<first.timeMinutes-1e-8||timeMinutes>last.timeMinutes+1e-8)return null;
+  let lo=0,hi=history.length-1;
+  while(lo<hi){const mid=Math.floor((lo+hi)/2);if(history[mid].timeMinutes<timeMinutes)lo=mid+1;else hi=mid;}
+  const b=history[lo],a=history[Math.max(0,lo-1)],dt=b.timeMinutes-a.timeMinutes;
+  const q=dt>0?Math.max(0,Math.min(1,(timeMinutes-a.timeMinutes)/dt)):0;
+  return Object.freeze({timeMinutes,waterConcentration:a.waterConcentration+(b.waterConcentration-a.waterConcentration)*q,organismConcentration:a.organismConcentration+(b.organismConcentration-a.organismConcentration)*q});
+}
+export function compareEnvironmentAtTime(state,reference){
+  const prior=sampleEnvironmentReference(reference,state.timeMinutes);
+  if(!prior||prior.waterConcentration<=1e-10)return null;
+  return Object.freeze({timeMinutes:state.timeMinutes,baselineWater:prior.waterConcentration,currentWater:state.waterConcentration,reductionPercent:(1-state.waterConcentration/prior.waterConcentration)*100});
+}

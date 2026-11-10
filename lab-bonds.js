@@ -1,229 +1,86 @@
-import {createLab} from './lab-kit.js';
-import {BondsModel} from './lab-bonds-model.js';
+import {createLab, roundRect} from './lab-kit.js?v=20261110-labs2';
+import {BondsModel} from './lab-bonds-model.js?v=20261110-labs2';
 
-const TAU = Math.PI * 2;
-const C = {ink: '#e4f3f4', muted: '#95b7c4', teal: '#64e3da', gold: '#ffd07c', blue: '#8eb9ff', coral: '#ff9c8c'};
-const mix = (a, b, t) => a + (b - a) * t;
+const TAU=Math.PI*2,C={ink:'#e8f7f6',muted:'#a0c0cd',teal:'#6ce6d9',gold:'#ffd27c',blue:'#9ebfff'};
+const clamp=value=>Math.max(0,Math.min(1,value)),mix=(a,b,t)=>a+(b-a)*t;
 
-export function mountLab(host) {
-  const model = new BondsModel();
-  let view = 'atoms';
-  let cloud = true;
-  let transferProgress = 0;
-  let shareProgress = 0;
-  let drag = null;
-  let pointerId = null;
-  let marker = {x: 338, y: 218};
-  let compact = false;
-  const lab = createLab(host, {
-    id: 'bonds', title: 'Bindningslabbet', subtitle: 'Flytta en elektron. Jämför med ett delat elektronpar.',
-    badge: 'ELEKTRONER OCH BINDNINGAR', running: false,
-    canvasLabel: 'Skalmodell för natrium och klor, eller delat elektronpar i H₂. Alla handlingar finns också som knappar.',
-    controls: '<div class="cl-field"><label for="bonds-mode">Undersök <select id="bonds-mode"><option value="ionic">Jonbindning · Na och Cl</option><option value="covalent">Elektronpar · H₂</option></select></label></div>'
-      + '<div data-bonds="ionic-controls" class="cl-actions"><button type="button" data-bonds="transfer">Flytta e⁻ från Na till Cl →</button><button type="button" data-bonds="return" disabled>← Flytta tillbaka e⁻</button><button type="button" data-bonds="lattice" disabled aria-pressed="false">Se kristallens mönster</button></div>'
-      + '<div data-bonds="covalent-controls" class="cl-actions" hidden><button type="button" data-bonds="share">Visa ett delat elektronpar</button><button type="button" data-bonds="separate">Visa två H-atomer</button><button type="button" data-bonds="cloud" aria-pressed="true">Molnvy på</button></div>'
-      + '<button type="button" data-bonds="reset">Börja om ↺</button>',
-    metrics: '<div><span data-bonds="left-label">Na: protoner / elektroner</span><strong data-metric="left">11 / 11</strong></div>'
-      + '<div><span data-bonds="right-label">Cl: protoner / elektroner</span><strong data-metric="right">17 / 17</strong></div>'
-      + '<div><span data-bonds="total-label">Elektroner i de två atomerna</span><strong data-metric="total">28</strong></div>'
-      + '<div><span>Sammanlagd nettoladdning</span><strong data-metric="charge">0</strong></div>',
-    below: '<p data-bonds="ledger" role="status">Na: 11 p⁺ − 11 e⁻ = 0. Cl: 17 p⁺ − 17 e⁻ = 0.</p><p>Den gula punkten är den elektron som går att flytta. Dra den till den andra atomen eller använd knapparna. Punkterna räknar elektroner; de visar inga verkliga banor.</p>',
-    explanationTitle: 'Vad ändras om en atom förlorar en elektron?',
-    explanation: 'Börja med två neutrala atomer. Na har 11 protoner och 11 elektroner. Cl har 17 av varje. Flytta den gula elektronen och jämför laddningarna.',
-    questions: ['Varför blir Na positivt när en negativ elektron lämnar atomen?', 'Hur kan båda jonerna vara laddade när deras sammanlagda laddning är noll?', 'Vad är skillnaden mellan att flytta en elektron och att dela ett elektronpar?'],
-    model: '<p>Skal, avstånd, färger och elektronpunkter är schematiska. Elektroner kretsar inte som små planeter på de ritade cirklarna. Kärnorna ändras inte när joner bildas.</p>'
-      + '<p>Vi visar fristående Na- och Cl-atomer för att förklara elektronbokföringen. Verklig framställning av natriumklorid utgår från bland annat natriummetall och Cl₂ och är mer komplicerad. Detta är ingen laborationsinstruktion.</p>'
-      + '<p>Gittervyn är ett annat utsnitt med många joner i förhållandet 1:1. Den är inte en förstoring av bara de två atomerna. Kristallen är en utsträckt struktur, inte en samling NaCl-molekyler.</p>'
-      + '<p>H₂-vyn visar ett delat elektronpar. Molnet visar endast idén om elektroner kring båda kärnorna; det är inte en beräknad sannolikhetsfördelning. Att växla bild är inte ett experiment som tillför eller mäter bindningsenergi.</p>'
-      + '<p>Källor: <a href="https://www.acs.org/middleschoolchemistry/lessonplans/chapter4/lesson5.html" target="_blank" rel="noopener">ACS: jonbindning</a> · <a href="https://www.acs.org/middleschoolchemistry/lessonplans/chapter4/lesson4.html" target="_blank" rel="noopener">ACS: elektronpar och kovalent bindning</a>.</p>',
+export function mountLab(host){
+  const model=new BondsModel();
+  let view='atoms',guessed=false,mastered=false,transferProgress=0,overlapProgress=0,pairProgress=0;
+  let drag=null,marker={x:320,y:211},compact=false,animationTime=0;
+  const lab=createLab(host,{
+    id:'bonds',title:'Bindningslabbet',subtitle:'Styr elektronerna och upptäck vad som håller ihop ämnen.',badge:'FLYTTA · DELA · FÖRKLARA',running:true,hideRun:true,
+    objective:'Flytta en elektron från Na till Cl och förklara varför jonerna får olika laddningar.',
+    steps:[{title:'Förutsäg',text:'Vad händer med laddningen?'},{title:'Gör förändringen',text:'Dra eller använd elevknappen.'},{title:'Jämför',text:'Följ elektronerna och kärnorna.'},{title:'Förklara',text:'Pröva er förklaring.'}],
+    canvasLabel:'Dra den stora gula elektronen från Na till det lysande målet hos Cl. I H₂-läget kan vätekärnorna dras närmare varandra. Samma handlingar finns som knappar och reglage.',
+    controls:'<label class="cl-field" for="bonds-mode">Välj uppdrag<select id="bonds-mode"><option value="ionic">1 · Flytta en elektron: Na och Cl</option><option value="covalent">2 · Dela två elektroner: H₂</option></select></label>'
+      +'<div data-bonds="ionic-controls"><p class="cl-task-hint">Gissa först: vilken laddning får Na om en elektron lämnar atomen?</p><div class="cl-actions"><button type="button" class="cl-secondary" data-bonds="guess-plus">Positiv, +</button><button type="button" class="cl-secondary" data-bonds="guess-minus">Negativ, −</button></div><p class="cl-task-hint">Dra den stora gula elektronen till det lysande målet hos Cl.</p><div class="cl-actions"><button type="button" class="cl-primary" data-bonds="transfer">Flytta elektronen till Cl →</button><button type="button" class="cl-secondary" data-bonds="return" disabled>Flytta tillbaka ←</button><button type="button" class="cl-secondary" data-bonds="lattice" disabled>Bygg ut till en kristall</button></div></div>'
+      +'<div data-bonds="covalent-controls" hidden><p class="cl-task-hint">Dra en vätekärna mot den andra. Se hur områdena med elektroner börjar överlappa.</p><label class="cl-field" for="bonds-overlap">För kärnorna närmare <input id="bonds-overlap" type="range" min="0" max="100" value="0" step="1"></label><div class="cl-actions"><button type="button" class="cl-secondary" data-bonds="closer">För närmare →</button><button type="button" class="cl-primary" data-bonds="share" disabled>Dela de två elektronerna</button><button type="button" class="cl-secondary" data-bonds="separate">Jämför med två H-atomer</button></div><p class="cl-task-hint" data-bonds="overlap-hint">För kärnorna närmare för att fortsätta.</p></div>'
+      +'<fieldset data-bonds="check-panel" hidden><legend data-bonds="check-question">Varför är Na⁺ positivt?</legend><div class="cl-actions"><button type="button" class="cl-primary" data-bonds="check-right">En elektron saknas</button><button type="button" class="cl-secondary" data-bonds="check-wrong">En proton lades till</button></div></fieldset><p data-bonds="feedback" class="cl-task-hint" role="status">Börja med er förutsägelse eller prova elektronflytten direkt.</p><button type="button" class="cl-secondary" data-bonds="reset">Börja om uppdraget ↺</button>',
+    metrics:'<div><span data-bonds="left-label">Na: protoner / elektroner</span><strong data-metric="left">11 / 11</strong></div><div><span data-bonds="right-label">Cl: protoner / elektroner</span><strong data-metric="right">17 / 17</strong></div><div><span>Elektroner totalt</span><strong data-metric="total">28</strong></div><div><span>Sammanlagd nettoladdning</span><strong data-metric="charge">0</strong></div>',
+    below:'<p data-bonds="ledger">Na: 11 p⁺ − 11 e⁻ = 0. Cl: 17 p⁺ − 17 e⁻ = 0.</p>',
+    explanationTitle:'En elektron kan ändra en atoms laddning.',explanation:'Na och Cl är neutrala från början. Flytta den gula elektronen till målet hos Cl och följ vad som ändras.',
+    questions:['Vad är oförändrat när Na blir Na⁺?','Varför dras Na⁺ och Cl⁻ till varandra?','Hur många elektroner finns i det gemensamma elektronparet i H₂?'],
+    model:'<p>Skal, färger, avstånd, dragmål och rörelser är schematiska. Punkterna räknar elektroner; de visar inte verkliga banor. Kärnorna ändras inte när joner bildas. Attraktionsfält och pilar visar riktning, inte en uppmätt kraft eller fältstyrka.</p><p>Vi utgår från fristående Na- och Cl-atomer för elektronbokföringen. Verklig bildning av natriumklorid från natriummetall och Cl₂ är mer komplicerad. Den separata kristallvyn visar många ytterligare joner i förhållandet 1:1; den skapar inte nya atomer ur elektronflytten. En kristall är ett utsträckt jongitter, inte NaCl-molekyler.</p><p>H₂-reglaget styr en undervisningsbild av närmande och överlapp, inte ett uppmätt kärnavstånd. Knappen för delning och dess avståndsgräns ordnar uppdragets steg; de beräknar inte reaktionsvillkor, bindningsenergi eller en fysisk bildningströskel. Molnet är inte en beräknad sannolikhetsfördelning. Att jämföra med separata H-atomer tillför ingen beräknad energi.</p><p>Källor: <a href="https://www.acs.org/middleschoolchemistry/lessonplans/chapter4/lesson5.html" target="_blank" rel="noopener">ACS: jonbindning</a> · <a href="https://www.acs.org/middleschoolchemistry/lessonplans/chapter4/lesson4.html" target="_blank" rel="noopener">ACS: elektronpar</a>.</p>'
   });
-  const $ = key => lab.$(`[data-bonds="${key}"]`);
+  const $=key=>lab.$(`[data-bonds="${key}"]`);
+  function feedback(message){$('feedback').textContent=message;lab.announce(message);}
+  function refresh(){
+    const s=model.state,ionic=s.mode==='ionic',ready=ionic?s.transferred:s.shared;
+    $('ionic-controls').hidden=!ionic;$('covalent-controls').hidden=ionic;$('check-panel').hidden=!ready;
+    $('transfer').disabled=s.transferred;$('return').disabled=!s.transferred;$('lattice').disabled=!s.transferred;$('lattice').textContent=view==='lattice'?'Tillbaka till elektronflytten':'Bygg ut till en kristall';$('lattice').setAttribute('aria-pressed',String(view==='lattice'));
+    $('share').disabled=s.shared||s.hydrogen.overlap<.7;$('closer').disabled=s.shared||s.hydrogen.overlap>=1;lab.$('#bonds-overlap').value=Math.round(s.hydrogen.overlap*100);
+    $('overlap-hint').textContent=s.shared?'Ett gemensamt par: två elektroner kring båda kärnorna.':s.hydrogen.overlap>=.7?'Områdena överlappar. Dela nu de två elektronerna.':'För kärnorna närmare för att fortsätta.';
+    $('left-label').textContent=ionic?'Na: protoner / elektroner':'Vänster vätekärna';$('right-label').textContent=ionic?'Cl: protoner / elektroner':'Höger vätekärna';
+    lab.setMetric('left',ionic?`11 / ${s.sodium.electrons}`:'1 proton');lab.setMetric('right',ionic?`17 / ${s.chlorine.electrons}`:'1 proton');lab.setMetric('total',ionic?'28':'2');lab.setMetric('charge','0');
+    $('check-question').textContent=ionic?'Varför är Na⁺ positivt?':'Hur många elektroner finns sammanlagt i H₂?';$('check-right').textContent=ionic?'En elektron saknas':'Två elektroner';$('check-wrong').textContent=ionic?'En proton lades till':'Fyra elektroner';
+    $('ledger').textContent=ionic?`Na: 11 p⁺ − ${s.sodium.electrons} e⁻ = ${s.sodium.charge?'+1':'0'}. Cl: 17 p⁺ − ${s.chlorine.electrons} e⁻ = ${s.chlorine.charge?'−1':'0'}. Kärnorna har inte ändrats.`:s.shared?'H₂: två protoner och två gemensamma elektroner. Ingen elektron räknas dubbelt.':'Två H-atomer: en proton och en elektron i varje atom.';
+    lab.setStep?.(mastered?3:ready?2:ionic?(guessed?1:0):s.hydrogen.overlap>.05?1:0);lab.setObjective?.(mastered?'Ni kan förklara förändringen och vad som bevaras.':ionic?'Flytta en elektron och förklara laddningarna.':'För kärnorna närmare och bilda ett gemensamt elektronpar.',mastered);
+    if(ionic&&view==='lattice')lab.setExplanation('Jonerna håller ihop en hel kristall.','Positiva och negativa joner attraherar varandra genom hela gittret. Här visas ett större utsnitt med lika många Na⁺ som Cl⁻.');
+    else if(ionic&&ready)lab.setExplanation('Na⁺ och Cl⁻ dras till varandra.','Na har förlorat en negativ elektron och har därför nettoladdning +1. Cl har fått en extra elektron och har nettoladdning −1. Samma 28 elektroner finns kvar. Jämför de yttersta skalen.');
+    else if(ionic)lab.setExplanation('Dra den gula elektronen till det lysande målet.','Na har en ensam elektron i sitt yttersta skal. Cl har sju. Flytta elektronen och följ hur båda atomernas laddningar ändras.');
+    else if(ready)lab.setExplanation('Två kärnor delar på ett enda elektronpar.','Varje H-atom bidrar med en elektron. De två elektronerna blir gemensamma för båda kärnorna och håller ihop H₂. Hur många elektroner finns totalt?');
+    else lab.setExplanation('För vätekärnorna närmare varandra.','Dra en H-kärna inåt, använd reglaget eller tryck För närmare. Följ överlappet och dela sedan de två elektronerna.');lab.invalidate();
+  }
+  function transfer(target){const was=model.state.transferred;model.transfer(target);view='atoms';mastered=false;if(target==='Cl'&&!was){lab.celebrate?.(600,211);feedback('Bra! Na har nu 10 elektroner och Cl 18. Kärnorna är kvar: 11 och 17 protoner. Förklara nu varför Na är positivt.');}else if(target==='Na')feedback('Elektronen är tillbaka. Båda atomerna är neutrala: lika många protoner som elektroner.');refresh();}
+  function approach(value){model.setOverlap(value);mastered=false;refresh();}
+  lab.on('#bonds-mode','change',e=>{model.setMode(e.target.value);view='atoms';mastered=false;guessed=false;drag=null;feedback(e.target.value==='ionic'?'Gissa laddningen och prova elektronflytten.':'Dra en H-kärna inåt eller tryck För närmare.');refresh();});
+  lab.on($('guess-plus'),'click',()=>{guessed=true;feedback('Er förutsägelse: Na blir positivt. Prova genom att flytta den negativa elektronen.');refresh();});
+  lab.on($('guess-minus'),'click',()=>{guessed=true;feedback('Prova er idé: en negativ elektron lämnar Na. Blir det då fler positiva eller negativa laddningar kvar?');refresh();});
+  lab.on($('transfer'),'click',()=>transfer('Cl'));lab.on($('return'),'click',()=>transfer('Na'));lab.on($('lattice'),'click',()=>{view=view==='lattice'?'atoms':'lattice';refresh();});
+  lab.on('#bonds-overlap','input',e=>approach(Number(e.target.value)/100));lab.on($('closer'),'click',()=>approach(model.state.hydrogen.overlap+.25));
+  lab.on($('share'),'click',()=>{model.share(true);lab.celebrate?.(480,211);feedback('Nu delas paret. En elektron från varje atom ger två elektroner sammanlagt.');refresh();});
+  lab.on($('separate'),'click',()=>{model.share(false);mastered=false;feedback('Jämför med två separata H-atomer: en elektron till varje atom.');refresh();});
+  lab.on($('check-right'),'click',()=>{mastered=true;feedback(model.state.mode==='ionic'?'Precis! 11 protoner och 10 elektroner ger +1. Protonerna är oförändrade.':'Precis! Det finns två elektroner totalt. Båda kärnorna delar samma par.');lab.celebrate?.();refresh();});
+  lab.on($('check-wrong'),'click',()=>feedback(model.state.mode==='ionic'?'Titta på protonräknarna: de står kvar på 11 och 17. Det var en negativ elektron som flyttades.':'Räkna de två gula elektronerna. Att båda kärnorna delar paret skapar inte fler elektroner.'));
+  lab.on($('reset'),'click',()=>{model.reset();view='atoms';guessed=false;mastered=false;drag=null;feedback('Ett nytt försök. Gör förändringen och följ vad som bevaras.');refresh();});
+  lab.on(lab.canvas,'pointerdown',e=>{const p=lab.point(e),s=model.state;if(s.mode==='ionic'&&view==='atoms'&&Math.hypot(p.x-marker.x,p.y-marker.y)<43)drag={id:e.pointerId,kind:'electron',point:p};else if(s.mode==='covalent'&&!s.shared){const left=mix(270,420,overlapProgress),right=mix(690,540,overlapProgress);if(Math.hypot(p.x-left,p.y-211)<48)drag={id:e.pointerId,kind:'left',point:p};else if(Math.hypot(p.x-right,p.y-211)<48)drag={id:e.pointerId,kind:'right',point:p};}if(drag){lab.canvas.setPointerCapture?.(e.pointerId);if(e.cancelable)e.preventDefault();lab.invalidate();}});
+  lab.on(lab.canvas,'pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;drag.point=lab.point(e);if(drag.kind!=='electron')approach(drag.kind==='right'?(690-drag.point.x)/150:(drag.point.x-270)/150);if(e.cancelable)e.preventDefault();lab.invalidate();});
+  function endDrag(e,cancelled=false){if(!drag||drag.id!==e.pointerId)return;const d=drag,p=lab.point(e);drag=null;if(lab.canvas.hasPointerCapture?.(e.pointerId))lab.canvas.releasePointerCapture(e.pointerId);if(d.kind==='electron'&&!cancelled){if(Math.hypot(p.x-600,p.y-211)<90){transferProgress=1;transfer('Cl');}else if(Math.hypot(p.x-320,p.y-211)<90){transferProgress=0;transfer('Na');}else feedback('Sikta på den lysande cirkeln hos Cl. Elektronen finns kvar och går att försöka flytta igen.');}refresh();}
+  lab.on(lab.canvas,'pointerup',e=>endDrag(e));lab.on(lab.canvas,'pointercancel',e=>endDrag(e,true));
 
-  function refresh(message) {
-    const state = model.state;
-    const ionic = state.mode === 'ionic';
-    $('ionic-controls').hidden = !ionic;
-    $('covalent-controls').hidden = ionic;
-    $('transfer').disabled = state.transferred;
-    $('return').disabled = !state.transferred;
-    $('lattice').disabled = !state.transferred;
-    $('lattice').setAttribute('aria-pressed', String(view === 'lattice'));
-    $('lattice').textContent = view === 'lattice' ? 'Tillbaka till elektronflytten' : 'Se kristallens mönster';
-    $('share').disabled = state.shared;
-    $('separate').disabled = !state.shared;
-    $('cloud').setAttribute('aria-pressed', String(cloud));
-    $('cloud').textContent = cloud ? 'Molnvy på' : 'Visa molnvy';
-    $('left-label').textContent = ionic ? 'Na: protoner / elektroner' : 'Vänster vätekärna';
-    $('right-label').textContent = ionic ? 'Cl: protoner / elektroner' : 'Höger vätekärna';
-    $('total-label').textContent = ionic ? 'Elektroner i de två atomerna' : 'Elektroner i hela H₂-vyn';
-    lab.setMetric('left', ionic ? `11 / ${state.sodium.electrons}` : '1 proton');
-    lab.setMetric('right', ionic ? `17 / ${state.chlorine.electrons}` : '1 proton');
-    lab.setMetric('total', ionic ? '28 · samma före och efter' : '2 · ett par');
-    lab.setMetric('charge', '0');
-    if (ionic) {
-      $('ledger').textContent = `Na: 11 p⁺ − ${state.sodium.electrons} e⁻ = ${state.sodium.charge ? '+1' : '0'}. Cl: 17 p⁺ − ${state.chlorine.electrons} e⁻ = ${state.chlorine.charge ? '−1' : '0'}. Protonerna är oförändrade.`;
-      if (view === 'lattice') lab.setExplanation('En kristall har många joner – inte små NaCl-molekyler.', 'Här ser ni ett separat utsnitt av ett jongitter. Na⁺ och Cl⁻ återkommer i förhållandet 1:1. Positiva och negativa joner attraherar varandra i hela strukturen. Räknarna ovan gäller de två atomerna i elektronflytten.');
-      else if (state.transferred) lab.setExplanation('En elektron flyttades. Kärnorna ändrades inte.', 'Na har nu 11 protoner men 10 elektroner: Na⁺. Cl har 17 protoner och 18 elektroner: Cl⁻. Jonerna har motsatta laddningar och attraherar varandra. Totalt finns fortfarande 28 elektroner.');
-      else lab.setExplanation('Två neutrala atomer: vad händer när en elektron flyttas?', 'Na har 11 protoner och 11 elektroner. Cl har 17 av varje. Dra den gula ytterelektronen till Cl eller använd knappen. Jämför sedan protoner, elektroner och nettoladdning.');
-    } else {
-      $('ledger').textContent = state.shared ? 'H₂: två protoner och två delade elektroner. Hela molekylen är neutral. Elektronerna räknas inte dubbelt.' : 'Två H-atomer: vardera en proton och en elektron. Tillsammans två protoner och två elektroner.';
-      lab.setExplanation(state.shared ? 'Två elektroner delas av två kärnor.' : 'En elektron från varje väteatom.', state.shared ? 'I en H₂-molekyl är elektronparet gemensamt för båda vätekärnorna. Det finns två elektroner sammanlagt. De fördubblas inte när vi beskriver att båda atomerna delar paret. Bildväxlingen är en förklaringsmodell, inte reaktionens verkliga förlopp.' : 'Jämför två separata väteatomer med en H₂-molekyl. Varje atom bidrar med en elektron till det delade paret. Inga elektroner eller protoner skapas.');
-    }
-    if (message) lab.announce(message);
-    lab.invalidate();
+  function text(ctx,value,x,y,size=24,color=C.ink){ctx.font=`600 ${compact?Math.max(27,size):size}px system-ui,sans-serif`;ctx.fillStyle=color;ctx.textAlign='center';ctx.textBaseline='alphabetic';ctx.fillText(value,x,y);}
+  function circle(ctx,x,y,r,fill,stroke,w=2){ctx.beginPath();ctx.arc(x,y,r,0,TAU);if(fill){ctx.fillStyle=fill;ctx.fill();}if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=w;ctx.stroke();}}
+  function eDot(ctx,x,y,r=6,color=C.teal){ctx.save();ctx.shadowColor=color;ctx.shadowBlur=r>10?24:7;circle(ctx,x,y,r,color,'#153641');ctx.restore();if(r>10)text(ctx,'−',x,y+9,29,'#163745');}
+  function arrow(ctx,a,b,color){const angle=Math.atan2(b.y-a.y,b.x-a.x);ctx.strokeStyle=color;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(b.x-Math.cos(angle-.5)*15,b.y-Math.sin(angle-.5)*15);ctx.lineTo(b.x-Math.cos(angle+.5)*15,b.y-Math.sin(angle+.5)*15);ctx.closePath();ctx.fillStyle=color;ctx.fill();}
+  function atom(ctx,x,symbol,protons,isNa){[38,65,105].forEach((r,i)=>{ctx.save();ctx.globalAlpha=isNa&&i===2?1-transferProgress:1;circle(ctx,x,211,r,null,'#709ead66');ctx.restore();});for(let i=0;i<2;i++)eDot(ctx,x+Math.cos(i*Math.PI)*38,211+Math.sin(i*Math.PI)*38);for(let i=0;i<8;i++){const a=i/8*TAU+.2;eDot(ctx,x+Math.cos(a)*65,211+Math.sin(a)*65);}if(!isNa)for(let i=0;i<7;i++){const a=-Math.PI+(i+1)/8*TAU;eDot(ctx,x+Math.cos(a)*105,211+Math.sin(a)*105);}circle(ctx,x,211,31,isNa?'#174d58':'#353f6c',isNa?C.teal:C.blue);text(ctx,symbol,x,220,28);text(ctx,`${protons} p⁺`,x,370,25,C.muted);}
+  function ionic(ctx,time){
+    const s=model.state,pulse=.5+.5*Math.sin(time*3);text(ctx,s.transferred?'MOTSATTA LADDNINGAR ATTRAHERAR':'DRA ELEKTRONEN TILL Cl',480,39,27);
+    if(s.transferred){ctx.save();ctx.globalAlpha=.3+pulse*.22;for(let i=-2;i<=2;i++){ctx.strokeStyle=C.gold;ctx.lineWidth=2.2;ctx.beginPath();ctx.moveTo(305,211+i*12);ctx.bezierCurveTo(390,211+i*39,520,211+i*39,610,211+i*12);ctx.stroke();}ctx.restore();arrow(ctx,{x:357,y:320},{x:439,y:320},C.gold);arrow(ctx,{x:563,y:320},{x:481,y:320},C.gold);}
+    atom(ctx,215,'Na',11,true);atom(ctx,705,'Cl',17,false);roundRect(ctx,155,63,120,45,13,s.transferred?'#326b60':'#234b56',C.teal);text(ctx,s.transferred?'Na⁺':'Na',215,95,32,C.teal);roundRect(ctx,645,63,120,45,13,s.transferred?'#4a4e7b':'#293f5d',C.blue);text(ctx,s.transferred?'Cl⁻':'Cl',705,95,32,C.blue);
+    if(!s.transferred||drag){ctx.save();ctx.setLineDash([8,7]);circle(ctx,600,211,31+pulse*6,'#ffd27c15',C.gold,3);ctx.setLineDash([]);text(ctx,'SLÄPP HÄR',600,271,22,C.gold);ctx.restore();}
+    const t=transferProgress;marker=drag?.kind==='electron'?drag.point:{x:mix(320,600,t),y:211-Math.sin(Math.PI*t)*68};if(!s.transferred&&!drag){ctx.save();ctx.globalAlpha=.18+pulse*.12;circle(ctx,marker.x,marker.y,37,null,C.gold,5);ctx.restore();}eDot(ctx,marker.x,marker.y,19,C.gold);
+    text(ctx,`${s.sodium.electrons} e⁻`,215,335,27,C.teal);text(ctx,`${s.chlorine.electrons} e⁻`,705,335,27,C.blue);text(ctx,s.transferred?'Na: 2,8     ·     Cl: 2,8,8':'Na: 2,8,1     ·     Cl: 2,8,7',480,415,26);text(ctx,s.transferred?'Samma 28 elektroner · nya nettoladdningar':'En ytterelektron hos Na · en ledig plats hos Cl',480,449,23,C.muted);
   }
-
-  function transfer(target) {
-    view = 'atoms';
-    model.transfer(target);
-    refresh(target === 'Cl' ? 'Elektronen flyttades till Cl. Na är plus ett, Cl är minus ett. 28 elektroner finns kvar.' : 'Elektronen flyttades tillbaka. Båda atomerna är neutrala igen.');
+  function lattice(ctx,time){text(ctx,'JONERNA HÅLLER IHOP EN HEL KRISTALL',480,39,26);for(let layer=2;layer>=0;layer--){ctx.save();ctx.globalAlpha=1-layer*.23;for(let row=0;row<4;row++)for(let col=0;col<4;col++){const positive=(row+col+layer)%2===0,x=297+col*106+layer*27,y=119+row*68-layer*16+Math.sin(time*2+row+col)*1.6;circle(ctx,x,y,positive?24:29,positive?'#1c555c':'#303e70',positive?C.teal:C.blue);text(ctx,positive?'Na⁺':'Cl⁻',x,y+8,23,positive?C.teal:C.blue);}ctx.restore();}text(ctx,'24 Na⁺ + 24 Cl⁻ · förhållandet 1:1',480,414,25,C.gold);text(ctx,'Ett större utsnitt med många joner',480,449,23,C.muted);}
+  function covalent(ctx,time){
+    const s=model.state,o=overlapProgress,p=pairProgress,left=mix(270,420,o),right=mix(690,540,o),pulse=.5+.5*Math.sin(time*2);text(ctx,s.shared?'H₂ · TVÅ KÄRNOR DELAR ETT PAR':'FÖR VÄTEKÄRNORNA NÄRMARE',480,40,27);
+    for(let ring=12;ring>=1;ring--){ctx.fillStyle=`rgba(103,228,216,${.012+(13-ring)*.001})`;for(const x of[left,right]){ctx.beginPath();ctx.ellipse(x,211,45+ring*6,45+ring*6,0,0,TAU);ctx.fill();}}
+    if(o>.4){ctx.save();ctx.globalAlpha=(o-.4)/.6*(.65+pulse*.2);const g=ctx.createRadialGradient(480,211,5,480,211,125);g.addColorStop(0,p>.5?'#ffd27c77':'#6ce6d977');g.addColorStop(1,'#6ce6d900');ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(480,211,115,100,0,0,TAU);ctx.fill();ctx.restore();}
+    if(p>.1){ctx.save();ctx.globalAlpha=p;ctx.shadowColor=C.gold;ctx.shadowBlur=20;ctx.lineWidth=8;ctx.strokeStyle=C.gold;ctx.beginPath();ctx.moveTo(left+30,211);ctx.lineTo(right-30,211);ctx.stroke();ctx.restore();}
+    for(const x of[left,right]){circle(ctx,x,211,32,'#2a4b5d',C.blue,3);text(ctx,'H',x,222,30);}eDot(ctx,mix(left+74,464,p),mix(180,183,p),18,C.gold);eDot(ctx,mix(right-74,496,p),mix(242,239,p),18,C.gold);
+    if(!s.shared){arrow(ctx,{x:335,y:352},{x:420,y:352},C.teal);arrow(ctx,{x:625,y:352},{x:540,y:352},C.teal);text(ctx,o>=.7?'Överlappet är tydligt. Dela nu elektronerna.':'Dra i en H-kärna eller tryck För närmare.',480,402,25);}else{text(ctx,'En elektron från varje H-atom',480,354,29,C.teal);text(ctx,'2 elektroner sammanlagt · båda kärnorna delar paret',480,404,25);}text(ctx,'2 protoner · 2 elektroner · laddning 0',480,449,25,C.muted);
   }
-  lab.on('#bonds-mode', 'change', event => { model.setMode(event.target.value); view = 'atoms'; drag = null; refresh(); });
-  lab.on($('transfer'), 'click', () => transfer('Cl'));
-  lab.on($('return'), 'click', () => transfer('Na'));
-  lab.on($('lattice'), 'click', () => { view = view === 'lattice' ? 'atoms' : 'lattice'; refresh(); });
-  lab.on($('share'), 'click', () => { model.share(true); refresh('Två elektroner bildar det gemensamma paret.'); });
-  lab.on($('separate'), 'click', () => { model.share(false); refresh('Åter till bilden av två separata väteatomer.'); });
-  lab.on($('cloud'), 'click', () => { cloud = !cloud; refresh(); });
-  lab.on($('reset'), 'click', () => { model.reset(); view = 'atoms'; drag = null; refresh('Elektronbokföringen är återställd.'); });
-  lab.on(lab.canvas, 'pointerdown', event => {
-    if (model.state.mode !== 'ionic' || view !== 'atoms') return;
-    const point = lab.point(event);
-    if (Math.hypot(point.x - marker.x, point.y - marker.y) > 28) return;
-    drag = point; pointerId = event.pointerId;
-    lab.canvas.setPointerCapture?.(event.pointerId);
-    if (event.cancelable) event.preventDefault();
-    lab.invalidate();
-  });
-  lab.on(lab.canvas, 'pointermove', event => {
-    if (!drag || event.pointerId !== pointerId) return;
-    drag = lab.point(event);
-    if (event.cancelable) event.preventDefault();
-    lab.invalidate();
-  });
-  function endDrag(event, cancelled = false) {
-    if (!drag || event.pointerId !== pointerId) return;
-    const drop = lab.point(event);
-    drag = null;
-    if (lab.canvas.hasPointerCapture?.(event.pointerId)) lab.canvas.releasePointerCapture(event.pointerId);
-    pointerId = null;
-    if (!cancelled && Math.hypot(drop.x - 650, drop.y - 218) < 132) transfer('Cl');
-    else if (!cancelled && Math.hypot(drop.x - 230, drop.y - 218) < 132) transfer('Na');
-    else { lab.announce('Elektronen stannade där den var. Släpp inom den andra atomens skal eller använd knappen.'); lab.invalidate(); }
-  }
-  lab.on(lab.canvas, 'pointerup', event => endDrag(event));
-  lab.on(lab.canvas, 'pointercancel', event => endDrag(event, true));
-
-  function label(ctx, text, x, y, size = 20, color = C.ink, align = 'center') {
-    if (compact) size = Math.max(26, size);
-    ctx.font = `${size >= 22 ? 650 : 500} ${size}px system-ui, sans-serif`;
-    ctx.fillStyle = color; ctx.textAlign = align; ctx.fillText(text, x, y);
-  }
-  function circle(ctx, x, y, radius, fill, stroke, width = 1.5) {
-    ctx.beginPath(); ctx.arc(x, y, radius, 0, TAU);
-    if (fill) {ctx.fillStyle = fill; ctx.fill();}
-    if (stroke) {ctx.strokeStyle = stroke; ctx.lineWidth = width; ctx.stroke();}
-  }
-  function electron(ctx, x, y, color = C.teal, large = false) {
-    ctx.save(); ctx.shadowColor = color; ctx.shadowBlur = large ? 19 : 6;
-    circle(ctx, x, y, large ? 10 : 5.3, color, '#082632', 1.5); ctx.restore();
-    if (large) label(ctx, '−', x, y + 5, 17, '#163341');
-  }
-  function shellAtom(ctx, x, symbol, protons, outer, sodium) {
-    const yy = 218;
-    [43, 75, 108].forEach(radius => circle(ctx, x, yy, radius, null, 'rgba(151,195,212,.3)'));
-    [0, Math.PI].forEach(angle => electron(ctx, x + Math.cos(angle) * 43, yy + Math.sin(angle) * 43));
-    for (let i = 0; i < 8; i += 1) {
-      const angle = i / 8 * TAU + .2;
-      electron(ctx, x + Math.cos(angle) * 75, yy + Math.sin(angle) * 75);
-    }
-    if (!sodium) for (let i = 0; i < outer; i += 1) {
-      const angle = -Math.PI + (i + 1) / 8 * TAU;
-      electron(ctx, x + Math.cos(angle) * 108, yy + Math.sin(angle) * 108);
-    }
-    circle(ctx, x, yy, 30, sodium ? '#1e5763' : '#3b416f', sodium ? C.teal : C.blue, 2);
-    label(ctx, symbol, x, yy + 2, 24);
-    if (!compact) label(ctx, `${protons} p⁺`, x, yy + 20, 12, C.muted);
-  }
-  function drawIonic(ctx, time) {
-    const state = model.state;
-    label(ctx, 'EN ELEKTRON BYTER ÄGARE', 480, 40, 17, C.muted);
-    label(ctx, state.transferred ? 'Na⁺' : 'Na', 230, 88, 31, C.teal);
-    label(ctx, state.transferred ? 'Cl⁻' : 'Cl', 650, 88, 31, C.blue);
-    shellAtom(ctx, 230, 'Na', 11, 1, true);
-    // The eighth outer slot is always the separately tracked yellow electron.
-    shellAtom(ctx, 650, 'Cl', 17, 7, false);
-    const target = state.transferred ? 1 : 0;
-    const xx = mix(338, 542, transferProgress);
-    const yy = 218 - Math.sin(Math.PI * transferProgress) * 65;
-    marker = drag || {x: xx, y: yy};
-    ctx.strokeStyle = 'rgba(255,208,124,.42)'; ctx.lineWidth = 2; ctx.setLineDash([5, 7]);
-    ctx.beginPath(); ctx.moveTo(352, 214); ctx.quadraticCurveTo(440, 140, 528, 214); ctx.stroke(); ctx.setLineDash([]);
-    electron(ctx, marker.x, marker.y, C.gold, true);
-    label(ctx, target ? '10 e⁻ · nettoladdning +1' : '11 e⁻ · nettoladdning 0', 230, 365, 19, C.teal);
-    label(ctx, target ? '18 e⁻ · nettoladdning −1' : '17 e⁻ · nettoladdning 0', 650, 365, 19, C.blue);
-    label(ctx, 'Kärnorna är låsta: 11 p⁺ och 17 p⁺.', 480, 409, 19, C.ink);
-    label(ctx, 'Räknepunkter och skal — inte verkliga elektronbanor.', 480, 438, 15, C.muted);
-  }
-  function drawLattice(ctx, time) {
-    label(ctx, 'ETT ANNAT UTSNITT: EN STÖRRE KRISTALL', 480, 36, 17, C.muted);
-    for (let layer = 2; layer >= 0; layer -= 1) {
-      ctx.save(); ctx.globalAlpha = 1 - layer * .22;
-      for (let row = 0; row < 4; row += 1) for (let column = 0; column < 4; column += 1) {
-        const positive = (row + column + layer) % 2 === 0;
-        const xx = 297 + column * 106 + layer * 29;
-        const yy = 112 + row * 72 - layer * 17 + Math.sin(time * 2 + row + column) * 1.1;
-        circle(ctx, xx, yy, positive ? 24 : 29, positive ? '#184e58' : '#2f3e6a', positive ? C.teal : C.blue, 2);
-        label(ctx, positive ? 'Na⁺' : 'Cl⁻', xx, yy + 6, 19, positive ? C.teal : C.blue);
-      }
-      ctx.restore();
-    }
-    label(ctx, '24 Na⁺ + 24 Cl⁻ · förhållandet 1 : 1', 480, 402, 22, C.gold);
-    label(ctx, 'Ett utsträckt jongitter — inga avgränsade NaCl-molekyler.', 480, 437, 17, C.ink);
-  }
-  function drawCovalent(ctx, time) {
-    const s = shareProgress;
-    const left = mix(280, 418, s), right = mix(680, 542, s), yy = 219;
-    label(ctx, s > .95 ? 'H₂ · ETT GEMENSAMT ELEKTRONPAR' : 'TVÅ H-ATOMER · TVÅ ELEKTRONER', 480, 43, 20, C.ink);
-    if (cloud) {
-      ctx.save();
-      for (let ring = 10; ring >= 1; ring -= 1) {
-        ctx.fillStyle = `rgba(100,227,218,${.012 + (11 - ring) * .002})`;
-        if (s > .05) {
-          ctx.beginPath(); ctx.ellipse(480, yy, 105 + ring * 9 + (1 - s) * 130, 35 + ring * 6, 0, 0, TAU); ctx.globalAlpha = s; ctx.fill();
-        }
-        ctx.globalAlpha = 1 - s;
-        for (const xx of [left, right]) {ctx.beginPath(); ctx.ellipse(xx, yy, 35 + ring * 8, 35 + ring * 8, 0, 0, TAU); ctx.fill();}
-      }
-      ctx.restore();
-    }
-    if (!cloud || s < .95) {
-      ctx.save(); ctx.globalAlpha = 1 - s;
-      circle(ctx, left, yy, 88, null, '#4c8796'); circle(ctx, right, yy, 88, null, '#4c8796'); ctx.restore();
-    }
-    if (s > .2) {
-      ctx.strokeStyle = `rgba(228,243,244,${s * .55})`; ctx.lineWidth = 6;
-      ctx.beginPath(); ctx.moveTo(left + 22, yy); ctx.lineTo(right - 22, yy); ctx.stroke();
-    }
-    [left, right].forEach(xx => {circle(ctx, xx, yy, 29, '#2c4558', C.blue, 2); label(ctx, 'H', xx, yy + 2, 24); if (!compact) label(ctx, '1 p⁺', xx, yy + 20, 12, C.muted);});
-    electron(ctx, mix(left + 88, 468, s), mix(yy - 2, yy - 28, s), C.gold, true);
-    electron(ctx, mix(right - 88, 492, s), mix(yy + 2, yy + 28, s), C.gold, true);
-    label(ctx, s > .95 ? 'Två elektroner delas av båda kärnorna.' : 'Varje atom bidrar med en elektron.', 480, 366, 23, C.teal);
-    label(ctx, '2 protoner + 2 elektroner · total laddning 0', 480, 402, 19, C.ink);
-    label(ctx, 'Molnet är en schematisk förklaring, inte ett fotografi.', 480, 438, 16, C.muted);
-  }
-  lab.setDraw(({ctx, dt, time, motion, compact: small}) => {
-    compact = small;
-    const state = model.state;
-    const speed = motion === false ? 1 : 1 - Math.exp(-Math.max(dt, .001) * 7);
-    transferProgress += ((state.transferred ? 1 : 0) - transferProgress) * speed;
-    shareProgress += ((state.shared ? 1 : 0) - shareProgress) * speed;
-    if (Math.abs(transferProgress - (state.transferred ? 1 : 0)) < .001) transferProgress = state.transferred ? 1 : 0;
-    if (Math.abs(shareProgress - (state.shared ? 1 : 0)) < .001) shareProgress = state.shared ? 1 : 0;
-    if (state.mode === 'covalent') drawCovalent(ctx, time);
-    else if (view === 'lattice') drawLattice(ctx, time);
-    else drawIonic(ctx, time);
-  });
-  refresh();
-  return {setActive: value => lab.setActive(value), destroy: () => lab.destroy()};
+  lab.setDraw(({ctx,dt,motion,compact:small})=>{compact=small;if(motion)animationTime+=dt;const s=model.state,k=motion?1-Math.exp(-Math.max(dt,.001)*8):1;transferProgress+=((s.transferred?1:0)-transferProgress)*k;overlapProgress+=(s.hydrogen.overlap-overlapProgress)*k;pairProgress+=((s.shared?1:0)-pairProgress)*k;if(s.mode==='covalent')covalent(ctx,animationTime);else if(view==='lattice')lattice(ctx,animationTime);else ionic(ctx,animationTime);});
+  refresh();return{setActive:value=>lab.setActive(value),destroy:()=>lab.destroy()};
 }

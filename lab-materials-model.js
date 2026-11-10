@@ -41,7 +41,7 @@ export class MaterialsModel{
   choose(sample){return this.reset(sample);}
   newUnknown(){this.seed+=1;return this.reset('unknown');}
   test(test){const result=observeMaterial(this.materialId,test);this.evidence[test]=result;this.lastTest=test;return result;}
-  guess(id){assertMaterial(id);const correct=id===this.materialId;if(correct)this.revealed=true;return Object.freeze({correct,actualId:this.revealed?this.materialId:null,candidates:this.candidates});}
+  guess(id){assertMaterial(id);const enoughEvidence=Object.keys(this.evidence).length>=2&&this.candidates.length===1;if(!enoughEvidence)return Object.freeze({correct:false,needsEvidence:true,actualId:null,candidates:this.candidates});const correct=id===this.materialId;if(correct)this.revealed=true;return Object.freeze({correct,needsEvidence:false,actualId:this.revealed?this.materialId:null,candidates:this.candidates});}
   get candidates(){return ids.filter(id=>Object.entries(this.evidence).every(([test,result])=>observeMaterial(id,test).code===result.code));}
   get state(){const hidden=this.sample==='unknown'&&!this.revealed;return Object.freeze({sample:this.sample,materialId:this.materialId,displayName:hidden?'Okänt prov':MATERIALS[this.materialId].name,hidden,revealed:this.revealed,lastTest:this.lastTest,evidence:Object.freeze({...this.evidence}),candidates:Object.freeze(this.candidates),seed:this.seed});}
 }

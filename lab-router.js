@@ -12,7 +12,7 @@ export function mountSubjectLab(host, number) {
   let inner=null,active=true,destroyed=false;
   host.dataset.texRendered='lab-slot';
   host.innerHTML='<div class="cl-loading" role="status">Öppnar '+info.title+'…</div>';
-  import('./'+info.file+'?v=20261110-labs1').then(module=>{
+  import('./'+info.file+'?v=20261110-labs2').then(module=>{
     if(destroyed||!host.isConnected)return;
     inner=number===6?module.mountWaterLab(host):module.mountLab(host);
     inner?.setActive(active);

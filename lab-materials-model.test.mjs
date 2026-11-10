@@ -25,6 +25,7 @@ test('unknown selection is reproducible and stays hidden until correctly identif
  assert.equal(m.state.hidden,true);
  const wrong=Object.keys(MATERIALS).find(x=>x!==id);
  assert.equal(m.guess(wrong).correct,false);assert.equal(m.state.hidden,true);
+ for(const t of ['magnet','dry','dissolve','solution'])m.test(t);
  assert.equal(m.guess(id).correct,true);assert.equal(m.state.hidden,false);
  const first=m.materialId;m.newUnknown();assert.notEqual(m.materialId,first);assert.deepEqual(m.state.evidence,{});
 });
@@ -32,4 +33,12 @@ test('invalid samples and tests are rejected',()=>{
  assert.throws(()=>new MaterialsModel({sample:'gold'}));
  assert.throws(()=>observeMaterial('salt','taste'));
  assert.throws(()=>unknownForSeed(Infinity));
+});
+
+test('a lucky guess cannot replace two independent observations',()=>{
+ const m=new MaterialsModel({sample:'unknown',seed:1}),id=m.materialId;
+ assert.equal(m.guess(id).needsEvidence,true);assert.equal(m.state.hidden,true);
+ m.test('magnet');assert.equal(m.candidates.length,1);assert.equal(m.guess(id).needsEvidence,true);
+ m.test('magnet');assert.equal(m.guess(id).needsEvidence,true);
+ m.test('dry');assert.equal(m.guess(id).correct,true);
 });

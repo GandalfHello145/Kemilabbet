@@ -43,16 +43,31 @@ export function createExperiment({seed=20261111,charge=40,impact=1.2,count=80,sp
  return {seed,charge,impact,count,impacts,clock:0,launched:0,models:{
   thomson:{particles:[],bins:[0,0,0,0],completed:0},rutherford:{particles:[],bins:[0,0,0,0],completed:0}}};
 }
-export function advanceExperiment(e,seconds){
+export function advanceExperiment(e,seconds,{rate=1.6,launchInterval=.055}={}){
  const dt=Math.max(0,Math.min(.12,seconds));e.clock+=dt;
- const target=Math.min(e.count,Math.floor(e.clock/.055)+1);
+ const target=Math.min(e.count,Math.floor(e.clock/Math.max(.001,launchInterval))+1);
  while(e.launched<target){
   for(const model of ['thomson','rutherford'])e.models[model].particles.push(createParticle({model,charge:e.charge,impact:e.impacts[e.launched],id:e.launched}));
   e.launched++;
  }
  for(const result of Object.values(e.models))for(const p of result.particles){
-  if(p.done)continue;advanceParticle(p,dt*1.6);
+  if(p.done)continue;advanceParticle(p,dt*Math.max(0,rate));
   if(p.done){result.completed++;result.bins[ANGLE_BINS.findIndex(limit=>p.angle<limit)]++;}
  }
  return e.launched===e.count&&Object.values(e.models).every(r=>r.completed===e.count);
+}
+export function traceTrajectory(options={}) {
+ const particle=createParticle(options);
+ for(let i=0;i<2000&&!particle.done;i++)advanceParticle(particle,.02);
+ return particle;
+}
+export function probeSummary(experiment) {
+ if(experiment.count!==1||Object.values(experiment.models).some(r=>r.completed!==1))return null;
+ return {impact:experiment.impact,charge:experiment.charge,
+  rutherford:experiment.models.rutherford.particles[0].angle,
+  thomson:experiment.models.thomson.particles[0].angle};
+}
+export function controlledCloserComparison(reference,probe) {
+ return Boolean(reference&&probe&&reference.charge===probe.charge&&
+  Math.abs(probe.impact)<Math.abs(reference.impact)*.65&&probe.rutherford>reference.rutherford+3);
 }

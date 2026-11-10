@@ -38,3 +38,29 @@ test('invalid input cannot corrupt state and measures stay within bounds',()=>{
  m.configure({emissionRate:300,prevention:-2,treatment:5});
  assert.equal(m.emissionRate,20);assert.equal(m.prevention,0);assert.equal(m.treatment,1);close(m.state.total,1000);
 });
+
+test('reference comparison interpolates matching times without extrapolation',async()=>{
+ const {sampleEnvironmentReference,compareEnvironmentAtTime}=await import('./lab-environment-model.js');
+ const history=[{timeMinutes:0,waterConcentration:0,organismConcentration:0},{timeMinutes:10,waterConcentration:2,organismConcentration:4}];
+ close(sampleEnvironmentReference(history,5).waterConcentration,1);
+ assert.equal(sampleEnvironmentReference(history,11),null);
+ assert.equal(compareEnvironmentAtTime({timeMinutes:0,waterConcentration:0},history),null);
+ close(compareEnvironmentAtTime({timeMinutes:5,waterConcentration:.25},history).reductionPercent,75);
+});
+test('an 80 percent source or collection measure cuts matched water exposure by 80 percent',async()=>{
+ const {compareEnvironmentAtTime}=await import('./lab-environment-model.js');
+ const base=new EnvironmentModel(),sealed=new EnvironmentModel({prevention:.8}),collected=new EnvironmentModel({treatment:.8});
+ const ref=[base.state];for(let i=0;i<120;i++){base.step(.5);ref.push(base.state);}
+ sealed.step(60);collected.step(60);
+ close(compareEnvironmentAtTime(sealed.state,ref).reductionPercent,80,1e-7);
+ close(compareEnvironmentAtTime(collected.state,ref).reductionPercent,80,1e-7);
+ close(sealed.state.total,1000);close(collected.state.total,1000);
+ assert.ok(sealed.state.source>collected.state.source);
+ assert.ok(collected.state.collected>sealed.state.collected);
+});
+
+test('a zero-release experiment has no nonzero water reference to halve',async()=>{
+ const {compareEnvironmentAtTime}=await import('./lab-environment-model.js');
+ const m=new EnvironmentModel({emissionRate:0}),history=[m.state];m.step(10);history.push(m.state);
+ assert.equal(m.state.waterConcentration,0);assert.equal(compareEnvironmentAtTime(m.state,history),null);
+});

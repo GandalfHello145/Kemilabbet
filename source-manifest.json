@@ -13,7 +13,8 @@
     "Visual explanation inspired by3Blue1Brown public videos and code; original chemistry scenes",
     "Removed narration from all seven films; original video frames, music, captions and chapters preserved",
     "Added Vattenlabbet: interactive constant-pressure water energy model, local 3D molecular view, live temperature graph and CSV export",
-    "Added six original interactive chemistry labs so that every area has an experiment, with lazy loading, common controls, mobile layout and 47 model tests"
+    "Added six original interactive chemistry labs so that every area has an experiment, with lazy loading, common controls, mobile layout and 47 model tests",
+    "Rebuilt six labs with guided investigations, direct drag-and-snap interaction, animated causal feedback, clearer tools and an expanded workspace"
   ],
   "active_movies": [
     {
@@ -1020,8 +1021,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6897,
-      "sha256": "bec5d2e1da5e62dd88779704b6d0e6ac6cb3be25403ef7f297da7a220d8c0c39"
+      "bytes": 7297,
+      "sha256": "26b20bf63caee1dc21c736db51c6ca0017e4654725df58bbde7a58a8497fc3b1"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1626,112 +1627,112 @@
     {
       "path": "index.html",
       "bytes": 2123,
-      "sha256": "77c2824517faa9971954511b4638d236a5a9e1d3d3158ce112d5ae1d34c0b7b6"
+      "sha256": "28aec94432b2c0abfbe26f4ea2efa50f56671674f5aa7918596cda34a70ca71a"
     },
     {
       "path": "lab-atoms-model.js",
-      "bytes": 4368,
-      "sha256": "21e4e4380084aad62ec297aef4d4ecd5aff8137cf7b699f761b09cd7ca47e74b"
+      "bytes": 5491,
+      "sha256": "d3927a7b6b1ef57be55747197c2d26c9cf6c399791cbcac94291e9431e64b1c0"
     },
     {
       "path": "lab-atoms-model.test.mjs",
-      "bytes": 2651,
-      "sha256": "ad685b6904e01c13917eaa55c89d550c3a22f3d7c9103419bce11ad58ddab8ca"
+      "bytes": 3925,
+      "sha256": "36fdfd41ff38cccfa6f0f3cdc6e16fb25d1eb8aa079a9ca68728c2e6a8865056"
     },
     {
       "path": "lab-atoms.js",
-      "bytes": 14510,
-      "sha256": "176d7898b08ddcf0249c46a2a1b89f31c6a709c1a3715bdf4137eeb13c5e22df"
+      "bytes": 17855,
+      "sha256": "d1bbec3f0e908b7e051d38370f6c93315fa31344713f2a3817286260ba4a9350"
     },
     {
       "path": "lab-bonds-model.js",
-      "bytes": 1347,
-      "sha256": "78e63768ebe8417b5221de509fb1790cfd3cf0f1e320e1e7616408c441f8e11e"
+      "bytes": 1746,
+      "sha256": "ea208f7c765ae90cab9be5f0e82e9ebaf732e2eeae60d976e28078aefef1c507"
     },
     {
       "path": "lab-bonds-model.test.mjs",
-      "bytes": 2660,
-      "sha256": "1ca1aba4b7ef4daebc4505d09761ba4925cea1f045013a09f7e51572b4bbefe2"
+      "bytes": 3378,
+      "sha256": "27cb9e1ea0c75d22e461d18e70b03331991a3198c41d8c26b8ba683a5ee1c5d2"
     },
     {
       "path": "lab-bonds.js",
-      "bytes": 16708,
-      "sha256": "b0b3dd4a484bf811535dc41b966c9388360dc1dc82fd68f9f3471d53447a1546"
+      "bytes": 19431,
+      "sha256": "e974a7cae31ac061a62c6914b863e97b8395905e210e04d49bbe6ac3da46029b"
     },
     {
       "path": "lab-environment-model.js",
-      "bytes": 2897,
-      "sha256": "e5a2759761599a0753c573883bde1ade831112cd0f6aa83f9c98ddafdaf2d821"
+      "bytes": 4183,
+      "sha256": "07a12eb47244b4651ecacbb3a5f921bf2f0217597255db447a4b265fda2aafd1"
     },
     {
       "path": "lab-environment-model.test.mjs",
-      "bytes": 2543,
-      "sha256": "10a148400e266819f40909be02603c2027e680e27b26ece40ffbfdd1a71430d1"
+      "bytes": 4354,
+      "sha256": "f4c640ad273e0984e57536e36a9bc2ec349c10edab337fbf19750748780952eb"
     },
     {
       "path": "lab-environment.js",
-      "bytes": 21536,
-      "sha256": "4fdfab062ab0503bb86ef9f94eebfb5a7cb5d290c5de9c4f14ad4645eb8de043"
+      "bytes": 31304,
+      "sha256": "51f08d0f4cee4f2d54c715c6592820ee997d80a27cbfa33ffc71c607d0d2094d"
     },
     {
       "path": "lab-kit.js",
-      "bytes": 10243,
-      "sha256": "f11f4f6a376f43636cd28f15cd35700431ad568fd779e36b120d123c2b490611"
+      "bytes": 14945,
+      "sha256": "4fb00872be3eb0959903b5d1fd769b2e049633cb66cfa39873c05101c9fba32d"
     },
     {
       "path": "lab-materials-model.js",
-      "bytes": 5422,
-      "sha256": "d8710cfc1226ecd8649bc80eda528399b6d30bff36d01b55b3a2dd1587091b36"
+      "bytes": 5645,
+      "sha256": "efae0a86e152d12cf8097ec427730533d77a41331d867cacec4dcfecaf5ca5c5"
     },
     {
       "path": "lab-materials-model.test.mjs",
-      "bytes": 2205,
-      "sha256": "9ee1a570e56305ec763d1a0a801526fd338541869f217e44b9deefbfa4d0c0dd"
+      "bytes": 2719,
+      "sha256": "8ad73e4f54a5cc4291a4e4fb3234d74686b8d8d7d8288aa3acbde2950707167c"
     },
     {
       "path": "lab-materials.js",
-      "bytes": 15733,
-      "sha256": "51500254a126631640e35b0473859c31babbce6317e5b79563ff6d15b37c0ac3"
+      "bytes": 22925,
+      "sha256": "520dab4aaac9dac7a1c1fd0c15e42e270c2af3bf340cf3ddf28a636b9e34cd7a"
     },
     {
       "path": "lab-models-model.js",
-      "bytes": 3138,
-      "sha256": "47b284785b2f478ae579026b85dafe33b9c5b615ad26cc54f30340295a8ca238"
+      "bytes": 3940,
+      "sha256": "3311cb4e92f94feea2a38ef8450a8ef1adb3fafba4839969c291dddb1c0742b3"
     },
     {
       "path": "lab-models-model.test.mjs",
-      "bytes": 2557,
-      "sha256": "02eaa51447d3f82187bdb3aa77e005ac86e4f73c92fa9fa68232e323319bfdac"
+      "bytes": 3773,
+      "sha256": "e21ef7394f52ab487aca246368ce6b922e22fed9c7b58a3f744caf60e22aa940"
     },
     {
       "path": "lab-models.js",
-      "bytes": 13878,
-      "sha256": "a26805fd0920bb4cdcb133d0ba4fc0f7d2e15c8040ae02a6a8bd243a0248fa04"
+      "bytes": 21333,
+      "sha256": "e93d9e29155952eb5fed6cd78126966c6a6fec29c277ca157fb9ac29d9f6a20e"
     },
     {
       "path": "lab-reactions-model.js",
-      "bytes": 4479,
-      "sha256": "9b8d27ab9d63ee34eff5411d8b368c48d90512532b2ba0e33ffa74bb075e18e4"
+      "bytes": 6416,
+      "sha256": "425c6bb6f1f95aa042eaf71cc57429feb5c41d1aec8101f34f5dddceddcf5e73"
     },
     {
       "path": "lab-reactions-model.test.mjs",
-      "bytes": 3457,
-      "sha256": "9c6a542f761b58e86c5540abbc4ace28dc972585fa9ce78b65b17b7aef6e0827"
+      "bytes": 6705,
+      "sha256": "84d8ba190f819cf7324fd3ea7f1d826356899bd16bfcc1af42244ab8b53d2965"
     },
     {
       "path": "lab-reactions.js",
-      "bytes": 16530,
-      "sha256": "88946b5025f131c9066cfc5649525ac66612ce61dc3e30f16b42a93e5eab9f62"
+      "bytes": 21927,
+      "sha256": "2e098a37752aef49dc839cb72337b77ee125ec986b60d56465240ccde665843c"
     },
     {
       "path": "lab-router.js",
       "bytes": 2083,
-      "sha256": "96e7b27a7086d3f2724784a53de0b03f4253551ba45f8a0969946c7709541a2a"
+      "sha256": "b0eff9423af313e341fb11ac6957594424c83b71c40fb56dfd4302a92fa8c26f"
     },
     {
       "path": "labs.css",
-      "bytes": 10166,
-      "sha256": "640b52992236cf650def637d14c0e5d63bde6ffeb5dd4c42d9ffe5b27d3430e1"
+      "bytes": 21442,
+      "sha256": "bffef106b2b75cf75848d6801363043b7c52874551b13570165b15820dfc3d3f"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
@@ -1961,7 +1962,7 @@
     {
       "path": "script.js",
       "bytes": 466774,
-      "sha256": "07def8985191437859898123b2bd99cde9b71294b13c8ef7339b59e8c1432922"
+      "sha256": "82e61f4dcdb69d19fc07796331e107a4c6eb1b37eab3f024d46f79a30ff8bb82"
     },
     {
       "path": "study-assets.js",
@@ -2010,8 +2011,8 @@
     },
     {
       "path": "water-lab.js",
-      "bytes": 24038,
-      "sha256": "3f00e317e4d29f5436d4b631fef18af4394b0bf013a6b7626d6b4b2e5583429e"
+      "bytes": 24008,
+      "sha256": "12e934c91e57596fdf9ff7ae959edd651da1396d093253fd2f8e36839fc7471c"
     },
     {
       "path": "water-model.js",
@@ -2029,7 +2030,7 @@
       "sha256": "f3e529bf42d0524311252a4016901216ea585d2902d2f4456434046939d07c4b"
     }
   ],
-  "patch": 0,
+  "patch": 1,
   "diagram_conversion": "pdfLaTeX to PDF, then PyMuPDF to self-contained SVG with text paths and embedded shading images",
   "video_production": {
     "render": "Native1920x1080at30fps",
@@ -2151,7 +2152,7 @@
     }
   ],
   "quality": {
-    "modelTests": 47,
+    "modelTests": 59,
     "modelTestCommand": "node --test water-model.test.mjs lab-*.test.mjs",
     "scientificScope": "Explicit schematic teaching models; environmental values are fictional relative quantities"
   }

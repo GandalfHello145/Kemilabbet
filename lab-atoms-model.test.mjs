@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createWorkspace, addAtom, bindAtoms, breakBond, removeAtom, moveComponent, describeWorkspace } from './lab-atoms-model.js';
+import { createWorkspace, addAtom, bindAtoms, breakBond, removeAtom, moveComponent, describeWorkspace, snapCandidate, missionComplete } from './lab-atoms-model.js';
 function water(s, x = 0) { const o = addAtom(s,'O',x,0), h1 = addAtom(s,'H',x+1,0), h2 = addAtom(s,'H',x-1,0); bindAtoms(s,o.id,h1.id); bindAtoms(s,o.id,h2.id); return [o,h1,h2]; }
 test('nearby atoms remain unbound until the explicit bond operation', () => {
  const s=createWorkspace();addAtom(s,'H',0,0);addAtom(s,'H',0,0);
@@ -35,4 +35,20 @@ test('moving a molecule preserves its bonds; breaking and deleting update compos
  assert.equal(describeWorkspace(s).targetMoleculeCount,0);
  removeAtom(s,h1.id);assert.equal(s.bonds.length,1);assert.equal(describeWorkspace(s).atomCount,2);
  assert.equal(bindAtoms(s,o.id,h2.id).ok,false);
+});
+test('snap preview finds an available external atom without silently changing chemistry',()=>{
+ const s=createWorkspace(),o=addAtom(s,'O',0,0),h=addAtom(s,'H',70,0),extra=addAtom(s,'H',85,0);
+ const preview=snapCandidate(s,h.id);assert.equal(preview.b,extra.id);
+ assert.equal(s.bonds.length,0);bindAtoms(s,o.id,h.id);
+ const groupPreview=snapCandidate(s,h.id);assert.equal(groupPreview.a,o.id);assert.equal(groupPreview.b,extra.id);
+ bindAtoms(s,groupPreview.a,groupPreview.b);assert.equal(snapCandidate(s,h.id),null);
+});
+test('guided discoveries require actual bonds and distinguish quantity from substance count',()=>{
+ const s=createWorkspace(),o=addAtom(s,'O'),h=addAtom(s,'H');bindAtoms(s,o.id,h.id);
+ assert.equal(missionComplete(s,0),false);const second=addAtom(s,'H');bindAtoms(s,o.id,second.id);
+ assert.equal(missionComplete(s,0),true);assert.equal(missionComplete(s,1),false);
+ water(s,9);assert.equal(missionComplete(s,1),true);assert.equal(describeWorkspace(s).atomTypes,2);
+ const a=addAtom(s,'O'),b=addAtom(s,'O');assert.equal(missionComplete(s,2),false);bindAtoms(s,a.id,b.id);
+ assert.equal(missionComplete(s,2),true);assert.equal(describeWorkspace(s).atomTypes,2);
+ assert.equal(describeWorkspace(s).moleculeCount,3);
 });
