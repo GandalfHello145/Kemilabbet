@@ -1,7 +1,7 @@
 {
   "title": "Kemins grunder (i)",
-  "revision": 3,
-  "updated": "2026-11-09",
+  "revision": 4,
+  "updated": "2026-11-10",
   "original_source": {
     "filename": "Kemilabbet (2).html",
     "sha256": "e266f90f52eb2ae810299479db104facdff4079c54c67ca2ec22dfc0b671bcbe"
@@ -12,7 +12,8 @@
     "Swedish captions, original instrumental music and chapter navigation",
     "Visual explanation inspired by3Blue1Brown public videos and code; original chemistry scenes",
     "Removed narration from all seven films; original video frames, music, captions and chapters preserved",
-    "Added Vattenlabbet: interactive constant-pressure water energy model, local 3D molecular view, live temperature graph and CSV export"
+    "Added Vattenlabbet: interactive constant-pressure water energy model, local 3D molecular view, live temperature graph and CSV export",
+    "Added six original interactive chemistry labs so that every area has an experiment, with lazy loading, common controls, mobile layout and 47 model tests"
   ],
   "active_movies": [
     {
@@ -1019,8 +1020,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 4962,
-      "sha256": "96621be390d8898749783d6028c2c7502e39b5abc071300cf674f48d31097c6f"
+      "bytes": 6897,
+      "sha256": "bec5d2e1da5e62dd88779704b6d0e6ac6cb3be25403ef7f297da7a220d8c0c39"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1624,8 +1625,113 @@
     },
     {
       "path": "index.html",
-      "bytes": 2066,
-      "sha256": "430a5d8cd9b79b7c4b08cfb6f54a32ac8570f6c9fa8f50fa08e511a70e514ffe"
+      "bytes": 2123,
+      "sha256": "77c2824517faa9971954511b4638d236a5a9e1d3d3158ce112d5ae1d34c0b7b6"
+    },
+    {
+      "path": "lab-atoms-model.js",
+      "bytes": 4368,
+      "sha256": "21e4e4380084aad62ec297aef4d4ecd5aff8137cf7b699f761b09cd7ca47e74b"
+    },
+    {
+      "path": "lab-atoms-model.test.mjs",
+      "bytes": 2651,
+      "sha256": "ad685b6904e01c13917eaa55c89d550c3a22f3d7c9103419bce11ad58ddab8ca"
+    },
+    {
+      "path": "lab-atoms.js",
+      "bytes": 14510,
+      "sha256": "176d7898b08ddcf0249c46a2a1b89f31c6a709c1a3715bdf4137eeb13c5e22df"
+    },
+    {
+      "path": "lab-bonds-model.js",
+      "bytes": 1347,
+      "sha256": "78e63768ebe8417b5221de509fb1790cfd3cf0f1e320e1e7616408c441f8e11e"
+    },
+    {
+      "path": "lab-bonds-model.test.mjs",
+      "bytes": 2660,
+      "sha256": "1ca1aba4b7ef4daebc4505d09761ba4925cea1f045013a09f7e51572b4bbefe2"
+    },
+    {
+      "path": "lab-bonds.js",
+      "bytes": 16708,
+      "sha256": "b0b3dd4a484bf811535dc41b966c9388360dc1dc82fd68f9f3471d53447a1546"
+    },
+    {
+      "path": "lab-environment-model.js",
+      "bytes": 2897,
+      "sha256": "e5a2759761599a0753c573883bde1ade831112cd0f6aa83f9c98ddafdaf2d821"
+    },
+    {
+      "path": "lab-environment-model.test.mjs",
+      "bytes": 2543,
+      "sha256": "10a148400e266819f40909be02603c2027e680e27b26ece40ffbfdd1a71430d1"
+    },
+    {
+      "path": "lab-environment.js",
+      "bytes": 21536,
+      "sha256": "4fdfab062ab0503bb86ef9f94eebfb5a7cb5d290c5de9c4f14ad4645eb8de043"
+    },
+    {
+      "path": "lab-kit.js",
+      "bytes": 10243,
+      "sha256": "f11f4f6a376f43636cd28f15cd35700431ad568fd779e36b120d123c2b490611"
+    },
+    {
+      "path": "lab-materials-model.js",
+      "bytes": 5422,
+      "sha256": "d8710cfc1226ecd8649bc80eda528399b6d30bff36d01b55b3a2dd1587091b36"
+    },
+    {
+      "path": "lab-materials-model.test.mjs",
+      "bytes": 2205,
+      "sha256": "9ee1a570e56305ec763d1a0a801526fd338541869f217e44b9deefbfa4d0c0dd"
+    },
+    {
+      "path": "lab-materials.js",
+      "bytes": 15733,
+      "sha256": "51500254a126631640e35b0473859c31babbce6317e5b79563ff6d15b37c0ac3"
+    },
+    {
+      "path": "lab-models-model.js",
+      "bytes": 3138,
+      "sha256": "47b284785b2f478ae579026b85dafe33b9c5b615ad26cc54f30340295a8ca238"
+    },
+    {
+      "path": "lab-models-model.test.mjs",
+      "bytes": 2557,
+      "sha256": "02eaa51447d3f82187bdb3aa77e005ac86e4f73c92fa9fa68232e323319bfdac"
+    },
+    {
+      "path": "lab-models.js",
+      "bytes": 13878,
+      "sha256": "a26805fd0920bb4cdcb133d0ba4fc0f7d2e15c8040ae02a6a8bd243a0248fa04"
+    },
+    {
+      "path": "lab-reactions-model.js",
+      "bytes": 4479,
+      "sha256": "9b8d27ab9d63ee34eff5411d8b368c48d90512532b2ba0e33ffa74bb075e18e4"
+    },
+    {
+      "path": "lab-reactions-model.test.mjs",
+      "bytes": 3457,
+      "sha256": "9c6a542f761b58e86c5540abbc4ace28dc972585fa9ce78b65b17b7aef6e0827"
+    },
+    {
+      "path": "lab-reactions.js",
+      "bytes": 16530,
+      "sha256": "88946b5025f131c9066cfc5649525ac66612ce61dc3e30f16b42a93e5eab9f62"
+    },
+    {
+      "path": "lab-router.js",
+      "bytes": 2083,
+      "sha256": "96e7b27a7086d3f2724784a53de0b03f4253551ba45f8a0969946c7709541a2a"
+    },
+    {
+      "path": "labs.css",
+      "bytes": 10166,
+      "sha256": "640b52992236cf650def637d14c0e5d63bde6ffeb5dd4c42d9ffe5b27d3430e1"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
@@ -1854,8 +1960,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 476946,
-      "sha256": "5724bfcc3a59bed2f93e79462fc5d683746491d1643aa9b1c892d3e543fcbc6b"
+      "bytes": 466774,
+      "sha256": "07def8985191437859898123b2bd99cde9b71294b13c8ef7339b59e8c1432922"
     },
     {
       "path": "study-assets.js",
@@ -1923,7 +2029,7 @@
       "sha256": "f3e529bf42d0524311252a4016901216ea585d2902d2f4456434046939d07c4b"
     }
   ],
-  "patch": 2,
+  "patch": 0,
   "diagram_conversion": "pdfLaTeX to PDF, then PyMuPDF to self-contained SVG with text paths and embedded shading images",
   "video_production": {
     "render": "Native1920x1080at30fps",
@@ -1938,7 +2044,78 @@
   },
   "simulations": [
     {
+      "id": "atoms",
+      "title": "Molekylverkstaden",
+      "module": 1,
+      "entry": "?lab=molekyler#omrade-1",
+      "source": [
+        "lab-atoms.js",
+        "lab-atoms-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-atoms-model.test.mjs"
+    },
+    {
+      "id": "models",
+      "title": "Atomdetektiven",
+      "module": 2,
+      "entry": "?lab=atommodeller#omrade-2",
+      "source": [
+        "lab-models.js",
+        "lab-models-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-models-model.test.mjs"
+    },
+    {
+      "id": "bonds",
+      "title": "Bindningslabbet",
+      "module": 3,
+      "entry": "?lab=bindningar#omrade-3",
+      "source": [
+        "lab-bonds.js",
+        "lab-bonds-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-bonds-model.test.mjs"
+    },
+    {
+      "id": "reactions",
+      "title": "Reaktionslabbet",
+      "module": 4,
+      "entry": "?lab=reaktioner#omrade-4",
+      "source": [
+        "lab-reactions.js",
+        "lab-reactions-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-reactions-model.test.mjs"
+    },
+    {
+      "id": "materials",
+      "title": "Materialdetektiven",
+      "module": 5,
+      "entry": "?lab=material#omrade-5",
+      "source": [
+        "lab-materials.js",
+        "lab-materials-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-materials-model.test.mjs"
+    },
+    {
       "id": "vattenlabbet",
+      "title": "Vattenlabbet",
       "module": 6,
       "entry": "?lab=vatten#omrade-6",
       "source": [
@@ -1957,6 +2134,25 @@
       "renderer": "Three.js 0.184.0, WebGL2 with 2D fallback",
       "tests": "water-model.test.mjs",
       "license": "vendor/three/LICENSE"
+    },
+    {
+      "id": "environment",
+      "title": "Miljölandskapet",
+      "module": 7,
+      "entry": "?lab=miljo#omrade-7",
+      "source": [
+        "lab-environment.js",
+        "lab-environment-model.js",
+        "lab-kit.js",
+        "labs.css"
+      ],
+      "renderer": "Canvas 2D",
+      "tests": "lab-environment-model.test.mjs"
     }
-  ]
+  ],
+  "quality": {
+    "modelTests": 47,
+    "modelTestCommand": "node --test water-model.test.mjs lab-*.test.mjs",
+    "scientificScope": "Explicit schematic teaching models; environmental values are fictional relative quantities"
+  }
 }

@@ -12,6 +12,26 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 - Sju helt omarbetade originalfilmer på 3–5 minuter, renderade i 1920×1080 med 30 bilder/sekund. De innehåller 95 förklarande avsnitt, LaTeX-text, avancerad 2D/2.5D/3D-animation, svenska undertexter och originalmusik. Ljudspåret innehåller enbart musik, utan berättarröst.
 - Rutherford förklaras med en solsystemsliknelse. Liknelsens begränsningar, Bohrs energinivåer och dagens elektronmoln hålls isär.
 
+## Interaktiva labb i alla sju områden
+
+[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs1#omrade-1). Varje område har en knapp ovanför filmen. Labbet ligger överst i steg 2, Förstå. Länken med lab=alla öppnar experimentet direkt även när ni växlar område.
+
+| Område | Labb | Undersök |
+|---|---|---|
+| 1 | Molekylverkstaden | Dra, välj och bind H/O; skilj atomer, atomslag, molekyler och ämnen åt. |
+| 2 | Atomdetektiven | Skicka samma alfapartiklar genom Thomson- och Rutherfordmodeller; följ kraft, spår och vinkelutfall. |
+| 3 | Bindningslabbet | Flytta en elektron, räkna laddningar och jämför jongitter med delat elektronpar. |
+| 4 | Reaktionslabbet | Förutsäg mängder, följ samma atomer och redovisa massa i prov och omgivning. |
+| 5 | Materialdetektiven | Undersök fyra definierade prov med fyra tester och samla belägg om ett okänt prov. |
+| 6 | Vattenlabbet | Värm/kyl 50 g vatten och koppla ihop fasandelar, molekylvy och temperaturkurva. |
+| 7 | Miljölandskapet | Pröva åtgärder och följ ett påhittat ämnes relativa mängd och halt genom olika platser. |
+
+De sex nya labben använder Canvas 2D med zoom, tangentbordsreglage, direkt återkoppling och alternativ till dragning. Vattenlabbet behåller sin 3D-vy och 2D-reservvy. Modellerna är egna förklaringsmodeller med explicit beskrivna förenklingar och primärkällor i varje labb. Miljömodellen är inte en prognos eller en verklig riskbedömning.
+
+lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje nytt labb har separat gränssnitt, ren modellfil och modelltester. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
+
+Kör alla 47 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
+
 ## Vattenlabbet
 
 [Öppna experimentet](https://gandalfhello145.github.io/Kemilabbet/?lab=vatten&v=20261109-water1#omrade-6). Det finns överst i steg 2, Förstå, i område 6 och nås också med knappen Öppna Vattenlabbet ovanför filmen.
