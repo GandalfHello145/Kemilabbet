@@ -1,0 +1,26 @@
+Use case: scientific-educational.
+Asset type: A premium, highly legible illustrated chemistry explainer for a Swedish grade 7 website, landscape format, four equally sized panels arranged in a clean 2-by-2 grid.
+
+Primary request: Create ONE beautiful coherent infographic illustration that teaches how everyday choices can reduce the spread of substances into the environment. Use ordinary leftover house paint as the concrete recurring example. Four numbered scenarios illustrate cause and effect, not measured data. Clear visible arrows must explain each action and consequence. This should feel like an exceptional modern science textbook spread, not clipart.
+
+Style and composition: Sophisticated editorial educational illustration, detailed but uncluttered, softly dimensional cutaway landscapes, crisp silhouettes, believable adult anatomy, fine clean outlines, subtle paper texture, warm cream background, deep navy typography and turquoise water, natural green vegetation, restrained coral-orange for paint-tracer paths. Balanced 2-by-2 grid with generous clear cream gutters. Each panel has a large number in a circle and one short Swedish heading at the top. Four distinct vignettes within the same visual world; each panel is readable alone. Landscape overall ratio about 3:2. Keep all important content away from the outer edge. Excellent hierarchy and visible, unambiguous arrowheads. Short headings only; no paragraphs, legends, footnotes, equations, fake logos or additional writing.
+
+Panel 1, upper left. Number 1. Exact heading: "Spill kan spridas".
+An accidentally tipped small paint can outdoors beside a house, a small orange spill and rain carry a few colored tracer droplets over the ground into a street stormwater grate. Beneath the grate show a simple soil cutaway with a visible pipe connecting to the nearby stream, so the route is understandable. A continuous coral dotted arrow traces can → ground/grate → pipe → stream. Clear blue stream and one healthy-looking living fish in the right-hand water, with a subtle final dotted arrow from water toward the fish to communicate possible exposure. The tracer is small and local, NOT an entire poisoned river. Do not imply every paint or exposure has the same effect. No dead fish or instant catastrophe. This is an outdoor stormwater route, not a kitchen sink connected directly to a river.
+
+Panel 2, upper right. Number 2. Exact heading: "Stoppa vid källan".
+The same upright paint can safely closed with lid, resting inside a sturdy shallow spill-containment tray on a sheltered garage shelf. A tiny accidental drip is retained inside the tray, with a curved arrow returning attention to the tray and a clear shield/check symbol beside the barrier. Dry clean floor outside the tray, no leak reaches the outdoor water. An adult's gloved hands finish closing the lid. Make the tray clearly visible, not a decorative mat. This panel emphasizes preventing release before it spreads.
+
+Panel 3, lower left. Number 3. Exact heading: "Lämna färgrester rätt".
+An adult hands the same CLOSED paint can to a staff member at a tidy municipal recycling centre's sheltered household chemical-waste receiving counter. A large straightforward collection symbol on the counter and a green arrow from the can to the receiving area; safe organized storage of closed cans behind it. In a small separate inset at lower right of this panel, show a sink with a paint can above it crossed with a simple red prohibition circle; no actual pouring. Collection is the correct destination, the sink is the wrong destination. No readable station sign, brand or fake certification.
+
+Panel 4, lower right. Number 4. Exact heading: "Välj och använd klokt".
+An adult planning a small painting task: reads the printed label on a small closed paint can with a magnifying-glass detail focusing on label lines (no readable tiny text); nearby a measured small paint tray and a roller apply paint to a little wooden shelf. Show an appropriate small can selected, with only the needed amount in the tray and the spare lid ready to close. A subtle curved arrow links reading label → choosing appropriate small quantity → using paint carefully. This is careful planning and use, not a claim that a special paint is universally harmless.
+
+Text (verbatim, Swedish):
+"Spill kan spridas"
+"Stoppa vid källan"
+"Lämna färgrester rätt"
+"Välj och använd klokt"
+Numbers 1, 2, 3, 4 only.
+Constraints: Spell Swedish letters precisely. Adult characters only; no children handling paint or chemicals. No skulls, toxic-green slime, fearful faces, dead animals, invented measurement values, real-world risk forecasts, hazard diamonds, molecule diagrams, "not to scale" labels, TikZ appearance, generic marketing captions, watermarks or additional text. Scientific causal clarity comes first; educational detail and attractive spatial composition second.

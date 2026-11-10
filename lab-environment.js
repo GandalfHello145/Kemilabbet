@@ -1,5 +1,5 @@
-import { createLab } from './lab-kit.js?v=20261110-labs2';
-import { EnvironmentModel, ENVIRONMENT_CONSTANTS, compareEnvironmentAtTime } from './lab-environment-model.js?v=20261110-labs2';
+import { createLab } from './lab-kit.js?v=20261110-labs3';
+import { EnvironmentModel, ENVIRONMENT_CONSTANTS, compareEnvironmentAtTime } from './lab-environment-model.js?v=20261110-labs3';
 
 const num=(v,d=1)=>Number(v).toLocaleString('sv-SE',{minimumFractionDigits:d,maximumFractionDigits:d,useGrouping:false});
 const C=ENVIRONMENT_CONSTANTS;

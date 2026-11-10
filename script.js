@@ -1,6 +1,6 @@
-import { LABS, mountSubjectLab } from './lab-router.js?v=20261110-labs2';
+import { LABS, mountSubjectLab } from './lab-router.js?v=20261110-labs3';
 let activeLab = null;
-import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261109-4';
+import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261110-labs3';
 // Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
 const modules = [
   {
@@ -225,8 +225,8 @@ const modules = [
       "Den bästa åtgärden kan vara att hindra spridningen redan vid källan. Batterier ska lämnas till batteriinsamling, där de kan tas om hand. De ska inte lämnas i naturen eller kastas i vanliga sopor. Rör inte innehållet i ett läckande batteri; be en vuxen hjälpa till. Insamling gör att ämnen och material kan hanteras och minskar risken att just batteriet läcker i mark och vatten.",
       "Bygg ett utvecklat svar med kedjan källa → spridningsväg → organism → möjlig följd → åtgärd. Till exempel: ”Om ett skadat batteri läcker kan ämnen följa med regnvatten till bäcken. Där kan smådjur utsättas och skadas, beroende på ämnet och mängden. Därför lämnar vi batterier till insamling innan de hamnar i naturen.” Orden om, kan och därför visar både villkor och samband."
     ],
-    "figure": "assets/diagrams/07-miljo.svg",
-    "figureAlt": "Ett möjligt spridningsförlopp från ett skadat batteri via mark och vatten till levande organismer, samt alternativet att lämna batteriet till insamling.",
+    "figure": "assets/environment/giftfri-miljo-scenarier.webp?v=20261110-labs3",
+    "figureAlt": "Fyra scenarier med målarfärg visar hur regn kan föra ett spill till en bäck, hur ett lock och ett tråg fångar spill, hur färgrester lämnas till insamling och hur etikettläsning och rätt mängd kan minska rester.",
     "task": "Beskriv en möjlig väg från ett läckande batteri till en levande organism. Förklara en möjlig konsekvens och vad personen borde göra med batteriet i stället.",
     "hint": "Använd sambandsorden först, sedan och därför. Tänk på vatten, mark och hur organismer får i sig ämnen.",
     "example": "Om ett skadat batteri läcker kan ämnen först komma ut i marken och sedan följa med vatten till bäcken. Organismer kan utsättas för ämnena och vissa kan skadas. Konsekvensen beror på vilka ämnen och mängder det gäller. Batteriet ska därför lämnas till batteriinsamling.",
@@ -306,7 +306,7 @@ const lessons = {
       "correction": "En molekyl kan bestå av samma atomslag, som O₂, eller olika atomslag, som H₂O. För att ämnet ska vara en kemisk förening krävs olika grundämnen kemiskt bundna till varandra."
     },
     "film": {
-      "src": "assets/films/v3/01-atomer.mp4?v=music-only-20261109",
+      "src": "assets/films/v3/01-atomer.mp4?v=20261110-labs3",
       "poster": "assets/posters/v3/01-atomer.jpg",
       "title": "Atomer och molekyler: följ byggstenarna",
       "before": "Följ en vattenmolekyl. Lägg märke till vilka delar som räknas när filmen visar atomer, atomslag och molekyler.",
@@ -399,7 +399,7 @@ const lessons = {
       "correction": "I Thomsons modell är den positiva laddningen utspridd genom atomen. En liten central kärna med samlad positiv laddning är den avgörande förändringen i Rutherfords modell."
     },
     "film": {
-      "src": "assets/films/v3/02-modeller.mp4?v=music-only-20261109",
+      "src": "assets/films/v3/02-modeller.mp4?v=20261110-labs3",
       "poster": "assets/posters/v3/02-modeller.jpg",
       "title": "Atommodeller: från guldfolie till elektronmoln",
       "before": "Följ hur försöken förändrar atommodellen. Jämför sedan kärna och elektroner med solen och planeterna.",
@@ -682,7 +682,7 @@ const lessons = {
       "correction": "Färg är en egenskap bland flera. Salt och socker kan båda vara vita och lösliga i vatten. För att skilja prov åt behöver vi välja undersökningar som ger användbar information. Smaka aldrig på okända prov."
     },
     "film": {
-      "src": "assets/films/v3/05-egenskaper.mp4?v=music-only-20261109",
+      "src": "assets/films/v3/05-egenskaper.mp4?v=20261110-labs3",
       "poster": "assets/posters/v3/05-egenskaper.jpg",
       "title": "Ämnens egenskaper: undersök och välj material",
       "before": "Följ värmen från spisen. Var ska den lätt kunna gå vidare, och var är långsammare värmeöverföring användbar?",
@@ -1017,8 +1017,8 @@ const films = {
     "scene": "AtomMaster",
     "file": "assets/films/v3/01-atomer.mp4",
     "poster": "assets/posters/v3/01-atomer.jpg",
-    "captions": "assets/captions/v3/01-atomer.vtt",
-    "duration": 255.620317,
+    "captions": "assets/captions/v3/01-atomer.vtt?v=20261110-labs3",
+    "duration": 255.621615,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1119,7 +1119,7 @@ const films = {
         "animation_seconds": 11.36666666666602,
         "wait_seconds": 6.666666666666288,
         "automatic_reading_hold": 0.6333333333343205,
-        "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De är inte ett fotografi, och storlekarna är inte i skala."
+        "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De hjälper oss att visa hur atomerna sitter ihop."
       },
       {
         "title": "Vattenmolekylerna byter inte identitet",
@@ -1158,7 +1158,7 @@ const films = {
         "text": "Använd tre frågor när ni förklarar: Hur många molekyler? Hur många atomer i varje molekyl? Hur många atomslag? Peka i bilden och läs sedan samma information i formeln."
       }
     ],
-    "spoken_seconds": 190.0338775510204,
+    "spoken_seconds": 0,
     "max_voice_speed": 1,
     "version": 8,
     "threeD": true
@@ -1309,8 +1309,8 @@ const films = {
         "text": "Förklara vad guldfolieförsöket lärde oss. Beskriv sedan vad solsystemsliknelsen hjälper oss att se och var den slutar fungera. En bra förklaring kopplar modellen till observationer."
       }
     ],
-    "spoken_seconds": 209.97755102040816,
-    "max_voice_speed": 1.0711031079098294,
+    "spoken_seconds": 0,
+    "max_voice_speed": 1,
     "version": 8,
     "threeD": true
   },
@@ -1460,7 +1460,7 @@ const films = {
         "text": "En partikel har tolv protoner och tio elektroner. Räkna plus och minus. Vad är laddningen? Förklara också varför elektronerna kan ändra laddningen utan att atomslaget byts."
       }
     ],
-    "spoken_seconds": 182.65873015873012,
+    "spoken_seconds": 0,
     "max_voice_speed": 1,
     "version": 8,
     "threeD": true
@@ -1611,7 +1611,7 @@ const films = {
         "text": "Fråga om samma ämne finns kvar eller om nya ämnen har bildats. Följ atomerna och håll reda på systemets gräns. Förklara sedan skillnaden mellan en fysisk förändring och en kemisk reaktion."
       }
     ],
-    "spoken_seconds": 192.07678004535146,
+    "spoken_seconds": 0,
     "max_voice_speed": 1,
     "version": 8,
     "threeD": true
@@ -1621,8 +1621,8 @@ const films = {
     "scene": "MaterialMaster",
     "file": "assets/films/v3/05-egenskaper.mp4",
     "poster": "assets/posters/v3/05-egenskaper.jpg",
-    "captions": "assets/captions/v3/05-egenskaper.vtt",
-    "duration": 257.91901,
+    "captions": "assets/captions/v3/05-egenskaper.vtt?v=20261110-labs3",
+    "duration": 257.920964,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1669,7 +1669,7 @@ const films = {
         "animation_seconds": 18.166666666665634,
         "wait_seconds": 0.8666666666666174,
         "automatic_reading_hold": 0.833333333334366,
-        "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala."
+        "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. Punkterna hjälper oss att följa hur energi sprids genom metallen."
       },
       {
         "title": "En elektrisk ledare skapar en sluten väg",
@@ -1753,8 +1753,8 @@ const films = {
         "text": "Välj en vardagsprodukt. Beskriv minst två material i produkten och hur deras egenskaper hjälper till. Använd orden eftersom och därför. Tänk också på om ett enkelt test skulle kunna stödja din förklaring."
       }
     ],
-    "spoken_seconds": 217.5681632653061,
-    "max_voice_speed": 1.0113736722759277,
+    "spoken_seconds": 0,
+    "max_voice_speed": 1,
     "version": 8,
     "threeD": true
   },
@@ -1895,7 +1895,7 @@ const films = {
         "text": "Förklara vad som ändras när is blir vatten och sedan gas. Ta med avstånd, ordning, rörelse och energi. Berätta också vad som är oförändrat: samma vattenmolekyler och samma atomer finns kvar i vår modell."
       }
     ],
-    "spoken_seconds": 212.08344671201817,
+    "spoken_seconds": 0,
     "max_voice_speed": 1,
     "version": 8,
     "threeD": true
@@ -2037,7 +2037,7 @@ const films = {
         "text": "Ett utvecklat svar följer ett ämne från källa till möjlig följd och åtgärd. Beskriv också villkoren: om ämnet kan spridas, om en organism kan utsättas och vad åtgärden förändrar. Använd orden om, kan och därför."
       }
     ],
-    "spoken_seconds": 217.5449433106576,
+    "spoken_seconds": 0,
     "max_voice_speed": 1,
     "version": 8,
     "threeD": true
@@ -6660,9 +6660,12 @@ function filmSection(m) {
 
 function readingSection(m) {
  const l=lessons[m.id];
- const labStart='<div id="widget" class="interactive"></div>';
+ const labStart=LABS[m.id]?'<div id="widget" class="interactive"></div>':'';
  const widget='';
- return `${labStart}<div class="reading-heading"><span class="margin-label">FRÅN BILD TILL FÖRKLARING</span><span class="reading-note">Läs tillsammans. Stanna vid det ni undrar över.</span></div><div class="explanation chapter-explanation">${m.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}</div><figure class="tikz-figure"><div class="diagram-heading"><span class="margin-label">FÖLJ SAMBANDEN</span><button class="text-button" id="diagram-zoom">Öppna stor ritning ↗</button></div><img class="diagram" src="${m.figure}" alt="${esc(m.figureAlt)}"><figcaption>Följ ritningens pilar, färger och förklaringar. Berätta för varandra vad som händer.</figcaption></figure>${renderStudyGalleries(m.id)}${widget}
+ const article=`<div class="explanation chapter-explanation">${m.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}</div>`;
+ const illustration=`<figure class="tikz-figure${m.id===7?' environment-scenario-figure':''}"><div class="diagram-heading"><span class="margin-label">${m.id===7?"FÖLJ SCENARIERNA":"FÖLJ SAMBANDEN"}</span><button class="text-button" id="diagram-zoom">Öppna stor ${m.id===7?"bild":"ritning"} ↗</button></div><img class="diagram" src="${m.figure}" alt="${esc(m.figureAlt)}"><figcaption>${m.id===7?"Illustrationen visar exempel på spridning och förebyggande åtgärder. Följ pilarna och koppla varje handling till dess följd.":"Följ ritningens pilar, färger och förklaringar. Berätta för varandra vad som händer."}</figcaption></figure>`;
+ const readingBody=m.id===7?illustration+renderStudyGalleries(m.id,{scenariosOnly:true})+article+renderStudyGalleries(m.id,{includeScenarios:false}):article+illustration+renderStudyGalleries(m.id);
+ return `${labStart}<div class="reading-heading"><span class="margin-label">FRÅN BILD TILL FÖRKLARING</span><span class="reading-note">Läs tillsammans. Stanna vid det ni undrar över.</span></div>${readingBody}${widget}
  <details class="deep-reading"><summary><span>Gå ett steg djupare</span><small>Fler förklaringar, exempel och viktiga begrepp</small></summary><div class="deep-intro">${l.intro.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="reading-sequence">${l.sections.map((section,i)=>`<section class="reading-section"><span class="section-number">${String(i+1).padStart(2,'0')}</span><div><h3>${esc(section.heading)}</h3><p>${esc(section.body)}</p><p class="think-question">${esc(section.question)}</p></div></section>`).join('')}</div>${exampleMarkup(l.workedExample)}${(l.extraExamples||[]).map(example=>exampleMarkup(example,'PROVA RESONEMANGET')).join('')}<section class="concept-section"><p class="margin-label">ORD ATT ANVÄNDA I ER FÖRKLARING</p><dl class="concept-list">${l.conceptMap.map(c=>`<div><dt>${esc(c.term)}</dt><dd>${esc(c.meaning)}</dd></div>`).join('')}</dl></section>${l.reflectionPrompts?.length?`<section class="reflection-section"><h3>Prata vidare</h3><ol>${l.reflectionPrompts.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></section>`:''}</details>
  <aside class="misconception"><p class="margin-label">TÄNK ETT VARV TILL</p><h3>En vanlig missuppfattning</h3><p class="misconception-claim">${esc(l.misconception.claim)}</p><p>${esc(l.misconception.correction)}</p></aside><div class="takeaway-wrap"><span class="margin-label">TA MED ER DET HÄR</span><p class="chapter-takeaway">${esc(l.summary)}</p></div>`;
 }
@@ -6688,8 +6691,8 @@ function connectChapter(m) {
  }
  document.querySelector('#diagram-zoom').onclick=()=>{
   player?.pause();
-  const dialog=document.createElement('dialog');dialog.className='diagram-dialog';dialog.setAttribute('aria-label','Förstorad ritning: '+m.title);
-  dialog.innerHTML=`<div class="diagram-dialog-heading"><div><p class="margin-label">OMRÅDE ${m.id} · RITNING</p><h2>${esc(m.title)}</h2></div><button class="button small secondary" aria-label="Stäng ritningen">Stäng ×</button></div><img src="${m.figure}" alt="${esc(m.figureAlt)}"><p>Följ sambanden och förklara ritningen tillsammans.</p>`;
+  const dialog=document.createElement('dialog');dialog.className='diagram-dialog';dialog.setAttribute('aria-label','Förstorad bild: '+m.title);
+  dialog.innerHTML=`<div class="diagram-dialog-heading"><div><p class="margin-label">OMRÅDE ${m.id} · RITNING</p><h2>${esc(m.title)}</h2></div><button class="button small secondary" aria-label="Stäng bilden">Stäng ×</button></div><img src="${m.figure}" alt="${esc(m.figureAlt)}"><p>Följ sambanden och förklara bilden tillsammans.</p>`;
   document.body.append(dialog);const cleanup=()=>{dialog.close();dialog.remove();};dialog.querySelector('button').onclick=cleanup;dialog.addEventListener('cancel',()=>dialog.remove());dialog.showModal();window.renderTexText?.(dialog);
  };
 }
@@ -6726,7 +6729,7 @@ document.querySelector('#module-nav').innerHTML=modules.map(m=>`<a class="step-l
 function moduleView(m) {
  activeLab?.destroy(); activeLab=null;
  const s=state(m.id),role=m.id%2?'A':'B';
- main.innerHTML=`<div class="lesson-page">${chapterHero(m)}<aside class="cl-launch"><p><strong>Prova ${esc(LABS[m.id].title)}.</strong><br>${esc(LABS[m.id].description)}</p><button class="button" data-go-stage="2" data-open-lab>Öppna ${esc(LABS[m.id].title)} ↗</button></aside>
+ main.innerHTML=`<div class="lesson-page">${chapterHero(m)}${LABS[m.id]?`<aside class="cl-launch"><p><strong>Prova ${esc(LABS[m.id].title)}.</strong><br>${esc(LABS[m.id].description)}</p><button class="button" data-go-stage="2" data-open-lab>Öppna ${esc(LABS[m.id].title)} ↗</button></aside>`:""}
  <nav class="lesson-steps" role="tablist" aria-label="Tre steg i området"><button id="step-tab-1" class="lesson-step active" role="tab" aria-controls="step-panel-1" aria-selected="true" tabindex="0" data-stage="1"><span>1</span>Titta</button><button id="step-tab-2" class="lesson-step" role="tab" aria-controls="step-panel-2" aria-selected="false" tabindex="-1" data-stage="2"><span>2</span>Förstå</button><button id="step-tab-3" class="lesson-step" role="tab" aria-controls="step-panel-3" aria-selected="false" tabindex="-1" data-stage="3"><span>3</span>Svara</button></nav>
  <p class="pair-role"><span>ROLLER I DET HÄR OMRÅDET</span>Elev ${role}: förklara · Elev ${role==='A'?'B':'A'}: skriv och ställ följdfrågor</p>
  <section id="step-panel-1" class="lesson-stage" role="tabpanel" aria-labelledby="step-tab-1" tabindex="-1">${filmSection(m)}<details class="first-thought optional-thought" id="first-thought"><summary>Vad tror ni? Skriv en första tanke om ni vill.</summary><label for="first-answer">${escape(m.firstQuestion)}</label><textarea id="first-answer" placeholder="Vi tror att …" maxlength="10000">${escape(s.first)}</textarea><div class="actions"><button class="button small" id="reveal">Spara vår första tanke</button><button class="button small secondary" id="first-unknown">Vi vet inte än</button></div><p class="tiny">Ni kan titta på filmen direkt. Er första tanke kan hjälpa er att se hur er förklaring utvecklas.</p></details>
@@ -6750,12 +6753,12 @@ function moduleView(m) {
  const setStage=(number,focus=true)=>{const target=Math.max(1,Math.min(3,Number(number)));if(target!==1)document.querySelector('#lesson-film')?.pause();if(target!==2)cancelAnimationFrame(animation);activeLab?.setActive(target===2);const launch=document.querySelector('.cl-launch');if(launch)launch.hidden=target===2;currentStage=target;document.querySelectorAll('[data-stage]').forEach(tab=>{const active=Number(tab.dataset.stage)===target;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});document.querySelectorAll('.lesson-stage').forEach((panel,i)=>panel.hidden=i+1!==target);if(target===2){s.revealed=true;save();setupWidget(m,s);}applyTextRendering(main);if(focus){document.querySelector('#step-panel-'+target).focus({preventScroll:true});document.querySelector('.lesson-steps').scrollIntoView({block:'start',behavior:'auto'});}};
  document.querySelectorAll('[data-stage]').forEach(tab=>{tab.onclick=()=>setStage(tab.dataset.stage);tab.onkeydown=e=>{let next;if(e.key==='ArrowRight')next=currentStage===3?1:currentStage+1;else if(e.key==='ArrowLeft')next=currentStage===1?3:currentStage-1;else if(e.key==='Home')next=1;else if(e.key==='End')next=3;else return;e.preventDefault();setStage(next);document.querySelector('#step-tab-'+next).focus({preventScroll:true});};});
  document.querySelectorAll('[data-go-stage]').forEach(button=>button.onclick=()=>setStage(button.dataset.goStage));
- setStage(['alla',LABS[m.id].slug,String(m.id)].includes(new URLSearchParams(location.search).get('lab'))?2:1,false);
+ setStage(['alla',LABS[m.id]?.slug,String(m.id),m.id===4?'reaktioner':m.id===7?'miljo':''].includes(new URLSearchParams(location.search).get('lab'))?2:1,false);
 }
 function showCheck(m,s){const e=document.querySelector('#check-feedback'),ok=s.choice===m.check.correct;e.hidden=false;e.className='feedback'+(ok?'':' wrong');e.textContent=(ok?'Det stämmer. ':'Titta en gång till. ')+m.check.feedback;applyTextRendering(e);}
 function tools(labels,action,current){return `<div class="tools">${labels.map(([v,label])=>`<button type="button" data-action="${action}" data-value="${v}" ${current!==undefined?`aria-pressed="${String(current)===String(v)}"`:''}>${label}</button>`).join('')}</div>`;}
 function setupWidget(m,s){
- const el=document.querySelector('#widget');if(!el)return;
+ const el=document.querySelector('#widget');if(!el||!LABS[m.id])return;
  cancelAnimationFrame(animation);
  if(!activeLab)activeLab=mountSubjectLab(el,m.id);
  activeLab.setActive(true);

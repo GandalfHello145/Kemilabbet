@@ -7,30 +7,34 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 ## Den här versionen
 
 - Utökade förklaringar, vardagsexempel och begreppsstöd i alla sju områden.
-- 21 nya detaljerade TikZ-ritningar, tre per område, utöver de sju ursprungliga ritningarna. SVG-bilderna går att förstora på sidan. Redigerbara källor finns i `latex/`.
+- Detaljerade TikZ-ritningar i områdena 1–6 och en ny genererad scenariobild i Giftfri miljö. SVG-bilderna går att förstora på sidan. Redigerbara källor finns i `latex/`.
 - Fem ytterligare internetbilder om giftfri miljö, med förklaringar, samtalsfrågor, upphovsperson, licens och faktakällor.
 - Sju helt omarbetade originalfilmer på 3–5 minuter, renderade i 1920×1080 med 30 bilder/sekund. De innehåller 95 förklarande avsnitt, LaTeX-text, avancerad 2D/2.5D/3D-animation, svenska undertexter och originalmusik. Ljudspåret innehåller enbart musik, utan berättarröst.
 - Rutherford förklaras med en solsystemsliknelse. Liknelsens begränsningar, Bohrs energinivåer och dagens elektronmoln hålls isär.
 
-## Interaktiva labb i alla sju områden
+## Labb och bildförklaringar
 
-[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs2#omrade-1). Varje område har en knapp ovanför filmen. Labbet ligger överst i steg 2, Förstå. Länken med lab=alla öppnar experimentet direkt även när ni växlar område.
+[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs3#omrade-1). Områdena 1, 2, 3, 5 och 6 har labb överst i steg 2, Förstå. Förändring och Giftfri miljö har bildförklaringar utan simulering. Länken med lab=alla öppnar steg 2 direkt även när ni växlar område.
 
 | Område | Labb | Undersök |
 |---|---|---|
 | 1 | Molekylverkstaden | Dra, välj och bind H/O; skilj atomer, atomslag, molekyler och ämnen åt. |
-| 2 | Atomdetektiven | Skicka samma alfapartiklar genom Thomson- och Rutherfordmodeller; följ kraft, spår och vinkelutfall. |
+| 2 | Atomdetektiven | Börja med Thomson, fortsätt med Rutherford och jämför sedan samma strålstart; förklara orsak och slutsats utan vinkelmått. |
 | 3 | Bindningslabbet | Flytta en elektron, räkna laddningar och jämför jongitter med delat elektronpar. |
-| 4 | Reaktionslabbet | Förutsäg mängder, följ samma atomer och redovisa massa i prov och omgivning. |
+| 4 | Bildförklaring | Jämför kemiska och fysikaliska förändringar utan simulering. |
 | 5 | Materialdetektiven | Undersök fyra definierade prov med fyra tester och samla belägg om ett okänt prov. |
 | 6 | Vattenlabbet | Värm/kyl 50 g vatten och koppla ihop fasandelar, molekylvy och temperaturkurva. |
-| 7 | Miljölandskapet | Pröva åtgärder och följ ett påhittat ämnes relativa mängd och halt genom olika platser. |
+| 7 | Scenariobild | Följ målarfärg från spill till vatten och jämför förebyggande handlingar. |
 
-De sex ombyggda labben har guidade undersökningsuppdrag, direkt dragning med tydliga släppmål, animerad återkoppling och knappar som alternativ till dragning. Eleverna bygger molekyler, styr strålen, flyttar elektroner och väljer själva de molekyler som får reagera. Okända material kräver belägg och miljöförsök jämförs före och efter en åtgärd. Det större labbläget samlar bilden och verktygen på samma arbetsyta. Canvas 2D används med zoom, tangentbordsreglage och stöd för minskad rörelse. Vattenlabbet behåller sin 3D-vy och 2D-reservvy. Modellerna är egna förklaringsmodeller med explicit beskrivna förenklingar och primärkällor i varje labb. Miljömodellen är inte en prognos eller en verklig riskbedömning.
+De fem aktiva labben har tydliga elevknappar, direkta handlingar och förklarande återkoppling. Atomdetektiven visar en atommodell i taget innan båda kan jämföras, med slowmotion och närbild av kraften. Grader, histogram och tekniska laddningsreglage har tagits bort. Den extra sektionen Undersök vidare tillsammans visas inte i labben. Text i gränssnitt, knappar, diagram och canvas sätts som LaTeX med lokalt MathJax och SVG. Vattenlabbet behåller sin 3D-vy och 2D-reservvy.
 
-lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje nytt labb har separat gränssnitt, ren modellfil och modelltester. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
+lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje labb har separat gränssnitt, ren modellfil och modelltester. Äldre modell- och testfiler för de två borttagna labben finns kvar som källhistorik men laddas inte på elevsidan. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
 
-Kör alla 59 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
+Kör alla 61 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
+
+## Giftfri miljö
+
+assets/environment/giftfri-miljo-scenarier.webp är webbkopian av en AI-genererad illustration med fyra vardagsscenarier. PNG-original och exakt prompt finns bredvid. environment-scenarios.js innehåller svenska förklaringar, alttext och faktakällor. Bilden är skapad med OpenAI image_gen; fakta har kontrollerats mot primärkällor. De tidigare TikZ-bilderna i område 7 visas inte. De fem internetbilderna och deras käll-/licensuppgifter är kvar.
 
 ## Vattenlabbet
 
@@ -50,7 +54,7 @@ Kör modellkontrollerna med node --test water-model.test.mjs från webbplatsens 
 
 `manim/v3/` innehåller de nuvarande filmernas kompletta originalkod, storyboard, tidrapporter och produktionsverktyg. `core.py` innehåller bildspråk, kamerastöd och LaTeX. Scenerna är uppdelade i tre källfiler. `narrate_score.py` lägger till originalmusik utan tal och bevarar videobilder och kapitel. `manim/v3/README.md` länkar till de offentliga 3Blue1Brown-videor och GitHub-exempel som inspirerat visuell förklaring och rörelse. Äldre filmversioner finns kvar på sina äldre sökvägar.
 
-Faktakällor är bland annat American Chemical Society, Institute of Physics, Kemikalieinspektionen och Naturvårdsverket. Länkar finns i respektive område. Modellritningar är förklarande och inte skalenliga eller mätdata, om inte annat anges.
+Faktakällor är bland annat American Chemical Society, Institute of Physics, Kemikalieinspektionen och Naturvårdsverket. Länkar finns i respektive område. Ritningarna hjälper eleverna att följa kemiska samband.
 
 ## Köra och bygga
 
@@ -65,3 +69,7 @@ Filmer: använd Python 3.13, installera `manim/requirements.txt` och systemberoe
 Svar och framsteg sparas i elevens webbläsare. Använd sidans exportfunktion för att spara en kopia eller lämna in svar. På delade datorer kan svar finnas kvar i samma webbläsarprofil. Befintliga svarsdata använder samma lagringsnyckel och filschema som tidigare.
 
 GitHub Pages publicerar grenen `main`, mappen `/ (root)`. `.nojekyll` gör att filerna publiceras utan Jekyll.
+
+## LaTeX i labben
+
+lab-tex.js använder MathJax 3.2.2 för att sätta knappar, förklaringar, valmenyer, canvasetiketter och graftext som LaTeX till SVG-path. Alla filer körs lokalt; Apache-2.0-licens och ursprungsnotis finns i vendor/mathjax. Tillgängliga originaltexter, formulärvärden och tangentbordsstyrning bevaras. Begränsade cacheminnen återanvänder redan satta texter och bara ändrad text sätts om.

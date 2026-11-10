@@ -142,3 +142,19 @@ body:has(.cl-focus) #main{animation:none!important;transform:none!important}
 @container(max-width:899px){.cl-focus.cl-tools-open .cl-controls-panel{position:fixed;left:12px;right:12px;bottom:12px;z-index:5;height:32dvh;max-height:300px;border:1px solid #a8cdbd;border-radius:12px 12px 0 0;box-shadow:0 -5px 20px #0c3b3d20;display:flex;flex-direction:column}.cl-focus.cl-tools-open .cl-tool-heading{flex-shrink:0;padding:11px 16px 7px}.cl-focus.cl-tools-open .cl-controls{max-height:none;overflow:auto;min-height:0;padding:8px 16px 15px}.cl-focus.cl-tools-open .cl-scene-column{padding-bottom:32dvh}}
 @media(max-width:600px){.cl-focus.cl-tools-open .cl-controls-panel{left:0;right:0;bottom:0}}
 @media(max-height:550px){.cl-focus .cl-scene-column{position:relative!important;top:auto!important}.cl-focus.cl-tools-open .cl-controls-panel{position:relative;left:auto;right:auto;bottom:auto;height:auto;max-height:none}.cl-focus.cl-tools-open .cl-scene-column{padding-bottom:0}.cl-focus .cl-controls{max-height:none}.cl-focus .cl-canvas{min-height:0!important;height:200px!important}.cl-focus .cl-tool-heading{padding:12px 17px}.cl-focus .cl-focus-exit{top:10px}}
+
+/* TeX SVG paths; accessible source strings stay unchanged. */
+.lab-tex-run{position:relative;display:inline;color:inherit;font:inherit}
+.lab-tex-source,.lab-tex-native-select{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:pre!important;border:0!important}
+.lab-tex-native-select{pointer-events:none!important;opacity:0!important}
+.lab-tex-visual{display:inline;color:inherit;line-height:inherit}
+.lab-tex-word{display:inline-block;max-width:none;line-height:inherit;vertical-align:baseline}
+.lab-tex-word>svg{display:inline-block!important;max-width:none!important;min-width:0!important;min-height:0!important;margin:0!important;overflow:visible!important;pointer-events:none;color:inherit}
+.lab-tex-select{display:block;position:relative;width:100%;max-width:100%;min-width:0;margin-top:5px}
+.chem-lab .lab-tex-select-button,.water-lab .lab-tex-select-button{display:flex;justify-content:space-between;align-items:center;gap:12px;width:100%;text-align:left;white-space:normal;min-height:46px;padding:10px 12px;background:#fff;color:#234e53;border:1px solid #bed2c8;border-radius:8px;font:inherit;font-size:14px;cursor:pointer}
+.lab-tex-select-arrow{flex-shrink:0}
+.lab-tex-options{display:grid;gap:3px;margin-top:5px;padding:5px;max-height:245px;overflow:auto;background:#fff;border:1px solid #9abeb2;border-radius:8px;box-shadow:0 5px 18px #123d3820;min-width:0}
+.chem-lab .lab-tex-option,.water-lab .lab-tex-option{display:block;width:100%;text-align:left;white-space:normal;background:#fff;color:#234e53;border:1px solid transparent;border-radius:5px;padding:9px 10px;min-height:43px;font:inherit;font-size:14px;cursor:pointer}
+.chem-lab .lab-tex-option[aria-selected=true],.water-lab .lab-tex-option[aria-selected=true]{background:#e5f2eb;border-color:#87bba7}
+.chem-lab .lab-tex-option.lab-tex-option-active,.water-lab .lab-tex-option.lab-tex-option-active{outline:2px solid #0c7c83;outline-offset:-2px;background:#eff8f3}
+.lab-tex-select-button:focus-visible{outline:3px solid #cf9d50;outline-offset:3px}

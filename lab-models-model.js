@@ -71,3 +71,26 @@ export function controlledCloserComparison(reference,probe) {
  return Boolean(reference&&probe&&reference.charge===probe.charge&&
   Math.abs(probe.impact)<Math.abs(reference.impact)*.65&&probe.rutherford>reference.rutherford+3);
 }
+/** The observation is completed before the next explanation is introduced. */
+export const DETECTOR_STAGES = Object.freeze([
+ Object.freeze({view:'thomson',count:1,impact:.12}),
+ Object.freeze({view:'rutherford',count:1,impact:.12}),
+ Object.freeze({view:'rutherford',count:80,impact:1.2}),
+ Object.freeze({view:'both',count:1,impact:.12}),
+]);
+export function createDetectorLesson(){return {stage:0,observed:false};}
+export function observeDetectorLesson(lesson,experiment){
+ const spec=DETECTOR_STAGES[lesson.stage];
+ if(!spec||experiment.count!==spec.count)return false;
+ const visible=spec.view==='both'?['thomson','rutherford']:[spec.view];
+ if(!visible.every(name=>experiment.models[name].completed===spec.count))return false;
+ lesson.observed=true;return true;
+}
+export function nextDetectorStage(lesson){
+ if(!lesson.observed||lesson.stage>=DETECTOR_STAGES.length-1)return false;
+ lesson.stage++;lesson.observed=false;return true;
+}
+export function qualitativeScattering(result){
+ return {passed:result.bins[0]+result.bins[1],strong:result.bins[2],returned:result.bins[3],
+  mostPass:result.completed>0&&(result.bins[0]+result.bins[1])>result.completed/2};
+}

@@ -39,6 +39,6 @@
 \panel{.5}{2.6}{15}{5.5}
 \foreach \x/\title/\n in {2.2/PLANKTON/2,6.1/LITEN FISK/5,10/STÖRRE FISK/10,13.9/FÅGEL/16}{\node[smalllabel,font=\bfseries\footnotesize] at (\x,7.45){\title};\draw[fill=lightteal,draw=teal,rounded corners=4pt] (\x-1.25,4.25) rectangle(\x+1.25,6.9);\foreach \i in {1,...,\n}{\pgfmathsetmacro{\xx}{\x-1+mod(\i-1,4)*.6}\pgfmathsetmacro{\yy}{6.5-floor((\i-1)/4)*.57}\fill[rust] (\xx,\yy) circle(.095);} \node[smalllabel,text width=2.6cm] at (\x,3.65){samma mängd kroppsvävnad jämförs};}
 \foreach \x in {3.6,7.5,11.4}{\draw[arrow,line width=2pt] (\x,5.6)--++(.95,0);}
-\node[label,text width=14.4cm,fill=palerust,rounded corners=4pt,inner sep=8pt] at (8,1.6){\textbf{Röda punkter = ett tänkt svårnedbrytbart ämne.} Fler punkter per lika stor mängd vävnad visar högre halt. Bilden är schematisk; detta gäller vissa ämnen, inte alla föroreningar.};\node[anchor=west,text=muted,font=\scriptsize] at (.6,.38){Kemins grunder (i)\quad /\quad Område 7\quad /\quad Förklarande modell};
-\node[anchor=east,text=muted,font=\scriptsize] at (15.4,.38){Inte i skala};
+\node[label,text width=14.4cm,fill=palerust,rounded corners=4pt,inner sep=8pt] at (8,1.6){\textbf{Röda punkter = ett tänkt svårnedbrytbart ämne.} Fler punkter per lika stor mängd vävnad visar högre halt. Bilden är schematisk; detta gäller vissa ämnen, inte alla föroreningar.};\node[anchor=west,text=muted,font=\scriptsize] at (.6,.38){Kemins grunder (i)\quad /\quad Område 7};
+
 \end{tikzpicture}\end{document}

@@ -5,7 +5,7 @@
     "file": "assets/films/v3/01-atomer.mp4",
     "poster": "assets/posters/v3/01-atomer.jpg",
     "captions": "assets/captions/v3/01-atomer.vtt",
-    "duration": 255.620317,
+    "duration": 255.621615,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -102,7 +102,7 @@
         "animation_seconds": 11.36666666666602,
         "wait_seconds": 6.666666666666288,
         "automatic_reading_hold": 0.6333333333343205,
-        "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De är inte ett fotografi, och storlekarna är inte i skala."
+        "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De hjälper oss att visa hur atomerna sitter ihop."
       },
       {
         "title": "Vattenmolekylerna byter inte identitet",
@@ -141,7 +141,7 @@
         "text": "Använd tre frågor när ni förklarar: Hur många molekyler? Hur många atomer i varje molekyl? Hur många atomslag? Peka i bilden och läs sedan samma information i formeln."
       }
     ],
-    "spoken_seconds": 190.0338775510204,
+    "spoken_seconds": 0,
     "max_voice_speed": 1
   },
   {
@@ -286,8 +286,8 @@
         "text": "Förklara vad guldfolieförsöket lärde oss. Beskriv sedan vad solsystemsliknelsen hjälper oss att se och var den slutar fungera. En bra förklaring kopplar modellen till observationer."
       }
     ],
-    "spoken_seconds": 209.97755102040816,
-    "max_voice_speed": 1.0711031079098294
+    "spoken_seconds": 0,
+    "max_voice_speed": 1
   },
   {
     "module": 3,
@@ -431,7 +431,7 @@
         "text": "En partikel har tolv protoner och tio elektroner. Räkna plus och minus. Vad är laddningen? Förklara också varför elektronerna kan ändra laddningen utan att atomslaget byts."
       }
     ],
-    "spoken_seconds": 182.65873015873012,
+    "spoken_seconds": 0,
     "max_voice_speed": 1
   },
   {
@@ -576,7 +576,7 @@
         "text": "Fråga om samma ämne finns kvar eller om nya ämnen har bildats. Följ atomerna och håll reda på systemets gräns. Förklara sedan skillnaden mellan en fysisk förändring och en kemisk reaktion."
       }
     ],
-    "spoken_seconds": 192.07678004535146,
+    "spoken_seconds": 0,
     "max_voice_speed": 1
   },
   {
@@ -585,7 +585,7 @@
     "file": "assets/films/v3/05-egenskaper.mp4",
     "poster": "assets/posters/v3/05-egenskaper.jpg",
     "captions": "assets/captions/v3/05-egenskaper.vtt",
-    "duration": 257.91901,
+    "duration": 257.920964,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -628,7 +628,7 @@
         "animation_seconds": 18.166666666665634,
         "wait_seconds": 0.8666666666666174,
         "automatic_reading_hold": 0.833333333334366,
-        "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala."
+        "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. Punkterna hjälper oss att följa hur energi sprids genom metallen."
       },
       {
         "title": "En elektrisk ledare skapar en sluten väg",
@@ -712,8 +712,8 @@
         "text": "Välj en vardagsprodukt. Beskriv minst två material i produkten och hur deras egenskaper hjälper till. Använd orden eftersom och därför. Tänk också på om ett enkelt test skulle kunna stödja din förklaring."
       }
     ],
-    "spoken_seconds": 217.5681632653061,
-    "max_voice_speed": 1.0113736722759277
+    "spoken_seconds": 0,
+    "max_voice_speed": 1
   },
   {
     "module": 6,
@@ -848,7 +848,7 @@
         "text": "Förklara vad som ändras när is blir vatten och sedan gas. Ta med avstånd, ordning, rörelse och energi. Berätta också vad som är oförändrat: samma vattenmolekyler och samma atomer finns kvar i vår modell."
       }
     ],
-    "spoken_seconds": 212.08344671201817,
+    "spoken_seconds": 0,
     "max_voice_speed": 1
   },
   {
@@ -984,7 +984,7 @@
         "text": "Ett utvecklat svar följer ett ämne från källa till möjlig följd och åtgärd. Beskriv också villkoren: om ämnet kan spridas, om en organism kan utsättas och vad åtgärden förändrar. Använd orden om, kan och därför."
       }
     ],
-    "spoken_seconds": 217.5449433106576,
+    "spoken_seconds": 0,
     "max_voice_speed": 1
   }
 ]

@@ -1,5 +1,5 @@
-import {createLab, roundRect} from './lab-kit.js?v=20261110-labs2';
-import {BondsModel} from './lab-bonds-model.js?v=20261110-labs2';
+import {createLab, roundRect} from './lab-kit.js?v=20261110-labs3';
+import {BondsModel} from './lab-bonds-model.js?v=20261110-labs3';
 
 const TAU=Math.PI*2,C={ink:'#e8f7f6',muted:'#a0c0cd',teal:'#6ce6d9',gold:'#ffd27c',blue:'#9ebfff'};
 const clamp=value=>Math.max(0,Math.min(1,value)),mix=(a,b,t)=>a+(b-a)*t;

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {forceAt,potentialEnergy,createParticle,advanceParticle,particleEnergy,createExperiment,advanceExperiment,COUPLING,traceTrajectory,probeSummary,controlledCloserComparison} from './lab-models-model.js';
+import {forceAt,potentialEnergy,createParticle,advanceParticle,particleEnergy,createExperiment,advanceExperiment,COUPLING,traceTrajectory,probeSummary,controlledCloserComparison,
+ DETECTOR_STAGES,createDetectorLesson,observeDetectorLesson,nextDetectorStage,qualitativeScattering} from './lab-models-model.js';
 function finish(p){for(let i=0;i<12000&&!p.done;i++)advanceParticle(p,.02);assert.ok(p.done);return p;}
 test('positive charge repels continuously, including through the diffuse Thomson interior',()=>{
  const a=forceAt('rutherford',40,1,0),b=forceAt('rutherford',40,2,0);
@@ -54,4 +55,28 @@ test('slow playback changes observation time, not the resulting force-driven pat
  const x=probeSummary(a),y=probeSummary(b);assert.ok(x&&y);
  assert.ok(Math.abs(x.rutherford-y.rutherford)<.05);assert.ok(Math.abs(x.thomson-y.thomson)<.05);
  assert.equal(probeSummary(createExperiment({count:1})),null);
+});
+test('the lesson reveals Thomson, then Rutherford, then the fair comparison only after observation',()=>{
+ const lesson=createDetectorLesson(),e=createExperiment({count:1});
+ assert.equal(DETECTOR_STAGES[lesson.stage].view,'thomson');assert.equal(nextDetectorStage(lesson),false);
+ assert.equal(observeDetectorLesson(lesson,e),false);
+ e.models.thomson.completed=1;
+ assert.equal(observeDetectorLesson(lesson,e),true);assert.equal(lesson.stage,0);
+ assert.equal(nextDetectorStage(lesson),true);assert.equal(DETECTOR_STAGES[lesson.stage].view,'rutherford');
+ assert.equal(observeDetectorLesson(lesson,e),false);e.models.rutherford.completed=1;
+ assert.equal(observeDetectorLesson(lesson,e),true);nextDetectorStage(lesson);
+ assert.equal(DETECTOR_STAGES[lesson.stage].view,'rutherford');assert.equal(DETECTOR_STAGES[lesson.stage].count,80);
+ assert.equal(observeDetectorLesson(lesson,e),false);
+ const many=createExperiment({count:80});many.models.rutherford.completed=80;
+ assert.equal(observeDetectorLesson(lesson,many),true);nextDetectorStage(lesson);
+ assert.equal(DETECTOR_STAGES[lesson.stage].view,'both');
+ e.models.thomson.completed=0;assert.equal(observeDetectorLesson(lesson,e),false);
+ e.models.thomson.completed=1;assert.equal(observeDetectorLesson(lesson,e),true);assert.equal(nextDetectorStage(lesson),false);
+});
+test('the fixed observation supports the conclusion that most pass and a few return',()=>{
+ const e=createExperiment({seed:20261111,charge:40,impact:1.2,count:80});
+ for(let i=0;i<1800;i++){if(advanceExperiment(e,1/60))break;}
+ const result=qualitativeScattering(e.models.rutherford);
+ assert.equal(result.mostPass,true);assert.ok(result.strong>0);assert.ok(result.returned>0);
+ assert.equal(result.passed+result.strong+result.returned,80);
 });

@@ -1,6 +1,6 @@
 {
   "title": "Kemins grunder (i)",
-  "revision": 4,
+  "revision": 5,
   "updated": "2026-11-10",
   "original_source": {
     "filename": "Kemilabbet (2).html",
@@ -14,7 +14,10 @@
     "Removed narration from all seven films; original video frames, music, captions and chapters preserved",
     "Added Vattenlabbet: interactive constant-pressure water energy model, local 3D molecular view, live temperature graph and CSV export",
     "Added six original interactive chemistry labs so that every area has an experiment, with lazy loading, common controls, mobile layout and 47 model tests",
-    "Rebuilt six labs with guided investigations, direct drag-and-snap interaction, animated causal feedback, clearer tools and an expanded workspace"
+    "Rebuilt six labs with guided investigations, direct drag-and-snap interaction, animated causal feedback, clearer tools and an expanded workspace",
+    "Removed simulations from areas 4 and 7; added a generated four-scenario environmental illustration with explanatory cards and primary sources",
+    "Rebuilt Atomdetektiven to reveal Thomson, then Rutherford, then a fair comparison; preserved slow motion and force close-up; removed degree values and technical controls",
+    "Typeset active simulation text with locally vendored MathJax TeX-to-SVG; removed the extra discussion section and scale labels from diagrams, text and active films"
   ],
   "active_movies": [
     {
@@ -23,7 +26,7 @@
       "file": "assets/films/v3/01-atomer.mp4",
       "poster": "assets/posters/v3/01-atomer.jpg",
       "captions": "assets/captions/v3/01-atomer.vtt",
-      "duration": 255.620317,
+      "duration": 255.621615,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -120,7 +123,7 @@
           "animation_seconds": 11.36666666666602,
           "wait_seconds": 6.666666666666288,
           "automatic_reading_hold": 0.6333333333343205,
-          "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De är inte ett fotografi, och storlekarna är inte i skala."
+          "text": "Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De hjälper oss att visa hur atomerna sitter ihop."
         },
         {
           "title": "Vattenmolekylerna byter inte identitet",
@@ -159,7 +162,7 @@
           "text": "Använd tre frågor när ni förklarar: Hur många molekyler? Hur många atomer i varje molekyl? Hur många atomslag? Peka i bilden och läs sedan samma information i formeln."
         }
       ],
-      "spoken_seconds": 190.0338775510204,
+      "spoken_seconds": 0,
       "max_voice_speed": 1
     },
     {
@@ -304,8 +307,8 @@
           "text": "Förklara vad guldfolieförsöket lärde oss. Beskriv sedan vad solsystemsliknelsen hjälper oss att se och var den slutar fungera. En bra förklaring kopplar modellen till observationer."
         }
       ],
-      "spoken_seconds": 209.97755102040816,
-      "max_voice_speed": 1.0711031079098294
+      "spoken_seconds": 0,
+      "max_voice_speed": 1
     },
     {
       "module": 3,
@@ -449,7 +452,7 @@
           "text": "En partikel har tolv protoner och tio elektroner. Räkna plus och minus. Vad är laddningen? Förklara också varför elektronerna kan ändra laddningen utan att atomslaget byts."
         }
       ],
-      "spoken_seconds": 182.65873015873012,
+      "spoken_seconds": 0,
       "max_voice_speed": 1
     },
     {
@@ -594,7 +597,7 @@
           "text": "Fråga om samma ämne finns kvar eller om nya ämnen har bildats. Följ atomerna och håll reda på systemets gräns. Förklara sedan skillnaden mellan en fysisk förändring och en kemisk reaktion."
         }
       ],
-      "spoken_seconds": 192.07678004535146,
+      "spoken_seconds": 0,
       "max_voice_speed": 1
     },
     {
@@ -603,7 +606,7 @@
       "file": "assets/films/v3/05-egenskaper.mp4",
       "poster": "assets/posters/v3/05-egenskaper.jpg",
       "captions": "assets/captions/v3/05-egenskaper.vtt",
-      "duration": 257.91901,
+      "duration": 257.920964,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -646,7 +649,7 @@
           "animation_seconds": 18.166666666665634,
           "wait_seconds": 0.8666666666666174,
           "automatic_reading_hold": 0.833333333334366,
-          "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala."
+          "text": "Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss att förklara både elektrisk ledningsförmåga och en del av värmeledningen. Punkterna hjälper oss att följa hur energi sprids genom metallen."
         },
         {
           "title": "En elektrisk ledare skapar en sluten väg",
@@ -730,8 +733,8 @@
           "text": "Välj en vardagsprodukt. Beskriv minst två material i produkten och hur deras egenskaper hjälper till. Använd orden eftersom och därför. Tänk också på om ett enkelt test skulle kunna stödja din förklaring."
         }
       ],
-      "spoken_seconds": 217.5681632653061,
-      "max_voice_speed": 1.0113736722759277
+      "spoken_seconds": 0,
+      "max_voice_speed": 1
     },
     {
       "module": 6,
@@ -866,7 +869,7 @@
           "text": "Förklara vad som ändras när is blir vatten och sedan gas. Ta med avstånd, ordning, rörelse och energi. Berätta också vad som är oförändrat: samma vattenmolekyler och samma atomer finns kvar i vår modell."
         }
       ],
-      "spoken_seconds": 212.08344671201817,
+      "spoken_seconds": 0,
       "max_voice_speed": 1
     },
     {
@@ -1002,7 +1005,7 @@
           "text": "Ett utvecklat svar följer ett ämne från källa till möjlig följd och åtgärd. Beskriv också villkoren: om ämnet kan spridas, om en organism kan utsättas och vad åtgärden förändrar. Använd orden om, kan och därför."
         }
       ],
-      "spoken_seconds": 217.5449433106576,
+      "spoken_seconds": 0,
       "max_voice_speed": 1
     }
   ],
@@ -1021,8 +1024,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 7297,
-      "sha256": "26b20bf63caee1dc21c736db51c6ca0017e4654725df58bbde7a58a8497fc3b1"
+      "bytes": 8037,
+      "sha256": "c2c0a19a97b3b89b0dc5bfc8943500b94011b2138a02d92d4d75b3411d11ad09"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1096,8 +1099,8 @@
     },
     {
       "path": "assets/captions/v3/01-atomer.vtt",
-      "bytes": 2966,
-      "sha256": "e10f13184c2fb009c43f2a3bd7026945af193954bb544a436cbbc99b7cfbc5e9"
+      "bytes": 2956,
+      "sha256": "b61d0dac91964ea5e52b1130702bd46344c61889a56880ff75c7abb9b785b453"
     },
     {
       "path": "assets/captions/v3/02-modeller.vtt",
@@ -1116,8 +1119,8 @@
     },
     {
       "path": "assets/captions/v3/05-egenskaper.vtt",
-      "bytes": 3477,
-      "sha256": "ef14f6b6620e9b50a47e50991e20e4575617f1cdc1ee5f5c43521781f9e2c829"
+      "bytes": 3463,
+      "sha256": "1ef68887cda4fdc7c2192c6933bf8a8a46b504c971862090364b06b682098a8c"
     },
     {
       "path": "assets/captions/v3/06-faser.vtt",
@@ -1128,6 +1131,116 @@
       "path": "assets/captions/v3/07-miljo.vtt",
       "bytes": 3545,
       "sha256": "e3c253340cdeb1f3737da9224f7f92c56a0b2a8feda9883a564ba6fae63f911e"
+    },
+    {
+      "path": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg",
+      "bytes": 107449,
+      "sha256": "77164e3cef3b2e8a4fa421d886006f2c2af7139b5b913caf8c868f704f84f8c2"
+    },
+    {
+      "path": "assets/diagrams-v2/01-02-formel-siffror.svg",
+      "bytes": 104707,
+      "sha256": "d8e9844ae41446ecbb0c2a6f0c5e06a81134f7a8bfbe4cb859f73b5491313653"
+    },
+    {
+      "path": "assets/diagrams-v2/01-03-grundamne-forening-blandning.svg",
+      "bytes": 146287,
+      "sha256": "424438e05691fd6c83aa2bed36530376bd6f5fb3ac58baa0d5ba9e9b2e04741d"
+    },
+    {
+      "path": "assets/diagrams-v2/02-01-modeller-utvecklas.svg",
+      "bytes": 132544,
+      "sha256": "5a50f45e0d5a8cdf2d3ab072ddccc0a63fd1d533e83cf5bfb004a3b1ef29726a"
+    },
+    {
+      "path": "assets/diagrams-v2/02-02-rutherford-solsystem.svg",
+      "bytes": 119373,
+      "sha256": "113a45961b9ff734329edef62f4dc4dc6ea8fad6d606619a2220aaa1170c0f0e"
+    },
+    {
+      "path": "assets/diagrams-v2/02-03-guldfolie-spridning.svg",
+      "bytes": 96691,
+      "sha256": "58abf53af94c6843ae8b0ff2e5c8074a7b30744f3235186cf44c776cd250f33c"
+    },
+    {
+      "path": "assets/diagrams-v2/03-01-laddning-jon.svg",
+      "bytes": 126857,
+      "sha256": "5e5b12d3adb0c6938efa723ff546d3e62778dcc651e42b67cfffa318becd443e"
+    },
+    {
+      "path": "assets/diagrams-v2/03-02-jonbindning.svg",
+      "bytes": 143407,
+      "sha256": "694fe3f1b5d5b63f37f0c988fedc5d99bcae57cefd60721409977edb2a4d1ea7"
+    },
+    {
+      "path": "assets/diagrams-v2/03-03-reaktion-atomer-bevaras.svg",
+      "bytes": 128885,
+      "sha256": "072bd61f993ebef3caedaefe913fe6a4b8e8a1a6ad14a3174295e614496df92c"
+    },
+    {
+      "path": "assets/diagrams-v2/04-01-fysikalisk-kemisk.svg",
+      "bytes": 161061,
+      "sha256": "4a78142ff7074ea1452432492e821edaa77f887b73f27533094a4ecee17f3468"
+    },
+    {
+      "path": "assets/diagrams-v2/04-02-undersok-tecken.svg",
+      "bytes": 122444,
+      "sha256": "2aba5ddeff51a5086870c517e5d6183b4d04c8b6bbec60bbe7c0864703b07cd7"
+    },
+    {
+      "path": "assets/diagrams-v2/04-03-slutet-system-massa.svg",
+      "bytes": 110662,
+      "sha256": "82dd657dcf32fe99009334ef2cb8d6fa15c563af95f15a07bc9fd4cbbad6537b"
+    },
+    {
+      "path": "assets/diagrams-v2/05-01-egenskaper-material.svg",
+      "bytes": 123325,
+      "sha256": "1599eb7fd43020e079203156bf8d14d8e8a5100a0c0723dbdf08e2b5d40baddd"
+    },
+    {
+      "path": "assets/diagrams-v2/05-02-densitet.svg",
+      "bytes": 141274,
+      "sha256": "76b3493731fb7e293fb0bc632db5f779944196503a4d63a1b7a32d5a63a5ff38"
+    },
+    {
+      "path": "assets/diagrams-v2/05-03-separera-blandningar.svg",
+      "bytes": 112835,
+      "sha256": "8d6047402845cc1f5cf5012fa0db68fd793c390a3dd7963a7f41aa0bac910873"
+    },
+    {
+      "path": "assets/diagrams-v2/06-01-partiklar-faser.svg",
+      "bytes": 200417,
+      "sha256": "ec4280c26fd25f2b94e239f3290292896d89a47ffd287ad606141f5a3672545e"
+    },
+    {
+      "path": "assets/diagrams-v2/06-02-varmekurva.svg",
+      "bytes": 115128,
+      "sha256": "99292b89607a153743d3a2c07c5717606d1dddd7342d20a5e287d8bb2b2dfd71"
+    },
+    {
+      "path": "assets/diagrams-v2/06-03-fasovergangar.svg",
+      "bytes": 119099,
+      "sha256": "4746d5c0c1743d7cc6bc483f8d05a6054da83ae46177b65c9dd89cd64a5c2abf"
+    },
+    {
+      "path": "assets/diagrams-v2/07-01-fara-exponering-risk.svg",
+      "bytes": 128298,
+      "sha256": "241995c83873d9d050ae2b10b5066d5b532b12f5cc2a536d3d2131c5ec12f45f"
+    },
+    {
+      "path": "assets/diagrams-v2/07-02-naringskedja-anrikning.svg",
+      "bytes": 139294,
+      "sha256": "a265f1124d22b125bc6fac25d75feec9abdc183a3a1afd2decb02ca9a98ba80a"
+    },
+    {
+      "path": "assets/diagrams-v2/07-03-stoppa-spridning.svg",
+      "bytes": 116399,
+      "sha256": "789e85f6418164eb20ea9eb144a5697d30c9bcc28aa252470f9798e323bd9248"
+    },
+    {
+      "path": "assets/diagrams-v2/manifest.json",
+      "bytes": 12963,
+      "sha256": "04658874fb9575e22aae6d5c815bbcacbfcda2b6f91602e797753e1198633257"
     },
     {
       "path": "assets/diagrams/01-atomer.svg",
@@ -1165,116 +1278,6 @@
       "sha256": "4f0c4c60582e32fe10bc867efb4628991a5732df8b54b3fb748cc7ebc3cd4f0a"
     },
     {
-      "path": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg",
-      "bytes": 113642,
-      "sha256": "bcb09f76af59bc9946478265238096ddc51b10a9165406cfe5941d80de387a03"
-    },
-    {
-      "path": "assets/diagrams-v2/01-02-formel-siffror.svg",
-      "bytes": 110900,
-      "sha256": "4d260516b07973a3f70ea716ca6a78a4b7cff0d482b36fc415b19b5dd553c5b8"
-    },
-    {
-      "path": "assets/diagrams-v2/01-03-grundamne-forening-blandning.svg",
-      "bytes": 152480,
-      "sha256": "126f90a049fceb34ee1b412cb1467ead24edfa9f6008b404f054267ed24c1893"
-    },
-    {
-      "path": "assets/diagrams-v2/02-01-modeller-utvecklas.svg",
-      "bytes": 142843,
-      "sha256": "26dc22eb8a015ce0a20563049ea0a8204fa2e6ea50fd04bc69c74ed9ba1e52f6"
-    },
-    {
-      "path": "assets/diagrams-v2/02-02-rutherford-solsystem.svg",
-      "bytes": 129263,
-      "sha256": "64a07a7bbb4647443b7837e61a0452c6af1f07b444aac9296862de0262569ac1"
-    },
-    {
-      "path": "assets/diagrams-v2/02-03-guldfolie-spridning.svg",
-      "bytes": 102848,
-      "sha256": "d01c8d804fa650691fd60f8c6325d1a298bad195a3342de648764a29384676e2"
-    },
-    {
-      "path": "assets/diagrams-v2/03-01-laddning-jon.svg",
-      "bytes": 133014,
-      "sha256": "b739e5ac86a86b0e1dac7164589b9a24078e9df7765c2865e83ac09d582abf50"
-    },
-    {
-      "path": "assets/diagrams-v2/03-02-jonbindning.svg",
-      "bytes": 149600,
-      "sha256": "38147660a211dfaa0096be2ff51dc9df02bb94d828af75f5e5820630fa89a7d5"
-    },
-    {
-      "path": "assets/diagrams-v2/03-03-reaktion-atomer-bevaras.svg",
-      "bytes": 135078,
-      "sha256": "ce640b1a06b67e6edb26e5d27c6177b63757d03db4ea0244e1a69c9d5b2e7ea9"
-    },
-    {
-      "path": "assets/diagrams-v2/04-01-fysikalisk-kemisk.svg",
-      "bytes": 167257,
-      "sha256": "990f289195e15f030ed065819d22e2002c9cff27413118e2baa46d6b5deaafdf"
-    },
-    {
-      "path": "assets/diagrams-v2/04-02-undersok-tecken.svg",
-      "bytes": 128604,
-      "sha256": "f693c916923473a884d854e6061c497e1582b5c33421ce9261757c4a3bdcb080"
-    },
-    {
-      "path": "assets/diagrams-v2/04-03-slutet-system-massa.svg",
-      "bytes": 116822,
-      "sha256": "e7f4bde1bd59fb97fed4e3cbc628c784abbcf2ecbf439da5c788a6ae2b745973"
-    },
-    {
-      "path": "assets/diagrams-v2/05-01-egenskaper-material.svg",
-      "bytes": 129485,
-      "sha256": "c9dbdfe1e4f21a0a446f71726942b6ae40ddaae5b29de62e09505015af584df3"
-    },
-    {
-      "path": "assets/diagrams-v2/05-02-densitet.svg",
-      "bytes": 147434,
-      "sha256": "e8eef36668604e2d669fb44b2a0fa03123824989b429041d599bf54a9e5c5db7"
-    },
-    {
-      "path": "assets/diagrams-v2/05-03-separera-blandningar.svg",
-      "bytes": 118995,
-      "sha256": "5cb210ea8206fd0547319e149e348e997718f54b6caed78ba889d7e140fa8f17"
-    },
-    {
-      "path": "assets/diagrams-v2/06-01-partiklar-faser.svg",
-      "bytes": 206646,
-      "sha256": "02e4cb4c942680a6df3cf9ee8612e570019d69747331f134891fb8f0e5221c2e"
-    },
-    {
-      "path": "assets/diagrams-v2/06-02-varmekurva.svg",
-      "bytes": 121285,
-      "sha256": "c25eb06a1af6e7d94bde559e133f5492c39c2ed752934ceba7f970d5bcd437fa"
-    },
-    {
-      "path": "assets/diagrams-v2/06-03-fasovergangar.svg",
-      "bytes": 125256,
-      "sha256": "c9c29e6622b63b9624af5d41ba341bb8328b75c5adc5df8efcaf73a2d4269454"
-    },
-    {
-      "path": "assets/diagrams-v2/07-01-fara-exponering-risk.svg",
-      "bytes": 134455,
-      "sha256": "b16f06fb4847d9d25861da6dd0b387221d60d6a3c7f550df737243e804a431e1"
-    },
-    {
-      "path": "assets/diagrams-v2/07-02-naringskedja-anrikning.svg",
-      "bytes": 145451,
-      "sha256": "fd72100e2bfd96faa54811a58d24f665e45d43b4f43b604c0216413a29f6334f"
-    },
-    {
-      "path": "assets/diagrams-v2/07-03-stoppa-spridning.svg",
-      "bytes": 122556,
-      "sha256": "538c3197129aed074333d245faa52144d5503d3fe142ce65d3ae8271a0f3bffd"
-    },
-    {
-      "path": "assets/diagrams-v2/manifest.json",
-      "bytes": 12963,
-      "sha256": "04658874fb9575e22aae6d5c815bbcacbfcda2b6f91602e797753e1198633257"
-    },
-    {
       "path": "assets/environment/avloppsreningsverk.jpg",
       "bytes": 651452,
       "sha256": "852de742f406b99cb7375b6430f41936b3a71aa97fd3e7b26c731984a955adc2"
@@ -1288,6 +1291,21 @@
       "path": "assets/environment/credits.json",
       "bytes": 2753,
       "sha256": "7573498dab26b70e1226c6adef6e945f7509941c20605f6b570be32c6ff94db5"
+    },
+    {
+      "path": "assets/environment/giftfri-miljo-scenarier-prompt.txt",
+      "bytes": 4894,
+      "sha256": "455953d57451a6bf2f1e98418a02e01c9ad6e3e12341ea30b75383184c8c2403"
+    },
+    {
+      "path": "assets/environment/giftfri-miljo-scenarier.png",
+      "bytes": 3126718,
+      "sha256": "aed0b9d371e9550c9688f97c5bd61bf1a794d540e108314191ce0c7ff05186eb"
+    },
+    {
+      "path": "assets/environment/giftfri-miljo-scenarier.webp",
+      "bytes": 473872,
+      "sha256": "0cfba3dfd5f98f46946e19369e2dbf4a0436b9626763bc856e5e987b0f8a0129"
     },
     {
       "path": "assets/environment/miljofarligt.svg",
@@ -1386,8 +1404,8 @@
     },
     {
       "path": "assets/films/v3/01-atomer.mp4",
-      "bytes": 20991313,
-      "sha256": "1d8c4562de05115e277b4105993f592ef103811cb358ceef9620393703887d0a"
+      "bytes": 21311538,
+      "sha256": "c567561dfb40a1417982b5dc075106053e5b96a1a48f5a1242581ab592281867"
     },
     {
       "path": "assets/films/v3/02-modeller.audio.json",
@@ -1396,8 +1414,8 @@
     },
     {
       "path": "assets/films/v3/02-modeller.mp4",
-      "bytes": 18221351,
-      "sha256": "8ec814884d96c514ac4ffb0b2038327cbb88d4bdc3e437f816aca1d3dde84c45"
+      "bytes": 18226670,
+      "sha256": "ef3a25ea3e6f612055c49bd5760d8413e2b376fb7f48eafd18d05afccff1ee90"
     },
     {
       "path": "assets/films/v3/03-elektroner.audio.json",
@@ -1426,8 +1444,8 @@
     },
     {
       "path": "assets/films/v3/05-egenskaper.mp4",
-      "bytes": 17976307,
-      "sha256": "7ce8e002aeb37af2714939e9e3d784403da2490385c78c3ae920ebd9c09f5a59"
+      "bytes": 18232394,
+      "sha256": "dffe6fb0a2bf840af63a9bc908f364209a0a86dae62f58c8cdd3b5d7a16549e8"
     },
     {
       "path": "assets/films/v3/06-faser.audio.json",
@@ -1451,8 +1469,8 @@
     },
     {
       "path": "assets/films/v3/manifest.json",
-      "bytes": 51321,
-      "sha256": "018e7aa460e69e836b7b3e1b14622c60f0d9027d7d84dbeed9f3652614f78626"
+      "bytes": 51148,
+      "sha256": "41408cd13644deb7a032ecbe53d85560523700c9b48f847aa2bd468a0f295f93"
     },
     {
       "path": "assets/fonts/lmmath.woff",
@@ -1625,9 +1643,14 @@
       "sha256": "57c6f9c31ea09b81d0805200c6a11160112c1559b1483328914980807c0aae27"
     },
     {
+      "path": "environment-scenarios.js",
+      "bytes": 4410,
+      "sha256": "8229fbe79bbb6defe8f4418b40c1c8faf39761c7e601d7df0351a6bcf0dccdee"
+    },
+    {
       "path": "index.html",
-      "bytes": 2123,
-      "sha256": "28aec94432b2c0abfbe26f4ea2efa50f56671674f5aa7918596cda34a70ca71a"
+      "bytes": 2126,
+      "sha256": "90ef3847780443b6098f9f9865e4f42858f146a398bfea927c9698f7210a4a14"
     },
     {
       "path": "lab-atoms-model.js",
@@ -1642,7 +1665,7 @@
     {
       "path": "lab-atoms.js",
       "bytes": 17855,
-      "sha256": "d1bbec3f0e908b7e051d38370f6c93315fa31344713f2a3817286260ba4a9350"
+      "sha256": "6d900777c5071d6608ca7af1642f70650884afef07e7055205db76e57ad07cd9"
     },
     {
       "path": "lab-bonds-model.js",
@@ -1657,7 +1680,7 @@
     {
       "path": "lab-bonds.js",
       "bytes": 19431,
-      "sha256": "e974a7cae31ac061a62c6914b863e97b8395905e210e04d49bbe6ac3da46029b"
+      "sha256": "7acf5874c98e12f433e3fe39a55494d545e8f42192deab40dccb64e21bab1603"
     },
     {
       "path": "lab-environment-model.js",
@@ -1672,12 +1695,12 @@
     {
       "path": "lab-environment.js",
       "bytes": 31304,
-      "sha256": "51f08d0f4cee4f2d54c715c6592820ee997d80a27cbfa33ffc71c607d0d2094d"
+      "sha256": "dda295fd0cad6a7365b3e90169832773fe3d2db4755a2ba74093dcd118787c06"
     },
     {
       "path": "lab-kit.js",
-      "bytes": 14945,
-      "sha256": "4fb00872be3eb0959903b5d1fd769b2e049633cb66cfa39873c05101c9fba32d"
+      "bytes": 14971,
+      "sha256": "f46a2113d3a94c164cc62beefdf23f7d704ea0fb884ccbf6862dc7abbaec1927"
     },
     {
       "path": "lab-materials-model.js",
@@ -1691,23 +1714,23 @@
     },
     {
       "path": "lab-materials.js",
-      "bytes": 22925,
-      "sha256": "520dab4aaac9dac7a1c1fd0c15e42e270c2af3bf340cf3ddf28a636b9e34cd7a"
+      "bytes": 22867,
+      "sha256": "9400acc954b396b43e2b5dc4be96e04cb532157c7da03d2fdf115d8fa7737d45"
     },
     {
       "path": "lab-models-model.js",
-      "bytes": 3940,
-      "sha256": "3311cb4e92f94feea2a38ef8450a8ef1adb3fafba4839969c291dddb1c0742b3"
+      "bytes": 5108,
+      "sha256": "1a811f9b67bd40ce3d27a6866fee6c94177b035eda750dcc5875ea8c7016644c"
     },
     {
       "path": "lab-models-model.test.mjs",
-      "bytes": 3773,
-      "sha256": "e21ef7394f52ab487aca246368ce6b922e22fed9c7b58a3f744caf60e22aa940"
+      "bytes": 5645,
+      "sha256": "6c32421694498d88a9a9fb9894c32f0c6d4c158ab678d87a76d24fb951851ac0"
     },
     {
       "path": "lab-models.js",
-      "bytes": 21333,
-      "sha256": "e93d9e29155952eb5fed6cd78126966c6a6fec29c277ca157fb9ac29d9f6a20e"
+      "bytes": 19363,
+      "sha256": "dcf7c53ae9fb0f3c7a4dfb9148b170fd69ae6c38ab029631416fa27a2a95ed4d"
     },
     {
       "path": "lab-reactions-model.js",
@@ -1722,127 +1745,132 @@
     {
       "path": "lab-reactions.js",
       "bytes": 21927,
-      "sha256": "2e098a37752aef49dc839cb72337b77ee125ec986b60d56465240ccde665843c"
+      "sha256": "5c91272cfd19eeb85934f79a4e637a869b1763b3b36c4ab0f856e2339cc18e41"
     },
     {
       "path": "lab-router.js",
-      "bytes": 2083,
-      "sha256": "b0eff9423af313e341fb11ac6957594424c83b71c40fb56dfd4302a92fa8c26f"
+      "bytes": 1769,
+      "sha256": "9639720e159032cda283dfbe29b5dec72a1503044a9c2c43c6f2446fed9ca160"
+    },
+    {
+      "path": "lab-tex.js",
+      "bytes": 21358,
+      "sha256": "efa3efcd3b42fba65ab2e6e44afc29c597c6cf73d3ba90b27018d94b4f6719de"
     },
     {
       "path": "labs.css",
-      "bytes": 21442,
-      "sha256": "bffef106b2b75cf75848d6801363043b7c52874551b13570165b15820dfc3d3f"
+      "bytes": 23618,
+      "sha256": "e178272921fe9702583ac5d77ec6a747c336a2352cafd843c022e227154d8aa2"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
-      "bytes": 3362,
-      "sha256": "a04a9933b8895ee029aee750b9d8250dc57c6057977f6572dff0826b72b48b96"
+      "bytes": 3255,
+      "sha256": "3577321c5ff2e3dd8720f120e7c3c5d9f7b7d11702dd305c8fd227116fc2039d"
     },
     {
       "path": "latex/01-02-formel-siffror.tex",
-      "bytes": 3131,
-      "sha256": "4e2bb9f44d836728907ce5235718d6e7fd2ed99038345e681cf2b8c98ef3b291"
+      "bytes": 3024,
+      "sha256": "9fa1c2d7dbd84825d8d123562015ac4b24449b7047c673f26307bd221ba12f05"
     },
     {
       "path": "latex/01-03-grundamne-forening-blandning.tex",
-      "bytes": 3415,
-      "sha256": "c8abaa25609dc62cf056f55ed80b444d6e73d35a08a0c16eb37d86d124401ed9"
+      "bytes": 3308,
+      "sha256": "f0ed596385a7c578d4eb3810d7388374b2c5ed08bd7bb49a0483d747344d6eb0"
     },
     {
       "path": "latex/02-01-modeller-utvecklas.tex",
-      "bytes": 3765,
-      "sha256": "30894f88196187f6b070a09593bc7e6bbea1698cdb66b97f8e49b1cefe54bd7d"
+      "bytes": 3629,
+      "sha256": "46e6f27828754a4559226af4414e96aaedbfb7f98d718128adcf81d4800b49a3"
     },
     {
       "path": "latex/02-02-rutherford-solsystem.tex",
-      "bytes": 3788,
-      "sha256": "3a963b057a12843c17a2092ef4dcd75b045c1a8b1aa7d6a1fc7582f30518b161"
+      "bytes": 3635,
+      "sha256": "e4d8aa8111dbf0aaeb0e9b882bfd1169bb7ed464bbc24cae5739a9157e9570e4"
     },
     {
       "path": "latex/02-03-guldfolie-spridning.tex",
-      "bytes": 3455,
-      "sha256": "3402f1add3849a3ed6051d90251c624d1d00670d90fa3ed25a4f71eee10579a0"
+      "bytes": 3348,
+      "sha256": "b230a4e188a9e05f33369b7fff13c4bb6ebffe59c39d32d6353152fcb2af0d00"
     },
     {
       "path": "latex/03-01-laddning-jon.tex",
-      "bytes": 3540,
-      "sha256": "79745a5f5f4a88e183aa8ee4c66f71821e59481948a262f50f844022fdac1223"
+      "bytes": 3433,
+      "sha256": "793c285d0954d6460fbeb10a2a11daeda03964ad9e36b0f4c99f3e59a3d149f6"
     },
     {
       "path": "latex/03-02-jonbindning.tex",
-      "bytes": 3541,
-      "sha256": "e942cd4bfc225b7ef58490714a3cb70e6a8633832e78315dbd4734fe52e08c16"
+      "bytes": 3434,
+      "sha256": "a82362b6210b87e35eb887f5a296c2e45831eaac6998ada0e63a883e67f3f2a6"
     },
     {
       "path": "latex/03-03-reaktion-atomer-bevaras.tex",
-      "bytes": 3430,
-      "sha256": "fcf7261c7f655a9b611bba6f7e2a8169074c770fb51efd73ca72386fac904ce0"
+      "bytes": 3323,
+      "sha256": "f11d4e80a09c7bacc9aa3a20a5f5b156dd2ff6b57951e0ecf52f5573fbc5ffd0"
     },
     {
       "path": "latex/04-01-fysikalisk-kemisk.tex",
-      "bytes": 3497,
-      "sha256": "ad90a1735232d4ddeb49807b781268e6eafa0d1516533632efd9c8cf17ec4e61"
+      "bytes": 3390,
+      "sha256": "73be938e89868d73d2e1b20b1f437499deb59f88093cf8709ac221652cf1e762"
     },
     {
       "path": "latex/04-02-undersok-tecken.tex",
-      "bytes": 3794,
-      "sha256": "fa60dee84ed56547d9e3081cc6f6bc5a355ed99a20b5b9c1a704afe1c043e59b"
+      "bytes": 3687,
+      "sha256": "fb87bfa3c323c88a98e9e785087b77f512521d4ec60f01deec4f18fbb38f0932"
     },
     {
       "path": "latex/04-03-slutet-system-massa.tex",
-      "bytes": 3517,
-      "sha256": "1182831b176c29880135becf17b78a9a5e5fe346a45b5ad5d590adb491f5107a"
+      "bytes": 3410,
+      "sha256": "31c6ef66d8c29e6a9b6cc7214d2b7f1dee1a579a7ed870f91ac84e463b43d812"
     },
     {
       "path": "latex/05-01-egenskaper-material.tex",
-      "bytes": 3690,
-      "sha256": "385a3c1f9ec9ffab100c349e29112f1ebdfbad450d84431feacecc431070f024"
+      "bytes": 3583,
+      "sha256": "0c081b98725c478c1574a4c53a28c40457134858335b05b297ba80d77e466807"
     },
     {
       "path": "latex/05-02-densitet.tex",
-      "bytes": 3523,
-      "sha256": "d1ac81688211cf32ec3f007fe3dc398459990f5a8050a3c7c21ae3ff0299a3b3"
+      "bytes": 3416,
+      "sha256": "4d0938d972e271e68633ee93d5f31567b01bfb0d4f71a502fd9738baac32eff5"
     },
     {
       "path": "latex/05-03-separera-blandningar.tex",
-      "bytes": 3717,
-      "sha256": "969f6ea3cc08770a84207cf71c7176d5e3b7cca8977540435d7712301cfbffc0"
+      "bytes": 3610,
+      "sha256": "50002a8577fe0e8d1fa775bf8291b5e1954e916db955cc05d07500e0839ae1f7"
     },
     {
       "path": "latex/06-01-partiklar-faser.tex",
-      "bytes": 3515,
-      "sha256": "6d3ab7f6f64b716b9cdad7a095531d606a7c40c46abbcead9a7c6be0915c6dc0"
+      "bytes": 3408,
+      "sha256": "afed8502452c5af0ae934c7cfd436fd233aeb4629d247d703a771e5e924d87f3"
     },
     {
       "path": "latex/06-02-varmekurva.tex",
-      "bytes": 3698,
-      "sha256": "db64f1d77a1f68af68326196b1f70b5cd955afbd80461fe29d836b2925d07d12"
+      "bytes": 3591,
+      "sha256": "af03473f166d38de35f8cb31044f275499360e99d429037f12a2b306a39f33ed"
     },
     {
       "path": "latex/06-03-fasovergangar.tex",
-      "bytes": 3951,
-      "sha256": "a5093881c39e331163da147851d5e103123833ad6a500c7e1543d93ab707d5f1"
+      "bytes": 3844,
+      "sha256": "96551c5ce003c44e71f19152e7727e8c28cd7f54bf9de81c0e8fe70a7a8b7465"
     },
     {
       "path": "latex/07-01-fara-exponering-risk.tex",
-      "bytes": 3690,
-      "sha256": "890b4034aaa22b5596f56a0cbdcd3ede30f0304b3426d210d26622ecfa803ee2"
+      "bytes": 3583,
+      "sha256": "b2885ee73a17664e0513ce09dd58f6e3585158ea0614cdda1c754d75f1e30ae6"
     },
     {
       "path": "latex/07-02-naringskedja-anrikning.tex",
-      "bytes": 3295,
-      "sha256": "4aacf5f6ad637ad7509cf2478b5e9a50ad4fbed823138a25ff06589467c1880d"
+      "bytes": 3188,
+      "sha256": "02c692a80a1407556d98bc21e48fcd35e9421b64e1a256aa651dc43350dc2001"
     },
     {
       "path": "latex/07-03-stoppa-spridning.tex",
-      "bytes": 3829,
-      "sha256": "9dc7a1369b4df7a4bb9068513402e7a66e3032b7aef3b36d1c163230ee113334"
+      "bytes": 3722,
+      "sha256": "3ded4289b33a4c3aeff443dee3c8400f46a68ebe1ae42d020be61bf822cc019a"
     },
     {
       "path": "latex/build_diagrams.py",
-      "bytes": 41144,
-      "sha256": "80ae5025fe49bb002c9aa03858210b676af1dec2ad6d9c8f26115e553595aa80"
+      "bytes": 40962,
+      "sha256": "2f088509843e01897ce09409b41ab337da13dc9017344addc81fd708039da045"
     },
     {
       "path": "latex/requirements.txt",
@@ -1896,8 +1924,8 @@
     },
     {
       "path": "manim/v3/scenes_1_2.py",
-      "bytes": 43968,
-      "sha256": "c8af56cd564fff73f374339ac95d2c6e8fd031ab25a707eb680d40115fb2537a"
+      "bytes": 43960,
+      "sha256": "bfaf47dcf0bba2bfc8475ec8d5c8334e9e452629488e7649c0e9097442b0ef03"
     },
     {
       "path": "manim/v3/scenes_3_4.py",
@@ -1906,8 +1934,8 @@
     },
     {
       "path": "manim/v3/scenes_5_7.py",
-      "bytes": 67638,
-      "sha256": "641b370513a58fbec8595ccf253420f80321faab21760c236552e51fa5221acd"
+      "bytes": 67612,
+      "sha256": "f48f1f1cb34d6b6d8a52668c0d1107ab77bebc0852deca9517bac501cea8b9ac"
     },
     {
       "path": "manim/v3/storyboard_1_2.json",
@@ -1961,23 +1989,43 @@
     },
     {
       "path": "script.js",
-      "bytes": 466774,
-      "sha256": "82e61f4dcdb69d19fc07796331e107a4c6eb1b37eab3f024d46f79a30ff8bb82"
+      "bytes": 467278,
+      "sha256": "761f7edd60b4201ce25e35009722c6697028a3ff9fba3ad3fe9651161f84b374"
     },
     {
       "path": "study-assets.js",
-      "bytes": 20811,
-      "sha256": "233f9d7ed7cc9a4950feb7efd606602de7f59f8f0e5e8b565382c154d83b86d2"
+      "bytes": 20979,
+      "sha256": "32a8633f85955a4c25971f21bf8c08aeadda86b1585b2731620f23ffc3de5bc7"
     },
     {
       "path": "study-galleries.js",
-      "bytes": 5427,
-      "sha256": "09c22ebf6387d59e85fb59b4ff7048ab0a146afdd38c6d1ae9e2b12e03c4dfeb"
+      "bytes": 6569,
+      "sha256": "a948ebfb18d985d0625991daec50895cc5ee7f79f4d2e3683bab3639e1f25d7c"
     },
     {
       "path": "styles.css",
-      "bytes": 56107,
-      "sha256": "b8e87ab0ba640809448c965998c7090670366a321a6fee1a5e43c8fb5ff8a239"
+      "bytes": 57221,
+      "sha256": "deae9d782ef3f3087b140e42602b009e474efd57e4397b0b8e6a6cb746846fa5"
+    },
+    {
+      "path": "vendor/mathjax/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "vendor/mathjax/NOTICE.md",
+      "bytes": 516,
+      "sha256": "193b148c1bc9a6b8e98fa1eac0f0562aebcab708c5879df75aab0b35ab6ef62c"
+    },
+    {
+      "path": "vendor/mathjax/input/tex/extensions/textmacros.js",
+      "bytes": 16138,
+      "sha256": "cd783f048f64f6a3750d716af0e10ed2f6539cd181dacf1204e323e2e41bd640"
+    },
+    {
+      "path": "vendor/mathjax/tex-svg-full.js",
+      "bytes": 2275113,
+      "sha256": "a4354ff94fd868aea0cc6eaaa79a57fda0588646fc46ee3700a349ee0a11cbe6"
     },
     {
       "path": "vendor/three/LICENSE",
@@ -2011,13 +2059,13 @@
     },
     {
       "path": "water-lab.js",
-      "bytes": 24008,
-      "sha256": "12e934c91e57596fdf9ff7ae959edd651da1396d093253fd2f8e36839fc7471c"
+      "bytes": 24172,
+      "sha256": "38daa44806254cb5ff555b883efa0e1fed5529eb184cef732d47b12c37f2501a"
     },
     {
       "path": "water-model.js",
-      "bytes": 7673,
-      "sha256": "fc700ca3377683167d21041d2be576b0534d4ea2fc7486649975afbe3a0c2378"
+      "bytes": 7578,
+      "sha256": "3605e2d3fafd418b61c2f63910aeeb8ce25966129d8841d55f597d6918bf974f"
     },
     {
       "path": "water-model.test.mjs",
@@ -2030,7 +2078,7 @@
       "sha256": "f3e529bf42d0524311252a4016901216ea585d2902d2f4456434046939d07c4b"
     }
   ],
-  "patch": 1,
+  "patch": 0,
   "diagram_conversion": "pdfLaTeX to PDF, then PyMuPDF to self-contained SVG with text paths and embedded shading images",
   "video_production": {
     "render": "Native1920x1080at30fps",
@@ -2087,20 +2135,6 @@
       "tests": "lab-bonds-model.test.mjs"
     },
     {
-      "id": "reactions",
-      "title": "Reaktionslabbet",
-      "module": 4,
-      "entry": "?lab=reaktioner#omrade-4",
-      "source": [
-        "lab-reactions.js",
-        "lab-reactions-model.js",
-        "lab-kit.js",
-        "labs.css"
-      ],
-      "renderer": "Canvas 2D",
-      "tests": "lab-reactions-model.test.mjs"
-    },
-    {
       "id": "materials",
       "title": "Materialdetektiven",
       "module": 5,
@@ -2135,25 +2169,38 @@
       "renderer": "Three.js 0.184.0, WebGL2 with 2D fallback",
       "tests": "water-model.test.mjs",
       "license": "vendor/three/LICENSE"
-    },
-    {
-      "id": "environment",
-      "title": "Miljölandskapet",
-      "module": 7,
-      "entry": "?lab=miljo#omrade-7",
-      "source": [
-        "lab-environment.js",
-        "lab-environment-model.js",
-        "lab-kit.js",
-        "labs.css"
-      ],
-      "renderer": "Canvas 2D",
-      "tests": "lab-environment-model.test.mjs"
     }
   ],
   "quality": {
-    "modelTests": 59,
+    "modelTests": 61,
     "modelTestCommand": "node --test water-model.test.mjs lab-*.test.mjs",
-    "scientificScope": "Explicit schematic teaching models; environmental values are fictional relative quantities"
+    "scientificScope": "Teaching models with explicit assumptions and checks of forces, chemical inventories, energy and conservation",
+    "texRendererChecks": 90
+  },
+  "retired_simulations": [
+    {
+      "module": 4,
+      "reason": "Image explanation without a simulation"
+    },
+    {
+      "module": 7,
+      "reason": "Generated scenario illustration and photographs without a simulation"
+    }
+  ],
+  "scenario_illustration": {
+    "module": 7,
+    "webFile": "assets/environment/giftfri-miljo-scenarier.webp",
+    "original": "assets/environment/giftfri-miljo-scenarier.png",
+    "prompt": "assets/environment/giftfri-miljo-scenarier-prompt.txt",
+    "data": "environment-scenarios.js",
+    "method": "OpenAI built-in image_gen",
+    "width": 1536,
+    "height": 1024
+  },
+  "typography": {
+    "renderer": "MathJax 3.2.2, local TeX to self-contained SVG paths",
+    "source": "lab-tex.js",
+    "vendor": "vendor/mathjax/tex-svg-full.js",
+    "scope": "All visible prose, controls, canvas labels and graph text in the five active experiments"
   }
 }

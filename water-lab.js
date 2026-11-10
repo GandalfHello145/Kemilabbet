@@ -1,5 +1,6 @@
-import { WaterModel, MODEL_CARD } from './water-model.js';
-import { createTemperatureGraph } from './water-graph.js';
+import { WaterModel, MODEL_CARD } from './water-model.js?v=20261110-labs3';
+import { createTemperatureGraph } from './water-graph.js?v=20261110-labs3';
+import {attachLabTeX,installCanvasTeX} from './lab-tex.js?v=20261110-labs3';
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const number = (v, digits = 1) => Number(v).toLocaleString('sv-SE', { maximumFractionDigits: digits, minimumFractionDigits: digits, useGrouping: false });
@@ -30,7 +31,7 @@ export function mountWaterLab(host) {
     '<div class="wl-insight"><span data-wl="insight-icon">↗</span><div><strong data-wl="insight-title">Vad händer om ni tillför energi?</strong><p data-wl="insight">Välj Värm eller Kyl. Följ temperaturen och hur molekylerna rör sig.</p></div></div>',
     '<div class="wl-chart"><div class="wl-chart-header"><div><p class="wl-kicker">03 / FÖLJ SAMBANDET</p><h3>Temperaturens väg</h3></div><div class="wl-chart-actions"><button data-wl="save-curve">Spara jämförelse</button><button data-wl="clear-curve" hidden>Ta bort jämförelse</button><button data-wl="csv">Ladda ned mätdata ↓</button></div></div><div class="wl-chart-metrics"><span>Modelltid <strong data-wl="time">0:00</strong></span><span>Nettoenergi <strong data-wl="energy">0,0 kJ</strong></span><span class="wl-reference" data-wl="reference" hidden>● Sparat försök</span><label class="wl-motion"><input type="checkbox" data-wl="motion"> Stilla molekylvy</label></div><svg data-wl="graph" class="wl-graph" role="img" aria-label="Temperaturkurva för ert försök"></svg><p class="wl-chart-readout" data-wl="graph-readout">Dra längs kurvan för att läsa av tid och temperatur.</p></div>',
     '<div class="wl-challenges"><p class="wl-kicker">UNDERSÖK TILLSAMMANS</p><div><p><b>1.</b> Börja med is. Varför stannar temperaturen vid 0 °C trots att ni värmer?</p><p><b>2.</b> Följ en molekyl. Vad förändras när vattnet kokar, och vad är kvar?</p><p><b>3.</b> Spara en kurva. Jämför sedan ett försök med lägre värmeeffekt.</p></div></div>',
-    '<details class="wl-model"><summary>Så fungerar modellen · antaganden och källor</summary><p>Vi följer 50 g rent vatten i en idealiserad behållare med rörligt lock. Trycket hålls vid normalt lufttryck, 101,3 kPa. Samma vattenmängd finns kvar även när den blir gas.</p><p>Temperatur och fasandelar beräknas från tillförd eller bortförd energi. Under smältning och kokning går energin till fasövergången. Molekylbilden visar ett litet representativt utsnitt; 48 molekyler är inte hela provet.</p><p>Is har en öppnare struktur än flytande vatten. Molekylerna fortsätter röra sig och deras H–O-bindningar behålls. Storlekar, rörelsehastigheter och gasvolym visas inte i verklig skala.</p><p>Modellen förenklar till jämvikt utan värmeförluster, temperaturgradienter eller avdunstning under 100 °C. Den visar −30 till 120 °C.</p><p class="wl-equation">Energi = effekt × modelltid · Q = P · Δt</p><ul>' + MODEL_CARD.sources.map(s => '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></li>').join('') + '</ul></details>',
+    '<details class="wl-model"><summary>Så fungerar modellen · antaganden och källor</summary><p>Vi följer 50 g rent vatten i en idealiserad behållare med rörligt lock. Trycket hålls vid normalt lufttryck, 101,3 kPa. Samma vattenmängd finns kvar även när den blir gas.</p><p>Temperatur och fasandelar beräknas från tillförd eller bortförd energi. Under smältning och kokning går energin till fasövergången. Molekylbilden visar ett litet representativt utsnitt; 48 molekyler är inte hela provet.</p><p>Is har en öppnare struktur än flytande vatten. Molekylerna fortsätter röra sig och deras H–O-bindningar behålls. </p><p>Modellen förenklar till jämvikt utan värmeförluster, temperaturgradienter eller avdunstning under 100 °C. Den visar −30 till 120 °C.</p><p class="wl-equation">Energi = effekt × modelltid · Q = P · Δt</p><ul>' + MODEL_CARD.sources.map(s => '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></li>').join('') + '</ul></details>',
     '<p class="sr-only" data-wl="status" role="status" aria-live="polite"></p></section>'
   ].join('');
 
@@ -47,6 +48,8 @@ export function mountWaterLab(host) {
   } });
   $('motion').checked = motionOff;
   const ctx = $('fallback').getContext('2d');
+  const restoreCanvasTeX=installCanvasTeX(ctx);
+  const restoreDOMTeX=attachLabTeX(host);
   const particles = Array.from({length: 24}, (_, i) => ({x: ((i * 73) % 311) / 311, y: ((i * 131 + 41) % 277) / 277}));
   function announce(text) { $('status').textContent = text; }
   function recordCurrent() { const state=model.state, point={timeSeconds:state.timeSeconds,temperature:state.temperature}; if(Math.abs(history.at(-1).timeSeconds-point.timeSeconds)<1e-8)history[history.length-1]=point;else history.push(point); }
@@ -198,7 +201,7 @@ export function mountWaterLab(host) {
     const url=URL.createObjectURL(new Blob(['\uFEFF'+rows.join('\n')],{type:'text/csv;charset=utf-8'}));
     const link=document.createElement('a');link.href=url;link.download='Vattenlabbet_matdata.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
-  import('./water-scene.js?v=20261109-water1').then(({createWaterScene})=>{
+  import('./water-scene.js?v=20261110-labs3').then(({createWaterScene})=>{
     if(destroyed)return;
     scene=createWaterScene($('scene'),{
       onReady(){if(destroyed)return;$('fallback').hidden=true;$('mode').textContent='3D · 48 H₂O';scene.setZoom(.35);refresh();kick();},
@@ -212,7 +215,7 @@ export function mountWaterLab(host) {
   refresh();kick();
   return {
     setActive(value){active=!!value;last=0;if(active)kick();else{cancelAnimationFrame(frame);frame=0;}},
-    destroy(){destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',onVisibility);scene?.destroy();graph.destroy();},
+    destroy(){destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',onVisibility);restoreDOMTeX();restoreCanvasTeX();scene?.destroy();graph.destroy();},
     get state(){return model.state;}
   };
 }

@@ -1,6 +1,6 @@
-import { createLab, drawAtom, drawBond, escapeHTML } from './lab-kit.js?v=20261110-labs2';
+import { createLab, drawAtom, drawBond, escapeHTML } from './lab-kit.js?v=20261110-labs3';
 import { createWorkspace, addAtom, bindAtoms, breakBond, removeAtom, moveComponent, components,
-  describeWorkspace, bondDecision, snapCandidate, missionComplete } from './lab-atoms-model.js?v=20261110-labs2';
+  describeWorkspace, bondDecision, snapCandidate, missionComplete } from './lab-atoms-model.js?v=20261110-labs3';
 
 export function mountLab(host) {
   let state=createWorkspace(),selected=[],mission=0,drag=null,preview=null,ghost=null,ignoreClickUntil=0;

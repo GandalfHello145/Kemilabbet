@@ -164,7 +164,7 @@ class MaterialMaster(MasterFilm):
         with self.beat('Zooma in: ordnade delar och rörliga elektroner',
             'Metaller har elektroner som kan röra sig genom materialet. Det hjälper oss '
             'att förklara både elektrisk ledningsförmåga och en del av värmeledningen. '
-            'De stora punkterna visar ett förenklat metallgitter, inte en bild i rätt skala.',
+            'Punkterna hjälper oss att följa hur energi sprids genom metallen.',
             seconds=19, clear=True):
             lattice=VGroup(*[dot_atom('',CORAL,.19,[x,y,0])
                        for x in np.linspace(-4.3,4.3,9) for y in [-1.15,0,1.15]])
@@ -263,7 +263,7 @@ class MaterialMaster(MasterFilm):
                           equation(r'\delta^+',[0,-.3,0],36,BLUE))
             self.play(Write(charge),run_time=2)
             self.play(Rotate(waters[0],.18),Rotate(waters[3],-.18),rate_func=there_and_back,run_time=3)
-            self.play(Write(label('förstorad principmodell -- inte i skala',[0,-2.35,0],24,MUTED)),
+            self.play(Write(label('Partiklarna sprids i vattnet',[0,-2.35,0],24,MUTED)),
                       run_time=1.5)
             self.wait(2)
 

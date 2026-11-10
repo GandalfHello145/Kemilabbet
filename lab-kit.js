@@ -1,3 +1,4 @@
+import {attachLabTeX,installCanvasTeX} from './lab-tex.js?v=20261110-labs3';
 /** Shared, local-only interface and lifecycle for the chemistry experiments. */
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const formatNumber = (value, digits=1) => Number(value).toLocaleString('sv-SE',{maximumFractionDigits:digits,useGrouping:false});
@@ -35,10 +36,10 @@ export function createLab(host, config) {
     '<aside class="cl-controls-panel" aria-label="Verktyg och reglage"><div class="cl-tool-heading"><span>✦ DINA VERKTYG</span><small>Dra i bilden eller använd knapparna</small></div><div class="cl-controls">'+(config.controls||'')+'</div></aside></div>',
     '<button type="button" class="cl-focus-exit" data-kit="close-focus" aria-label="Stäng det stora labbet">✕</button>',
     config.below?'<div class="cl-below">'+config.below+'</div>':'',
-    '<details class="cl-questions"><summary>Undersök vidare tillsammans</summary><ol>'+(config.questions||[]).map(q=>'<li>'+escapeHTML(q)+'</li>').join('')+'</ol></details>',
     '<details class="cl-model"><summary>ⓘ Om experimentet och källorna</summary>'+(config.model||'<p>Storlekar, avstånd och tider har valts för att sambanden ska gå att undersöka.</p>')+'</details><p class="sr-only" data-kit="status" role="status" aria-live="polite"></p></section>'
   ].join('');
   const root=host.querySelector('.chem-lab'),canvas=root.querySelector('canvas'),ctx=canvas.getContext('2d');
+  const restoreCanvasTeX=installCanvasTeX(ctx);
   const $=selector=>root.querySelector(selector);
   const listeners=[];
   const on=(target,event,handler,options)=>{
@@ -123,6 +124,7 @@ export function createLab(host, config) {
     if(e.key==='Tab'){const nodes=[...root.querySelectorAll('button,input,select,summary,canvas[tabindex],a[href]')].filter(n=>!n.disabled&&n.getClientRects().length);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
   });
   setRunning(running);
+  const restoreDOMTeX=attachLabTeX(root);
   const controller={
     root,canvas,ctx,$,on,point,setRunning,setActive,invalidate,
     setStep(index){root.querySelectorAll('[data-step]').forEach((node,i)=>{node.classList.toggle('cl-step-done',i<index);if(i===index)node.setAttribute('aria-current','step');else node.removeAttribute('aria-current');});},
@@ -133,7 +135,7 @@ export function createLab(host, config) {
     setExplanation(title,text){const heading=$('[data-kit="explanation-title"]'),body=$('[data-kit="explanation"]');if(heading.textContent!==String(title))heading.textContent=title;if(body.textContent!==String(text))body.textContent=text;},
     announce(text){$('[data-kit="status"]').textContent=text;},
     get running(){return running;},get zoom(){return zoom;},
-    destroy(){if(destroyed)return;if(focused)setFocus(false);destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',visibility);listeners.forEach(remove=>remove());draw=null;}
+    destroy(){if(destroyed)return;if(focused)setFocus(false);destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',visibility);listeners.forEach(remove=>remove());restoreDOMTeX();restoreCanvasTeX();draw=null;}
   };
   return controller;
 }

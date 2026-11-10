@@ -48,7 +48,6 @@ export const MODEL_CARD = Object.freeze({
     'Smältning och frysning sker vid 0 °C; kokning och kondensation sker vid 100 °C.',
     'Fasandelarna är massandelar. Samma H₂O-molekyler finns kvar i alla tre faser.',
     'Tillstånden melting och boiling beskriver blandade faser även när energi förs bort.',
-    'Gasvolym, molekylstorlekar, avstånd och rörelser i bilden visas inte i verklig skala.',
   ]),
   exclusions: Object.freeze([
     'Avdunstning under 100 °C, överkylning, överhettning och fördröjd kärnbildning.',

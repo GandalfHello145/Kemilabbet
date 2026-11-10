@@ -126,7 +126,7 @@ diagram(2, 'modeller-utvecklas', 'Atommodellen ändras när nya spår upptäcks'
 \note{4.55}{3.2}{3.0}{\textbf{Russinkaka}\par Negativa elektroner i utspridd positiv laddning.}
 \note{8.65}{3.2}{3.0}{\textbf{Liten positiv kärna}\par Guldfolien gav nya ledtrådar.}
 \note{12.65}{3.2}{2.85}{\textbf{Bestämda energier}\par Elektroner kan ha vissa energinivåer.}
-\node[smalllabel,text width=14.2cm] at (8,1.0){I dag: elektronmoln visar var elektroner sannolikt kan finnas. Modellerna är inte i skala.};
+\node[smalllabel,text width=14.2cm] at (8,1.0){I dag: elektronmoln visar var elektroner sannolikt kan finnas.};
 ''',
  'Tidslinje med Daltons kula, Thomsons russinkaka, Rutherfords kärnmodell och Bohrs energinivåer. Varje modell får en kort förklaring.',
  'Nya observationer kan visa att en tidigare modell inte räcker. Modellerna blir mer användbara för det som ska förklaras.',
@@ -145,7 +145,7 @@ diagram(2, 'rutherford-solsystem', 'Rutherfords atom: en solsystemsliknelse',
 \draw[arrow] (14.05,6.5)--(13.48,5.78);\node[smalllabel,text width=2.3cm] at (13.9,6.85){elektroner};
 \note{.9}{3.65}{6.2}{\textbf{Gravitation} håller planeter kring solen. Solen är större än planeterna.}
 \note{8.5}{3.65}{6.3}{\textbf{Elektrisk attraktion} verkar mellan positiv kärna och negativa elektroner.}
-\node[label,text width=14.6cm,fill=palegold,rounded corners=4pt,inner sep=8pt] at (8,1.35){\textbf{Här tar liknelsen slut:} elektroner följer inte verkliga planetbanor. Dagens atommodell beskriver elektronmoln. Storlekar och avstånd här är inte i skala.};
+\node[label,text width=14.6cm,fill=palegold,rounded corners=4pt,inner sep=8pt] at (8,1.35){\textbf{Här tar liknelsen slut:} elektroner följer inte verkliga planetbanor. Dagens atommodell beskriver elektronmoln.};
 ''',
  'Två parallella paneler jämför solsystem med Rutherfords förenklade kärnmodell. Sol och positiv atomkärna är centrum, planeter och negativa elektroner finns omkring. En tydlig ruta förklarar liknelsens begränsningar.',
  'Liknelsen visar ett centrum och ett stort område omkring det. Kraften i atomen är elektrisk, och dagens modeller beskriver inga fasta planetbanor för elektroner.',
@@ -429,8 +429,8 @@ def tex_for(item):
               + r'\note{.6}{9.05}{14.8}{\textcolor{muted}{' + item['subtitle'] + '}}\n'
               + r'\draw[line] (.6,8.2)--(15.4,8.2);' + '\n')
     footer = (r'\node[anchor=west,text=muted,font=\scriptsize] at (.6,.38){Kemins grunder (i)\quad /\quad Område '
-              + str(item['module']) + r'\quad /\quad Förklarande modell};' + '\n'
-              + r'\node[anchor=east,text=muted,font=\scriptsize] at (15.4,.38){Inte i skala};' + '\n')
+              + str(item['module']) + r'};' + '\n'
+              + r'' + '\n')
     body = '\n'.join(line + ';' if line.rstrip().endswith('}') and '\\node' in line and '\\foreach' not in line else line for line in item['body'].splitlines())
     return PREAMBLE + header + body + footer + r'\end{tikzpicture}\end{document}' + '\n'
 

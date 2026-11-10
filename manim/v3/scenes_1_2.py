@@ -227,7 +227,7 @@ class AtomMaster(MasterFilm):
             self.play(Write(result),run_time=2)
 
         with self.beat('Samma modell kan vridas i tre dimensioner',
-            'Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De är inte ett fotografi, och storlekarna är inte i skala.',18,clear=True):
+            'Den platta ritningen och den tredimensionella modellen visar samma vattenmolekyl. Färger och kulor hjälper oss att tänka. De hjälper oss att visa hur atomerna sitter ihop.',18,clear=True):
             mol=molecule3d(ORIGIN,2.2)
             self.play(FadeIn(mol,scale=.6),run_time=1.8)
             self.move_camera(phi=62*DEGREES,theta=-55*DEGREES,zoom=1.05,run_time=3)
@@ -433,7 +433,7 @@ class ModelMaster(MasterFilm):
             self.move_camera(zoom=2.8,frame_center=ORIGIN,run_time=3.4)
             ring=glow_ring(nucleus,GOLD,.22);self.play(Create(ring),run_time=1)
             self.move_camera(zoom=1,frame_center=ORIGIN,run_time=3)
-            note=badge('Modellbilden är inte i skala',GOLD,28).move_to([0,2.5,0])
+            note=badge('Kärnan samlar positiv laddning',GOLD,28).move_to([0,2.5,0])
             self.play(FadeIn(note),run_time=1.3)
             self.play(Indicate(nucleus,color=GOLD,scale_factor=1.35),run_time=2)
 

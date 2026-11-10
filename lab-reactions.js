@@ -1,5 +1,5 @@
-import {createLab,drawAtom,drawBond,roundRect} from './lab-kit.js?v=20261110-labs2';
-import {ReactionsModel} from './lab-reactions-model.js?v=20261110-labs2';
+import {createLab,drawAtom,drawBond,roundRect} from './lab-kit.js?v=20261110-labs3';
+import {ReactionsModel} from './lab-reactions-model.js?v=20261110-labs3';
 
 const C={ink:'#e5f5f4',muted:'#a1c0cc',teal:'#71e7d8',gold:'#ffd482',coral:'#ffac98'};
 const lerp=(a,b,t)=>a+(b-a)*t,smooth=t=>t*t*(3-2*t);
