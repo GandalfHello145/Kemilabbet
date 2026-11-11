@@ -9,7 +9,7 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 - Utökade förklaringar, vardagsexempel och begreppsstöd i alla sju områden.
 - Detaljerade TikZ-ritningar i områdena 1–6 och en ny genererad scenariobild i Giftfri miljö. SVG-bilderna går att förstora på sidan. Redigerbara källor finns i `latex/`.
 - Fem ytterligare internetbilder om giftfri miljö, med förklaringar, samtalsfrågor, upphovsperson, licens och faktakällor.
-- Sju helt omarbetade originalfilmer på 3–5 minuter, renderade i 1920×1080 med 30 bilder/sekund. De innehåller 95 förklarande avsnitt, LaTeX-text, avancerad 2D/2.5D/3D-animation, svenska undertexter och originalmusik. Ljudspåret innehåller enbart musik, utan berättarröst.
+- Sju nyanimerade filmer på högst två minuter, i 1920×1080 med 30 bilder/sekund. Korta LaTeX-texter, svenska undertexter och originalmusik utan berättarröst. Innehållet är anpassat för årskurs 7 och relevanta delar av Lgr22 för högstadiet.
 - Rutherford förklaras med en solsystemsliknelse. Liknelsens begränsningar, Bohrs energinivåer och dagens elektronmoln hålls isär.
 
 ## Labb och bildförklaringar
@@ -50,9 +50,9 @@ Kör modellkontrollerna med node --test water-model.test.mjs från webbplatsens 
 
 ## Filer och källor
 
-`index.html`, `styles.css` och `script.js` innehåller webbplatsen. `study-galleries.js` och `study-assets.js` visar de nya ritningarna och miljöbilderna. Originalens bildkällor finns i `assets/environment/credits.json` och bredvid varje bild på sidan. Nya filmer, affischbilder och undertexter ligger i respektive `assets/*/v3/`.
+`index.html`, `styles.css` och `script.js` innehåller webbplatsen. `study-galleries.js` och `study-assets.js` visar de nya ritningarna och miljöbilderna. Originalens bildkällor finns i `assets/environment/credits.json` och bredvid varje bild på sidan. Nya filmer, affischbilder och undertexter ligger i respektive `assets/*/v4/`.
 
-`manim/v3/` innehåller de nuvarande filmernas kompletta originalkod, storyboard, tidrapporter och produktionsverktyg. `core.py` innehåller bildspråk, kamerastöd och LaTeX. Scenerna är uppdelade i tre källfiler. `narrate_score.py` lägger till originalmusik utan tal och bevarar videobilder och kapitel. `manim/v3/README.md` länkar till de offentliga 3Blue1Brown-videor och GitHub-exempel som inspirerat visuell förklaring och rörelse. Äldre filmversioner finns kvar på sina äldre sökvägar.
+`manim/v4/` innehåller de nuvarande filmernas kompletta originalkod, storyboard, tidrapporter och produktionsverktyg. `core.py` innehåller bildspråk, kamerastöd och LaTeX. Scenerna är uppdelade i tre källfiler. `music_score.py` lägger till originalmusik utan tal och bevarar videobilder och kapitel. `manim/v4/README.md` länkar till de offentliga 3Blue1Brown-videor och GitHub-exempel som inspirerat visuell förklaring och rörelse. Äldre filmversioner finns kvar på sina äldre sökvägar.
 
 Faktakällor är bland annat American Chemical Society, Institute of Physics, Kemikalieinspektionen och Naturvårdsverket. Länkar finns i respektive område. Ritningarna hjälper eleverna att följa kemiska samband.
 
@@ -62,7 +62,7 @@ För sidan behövs ingen byggprocess: kör `python3 -m http.server 8000` i proje
 
 TikZ: installera TeX Live med svenska och TikZ, installera `latex/requirements.txt` i Pythonmiljön och kör `python latex/build_diagrams.py`. Ritningarna kompileras först till PDF och konverteras med PyMuPDF till SVG med inbäddade former och teckenkonturer.
 
-Filmer: använd Python 3.13, installera `manim/requirements.txt` och systemberoendena Cairo, Pango, FFmpeg samt TeX Live med svenska och dvisvgm. Kör sedan `python manim/v3/render_all.py`. Det renderar de sju längre filmerna, skapar undertexter, lägger till enbart musik samt bygger affischbilder och metadata. Ingen talsyntes eller installerad berättarröst behövs. De färdiga filmerna finns i `assets/films/v3/` och fungerar i vanliga webbläsare.
+Filmer: använd Python 3.13, installera `manim/requirements.txt` och systemberoendena Cairo, Pango, FFmpeg samt TeX Live med svenska och dvisvgm. Kör sedan `python manim/v4/render_all.py`. Det renderar de sju korta filmerna, skapar undertexter, lägger till enbart musik samt bygger affischbilder och metadata. Ingen talsyntes eller installerad berättarröst behövs. De färdiga filmerna finns i `assets/films/v4/` och fungerar i vanliga webbläsare.
 
 ## Svar och publicering
 

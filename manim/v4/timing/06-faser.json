@@ -1,0 +1,110 @@
+{
+  "duration": 103.89999999999685,
+  "animation_seconds": 98.83333333333026,
+  "wait_seconds": 5.066666666666592,
+  "animation_calls": 38,
+  "beats": [
+    {
+      "title": "Fast form: molekylerna vibrerar",
+      "text": "Is består av vattenmolekyler. De har bestämda platser men vibrerar. Bindningarna inuti varje vattenmolekyl håller ihop samma syre och två väten.",
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "animation_seconds": 15.766666666666659,
+      "wait_seconds": 0.26666666666667993,
+      "automatic_reading_hold": 0.2333333333333414
+    },
+    {
+      "title": "Flytande form: molekylerna glider förbi",
+      "text": "När isen smälter släpper det fasta mönstret. Vattenmolekylerna ligger fortfarande nära men kan byta plats. Det är fortfarande vatten.",
+      "start": 17.03333333333334,
+      "end": 33.03333333333402,
+      "animation_seconds": 15.866666666667356,
+      "wait_seconds": 0.13333333333332575,
+      "automatic_reading_hold": 0.13333333333264363
+    },
+    {
+      "title": "Gas: molekylerna rör sig fritt",
+      "text": "I vattenånga är avstånden mellan molekylerna mycket större. Samma vattenmolekyler rör sig fritt. De växer inte och delas inte till atomer.",
+      "start": 33.03333333333402,
+      "end": 49.06666666666644,
+      "animation_seconds": 15.76666666666577,
+      "wait_seconds": 0.2666666666666515,
+      "automatic_reading_hold": 0.23333333333422956
+    },
+    {
+      "title": "Koppla rörelsen till uppvärmningskurvan",
+      "text": "När vatten värms ökar oftast temperaturen. Vid normalt lufttryck smälter is vid noll grader och vatten kokar vid hundra grader.",
+      "start": 49.06666666666644,
+      "end": 66.09999999999881,
+      "animation_seconds": 16.166666666665755,
+      "wait_seconds": 0.8666666666666174,
+      "automatic_reading_hold": 0.8333333333342452
+    },
+    {
+      "title": "En platå betyder att formen ändras",
+      "text": "Vid smältning och kokning ändras ordningen mellan molekylerna. Temperaturen står stilla under övergången. Molekylerna blir inte större.",
+      "start": 66.09999999999881,
+      "end": 82.1333333333313,
+      "animation_seconds": 14.966666666665816,
+      "wait_seconds": 1.0666666666666629,
+      "automatic_reading_hold": 0.03333333333418409
+    },
+    {
+      "title": "Kondensering: vattenånga blir vätska",
+      "text": "När vattenånga kyls kan molekylerna samlas till flytande vatten. Det kallas kondensering. Moln och imma består av små vattendroppar.",
+      "start": 82.1333333333313,
+      "end": 98.16666666666372,
+      "animation_seconds": 15.76666666666577,
+      "wait_seconds": 0.2666666666666515,
+      "automatic_reading_hold": 0.23333333333422956
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "words": 21,
+      "words_per_second": 1.31
+    },
+    {
+      "start": 17.03333333333334,
+      "end": 33.03333333333402,
+      "words": 19,
+      "words_per_second": 1.19
+    },
+    {
+      "start": 33.03333333333402,
+      "end": 49.06666666666644,
+      "words": 21,
+      "words_per_second": 1.31
+    },
+    {
+      "start": 49.06666666666644,
+      "end": 66.09999999999881,
+      "words": 20,
+      "words_per_second": 1.17
+    },
+    {
+      "start": 66.09999999999881,
+      "end": 82.1333333333313,
+      "words": 17,
+      "words_per_second": 1.06
+    },
+    {
+      "start": 82.1333333333313,
+      "end": 98.83333333333034,
+      "words": 19,
+      "words_per_second": 1.14
+    },
+    {
+      "start": 98.83333333333034,
+      "end": 103.89999999999685,
+      "words": 10,
+      "words_per_second": 1.97
+    }
+  ]
+}

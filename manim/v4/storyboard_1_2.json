@@ -1,0 +1,162 @@
+{
+  "version": 4,
+  "target": "Årskurs 7",
+  "duration_target_seconds": [
+    100,
+    112
+  ],
+  "typography": "All visible text: native LaTeX through Tex/MathTex.",
+  "narration": false,
+  "sources": [
+    {
+      "url": "https://syllabuswebb.skolverket.se/compulsorycw/jsp/subject.htm?subjectCode=GRGRKEM01&tos=gr",
+      "supports": [
+        "Materiens uppbyggnad med partikelmodeller; grundämnen och molekylföreningar.",
+        "Atomer, elektroner, kärnpartiklar och förklaringsmodellernas historiska framväxt."
+      ]
+    }
+  ],
+  "visual_inspiration": [
+    "https://www.3blue1brown.com/lessons/essence-of-calculus/",
+    "https://github.com/3b1b/videos"
+  ],
+  "originality": "Original scene code and geometry. No copied 3Blue1Brown assets or scene code.",
+  "films": [
+    {
+      "scene": "AtomMaster",
+      "slug": "01-atomer",
+      "beats": [
+        {
+          "title": "Från en droppe till en molekyl",
+          "cue": "En vattendroppe innehåller många vattenmolekyler. Vi följer en molekyl och ser vilka byggstenar den består av. Varje färg följer samma atomslag.",
+          "cue_words": 21,
+          "planned_seconds": 14,
+          "choreography": "Droppe → markerad byggsten → samma vattenmolekyl i bildens mitt."
+        },
+        {
+          "title": "Tre atomer -- men två atomslag",
+          "cue": "Här finns två väteatomer och en syreatom. Det blir tre atomer men bara två atomslag: väte och syre.",
+          "cue_words": 18,
+          "planned_seconds": 14,
+          "choreography": "Samma tre atomer säras. Alla räknas, sedan grupperas bokstäverna till två atomslag."
+        },
+        {
+          "title": "Bindningarna håller ihop molekylen",
+          "cue": "Två eller flera bundna atomer bildar en molekyl. I en vattenmolekyl sitter två väteatomer ihop med en syreatom.",
+          "cue_words": 18,
+          "planned_seconds": 14,
+          "choreography": "Atomerna samlas och bindningsstrecken växer fram. En ram fångar en enda molekyl."
+        },
+        {
+          "title": "Formeln berättar samma sak som bilden",
+          "cue": "Vattnets formel är H₂O. Den lilla tvåan hör till H. Den betyder två väteatomer i varje vattenmolekyl. O betyder en syreatom.",
+          "cue_words": 21,
+          "planned_seconds": 14,
+          "choreography": "Bestående H/O-färger länkar atomgrupper till formelns lilla tvåa och saknade etta."
+        },
+        {
+          "title": "Siffran framför räknar hela molekyler",
+          "cue": "Två H₂O betyder två vattenmolekyler. Tillsammans har de sex atomer, men fortfarande bara två atomslag. Båda molekylerna består av vatten.",
+          "cue_words": 20,
+          "planned_seconds": 14,
+          "choreography": "En andra hel vattenmolekyl kopieras in. Räknarna visar två molekyler, sex atomer, två atomslag."
+        },
+        {
+          "title": "Grundämne eller kemisk förening?",
+          "cue": "Syrgas består bara av syreatomer och är ett grundämne. Vatten innehåller väte och syre som är bundna: en kemisk förening.",
+          "cue_words": 20,
+          "planned_seconds": 14,
+          "choreography": "En syremolekyl ställs bredvid samma vattenmolekyl: ett atomslag jämförs med flera."
+        },
+        {
+          "title": "Flera ämnen tillsammans blir en blandning",
+          "cue": "Vattenmolekyler och syrgasmolekyler tillsammans är en blandning. Molekylerna behåller sina bindningar. Flera molekyler av bara vatten är däremot ett rent ämne.",
+          "cue_words": 21,
+          "planned_seconds": 14,
+          "choreography": "Samma vatten- och syremolekyler flyttas in i ett kärl och rör sig utan nya bindningar."
+        }
+      ],
+      "actual_production": {
+        "slug": "01-atomer",
+        "duration": 107.36276,
+        "frames": 3221,
+        "width": 1920,
+        "height": 1080,
+        "fps": "30/1",
+        "beats": 7,
+        "animation_calls": 61,
+        "max_cue_words": 21,
+        "max_words_per_second": 2.8,
+        "max_step_reading_hold": 1.6333333333340363
+      }
+    },
+    {
+      "scene": "ModelMaster",
+      "slug": "02-modeller",
+      "beats": [
+        {
+          "title": "Dalton: atomer som hela kulor",
+          "cue": "Dalton beskrev ämnen med olika atomslag. Ämnen förenas i bestämda antal atomer. Hans modell visade inga mindre delar inuti atomen.",
+          "cue_words": 20,
+          "planned_seconds": 13.5,
+          "choreography": "Kulor sorteras till lika grupper; observationen fasta antal länkas till Daltons hela atomer."
+        },
+        {
+          "title": "Thomson: elektronen kräver en ny bild",
+          "cue": "Elektronen upptäcktes. Atomen måste ha mindre delar. Thomson placerade negativa elektroner i en positiv laddning som var utspridd.",
+          "cue_words": 18,
+          "planned_seconds": 13.5,
+          "choreography": "En negativ elektron lämnar kulan. Samma punkt återvänder in i Thomsons utspridda positiva laddning."
+        },
+        {
+          "title": "En partikel ger en ledtråd",
+          "cue": "Rutherfords grupp skickade positiva alfapartiklar mot tunn guldfolie. De flesta gick igenom. Några ändrade riktning mycket. Det behövde förklaras.",
+          "cue_words": 19,
+          "planned_seconds": 13.5,
+          "choreography": "En positiv alfapartikel passerar guldfolien. Därefter böjs en annan starkt; tidigare spår ligger kvar."
+        },
+        {
+          "title": "Lika laddningar stöter bort varandra",
+          "cue": "En positiv partikel böjs bort från en positiv kärna. Nära den lilla kärnan blir påverkan stark. Därför kan banan ändras mycket.",
+          "cue_words": 21,
+          "planned_seconds": 13.5,
+          "choreography": "En kraftberäknad positiv partikel passerar nära en positiv kärna i slowmotion. En synkron närbild förstorar orsak och verkan."
+        },
+        {
+          "title": "Samma start -- två olika förklaringar",
+          "cue": "Utspridd laddning ger svag påverkan nära mitten. Samlad laddning kan böja banan kraftigt. De flesta passerar långt från den lilla kärnan.",
+          "cue_words": 21,
+          "planned_seconds": 13.5,
+          "choreography": "Samma uppsättning startlägen tecknas först genom en utspridd, sedan genom en koncentrerad positiv laddning."
+        },
+        {
+          "title": "Solsystemet är en liknelse",
+          "cue": "Kärnan kan jämföras med solen och elektroner med planeter. Men elektriska krafter verkar i atomen. Elektroner följer inte kända planetbanor.",
+          "cue_words": 20,
+          "planned_seconds": 13.5,
+          "choreography": "Solen/kärnan och planeten/elektronen jämförs. Gravitation och elektrisk kraft skiljs; atomens planetbana försvinner."
+        },
+        {
+          "title": "Bohr: elektroner kan byta energi",
+          "cue": "Bohr kopplade elektroner till bestämda energier. När elektronen byter energi kan ljus tas upp eller avges. Nya observationer förändrar modeller.",
+          "cue_words": 20,
+          "planned_seconds": 13.5,
+          "choreography": "Ett markerat energiläge byts när ljus tas upp respektive avges. Modellnamnen samlas till en historisk kedja."
+        }
+      ],
+      "actual_production": {
+        "slug": "02-modeller",
+        "duration": 105.761458,
+        "frames": 3173,
+        "width": 1920,
+        "height": 1080,
+        "fps": "30/1",
+        "beats": 7,
+        "animation_calls": 64,
+        "max_cue_words": 21,
+        "max_words_per_second": 2.8,
+        "max_step_reading_hold": 1.3333333333336768
+      }
+    }
+  ]
+}

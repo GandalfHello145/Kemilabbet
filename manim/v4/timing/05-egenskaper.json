@@ -1,0 +1,110 @@
+{
+  "duration": 106.23333333333022,
+  "animation_seconds": 93.56666666666362,
+  "wait_seconds": 12.666666666666591,
+  "animation_calls": 53,
+  "beats": [
+    {
+      "title": "Jämför rättvist",
+      "text": "Två lika långa stavar värms lika mycket. Vi ändrar bara materialet. Då kan vi jämföra hur snabbt värmen sprids.",
+      "start": 0.9999999999999999,
+      "end": 17.033333333333296,
+      "animation_seconds": 13.766666666666625,
+      "wait_seconds": 2.266666666666671,
+      "automatic_reading_hold": 0.03333333333337407
+    },
+    {
+      "title": "Energi sprids genom materialet",
+      "text": "När ena änden värms börjar delarna där röra sig mer. Energi förs vidare till grannarna. Materialet flyttar inte genom staven.",
+      "start": 17.699999999999996,
+      "end": 33.70000000000064,
+      "animation_seconds": 13.266666666667325,
+      "wait_seconds": 2.73333333333332,
+      "automatic_reading_hold": 0.23333333333267348
+    },
+    {
+      "title": "Metall leder ström -- plast isolerar",
+      "text": "I metall kan elektroner röra sig genom materialet. En hel ledande väg behövs för ström. Plast runt sladden skyddar oss.",
+      "start": 34.36666666666727,
+      "end": 50.399999999999764,
+      "animation_seconds": 14.666666666665833,
+      "wait_seconds": 1.36666666666666,
+      "automatic_reading_hold": 0.1333333333341642
+    },
+    {
+      "title": "Salt löser sig -- jonerna sprids",
+      "text": "Vatten kan lösa salt. Natriumjoner och kloridjoner lämnar kristallen och sprids i vattnet. Jonerna finns kvar även när saltet inte syns.",
+      "start": 51.06666666666639,
+      "end": 67.09999999999881,
+      "animation_seconds": 15.166666666665805,
+      "wait_seconds": 0.8666666666666174,
+      "automatic_reading_hold": 0.8333333333341955
+    },
+    {
+      "title": "Samma vatten -- olika löslighet",
+      "text": "Lika mycket salt och sand rörs i lika mycket vatten. Saltet löser sig. Sanden ligger kvar och kan fångas i ett filter.",
+      "start": 67.76666666666544,
+      "end": 83.79999999999787,
+      "animation_seconds": 15.966666666665752,
+      "wait_seconds": 0.06666666666666288,
+      "automatic_reading_hold": 0.03333333333424093
+    },
+    {
+      "title": "Välj egenskap efter uppgift",
+      "text": "Kastrullens botten ska sprida värme till maten. Handtaget ska skydda handen. Därför passar olika material till olika delar av samma produkt.",
+      "start": 84.4666666666645,
+      "end": 100.49999999999709,
+      "animation_seconds": 12.866666666665935,
+      "wait_seconds": 3.166666666666657,
+      "automatic_reading_hold": 0.13333333333406472
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 17.699999999999996,
+      "words": 19,
+      "words_per_second": 1.14
+    },
+    {
+      "start": 17.699999999999996,
+      "end": 34.36666666666727,
+      "words": 20,
+      "words_per_second": 1.2
+    },
+    {
+      "start": 34.36666666666727,
+      "end": 51.06666666666639,
+      "words": 20,
+      "words_per_second": 1.2
+    },
+    {
+      "start": 51.06666666666639,
+      "end": 67.76666666666544,
+      "words": 21,
+      "words_per_second": 1.26
+    },
+    {
+      "start": 67.76666666666544,
+      "end": 84.4666666666645,
+      "words": 22,
+      "words_per_second": 1.32
+    },
+    {
+      "start": 84.4666666666645,
+      "end": 101.16666666666372,
+      "words": 21,
+      "words_per_second": 1.26
+    },
+    {
+      "start": 101.16666666666372,
+      "end": 106.23333333333022,
+      "words": 10,
+      "words_per_second": 1.97
+    }
+  ]
+}

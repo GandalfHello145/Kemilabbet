@@ -1,0 +1,181 @@
+{
+  "films": [
+    {
+      "scene": "MaterialMaster",
+      "number": 5,
+      "topic": "Egenskaper hjälper oss att välja material",
+      "slug": "05-egenskaper",
+      "total_steps": 6,
+      "silent": true,
+      "visible_text": "LaTeX",
+      "target_resolution": "1920x1080",
+      "target_fps": 30,
+      "beats": [
+        {
+          "title": "Jämför rättvist",
+          "explanation": "Två lika långa stavar värms lika mycket. Vi ändrar bara materialet. Då kan vi jämföra hur snabbt värmen sprids.",
+          "words": 19,
+          "target_seconds": 16,
+          "visual_choreography": "Två lika stora stavar får samma uppvärmning; två ljusfronter rör sig olika långt under samma tid."
+        },
+        {
+          "title": "Energi sprids genom materialet",
+          "explanation": "När ena änden värms börjar delarna där röra sig mer. Energi förs vidare till grannarna. Materialet flyttar inte genom staven.",
+          "words": 20,
+          "target_seconds": 16,
+          "visual_choreography": "Ett vibrationsfält växer från vänster till höger medan alla delar stannar kring sina ursprungsplatser."
+        },
+        {
+          "title": "Metall leder ström -- plast isolerar",
+          "explanation": "I metall kan elektroner röra sig genom materialet. En hel ledande väg behövs för ström. Plast runt sladden skyddar oss.",
+          "words": 20,
+          "target_seconds": 16,
+          "visual_choreography": "Elektrondrift följer en sluten ledare, stannar vid ett avbrott och återkommer när avbrottet sluts."
+        },
+        {
+          "title": "Salt löser sig -- jonerna sprids",
+          "explanation": "Vatten kan lösa salt. Natriumjoner och kloridjoner lämnar kristallen och sprids i vattnet. Jonerna finns kvar även när saltet inte syns.",
+          "words": 21,
+          "target_seconds": 16,
+          "visual_choreography": "Samma åtta joner lämnar en saltkristall och rör sig utspridda i vatten."
+        },
+        {
+          "title": "Samma vatten -- olika löslighet",
+          "explanation": "Lika mycket salt och sand rörs i lika mycket vatten. Saltet löser sig. Sanden ligger kvar och kan fångas i ett filter.",
+          "words": 22,
+          "target_seconds": 16,
+          "visual_choreography": "Lika prov av salt och sand jämförs; sand fångas på ett veckat filter medan vatten passerar."
+        },
+        {
+          "title": "Välj egenskap efter uppgift",
+          "explanation": "Kastrullens botten ska sprida värme till maten. Handtaget ska skydda handen. Därför passar olika material till olika delar av samma produkt.",
+          "words": 21,
+          "target_seconds": 16,
+          "visual_choreography": "Kastrullens botten och handtag knyts till kedjan uppgift, egenskap och materialval."
+        }
+      ]
+    },
+    {
+      "scene": "PhaseMaster",
+      "number": 6,
+      "topic": "Vatten byter form -- molekylerna finns kvar",
+      "slug": "06-faser",
+      "total_steps": 6,
+      "silent": true,
+      "visible_text": "LaTeX",
+      "target_resolution": "1920x1080",
+      "target_fps": 30,
+      "beats": [
+        {
+          "title": "Fast form: molekylerna vibrerar",
+          "explanation": "Is består av vattenmolekyler. De har bestämda platser men vibrerar. Bindningarna inuti varje vattenmolekyl håller ihop samma syre och två väten.",
+          "words": 21,
+          "target_seconds": 16,
+          "visual_choreography": "Sex intakta H2O-molekyler vibrerar kring bestämda lägen i en öppen isstruktur."
+        },
+        {
+          "title": "Flytande form: molekylerna glider förbi",
+          "explanation": "När isen smälter släpper det fasta mönstret. Vattenmolekylerna ligger fortfarande nära men kan byta plats. Det är fortfarande vatten.",
+          "words": 19,
+          "target_seconds": 16,
+          "visual_choreography": "Samma sex molekyler lämnar det fasta mönstret och glider mellan nya grannar."
+        },
+        {
+          "title": "Gas: molekylerna rör sig fritt",
+          "explanation": "I vattenånga är avstånden mellan molekylerna mycket större. Samma vattenmolekyler rör sig fritt. De växer inte och delas inte till atomer.",
+          "words": 21,
+          "target_seconds": 16,
+          "visual_choreography": "Molekylerna sprids utan storleksändring och rör sig fritt med korta rörelsespår."
+        },
+        {
+          "title": "Koppla rörelsen till uppvärmningskurvan",
+          "explanation": "När vatten värms ökar oftast temperaturen. Vid normalt lufttryck smälter is vid noll grader och vatten kokar vid hundra grader.",
+          "words": 20,
+          "target_seconds": 17,
+          "visual_choreography": "En kurvmarkör styr samma sex molekylers rörelse och ordning genom fem delar av en uppvärmningskurva. Energiaxelns delbredder är proportionella mot 31,5, 334, 418, 2256 och 40 kJ/kg för samma vattenmängd, från is vid -15 grader till vattenånga vid 120 grader."
+        },
+        {
+          "title": "En platå betyder att formen ändras",
+          "explanation": "Vid smältning och kokning ändras ordningen mellan molekylerna. Temperaturen står stilla under övergången. Molekylerna blir inte större.",
+          "words": 17,
+          "target_seconds": 16,
+          "visual_choreography": "Kurvans platåer framhävs samtidigt som energi tillförs och molekylernas oförändrade storlek visas. Kokplatån är 2256/334, cirka 6,75 gånger bredare än smältplatån."
+        },
+        {
+          "title": "Kondensering: vattenånga blir vätska",
+          "explanation": "När vattenånga kyls kan molekylerna samlas till flytande vatten. Det kallas kondensering. Moln och imma består av små vattendroppar.",
+          "words": 19,
+          "target_seconds": 16,
+          "visual_choreography": "Samma sex molekyler samlas till en droppe när energi lämnar vattnet."
+        }
+      ]
+    },
+    {
+      "scene": "EnvironmentMaster",
+      "number": 7,
+      "topic": "Giftfri miljö: följ ämnet och bryt spridningen",
+      "slug": "07-miljo",
+      "total_steps": 6,
+      "silent": true,
+      "visible_text": "LaTeX",
+      "target_resolution": "1920x1080",
+      "target_fps": 30,
+      "beats": [
+        {
+          "title": "Ett utsläpp börjar vid en källa",
+          "explanation": "Färgrester i avloppet kan släppa ut ämnen som skadar vattenlevande organismer. Följ ett ämne från utsläpp till möjlig följd.",
+          "words": 19,
+          "target_seconds": 17,
+          "visual_choreography": "Färgrester följs från en burk genom avlopp till vatten."
+        },
+        {
+          "title": "Vatten transporterar lösta ämnen",
+          "explanation": "Ämnen kan lösas i vatten och följa med strömmen. Därför kan ett utsläpp påverka organismer en bit från själva källan.",
+          "words": 20,
+          "target_seconds": 17,
+          "visual_choreography": "Ett sammanhängande flödesfält transporterar lösta ämnen förbi en fisk."
+        },
+        {
+          "title": "Ämnet och mängden spelar roll",
+          "explanation": "Risken beror på ämnets egenskaper och hur mycket organismen utsätts för. Även tiden spelar roll. Alla kemiska ämnen är inte miljögifter.",
+          "words": 21,
+          "target_seconds": 17,
+          "visual_choreography": "Lika vattenvolymer med olika halt jämförs; risk kopplas till ämne, mängd och tid."
+        },
+        {
+          "title": "Vissa ämnen kan anrikas i näringskedjan",
+          "explanation": "Vissa svårnedbrytbara ämnen stannar i organismer. När rovdjur äter många bytesdjur kan halten bli högre. Vi jämför lika stora vävnadsprov.",
+          "words": 20,
+          "target_seconds": 17,
+          "visual_choreography": "En näringskedja byggs och lika stora vävnadsprov visar hur halten kan öka för vissa ämnen."
+        },
+        {
+          "title": "Rening hjälper -- allt fångas inte",
+          "explanation": "Ett filter fångar fasta partiklar. Lösta ämnen kan passera. Rening hjälper, men alla föroreningar tas inte bort. Förebygg därför utsläpp.",
+          "words": 20,
+          "target_seconds": 17,
+          "visual_choreography": "Fasta partiklar fångas vid ett filter; lösta ämnen passerar och en rest finns kvar efter mer rening."
+        },
+        {
+          "title": "Bryt spridningsvägen vid källan",
+          "explanation": "Lämna färgrester som farligt avfall. Då bryts spridningsvägen redan vid källan. Minska utsläpp innan ämnen når mark och vatten.",
+          "words": 19,
+          "target_seconds": 17,
+          "visual_choreography": "Färgburken förs till farligt avfall och spridningsvägen till avloppet bryts."
+        }
+      ]
+    }
+  ],
+  "curriculum_source": "https://syllabuswebb.skolverket.se/compulsorycw/jsp/subject.htm?subjectCode=GRGRKEM01&tos=gr",
+  "curriculum_connections": [
+    "Partikelmodeller och materiens uppbyggnad",
+    "Vatten som lösningsmedel och transportör",
+    "Separation, vattenrening och spridning av miljögifter",
+    "Materialval och rättvisa systematiska jämförelser"
+  ],
+  "visual_inspiration": [
+    "https://github.com/3b1b/videos/blob/master/_2017/eoc/chapter1.py",
+    "https://github.com/3b1b/videos/blob/master/_2018/div_curl.py"
+  ],
+  "original_code": true
+}

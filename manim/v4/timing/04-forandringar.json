@@ -1,0 +1,125 @@
+{
+  "duration": 107.93333333332995,
+  "animation_seconds": 98.39999999999688,
+  "wait_seconds": 9.533333333333085,
+  "animation_calls": 64,
+  "beats": [
+    {
+      "title": "En förändring syns -- men vad ändras?",
+      "text": "När is smälter ändras vattnets tillstånd. Vid en kemisk reaktion bildas nya ämnen. Molekylerna hjälper oss att se skillnaden.",
+      "start": 0.9999999999999999,
+      "end": 15.03333333333329,
+      "animation_seconds": 12.866666666666628,
+      "wait_seconds": 1.1666666666666625,
+      "automatic_reading_hold": 1.133333333333372
+    },
+    {
+      "title": "Is, flytande vatten och gas -- fortfarande H$_2$O",
+      "text": "Vid ett fasbyte finns samma vattenmolekyler kvar. Molekylernas rörelse och placering ändras. Bindningarna inne i varje vattenmolekyl finns kvar.",
+      "start": 15.699999999999955,
+      "end": 29.700000000000635,
+      "animation_seconds": 13.566666666667324,
+      "wait_seconds": 0.4333333333333549,
+      "automatic_reading_hold": 0.43333333333267454
+    },
+    {
+      "title": "Före reaktionen: identifiera varje atom",
+      "text": "Här finns två vätemolekyler och en syrgasmolekyl. Vi ger varje atom ett nummer, så att samma atomer kan följas genom förändringen.",
+      "start": 30.366666666667335,
+      "end": 44.40000000000004,
+      "animation_seconds": 12.766666666666115,
+      "wait_seconds": 1.2666666666665947,
+      "automatic_reading_hold": 1.2333333333338885
+    },
+    {
+      "title": "Samma atomer får nya grannar",
+      "text": "Atomerna försvinner inte. De grupperas om när gamla bindningar ersätts av nya. Varje syreatom binds nu till två väteatomer.",
+      "start": 44.40000000000004,
+      "end": 58.43333333333258,
+      "animation_seconds": 13.566666666665895,
+      "wait_seconds": 0.46666666666664014,
+      "automatic_reading_hold": 0.4333333333341045
+    },
+    {
+      "title": "Reaktionsformeln berättar samma sak",
+      "text": "Två vätemolekyler och en syrgasmolekyl ger två vattenmolekyler. Före och efter finns fyra väteatomer och två syreatomer. Atomerna bevaras.",
+      "start": 58.43333333333258,
+      "end": 72.46666666666512,
+      "animation_seconds": 13.366666666665921,
+      "wait_seconds": 0.6666666666666288,
+      "automatic_reading_hold": 0.633333333334086
+    },
+    {
+      "title": "Två vardagsexempel visar skillnaden",
+      "text": "När is smälter är ämnet fortfarande vatten. När kol förbränns reagerar kol med syrgas och bildar ett nytt ämne: koldioxid.",
+      "start": 73.13333333333175,
+      "end": 87.16666666666428,
+      "animation_seconds": 12.96666666666593,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.0333333333340704
+    },
+    {
+      "title": "Fråga vad som finns kvar och vad som ändras",
+      "text": "Vid fasbyte är molekylerna oförändrade. Vid kemiska reaktioner bildas nya ämnen genom att atomer omgrupperas. Atomerna finns kvar i båda fallen.",
+      "start": 87.16666666666428,
+      "end": 101.19999999999682,
+      "animation_seconds": 12.766666666665941,
+      "wait_seconds": 1.2666666666665947,
+      "automatic_reading_hold": 1.233333333334059
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 15.699999999999955,
+      "words": 19,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 15.699999999999955,
+      "end": 30.366666666667335,
+      "words": 19,
+      "words_per_second": 1.3
+    },
+    {
+      "start": 30.366666666667335,
+      "end": 44.40000000000004,
+      "words": 21,
+      "words_per_second": 1.5
+    },
+    {
+      "start": 44.40000000000004,
+      "end": 58.43333333333258,
+      "words": 19,
+      "words_per_second": 1.35
+    },
+    {
+      "start": 58.43333333333258,
+      "end": 73.13333333333175,
+      "words": 19,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 73.13333333333175,
+      "end": 87.16666666666428,
+      "words": 20,
+      "words_per_second": 1.43
+    },
+    {
+      "start": 87.16666666666428,
+      "end": 101.86666666666345,
+      "words": 21,
+      "words_per_second": 1.43
+    },
+    {
+      "start": 101.86666666666345,
+      "end": 107.93333333332995,
+      "words": 17,
+      "words_per_second": 2.8
+    }
+  ]
+}

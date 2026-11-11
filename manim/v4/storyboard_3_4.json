@@ -1,0 +1,190 @@
+{
+  "version": 4,
+  "purpose": "Ny tvåminutersproduktion för åk7, inte en snabbspolad äldre film.",
+  "sources": [
+    {
+      "title": "Skolverket, kemi årskurs7–9",
+      "url": "https://syllabuswebb.skolverket.se/compulsorycw/jsp/subject.htm?subjectCode=GRGRKEM01&tos=gr",
+      "use": "Atomer, elektroner, kärnpartiklar; molekyl-/jonföreningar; kemisk omvandling och materiens oförstörbarhet."
+    },
+    {
+      "title": "3Blue1Brown, offentligt videosarkiv",
+      "url": "https://github.com/3b1b/videos",
+      "use": "Generella idéer: beständiga objekt, följande markörer, kontinuerliga övergångar och samordnade bilder. Ingen kod eller grafik kopierad."
+    }
+  ],
+  "films": [
+    {
+      "number": 3,
+      "topic": "Elektroner och bindningar",
+      "slug": "03-elektroner",
+      "scene": "ElectronMaster",
+      "steps": [
+        {
+          "heading_tex": "Tre partiklar, tre laddningar",
+          "cue": "Protonen är positiv, elektronen negativ och neutronen oladdad. Protoner och neutroner finns i kärnan. Elektroner finns utanför kärnan.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "En neutral atom har lika många plus och minus",
+          "cue": "En neutral natriumatom har elva protoner och elva elektroner. Lika mycket positiv och negativ laddning ger tillsammans laddningen noll.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Följ elektronen längst ut",
+          "cue": "Natriums elektroner är fördelade två, åtta och en. Vi markerar den yttersta elektronen. Den får huvudrollen när natrium bildar en jon.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "En elektron flyttar: två joner bildas",
+          "cue": "Natrium lämnar en elektron till klor. Natrium får laddningen plus ett och klor minus ett. Antalet protoner ändras inte.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Olika laddningar håller ihop en jonkristall",
+          "cue": "Positiva och negativa joner attraherar varandra. I vanligt salt finns många natriumjoner och kloridjoner i ett sammanhängande gitter.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Två väteatomer kan dela ett elektronpar",
+          "cue": "Två väteatomer kan dela sina elektroner. Det delade elektronparet håller samman väteatomerna i en molekyl. En vätemolekyl skrivs H₂.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Överföra eller dela -- två sätt att binda",
+          "cue": "Vid jonbindning attraherar olika laddningar varandra. Vid elektronparbindning delas elektroner. Elektronerna är viktiga för bindningen, medan atomkärnorna finns kvar.",
+          "seconds": 14
+        }
+      ],
+      "narration": false,
+      "all_visible_text": "Tex / MathTex",
+      "fresh_choreography": true,
+      "speed_multiplier": 1,
+      "native_target": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30
+      },
+      "planned_seconds": 110,
+      "rendered_seconds": 108.959505,
+      "actual_animation_seconds": 96.93333333333018,
+      "actual_animation_calls": 65,
+      "actual_maximum_reading_words_per_second": 2.8
+    },
+    {
+      "number": 4,
+      "topic": "Fysikaliska och kemiska förändringar",
+      "slug": "04-forandringar",
+      "scene": "ReactionMaster",
+      "steps": [
+        {
+          "heading_tex": "En förändring syns -- men vad ändras?",
+          "cue": "När is smälter ändras vattnets tillstånd. Vid en kemisk reaktion bildas nya ämnen. Molekylerna hjälper oss att se skillnaden.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Is, flytande vatten och gas -- fortfarande H$_2$O",
+          "cue": "Vid ett fasbyte finns samma vattenmolekyler kvar. Molekylernas rörelse och placering ändras. Bindningarna inne i varje vattenmolekyl finns kvar.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Före reaktionen: identifiera varje atom",
+          "cue": "Här finns två vätemolekyler och en syrgasmolekyl. Vi ger varje atom ett nummer, så att samma atomer kan följas genom förändringen.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Samma atomer får nya grannar",
+          "cue": "Atomerna försvinner inte. De grupperas om när gamla bindningar ersätts av nya. Varje syreatom binds nu till två väteatomer.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Reaktionsformeln berättar samma sak",
+          "cue": "Två vätemolekyler och en syrgasmolekyl ger två vattenmolekyler. Före och efter finns fyra väteatomer och två syreatomer. Atomerna bevaras.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Två vardagsexempel visar skillnaden",
+          "cue": "När is smälter är ämnet fortfarande vatten. När kol förbränns reagerar kol med syrgas och bildar ett nytt ämne: koldioxid.",
+          "seconds": 14
+        },
+        {
+          "heading_tex": "Fråga vad som finns kvar och vad som ändras",
+          "cue": "Vid fasbyte är molekylerna oförändrade. Vid kemiska reaktioner bildas nya ämnen genom att atomer omgrupperas. Atomerna finns kvar i båda fallen.",
+          "seconds": 14
+        }
+      ],
+      "narration": false,
+      "all_visible_text": "Tex / MathTex",
+      "fresh_choreography": true,
+      "speed_multiplier": 1,
+      "native_target": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 30
+      },
+      "planned_seconds": 110,
+      "rendered_seconds": 107.927474,
+      "actual_animation_seconds": 98.39999999999688,
+      "actual_animation_calls": 64,
+      "actual_maximum_reading_words_per_second": 2.8
+    }
+  ],
+  "reaction_conservation": {
+    "hydrogen_ids": [
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "oxygen_ids": [
+      "O1",
+      "O2"
+    ],
+    "before_bonds": [
+      [
+        "H1",
+        "H2"
+      ],
+      [
+        "H3",
+        "H4"
+      ],
+      [
+        "O1",
+        "O2"
+      ]
+    ],
+    "after_bonds": [
+      [
+        "O1",
+        "H1"
+      ],
+      [
+        "O1",
+        "H2"
+      ],
+      [
+        "O2",
+        "H3"
+      ],
+      [
+        "O2",
+        "H4"
+      ]
+    ],
+    "hydrogen_before_after": [
+      4,
+      4
+    ],
+    "oxygen_before_after": [
+      2,
+      2
+    ],
+    "atom_count_before_after": [
+      6,
+      6
+    ],
+    "note": "Flyttsekvensen visar total omgruppering, inte reaktionens elementarsteg eller en instruktion för ett praktiskt experiment.",
+    "identifier_display": "H eller O i varje atom; separat rund nummerbricka utanför atomen. Inga ID skrivs som kemiska index."
+  }
+}

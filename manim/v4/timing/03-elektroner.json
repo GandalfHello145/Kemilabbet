@@ -1,0 +1,125 @@
+{
+  "duration": 108.96666666666324,
+  "animation_seconds": 96.93333333333018,
+  "wait_seconds": 12.033333333333053,
+  "animation_calls": 65,
+  "beats": [
+    {
+      "title": "Tre partiklar, tre laddningar",
+      "text": "Protonen är positiv, elektronen negativ och neutronen oladdad. Protoner och neutroner finns i kärnan. Elektroner finns utanför kärnan.",
+      "start": 0.9999999999999999,
+      "end": 15.03333333333329,
+      "animation_seconds": 12.26666666666663,
+      "wait_seconds": 1.7666666666666604,
+      "automatic_reading_hold": 1.7333333333333698
+    },
+    {
+      "title": "En neutral atom har lika många plus och minus",
+      "text": "En neutral natriumatom har elva protoner och elva elektroner. Lika mycket positiv och negativ laddning ger tillsammans laddningen noll.",
+      "start": 15.699999999999955,
+      "end": 29.700000000000635,
+      "animation_seconds": 12.966666666667294,
+      "wait_seconds": 1.0333333333333847,
+      "automatic_reading_hold": 1.0333333333327044
+    },
+    {
+      "title": "Följ elektronen längst ut",
+      "text": "Natriums elektroner är fördelade två, åtta och en. Vi markerar den yttersta elektronen. Den får huvudrollen när natrium bildar en jon.",
+      "start": 29.700000000000635,
+      "end": 43.73333333333341,
+      "animation_seconds": 12.433333333332868,
+      "wait_seconds": 1.599999999999909,
+      "automatic_reading_hold": 1.5666666666671318
+    },
+    {
+      "title": "En elektron flyttar: två joner bildas",
+      "text": "Natrium lämnar en elektron till klor. Natrium får laddningen plus ett och klor minus ett. Antalet protoner ändras inte.",
+      "start": 43.73333333333341,
+      "end": 57.76666666666595,
+      "animation_seconds": 12.96666666666593,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.0333333333340704
+    },
+    {
+      "title": "Olika laddningar håller ihop en jonkristall",
+      "text": "Positiva och negativa joner attraherar varandra. I vanligt salt finns många natriumjoner och kloridjoner i ett sammanhängande gitter.",
+      "start": 58.43333333333258,
+      "end": 72.46666666666512,
+      "animation_seconds": 12.96666666666593,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.0333333333340633
+    },
+    {
+      "title": "Två väteatomer kan dela ett elektronpar",
+      "text": "Två väteatomer kan dela sina elektroner. Det delade elektronparet håller samman väteatomerna i en molekyl. En vätemolekyl skrivs H₂.",
+      "start": 73.13333333333175,
+      "end": 87.16666666666428,
+      "animation_seconds": 13.266666666665913,
+      "wait_seconds": 0.7666666666666231,
+      "automatic_reading_hold": 0.7333333333340875
+    },
+    {
+      "title": "Överföra eller dela -- två sätt att binda",
+      "text": "Vid jonbindning attraherar olika laddningar varandra. Vid elektronparbindning delas elektroner. Elektronerna är viktiga för bindningen, medan atomkärnorna finns kvar.",
+      "start": 87.83333333333091,
+      "end": 101.86666666666345,
+      "animation_seconds": 12.866666666665935,
+      "wait_seconds": 1.1666666666666003,
+      "automatic_reading_hold": 1.1333333333340647
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 15.699999999999955,
+      "words": 18,
+      "words_per_second": 1.22
+    },
+    {
+      "start": 15.699999999999955,
+      "end": 29.700000000000635,
+      "words": 19,
+      "words_per_second": 1.36
+    },
+    {
+      "start": 29.700000000000635,
+      "end": 43.73333333333341,
+      "words": 21,
+      "words_per_second": 1.5
+    },
+    {
+      "start": 43.73333333333341,
+      "end": 58.43333333333258,
+      "words": 19,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 58.43333333333258,
+      "end": 73.13333333333175,
+      "words": 18,
+      "words_per_second": 1.22
+    },
+    {
+      "start": 73.13333333333175,
+      "end": 87.83333333333091,
+      "words": 19,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 87.83333333333091,
+      "end": 102.53333333333008,
+      "words": 19,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 102.53333333333008,
+      "end": 108.96666666666324,
+      "words": 18,
+      "words_per_second": 2.8
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "duration": 107.3666666666634,
+  "animation_seconds": 94.19999999999703,
+  "wait_seconds": 13.166666666666371,
+  "animation_calls": 61,
+  "beats": [
+    {
+      "title": "Från en droppe till en molekyl",
+      "text": "En vattendroppe innehåller många vattenmolekyler. Vi följer en molekyl och ser vilka byggstenar den består av. Varje färg följer samma atomslag.",
+      "start": 0.9999999999999999,
+      "end": 15.03333333333329,
+      "animation_seconds": 13.466666666666626,
+      "wait_seconds": 0.5666666666666647,
+      "automatic_reading_hold": 0.5333333333333741
+    },
+    {
+      "title": "Tre atomer -- men två atomslag",
+      "text": "Här finns två väteatomer och en syreatom. Det blir tre atomer men bara två atomslag: väte och syre.",
+      "start": 15.03333333333329,
+      "end": 29.033333333333935,
+      "animation_seconds": 12.566666666667242,
+      "wait_seconds": 1.4333333333334046,
+      "automatic_reading_hold": 1.4333333333327598
+    },
+    {
+      "title": "Bindningarna håller ihop molekylen",
+      "text": "Två eller flera bundna atomer bildar en molekyl. I en vattenmolekyl sitter två väteatomer ihop med en syreatom.",
+      "start": 29.033333333333935,
+      "end": 43.066666666666784,
+      "animation_seconds": 12.36666666666628,
+      "wait_seconds": 1.666666666666572,
+      "automatic_reading_hold": 1.6333333333337237
+    },
+    {
+      "title": "Formeln berättar samma sak som bilden",
+      "text": "Vattnets formel är H₂O. Den lilla tvåan hör till H. Den betyder två väteatomer i varje vattenmolekyl. O betyder en syreatom.",
+      "start": 43.066666666666784,
+      "end": 57.09999999999932,
+      "animation_seconds": 12.366666666665964,
+      "wait_seconds": 1.666666666666572,
+      "automatic_reading_hold": 1.6333333333340363
+    },
+    {
+      "title": "Siffran framför räknar hela molekyler",
+      "text": "Två H₂O betyder två vattenmolekyler. Tillsammans har de sex atomer, men fortfarande bara två atomslag. Båda molekylerna består av vatten.",
+      "start": 57.09999999999932,
+      "end": 71.13333333333186,
+      "animation_seconds": 12.766666666665941,
+      "wait_seconds": 1.2666666666665947,
+      "automatic_reading_hold": 1.233333333334052
+    },
+    {
+      "title": "Grundämne eller kemisk förening?",
+      "text": "Syrgas består bara av syreatomer och är ett grundämne. Vatten innehåller väte och syre som är bundna: en kemisk förening.",
+      "start": 71.13333333333186,
+      "end": 85.1666666666644,
+      "animation_seconds": 12.566666666665952,
+      "wait_seconds": 1.4666666666665833,
+      "automatic_reading_hold": 1.4333333333340477
+    },
+    {
+      "title": "Flera ämnen tillsammans blir en blandning",
+      "text": "Vattenmolekyler och syrgasmolekyler tillsammans är en blandning. Molekylerna behåller sina bindningar. Flera molekyler av bara vatten är däremot ett rent ämne.",
+      "start": 85.1666666666644,
+      "end": 99.19999999999693,
+      "animation_seconds": 13.566666666665895,
+      "wait_seconds": 0.46666666666664014,
+      "automatic_reading_hold": 0.4333333333341045
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 15.03333333333329,
+      "words": 21,
+      "words_per_second": 1.5
+    },
+    {
+      "start": 15.03333333333329,
+      "end": 29.033333333333935,
+      "words": 18,
+      "words_per_second": 1.29
+    },
+    {
+      "start": 29.033333333333935,
+      "end": 43.066666666666784,
+      "words": 18,
+      "words_per_second": 1.28
+    },
+    {
+      "start": 43.066666666666784,
+      "end": 57.09999999999932,
+      "words": 21,
+      "words_per_second": 1.5
+    },
+    {
+      "start": 57.09999999999932,
+      "end": 71.13333333333186,
+      "words": 20,
+      "words_per_second": 1.43
+    },
+    {
+      "start": 71.13333333333186,
+      "end": 85.1666666666644,
+      "words": 20,
+      "words_per_second": 1.43
+    },
+    {
+      "start": 85.1666666666644,
+      "end": 99.86666666666356,
+      "words": 21,
+      "words_per_second": 1.43
+    },
+    {
+      "start": 99.86666666666356,
+      "end": 107.3666666666634,
+      "words": 21,
+      "words_per_second": 2.8
+    }
+  ]
+}
