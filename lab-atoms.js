@@ -1,25 +1,24 @@
-import { createLab, drawAtom, drawBond, escapeHTML } from './lab-kit.js?v=20261110-labs3';
+import { createLab, drawAtom, drawBond, escapeHTML } from './lab-kit.js?v=20261111-clear8';
 import { createWorkspace, addAtom, bindAtoms, breakBond, removeAtom, moveComponent, components,
-  describeWorkspace, bondDecision, snapCandidate, missionComplete } from './lab-atoms-model.js?v=20261110-labs3';
+  describeWorkspace, bondDecision, snapCandidate, missionComplete } from './lab-atoms-model.js?v=20261111-clear8';
 
 export function mountLab(host) {
   let state=createWorkspace(),selected=[],mission=0,drag=null,preview=null,ghost=null,ignoreClickUntil=0;
-  let visualTime=0;
+  let visualTime=0,calm=false;
   const displayed=new Map(),effects=[],celebrated=new Set();
-  const titles=['Bygg en vattenmolekyl','Fler molekyler · samma ämne','Skapa en blandning'];
+  const titles=['Bygg vatten','Bygg vatten en gång till','Blanda vatten och syrgas'];
   const lab=createLab(host,{
-    id:'atoms',title:'Molekylverkstaden',badge:'DRA → BIND → UPPTÄCK',
-    subtitle:'Dra en atom mot en annan. När förbindelsen lyser: släpp och se molekylen ta form.',
-    objective:'Dra en H till O. Släpp när bindningen lyser.',
-    steps:[{title:'Bygg vatten',text:'Bind två H till en O.'},{title:'Bygg en till',text:'Fler molekyler behöver inte betyda fler ämnen.'},{title:'Blanda ämnen',text:'Lägg till O₂ och jämför.'}],
+    id:'atoms',title:'Molekylverkstaden',badge:'BYGG → TITTA → FÖRKLARA',
+    subtitle:'H är en väteatom. O är en syreatom. Sätt ihop två H med en O.',
+    objective:'Flytta en H till O. Släpp när strecket lyser.',
+    steps:[{title:'Bygg vatten',text:'Två H och en O.'},{title:'Bygg en till',text:'Fortfarande vatten.'},{title:'Blanda',text:'Vatten och syrgas.'}],
     tools:'Dra för att flytta eller binda. Knapparna fungerar också.',hideRun:true,running:true,
-    canvasLabel:'Dra H till O och släpp på den lysande bindningen. Alternativ: välj två atomknappar och tryck Bind valda.',
-    metrics:'<div class="cl-counter"><strong data-metric="atoms">3</strong><span>atomer</span></div><div class="cl-counter"><strong data-metric="types">2</strong><span>atomslag</span></div><div class="cl-counter"><strong data-metric="molecules">0</strong><span>molekyler · bundna grupper</span></div><div class="cl-counter"><strong data-metric="formula">H₂O är målet</strong><span>målformler i provet</span></div>',
-    controls:'<p class="cl-task-hint" data-task-hint>Dra H till O. Släpp när förbindelsen lyser.</p><button type="button" class="cl-primary" data-next disabled>Nästa: bygg en till</button><div class="cl-field"><span>Lägg till en atom · dra eller tryck</span><div class="cl-buttons"><button type="button" class="cl-secondary" data-add="H" draggable="true">＋ H · väte</button><button type="button" class="cl-secondary" data-add="O" draggable="true">＋ O · syre</button></div></div><details><summary>Bygg med knappar i stället för dragning</summary><p class="cl-note">Välj två atomer nedan och skapa bindningen.</p><div class="cl-buttons" data-atom-list></div><button type="button" class="cl-secondary" data-bind disabled>Bind de två valda</button></details><details><summary>Ändra provet</summary><div class="cl-buttons"><button type="button" data-undo>Ångra senaste bindningen</button><button type="button" data-break disabled>Bryt mellan de två valda</button><button type="button" data-remove disabled>Ta bort valda atomer</button></div></details><button type="button" data-reset>Börja om upptäckten</button>',
-    below:'<div class="cl-grid"><div><strong data-sample-title>Vad räknar vi?</strong><p data-sample>Tre atomer, två atomslag. Inga bindningar ännu.</p></div><div><strong>Följ bindningen</strong><p>När en atom binder ändras gruppen, men ingen atom försvinner. Dra sedan i en atom: hela molekylen följer med.</p></div></div>',
-    explanationTitle:titles[0],explanation:'Dra en H nära O. Förhandsvisningen visar om de kan bindas. Släpp för att skapa bindningen.',
-    questions:['Vad ändras efter första respektive andra H–O-bindningen?', 'Varför är två vattenmolekyler fortfarande ett rent ämne?', 'När du lägger till O₂: ändras antalet atomslag eller antalet ämnen?'],
-    model:'<p>Verkstaden tränar tre mål: H₂, O₂ och H₂O. H får en bindning och O två; O₂ visas med en dubbelbindning. Alla bundna grupper med minst två atomer räknas som molekyler. OH räknas därför redan som en molekyl, men är ännu inte H₂O. Andra ämnen, till exempel H₂O₂, finns men ingår inte i byggreglerna här.</p><p>Att dra och släppa är ett sätt att redigera bindningarna, inte en beskrivning av hur en kemisk reaktion sätts igång. Bindningar skapas inte i verkligheten bara för att någon flyttar en kula. Vatten visas böjt med ungefär 104,5° H–O–H-vinkel. Färger och avstånd är hjälpmedel. Att bryta en bindning kräver energi i verkligheten.</p><p>Källa: <a href="https://www.acs.org/content/dam/acsorg/msc/downloads/chapter-5/ch5-student-reading.pdf" target="_blank" rel="noopener">American Chemical Society: vattenmolekylen och kemiska bindningar</a>.</p>',
+    canvasLabel:'H betyder väte och O betyder syre. Dra en H till O och släpp när strecket lyser. Du kan också använda knappen Bind en H till O.',
+    metrics:'<div class="cl-counter"><strong data-metric="atoms">3</strong><span>atomer</span></div><div class="cl-counter"><strong data-metric="molecules">0</strong><span>molekyler · atomer som sitter ihop</span></div><div class="cl-counter"><strong data-metric="formula">H₂O är målet</strong><span>i provet</span></div>',
+    controls:'<p class="cl-task-hint" data-task-hint>Dra en H till O, eller använd knappen.</p><button type="button" class="cl-primary" data-guide-bind aria-label="Sätt ihop en väteatom med syreatomen">Bind en H till O</button><button type="button" class="cl-primary" data-next hidden>Nästa: bygg en till</button><details data-extra-tools><summary>Fler verktyg</summary><p class="cl-note">Här kan du bygga och ändra själv.</p><div class="cl-field"><span>Lägg till en atom</span><div class="cl-buttons"><button type="button" class="cl-secondary" data-add="H" draggable="true" aria-label="Lägg till en väteatom">＋ H · väte</button><button type="button" class="cl-secondary" data-add="O" draggable="true" aria-label="Lägg till en syreatom">＋ O · syre</button></div></div><p class="cl-note">Välj två atomer. Tryck sedan på Bind de två valda.</p><div class="cl-buttons" data-atom-list></div><button type="button" class="cl-secondary" data-bind disabled>Bind de två valda</button><div class="cl-buttons"><button type="button" data-undo>Ångra senaste bindningen</button><button type="button" data-break disabled>Bryt bindningen</button><button type="button" data-remove disabled>Ta bort valda atomer</button></div><p class="cl-note">Olika sorters atomer: <strong data-metric="types">2</strong>. Här använder vi H och O.</p></details><button type="button" data-reset>Börja om med vatten</button>',
+    below:'<div><strong data-sample-title>H betyder väte. O betyder syre.</strong><p data-sample>Varje kula visar en atom. Strecken håller atomerna ihop.</p></div>',
+    explanationTitle:titles[0],explanation:'Flytta en H till O. Släpp när strecket lyser. Strecket visar en bindning som håller ihop atomerna.',
+    model:'<p>Här kan du bygga H₂, O₂ och H₂O. H får en bindning och O två. I O₂ visas två bindningar med två streck. En molekyl är en grupp atomer som sitter ihop. Även gruppen OH är därför en molekyl, men den är ännu inte vatten.</p><p>Dragningen och knapparna är byggverktyg. En verklig kemisk reaktion startar inte bara för att någon flyttar en kula. Att bryta bindningar kräver energi. Det finns fler ämnen än de tre som ingår här.</p><p>Källa: <a href="https://www.acs.org/content/dam/acsorg/msc/downloads/chapter-5/ch5-student-reading.pdf" target="_blank" rel="noopener">American Chemical Society: vatten och bindningar</a>.</p>',
   });
   const atom=id=>state.atoms.find(a=>a.id===id);
   const view=a=>displayed.get(a.id)||a;
@@ -40,30 +39,36 @@ export function mountLab(host) {
     boundGroup(id);
   }
   function nextAction(info,done){
-    if(mission===3)return ['Bygg ett eget prov.','Skapa H₂, O₂ och H₂O. Läs hur antalet molekyler och provets ämnen ändras.'];
-    if(done)return mission===0?['Vattenmolekylen är klar!','3 atomer · 2 atomslag · 1 molekyl. Två H sitter ihop med en O. Gå vidare och bygg en till.']:
-      mission===1?['Två molekyler, fortfarande vatten.','Nu har du 6 atomer och 2 molekyler, men fortfarande bara 2 atomslag och ett rent ämne. Gå vidare och lägg till syrgas.']:
-      ['Du har skapat en blandning.','H₂O och O₂ finns tillsammans. Antalet ämnen har ökat till två, medan atomslagen fortfarande är H och O.'];
-    if(mission===2)return ['Bind de två nya O till varandra.','Dra en O mot den andra och släpp på den lysande dubbelbindningen. Nu undersöker vi vad ett nytt ämne gör med provet.'];
+    if(mission===3)return ['Bygg själv.','Öppna Fler verktyg. Bygg H₂, O₂ eller H₂O och följ vad som finns i provet.'];
+    if(done)return mission===0?['Du har byggt vatten!','En molekyl är atomer som sitter ihop. Två H och en O bildar en vattenmolekyl: H₂O.']:
+      mission===1?['Två molekyler, fortfarande vatten.','Alla molekyler är vatten. Provet innehåller bara ett ämne. Då kallas det ett rent ämne.']:
+      ['Blandningen är klar.','Nu finns vatten och syrgas tillsammans. En blandning innehåller flera ämnen. H₂O och O₂ är två olika ämnen.'];
+    if(mission===2)return ['Sätt ihop de två nya O.','Dra en O till den andra, eller tryck Bind de två O. O₂ är en syrgasmolekyl.'];
     const oh=info.groups.some(g=>!g.complete&&g.atoms.some(a=>a.symbol==='O')&&g.atoms.some(a=>a.symbol==='H'));
-    return [mission===1?'Bygg en vattenmolekyl till.':titles[0],oh?'En H är redan bunden till O. Dra den andra H till samma O: syreatomen har plats för en bindning till.':'Dra en H mot O. När förbindelsen lyser kan du släppa. Bind sedan den andra H till samma O.'];
+    return [mission===1?'Bygg vatten en gång till.':titles[0],oh?'En H sitter redan ihop med O. Sätt fast den andra H på samma O. Då blir det vatten.':'Flytta en H till O. Släpp när strecket lyser. Strecket visar en bindning som håller ihop atomerna.'];
+  }
+  function guidedPair(){
+    if(mission===2){const oxygens=state.atoms.filter(a=>a.symbol==='O');for(let i=0;i<oxygens.length;i++)for(let j=i+1;j<oxygens.length;j++)if(bondDecision(state,oxygens[i].id,oxygens[j].id).ok)return [oxygens[i].id,oxygens[j].id];}
+    else if(mission<2)for(const o of state.atoms.filter(a=>a.symbol==='O'))for(const h of state.atoms.filter(a=>a.symbol==='H'))if(bondDecision(state,o.id,h.id).ok)return [o.id,h.id];
+    return null;
   }
   function sync(){
     selected=selected.filter(id=>atom(id));const info=describeWorkspace(state),done=missionComplete(state,mission);
     lab.setMetric('atoms',info.atomCount);lab.setMetric('types',info.atomTypes);lab.setMetric('molecules',info.moleculeCount);
     lab.setMetric('formula',info.targetMoleculeCount?info.formula:'H₂O är målet');
-    lab.$('[data-sample-title]').textContent=info.classification==='Byggfas'?'Provet byggs just nu':info.classification;
-    lab.$('[data-sample]').textContent=info.classification==='Byggfas'?`${info.freeAtoms} ${info.freeAtoms===1?'lös atom':'lösa atomer'} och ${info.moleculeCount} ${info.moleculeCount===1?'molekyl':'molekyler'}. ${info.targetMoleculeCount} ${info.targetMoleculeCount===1?'molekyl motsvarar':'molekyler motsvarar'} övningens mål H₂, O₂ eller H₂O. Även andra bundna grupper räknas som molekyler.`:
-      `${info.formula}. ${info.species.length===1?'Alla molekyler i provet har samma formel.':'Två olika ämnen finns tillsammans; de får ingen gemensam ny molekylformel.'}`;
-    const [title,text]=nextAction(info,done);lab.setExplanation(title,text);lab.setObjective?.(done?title:mission===2?'Bind de två O till en syrgasmolekyl.':mission===1?'Bind två H till den nya O.':'Dra en H till O. Släpp när bindningen lyser.',done);
-    lab.setStep?.(Math.min(mission,2));lab.$('[data-task-hint]').textContent=done?'Läs upptäckten ovanför bilden och gå vidare.':'Dra i bilden. Grönt ljus visar var du kan släppa.';
-    const next=lab.$('[data-next]');next.hidden=mission===3;next.disabled=!done;
-    next.textContent=['Nästa: bygg en till','Nästa: gör en blandning','Fortsätt bygga fritt'][mission]||'Fortsätt';
+    lab.$('[data-sample-title]').textContent=info.classification==='Byggfas'?'Läs bilden':info.species.length===1?'Samma ämne i hela provet':'Flera ämnen i samma prov';
+    lab.$('[data-sample]').textContent=info.classification==='Byggfas'?(info.unfinishedGroups?'Atomer har börjat sitta ihop. Gruppen är en molekyl, men den är inte färdig som vatten ännu.':'H betyder väte. O betyder syre. Varje kula visar en atom.'):
+      `${info.formula}. ${info.species.length===1?'Alla molekyler är av samma sort.':'Vatten och syrgas ligger tillsammans. De bildar ingen ny gemensam molekyl.'}`;
+    const [title,text]=nextAction(info,done);lab.setExplanation(title,text);lab.setObjective?.(done?title:mission===2?'Sätt ihop de två nya O.':mission===1?'Sätt ihop två H med den nya O.':'Flytta en H till O. Släpp när strecket lyser.',done);
+    lab.setStep?.(Math.min(mission,2));lab.$('[data-task-hint]').textContent=done?'Titta på resultatet. Gå sedan vidare.':'Dra i bilden, eller använd knappen nedan.';
+    const next=lab.$('[data-next]');next.hidden=mission===3||!done;next.disabled=!done;
+    next.textContent=['Nästa: bygg vatten igen','Nästa: blanda med syrgas','Bygg vidare själv'][mission]||'Fortsätt';
+    const guided=lab.$('[data-guide-bind]');guided.hidden=done||mission===3;guided.disabled=!guidedPair();guided.textContent=mission===2?'Bind de två O':'Bind en H till O';guided.setAttribute('aria-label',mission===2?'Sätt ihop två syreatomer till en syrgasmolekyl':'Sätt ihop en väteatom med syreatomen');
     const decision=selected.length===2?bondDecision(state,...selected):null;
     lab.$('[data-bind]').disabled=!decision?.ok;lab.$('[data-bind]').textContent=decision?.ok&&decision.order===2?'Bind O=O · två streck':'Bind de två valda';
     lab.$('[data-break]').disabled=!(selected.length===2&&state.bonds.some(b=>selected.includes(b.a)&&selected.includes(b.b)));
     lab.$('[data-remove]').disabled=!selected.length;lab.$('[data-undo]').disabled=!state.bonds.length;
-    lab.$('[data-atom-list]').innerHTML=state.atoms.map(a=>`<button type="button" data-choose="${a.id}" aria-pressed="${selected.includes(a.id)}">${escapeHTML(a.symbol)} · ${a.id}</button>`).join('');
+    lab.$('[data-atom-list]').innerHTML=state.atoms.map(a=>`<button type="button" data-choose="${a.id}" aria-label="Välj ${a.symbol==='H'?'väteatom':'syreatom'} ${a.id}" aria-pressed="${selected.includes(a.id)}">${escapeHTML(a.symbol)} · ${a.id}</button>`).join('');
     if(done&&!celebrated.has(mission)){celebrated.add(mission);lab.celebrate?.();lab.announce(title+' '+text);}
     lab.invalidate();
   }
@@ -74,7 +79,7 @@ export function mountLab(host) {
   }
   function reset(){
     state=createWorkspace();selected=[];mission=0;drag=null;preview=null;displayed.clear();effects.length=0;celebrated.clear();
-    add('O',480,185);add('H',260,270);add('H',700,270);sync();
+    add('O',480,185);add('H',260,270);add('H',700,270);lab.$('[data-extra-tools]').open=false;sync();
   }
   function choose(id){selected=selected.includes(id)?selected.filter(x=>x!==id):selected.length<2?[...selected,id]:[id];sync();}
   function addLoose(symbol,point){
@@ -85,8 +90,9 @@ export function mountLab(host) {
     if(!missionComplete(state,mission))return;mission++;
     if(mission===1){const g=components(state).find(g=>g.length===3&&g.some(a=>a.symbol==='O'));if(g){const o=g.find(a=>a.symbol==='O');moveComponent(state,o.id,250-o.x,195-o.y);}add('O',710,195);add('H',565,305);add('H',855,305);}
     if(mission===2){add('O',410,110);add('O',570,110);}
-    selected=[];sync();
+    selected=[];if(mission===3)lab.$('[data-extra-tools]').open=true;sync();
   });
+  lab.on('[data-guide-bind]','click',()=>{const pair=guidedPair();if(pair)commit(...pair);});
   lab.on('[data-bind]','click',()=>{if(selected.length===2)commit(...selected);});
   lab.on('[data-undo]','click',()=>{state.bonds.pop();selected=[];sync();});
   lab.on('[data-break]','click',()=>{if(selected.length===2)breakBond(state,...selected);sync();});
@@ -115,8 +121,8 @@ export function mountLab(host) {
     if(!drag)return;const p=lab.point(e);if(Math.hypot(p.x-drag.start.x,p.y-drag.start.y)>6)drag.moved=true;
     if(drag.moved){moveComponent(state,drag.id,p.x-drag.last.x,p.y-drag.last.y);boundGroup(drag.id);for(const a of groupFor(drag.id))displayed.set(a.id,{x:a.x,y:a.y});
       preview=snapCandidate(state,drag.id);
-      if(preview){const a=atom(preview.a),b=atom(preview.b);lab.setExplanation(`Släpp för att binda ${a.symbol}–${b.symbol}.`,preview.order===2?'Två streck visar O₂:s dubbelbindning. Släpp nu för att skapa den.':'Den lysande förbindelsen visar en möjlig bindning. Släpp nu; atomernas antal kommer att vara oförändrat.');lab.setObjective?.('Släpp nu för att skapa den lysande bindningen.');}
-      else{lab.setExplanation('Flytta närmare en ledig atom.','Förbindelsen lyser när en tillåten bindning kan skapas. En redan fullbunden atom får inga extra bindningar i verkstaden.');}
+      if(preview){const a=atom(preview.a),b=atom(preview.b);lab.setExplanation(`Släpp för att binda ${a.symbol}–${b.symbol}.`,preview.order===2?'Två streck binder ihop de två O. Släpp nu.':'Strecket lyser. Släpp för att sätta ihop atomerna. Ingen atom försvinner.');lab.setObjective?.('Släpp nu för att binda ihop atomerna.');}
+      else{lab.setExplanation('Flytta atomerna närmare.','Strecket lyser där de kan sättas ihop. H kan ha en bindning och O två här.');}
     }drag.last=p;lab.invalidate();
   });
   lab.on(lab.canvas,'pointerup',e=>{
@@ -125,8 +131,8 @@ export function mountLab(host) {
   });
   lab.on(lab.canvas,'pointercancel',()=>{drag=null;preview=null;sync();});
   lab.on(lab.canvas,'keydown',e=>{if(e.key.toLowerCase()==='b'&&selected.length===2){e.preventDefault();commit(...selected);}if(e.key==='Escape'){selected=[];sync();}});
-  lab.setDraw(({ctx,dt,motion,compact})=>{
-    if(motion)visualTime+=dt;
+  lab.setDraw(({ctx,dt,motion,calm:quiet,compact})=>{
+    calm=Boolean(quiet);if(motion&&!calm)visualTime+=dt;
     for(const a of state.atoms){const v=displayed.get(a.id)||{x:a.x,y:a.y};const ease=motion?1-Math.exp(-dt*13):1;v.x+=(a.x-v.x)*ease;v.y+=(a.y-v.y)*ease;displayed.set(a.id,v);}
     ctx.save();ctx.strokeStyle='#bde7e20c';ctx.lineWidth=1;
     for(let x=60;x<960;x+=60){ctx.beginPath();ctx.moveTo(x,80);ctx.lineTo(x,395);ctx.stroke();}
@@ -134,11 +140,11 @@ export function mountLab(host) {
     ctx.font=`600 ${compact?32:28}px Arial,sans-serif`;ctx.fillStyle='#d9edf0';ctx.textAlign='left';ctx.fillText(mission<3?`${mission+1}. ${titles[mission]}`:'Bygg ett eget prov',42,48);
     for(const b of state.bonds)drawBond(ctx,view(atom(b.a)),view(atom(b.b)),b.order);
     if(preview){
-      const a=view(atom(preview.a)),b=view(atom(preview.b));ctx.save();ctx.shadowColor='#8af0d7';ctx.shadowBlur=18;ctx.setLineDash([12,7]);drawBond(ctx,a,b,preview.order,'#8af0d7');ctx.restore();
+      const a=view(atom(preview.a)),b=view(atom(preview.b));ctx.save();ctx.shadowColor='#8af0d7';ctx.shadowBlur=calm?0:18;ctx.setLineDash([12,7]);drawBond(ctx,a,b,preview.order,'#8af0d7');ctx.restore();
       ctx.strokeStyle='#8af0d7';ctx.lineWidth=4;ctx.beginPath();ctx.arc(b.x,b.y,44+3*Math.sin(visualTime*4),0,Math.PI*2);ctx.stroke();
       ctx.fillStyle='#c7fff0';ctx.textAlign='center';ctx.font=`600 ${compact?32:27}px Arial,sans-serif`;ctx.fillText('SLÄPP FÖR ATT BINDA',(a.x+b.x)/2,Math.max(88,Math.min(a.y,b.y)-48));
     }
-    for(const effect of effects){effect.age+=motion?dt:1;if(effect.age>.75)continue;const a=atom(effect.a),b=atom(effect.b);if(!a||!b)continue;const va=view(a),vb=view(b),p=effect.age/.75;
+    for(const effect of effects){effect.age+=motion&&!calm?dt:1;if(effect.age>.75)continue;const a=atom(effect.a),b=atom(effect.b);if(!a||!b)continue;const va=view(a),vb=view(b),p=effect.age/.75;
       ctx.save();ctx.globalAlpha=(1-p)*.85;ctx.strokeStyle='#b5ffdf';ctx.lineWidth=5*(1-p)+1;ctx.beginPath();ctx.arc((va.x+vb.x)/2,(va.y+vb.y)/2,20+p*105,0,Math.PI*2);ctx.stroke();ctx.restore();}
     while(effects.length&&effects[0].age>.75)effects.shift();
     for(const a of state.atoms){const v=view(a),r=a.symbol==='O'?34:28;drawAtom(ctx,v.x,v.y,r,a.symbol,{selected:selected.includes(a.id),label:false});ctx.fillStyle=a.symbol==='H'?'#244451':'#fff';ctx.font='700 30px Arial,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(a.symbol,v.x,v.y+1);}

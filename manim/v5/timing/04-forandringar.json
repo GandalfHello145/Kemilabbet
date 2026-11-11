@@ -1,0 +1,95 @@
+{
+  "duration": 88.19999999999769,
+  "animation_seconds": 78.39999999999795,
+  "wait_seconds": 9.799999999999741,
+  "animation_calls": 46,
+  "beats": [
+    {
+      "title": "Börja med en vattenmolekyl",
+      "text": "Is består av vattenmolekyler. Varje vattenmolekyl har två väteatomer och en syreatom.",
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "animation_seconds": 13.866666666666625,
+      "wait_seconds": 2.166666666666714,
+      "automatic_reading_hold": 2.1333333333333755
+    },
+    {
+      "title": "Is smälter -- molekylerna finns kvar",
+      "text": "När is smälter flyttar molekylerna på sig. De är fortfarande samma vattenmolekyler.",
+      "start": 17.70000000000004,
+      "end": 33.70000000000065,
+      "animation_seconds": 14.36666666666737,
+      "wait_seconds": 1.6333333333332405,
+      "automatic_reading_hold": 1.6333333333326294
+    },
+    {
+      "title": "Före en kemisk reaktion",
+      "text": "Före reaktionen finns två vätemolekyler och en syrgasmolekyl. Följ de blå och röda atomerna.",
+      "start": 34.36666666666728,
+      "end": 50.3999999999997,
+      "animation_seconds": 13.66666666666589,
+      "wait_seconds": 2.366666666666532,
+      "automatic_reading_hold": 2.33333333333411
+    },
+    {
+      "title": "Samma atomer binds på ett nytt sätt",
+      "text": "I en reaktion grupperas atomerna om. Nya bindningar ger två vattenmolekyler.",
+      "start": 50.3999999999997,
+      "end": 66.43333333333213,
+      "animation_seconds": 14.966666666665823,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.033333333334177
+    },
+    {
+      "title": "Samma ämne -- eller ett nytt ämne?",
+      "text": "Is blir flytande vatten. Väte och syre kan reagera och bilda vatten, ett nytt ämne.",
+      "start": 66.43333333333213,
+      "end": 82.46666666666455,
+      "animation_seconds": 15.666666666665776,
+      "wait_seconds": 0.3666666666666458,
+      "automatic_reading_hold": 0.3333333333342239
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 17.70000000000004,
+      "words": 12,
+      "words_per_second": 0.72
+    },
+    {
+      "start": 17.70000000000004,
+      "end": 34.36666666666728,
+      "words": 12,
+      "words_per_second": 0.72
+    },
+    {
+      "start": 34.36666666666728,
+      "end": 50.3999999999997,
+      "words": 14,
+      "words_per_second": 0.87
+    },
+    {
+      "start": 50.3999999999997,
+      "end": 66.43333333333213,
+      "words": 11,
+      "words_per_second": 0.69
+    },
+    {
+      "start": 66.43333333333213,
+      "end": 83.13333333333118,
+      "words": 15,
+      "words_per_second": 0.9
+    },
+    {
+      "start": 83.13333333333118,
+      "end": 88.19999999999769,
+      "words": 14,
+      "words_per_second": 2.76
+    }
+  ]
+}

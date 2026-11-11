@@ -1,0 +1,86 @@
+[
+  {
+    "scene": "AtomMaster",
+    "number": 1,
+    "topic": "Atomer och molekyler",
+    "slug": "01-atomer",
+    "total_steps": 5,
+    "steps": [
+      {
+        "title": "En atom är en byggsten",
+        "text": "Alla ämnen består av små byggstenar. De kallas atomer.",
+        "words": 9,
+        "seconds": 16
+      },
+      {
+        "title": "Atomer finns av olika slag",
+        "text": "Syre och väte är två atomslag. Här har de varsin färg.",
+        "words": 11,
+        "seconds": 16
+      },
+      {
+        "title": "Atomer kan bilda en molekyl",
+        "text": "Två väteatomer och en syreatom sitter ihop. Gruppen kallas en vattenmolekyl.",
+        "words": 11,
+        "seconds": 16
+      },
+      {
+        "title": "Formeln berättar vilka atomer som ingår",
+        "text": "Vatten är en kemisk förening: olika atomslag sitter ihop. Dess formel är H2O.",
+        "words": 13,
+        "seconds": 17
+      },
+      {
+        "title": "En blandning innehåller flera ämnen",
+        "text": "Blandningen innehåller vatten och syrgas. De två ämnena finns tillsammans men är olika.",
+        "words": 13,
+        "seconds": 17
+      }
+    ],
+    "silent": true,
+    "visible_text": "LaTeX",
+    "new_choreography": true
+  },
+  {
+    "scene": "ModelMaster",
+    "number": 2,
+    "topic": "Så ändrades bilden av atomen",
+    "slug": "02-modeller",
+    "total_steps": 5,
+    "steps": [
+      {
+        "title": "Thomson: elektroner inne i atomen",
+        "text": "Thomson tänkte sig en positiv klump med negativa elektroner inuti. Sedan kom nya försök.",
+        "words": 14,
+        "seconds": 17
+      },
+      {
+        "title": "Ett försök gav en ny ledtråd",
+        "text": "De flesta partiklar passerade guldfolien. Några studsade tillbaka. Vad kunde förklara det?",
+        "words": 12,
+        "seconds": 17
+      },
+      {
+        "title": "Rutherford: en liten kärna",
+        "text": "Positiva partiklar stöts bort av den positiva kärnan. De flesta passerar atomens tomrum.",
+        "words": 13,
+        "seconds": 17
+      },
+      {
+        "title": "Som ett litet solsystem?",
+        "text": "Kärnan liknar solen i bilden. Men elektroner följer inte bestämda banor som planeter.",
+        "words": 13,
+        "seconds": 17
+      },
+      {
+        "title": "Bohr: en bild med elektronskal",
+        "text": "Bohr ritade skal runt kärnan. Skalmodellen hjälper oss att hålla reda på elektroner.",
+        "words": 13,
+        "seconds": 17
+      }
+    ],
+    "silent": true,
+    "visible_text": "LaTeX",
+    "new_choreography": true
+  }
+]

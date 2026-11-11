@@ -1,4 +1,4 @@
-import {attachLabTeX,installCanvasTeX} from './lab-tex.js?v=20261110-labs3';
+import {attachLabTeX,installCanvasTeX} from './lab-tex.js?v=20261111-clear8';
 /** Shared, local-only interface and lifecycle for the chemistry experiments. */
 export const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const formatNumber = (value, digits=1) => Number(value).toLocaleString('sv-SE',{maximumFractionDigits:digits,useGrouping:false});
@@ -26,17 +26,17 @@ export function createLab(host, config) {
   const steps=config.steps||[];
   host.innerHTML=[
     '<section class="chem-lab" data-tex-rendered="chem-lab" aria-labelledby="'+escapeHTML(id)+'-title">',
-    '<header class="cl-header"><div><p class="cl-kicker"><i></i> DITT INTERAKTIVA LABB</p><h2 id="'+escapeHTML(id)+'-title">'+escapeHTML(config.title)+'</h2><p>'+escapeHTML(config.subtitle||'')+'</p></div><button type="button" class="cl-focus-button" data-kit="focus" aria-expanded="false">⤢ Öppna labbet stort</button></header>',
+    '<header class="cl-header"><div><p class="cl-kicker"><i></i> PROVA SJÄLV</p><h2 id="'+escapeHTML(id)+'-title">'+escapeHTML(config.title)+'</h2><p>'+escapeHTML(config.subtitle||'')+'</p></div><button type="button" class="cl-focus-button" data-kit="focus" aria-expanded="false">⤢ Öppna större</button></header>',
     steps.length?'<ol class="cl-steps" aria-label="Experimentets steg">'+steps.map((s,i)=>'<li data-step="'+i+'"'+(i===0?' aria-current="step"':'')+'><span class="cl-step-number">'+(i+1)+'</span><div><strong>'+escapeHTML(s.title)+'</strong><small>'+escapeHTML(s.text||'')+'</small></div></li>').join('')+'</ol>':'',
-    '<div class="cl-objective" data-kit="objective-box"><span data-kit="objective-icon">◎</span><div><span class="cl-objective-caption">DITT UPPDRAG</span><strong data-kit="objective">'+escapeHTML(config.objective||'Välj ett verktyg och undersök vad som förändras.')+'</strong></div></div>',
+    '<div class="cl-objective" data-kit="objective-box"><span data-kit="objective-icon">◎</span><div><span class="cl-objective-caption">GÖR SÅ HÄR</span><strong data-kit="objective">'+escapeHTML(config.objective||'Välj ett verktyg och undersök vad som förändras.')+'</strong></div></div>',
     '<div class="cl-workbench"><div class="cl-scene-column">',
     '<div class="cl-insight" role="status" aria-live="polite" aria-atomic="true"><span>↗</span><div><strong data-kit="explanation-title">'+escapeHTML(config.explanationTitle||'Börja med första steget.')+'</strong><p data-kit="explanation">'+escapeHTML(config.explanation||'Styr direkt i bilden eller använd verktygsknapparna. Följ sedan resultatet.')+'</p></div></div>',
-    '<div class="cl-stage"><canvas class="cl-canvas" tabindex="0" aria-label="'+escapeHTML(config.canvasLabel||config.title+'. Styr i bilden eller med verktygsknapparna.')+'"></canvas><div class="cl-view-tools"><button type="button" class="cl-tools-shortcut" data-kit="tools">✦ Visa verktygen ↓</button><button data-kit="run" aria-pressed="false"'+(config.hideRun?' hidden':'')+'></button><details class="cl-view-options"><summary>Vy och rörelse</summary><div><button data-kit="view" aria-label="Återställ vyn">Återställ vy ↺</button><label class="cl-still"><input type="checkbox" data-kit="still"> Minska rörelser</label><span class="cl-pan" data-kit="pan-tools" hidden><span>Flytta vyn</span><button type="button" data-pan="left" aria-label="Visa mer åt vänster">←</button><button type="button" data-pan="right" aria-label="Visa mer åt höger">→</button><button type="button" data-pan="up" aria-label="Visa mer uppåt">↑</button><button type="button" data-pan="down" aria-label="Visa mer nedåt">↓</button></span><label class="cl-zoom">Zoom <input type="range" min="70" max="180" value="100" step="5" data-kit="zoom" aria-label="Zooma experimentet"></label></div></details></div></div>',
+    '<div class="cl-stage"><canvas class="cl-canvas" tabindex="0" aria-label="'+escapeHTML(config.canvasLabel||config.title+'. Styr i bilden eller med verktygsknapparna.')+'"></canvas><div class="cl-view-tools"><button type="button" class="cl-tools-shortcut" data-kit="tools">✦ Visa knapparna ↓</button><button data-kit="run" aria-pressed="false"'+(config.hideRun?' hidden':'')+'></button><details class="cl-view-options"><summary>Fler bildverktyg</summary><div><button data-kit="view" aria-label="Återställ vyn">Återställ vy ↺</button><label class="cl-still"><input type="checkbox" data-kit="still"> Stilla bildrörelser</label><span class="cl-pan" data-kit="pan-tools" hidden><span>Flytta vyn</span><button type="button" data-pan="left" aria-label="Visa mer åt vänster">←</button><button type="button" data-pan="right" aria-label="Visa mer åt höger">→</button><button type="button" data-pan="up" aria-label="Visa mer uppåt">↑</button><button type="button" data-pan="down" aria-label="Visa mer nedåt">↓</button></span><label class="cl-zoom">Zoom <input type="range" min="70" max="180" value="100" step="5" data-kit="zoom" aria-label="Zooma experimentet"></label></div></details></div></div>',
     '<div class="cl-metrics" aria-label="Ditt resultat">'+(config.metrics||'')+'</div></div>',
-    '<aside class="cl-controls-panel" aria-label="Verktyg och reglage"><div class="cl-tool-heading"><span>✦ DINA VERKTYG</span><small>Dra i bilden eller använd knapparna</small></div><div class="cl-controls">'+(config.controls||'')+'</div></aside></div>',
+    '<aside class="cl-controls-panel" aria-label="Verktyg och reglage"><div class="cl-tool-heading"><span>DINA KNAPPAR</span><small>Använd knapparna eller dra i bilden</small></div><div class="cl-controls">'+(config.controls||'')+'</div></aside></div>',
     '<button type="button" class="cl-focus-exit" data-kit="close-focus" aria-label="Stäng det stora labbet">✕</button>',
     config.below?'<div class="cl-below">'+config.below+'</div>':'',
-    '<details class="cl-model"><summary>ⓘ Om experimentet och källorna</summary>'+(config.model||'<p>Storlekar, avstånd och tider har valts för att sambanden ska gå att undersöka.</p>')+'</details><p class="sr-only" data-kit="status" role="status" aria-live="polite"></p></section>'
+    '<details class="cl-model"><summary>ⓘ Om försöket och källorna</summary>'+(config.model||'<p>Storlekar, avstånd och tider har valts för att sambanden ska gå att undersöka.</p>')+'</details><p class="sr-only" data-kit="status" role="status" aria-live="polite"></p></section>'
   ].join('');
   const root=host.querySelector('.chem-lab'),canvas=root.querySelector('canvas'),ctx=canvas.getContext('2d');
   const restoreCanvasTeX=installCanvasTeX(ctx);
@@ -47,8 +47,10 @@ export function createLab(host, config) {
     element.addEventListener(event,handler,options);const remove=()=>element.removeEventListener(event,handler,options);listeners.push(remove);return remove;
   };
   let active=true,inView=true,destroyed=false,draw=null,frame=0,last=0,time=0;
-  let motion=!matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let running=Boolean(config.running)&&motion,zoom=1,panX=0,panY=0,width=0,height=0,dpr=1;
+  const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+  const readCalm=()=>Boolean(window.chemistryPreferences?.calmMotion??(document.body.dataset.motion==='calm'||reducedMotion.matches));
+  let motion=true,calm=readCalm();
+  let running=Boolean(config.running),zoom=1,panX=0,panY=0,width=0,height=0,dpr=1;
   let focused=false,previousOverflow='',focusReturn=null;const bursts=[];
   const logicalWidth=960,logicalHeight=460;
   function size() {
@@ -75,7 +77,7 @@ export function createLab(host, config) {
       size();ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);
       const scale=Math.min(width/logicalWidth,height/logicalHeight),offsetX=(width-logicalWidth*scale)/2,offsetY=(height-logicalHeight*scale)/2;
       ctx.save();ctx.translate(offsetX,offsetY);ctx.scale(scale,scale);ctx.translate(logicalWidth/2,logicalHeight/2);ctx.scale(zoom,zoom);ctx.translate(-logicalWidth/2+panX,-logicalHeight/2+panY);
-      try {draw({ctx,width:logicalWidth,height:logicalHeight,dt,time,running,zoom,motion,compact:width<560});
+      try {draw({ctx,width:logicalWidth,height:logicalHeight,dt,time,running,zoom,motion,calm,compact:width<560});
         for(let i=bursts.length-1;i>=0;i--){const b=bursts[i];b.age+=motion?dt:1;const t=b.age/1.05;if(t>=1){bursts.splice(i,1);continue;}ctx.save();ctx.globalAlpha=(1-t)*.9;ctx.strokeStyle='#7ce5cc';ctx.lineWidth=3*(1-t);ctx.beginPath();ctx.arc(b.x,b.y,20+100*t,0,Math.PI*2);ctx.stroke();for(let k=0;k<12;k++){const a=k*Math.PI/6;ctx.fillStyle=k%2?'#ffe093':'#7ce5cc';ctx.beginPath();ctx.arc(b.x+Math.cos(a)*(20+110*t),b.y+Math.sin(a)*(20+110*t),3*(1-t),0,Math.PI*2);ctx.fill();}ctx.restore();}
       }
       catch(error){setRunning(false);$('[data-kit="status"]').textContent='Experimentet kunde inte ritas. Börja om eller ladda om sidan.';console.error(error);draw=null;}
@@ -84,7 +86,7 @@ export function createLab(host, config) {
     if(!frame&&!destroyed&&active&&inView&&!document.hidden)frame=requestAnimationFrame(tick);
   }
   function invalidate(){if(!frame&&active&&inView&&!destroyed&&!document.hidden)frame=requestAnimationFrame(tick);}
-  function setActive(value){active=Boolean(value);last=0;if(active)invalidate();else{cancelAnimationFrame(frame);frame=0;}}
+  function setActive(value){active=Boolean(value);last=0;if(active)invalidate();else{if(focused)setFocus(false);cancelAnimationFrame(frame);frame=0;}}
   const visibility=()=>{last=0;if(document.hidden){cancelAnimationFrame(frame);frame=0;}else invalidate();};
   document.addEventListener('visibilitychange',visibility);
   const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(entries=>{
@@ -93,6 +95,9 @@ export function createLab(host, config) {
   observer?.observe(root);
   on('[data-kit="run"]','click',()=>setRunning(!running));
   on('[data-kit="still"]','change',e=>{motion=!e.target.checked;invalidate();});
+  const syncPreferences=()=>{calm=readCalm();bursts.length=0;invalidate();};
+  on(window,'chemistry:preferences',syncPreferences);
+  if(reducedMotion.addEventListener)on(reducedMotion,'change',syncPreferences);
   function updateView(){const maxX=logicalWidth*Math.max(0,1-1/zoom)/2,maxY=logicalHeight*Math.max(0,1-1/zoom)/2;panX=Math.max(-maxX,Math.min(maxX,panX));panY=Math.max(-maxY,Math.min(maxY,panY));$('[data-kit="pan-tools"]').hidden=zoom<=1.01;$('[data-kit="zoom"]').value=Math.round(zoom*100);invalidate();}
   on('[data-kit="zoom"]','input',e=>{zoom=Number(e.target.value)/100;updateView();});
   root.querySelectorAll('[data-pan]').forEach(button=>on(button,'click',()=>{const direction=button.dataset.pan;if(direction==='left')panX+=60;if(direction==='right')panX-=60;if(direction==='up')panY+=45;if(direction==='down')panY-=45;updateView();}));
@@ -104,13 +109,13 @@ export function createLab(host, config) {
   function setFocus(value){
     if(focused===value)return;focused=value;
     if(!focused)showTools(false);
-    root.classList.toggle('cl-focus',focused);$('[data-kit="focus"]').textContent=focused?'✕ Tillbaka till kemisidan':'⤢ Öppna labbet stort';$('[data-kit="focus"]').setAttribute('aria-expanded',String(focused));
+    root.classList.toggle('cl-focus',focused);$('[data-kit="focus"]').textContent=focused?'✕ Tillbaka till kemisidan':'⤢ Öppna större';$('[data-kit="focus"]').setAttribute('aria-expanded',String(focused));
     if(focused){focusReturn=document.activeElement;previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.scrollTop=0;$('[data-kit="focus"]').focus();}
     else{document.body.style.overflow=previousOverflow;root.removeAttribute('role');root.removeAttribute('aria-modal');focusReturn?.focus?.({preventScroll:true});}
     inView=true;last=0;invalidate();
   }
   function showTools(value){
-    root.classList.toggle('cl-tools-open',value);$('[data-kit="tools"]').textContent=value?'✕ Dölj verktygen':'✦ Visa verktygen ↓';$('[data-kit="tools"]').setAttribute('aria-expanded',String(value));
+    root.classList.toggle('cl-tools-open',value);$('[data-kit="tools"]').textContent=value?'✕ Dölj knapparna':'✦ Visa knapparna ↓';$('[data-kit="tools"]').setAttribute('aria-expanded',String(value));
     if(value){if(root.clientHeight<550){$('.cl-controls-panel').scrollIntoView({block:'start',behavior:'instant'});}else{const scene=$('.cl-scene-column');root.scrollTop+=scene.getBoundingClientRect().top-root.getBoundingClientRect().top;}}
   }
   on('[data-kit="tools"]','click',()=>showTools(!root.classList.contains('cl-tools-open')));
@@ -121,7 +126,7 @@ export function createLab(host, config) {
   on(root,'keydown',e=>{
     if(!focused)return;
     if(e.key==='Escape'){e.preventDefault();setFocus(false);}
-    if(e.key==='Tab'){const nodes=[...root.querySelectorAll('button,input,select,summary,canvas[tabindex],a[href]')].filter(n=>!n.disabled&&n.getClientRects().length);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
+    if(e.key==='Tab'){const nodes=[...root.querySelectorAll('button,input,select,summary,canvas[tabindex],a[href]')].filter(n=>!n.disabled&&n.tabIndex>=0&&n.getClientRects().length);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}
   });
   setRunning(running);
   const restoreDOMTeX=attachLabTeX(root);
@@ -129,7 +134,7 @@ export function createLab(host, config) {
     root,canvas,ctx,$,on,point,setRunning,setActive,invalidate,
     setStep(index){root.querySelectorAll('[data-step]').forEach((node,i)=>{node.classList.toggle('cl-step-done',i<index);if(i===index)node.setAttribute('aria-current','step');else node.removeAttribute('aria-current');});},
     setObjective(text,success=false){const node=$('[data-kit="objective"]');if(node.textContent!==String(text))node.textContent=text;$('[data-kit="objective-box"]').classList.toggle('cl-objective-done',success);$('[data-kit="objective-icon"]').textContent=success?'✓':'◎';},
-    celebrate(x=480,y=230){if(motion){bursts.push({x,y,age:0});invalidate();}},
+    celebrate(x=480,y=230){if(motion&&!calm){bursts.push({x,y,age:0});invalidate();}},
     setDraw(fn){draw=fn;invalidate();},
     setMetric(key,value){const node=$('[data-metric="'+key+'"]');if(node&&node.textContent!==String(value))node.textContent=value;},
     setExplanation(title,text){const heading=$('[data-kit="explanation-title"]'),body=$('[data-kit="explanation"]');if(heading.textContent!==String(title))heading.textContent=title;if(body.textContent!==String(text))body.textContent=text;},

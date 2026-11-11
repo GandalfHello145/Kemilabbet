@@ -1,0 +1,80 @@
+{
+  "duration": 88.79999999999824,
+  "animation_seconds": 68.89999999999827,
+  "wait_seconds": 19.899999999999963,
+  "animation_calls": 33,
+  "beats": [
+    {
+      "title": "Häll inte färgrester i avloppet",
+      "text": "Färgrester ska inte hällas i avloppet. Vissa ämnen kan skada livet i vatten.",
+      "start": 0.9999999999999999,
+      "end": 21.000000000000053,
+      "animation_seconds": 16.466666666666693,
+      "wait_seconds": 3.53333333333336,
+      "automatic_reading_hold": 0.5333333333333066
+    },
+    {
+      "title": "Vattnet kan föra ämnen vidare",
+      "text": "Vissa ämnen följer med vattnet. De kan spridas långt från platsen där utsläppet började.",
+      "start": 21.666666666666753,
+      "end": 41.66666666666694,
+      "animation_seconds": 15.966666666666857,
+      "wait_seconds": 4.033333333333331,
+      "automatic_reading_hold": 0.033333333333143145
+    },
+    {
+      "title": "Vissa ämnen kan skada fiskar",
+      "text": "Vissa ämnen kan skada fiskar. Risken beror på ämnet och mängden.",
+      "start": 42.33333333333357,
+      "end": 62.366666666666106,
+      "animation_seconds": 13.466666666665901,
+      "wait_seconds": 6.5666666666666345,
+      "automatic_reading_hold": 0.5333333333340988
+    },
+    {
+      "title": "Lämna färgrester på rätt ställe",
+      "text": "Lämna färgrester som farligt avfall. Då kan ämnena tas om hand på rätt sätt.",
+      "start": 63.033333333332735,
+      "end": 83.0666666666651,
+      "animation_seconds": 16.46666666666573,
+      "wait_seconds": 3.5666666666666345,
+      "automatic_reading_hold": 0.5333333333342694
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 21.666666666666753,
+      "words": 13,
+      "words_per_second": 0.63
+    },
+    {
+      "start": 21.666666666666753,
+      "end": 42.33333333333357,
+      "words": 14,
+      "words_per_second": 0.68
+    },
+    {
+      "start": 42.33333333333357,
+      "end": 63.033333333332735,
+      "words": 11,
+      "words_per_second": 0.53
+    },
+    {
+      "start": 63.033333333332735,
+      "end": 83.73333333333173,
+      "words": 14,
+      "words_per_second": 0.68
+    },
+    {
+      "start": 83.73333333333173,
+      "end": 88.79999999999824,
+      "words": 10,
+      "words_per_second": 1.97
+    }
+  ]
+}

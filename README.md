@@ -1,75 +1,62 @@
 # Kemins grunder (i)
 
-Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet och årskurs 7, med flödet **Titta → Förstå → Svara**.
+Kemi för årskurs 7 med korta förklaringar, tydliga bilder, fyra interaktiva labb och valbart läs- och skrivstöd.
 
-**Elevsida:** https://gandalfhello145.github.io/Kemilabbet/
+**Elevsida:** https://gandalfhello145.github.io/Kemilabbet/?v=20261111-clear8
 
-## Den här versionen
+## Ett samband i taget
 
-- Utökade förklaringar, vardagsexempel och begreppsstöd i alla sju områden.
-- Detaljerade TikZ-ritningar i områdena 1–6 och en ny genererad scenariobild i Giftfri miljö. SVG-bilderna går att förstora på sidan. Redigerbara källor finns i `latex/`.
-- Fem ytterligare internetbilder om giftfri miljö, med förklaringar, samtalsfrågor, upphovsperson, licens och faktakällor.
-- Sju nyanimerade filmer på högst två minuter, i 1920×1080 med 30 bilder/sekund. Korta LaTeX-texter, svenska undertexter och originalmusik utan berättarröst. Innehållet är anpassat för årskurs 7 och relevanta delar av Lgr22 för högstadiet.
-- Rutherford förklaras med en solsystemsliknelse. Liknelsens begränsningar, Bohrs energinivåer och dagens elektronmoln hålls isär.
+Varje område börjar med ett vardagsexempel och tre eller fyra förklarade ord. Tre korta steg följs av en tydlig bild och en kort slutsats. Fler förklaringar går att öppna när de behövs. Frågor, ledtrådar, exempel och de längre texterna är också omskrivna. Meningsstarter hjälper eleven att formulera ett eget svar.
 
-## Labb och bildförklaringar
+De sex nya SVG-ritningarna kan visas som en översikt eller en bilddel i taget. På liten skärm visas en bilddel från början, med stora etiketter, nästa/föregående och textbeskrivning. Förstoringen behåller vald bilddel. Giftfri miljö använder den tidigare AI-genererade bilden, men visar ett scenario i taget. Fem internetbilder med källor och licenser finns som valbar förklaring.
 
-[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs3#omrade-1). Områdena 1, 2, 3 och 6 har labb överst i steg 2, Förstå. Förändring, Egenskaper och Giftfri miljö har bildförklaringar utan simulering. Länken med lab=alla öppnar steg 2 direkt även när ni växlar område.
+Sju nya Manim-filmer har fyra eller fem undervisningssteg, stora LaTeX-texter och lugna rörelser. De är cirka 88–95 sekunder, i 1920×1080/30 bilder per sekund. Ljudspåret innehåller enbart originalmusik. Filmerna har ingen berättarröst.
 
-| Område | Labb | Undersök |
+## Lässtöd
+
+Verktygen högst upp kan användas av alla elever. Det krävs ingen diagnos.
+
+- Uppläsning av synlig text, markerad text eller elevens eget svar, med styckemarkering, paus, fortsätt och stopp.
+- Läsrad som följer musen eller flyttas med knappar.
+- En förklaringsdel i taget, med nästa och föregående.
+- Ordlista för det aktuella området.
+- Val av textstorlek, typsnitt, rad-/ordavstånd, bakgrund och kontrast.
+- Vanlig text som alternativ till TeX-grafik i labbens knappar och förklaringar.
+- Lugnare rörelser, men undervisande rörelse och kemimodeller finns kvar.
+- Meningsstarter, rättstavningsstöd och möjlighet att lyssna på det egna svaret.
+- Tal till text visas när webbläsaren har stöd. Det startar bara när eleven väljer det. Text läggs till sist och ersätter inte ett markerat svar. En upplysning om webbläsarens eventuella internettjänst visas före användning.
+
+Uppläsningens röster och diktering beror på enheten och webbläsaren. Inställningarna sparas lokalt med en separat nyckel från elevsvaren. Webbplatsen skickar inte elevsvaren till någon egen server. Använd skolans rutiner vid val av enhetens eller webbläsarens rösttjänst.
+
+## De fyra labben är kvar
+
+| Område | Labb | Första uppgift |
 |---|---|---|
-| 1 | Molekylverkstaden | Dra, välj och bind H/O; skilj atomer, atomslag, molekyler och ämnen åt. |
-| 2 | Atomdetektiven | Börja med Thomson, fortsätt med Rutherford och jämför sedan samma strålstart; förklara orsak och slutsats utan vinkelmått. |
-| 3 | Bindningslabbet | Flytta en elektron, räkna laddningar och jämför jongitter med delat elektronpar. |
-| 4 | Bildförklaring | Jämför kemiska och fysikaliska förändringar utan simulering. |
-| 5 | Bildförklaring | Jämför egenskaper och välj material utan simulering. |
-| 6 | Vattenlabbet | Värm/kyl 50 g vatten och koppla ihop fasandelar, molekylvy och temperaturkurva. |
-| 7 | Scenariobild | Följ målarfärg från spill till vatten och jämför förebyggande handlingar. |
+| 1 | Molekylverkstaden | Sätt ihop två H med en O. |
+| 2 | Atomdetektiven | Följ en partikel och koppla banan till atommodellen. |
+| 3 | Bindningslabbet | För samman två väteatomer och dela ett elektronpar. |
+| 6 | Vattenlabbet | Värm och kyl steg för steg; läs temperatur och fas samtidigt. |
 
-De fyra aktiva labben har tydliga elevknappar, direkta handlingar och förklarande återkoppling. Atomdetektiven visar en atommodell i taget innan båda kan jämföras, med slowmotion och närbild av kraften. Grader, histogram och tekniska laddningsreglage har tagits bort. Den extra sektionen Undersök vidare tillsammans visas inte i labben. Text i gränssnitt, knappar, diagram och canvas sätts som LaTeX med lokalt MathJax och SVG. Vattenlabbet behåller sin 3D-vy och 2D-reservvy.
+Fler reglage finns under Fler verktyg. Dragmoment har synliga knappalternativ. Atomdetektivens närbild och långsamma rörelse är kvar. Vattnets energimål är oförändrade. Områdena 4, 5 och 7 använder bilder och förklaringar utan labb.
 
-lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje labb har separat gränssnitt, ren modellfil och modelltester. Äldre modell- och testfiler för de borttagna labben finns kvar som källhistorik men laddas inte på elevsidan. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
+## Kursplan, bedömning och källor
 
-Kör alla 61 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
+[PEDAGOGIK.md](PEDAGOGIK.md) beskriver genomgången av Skolverkets centrala innehåll och betygskriterier, SPSM:s råd om tillgängliga läromedel samt material från Kemilärarnas resurscentrum. Dokumentet innehåller kopplingar för alla sju områden och direkta primärkällor.
 
-## Giftfri miljö
+Det centrala innehållet gäller årskurs 7–9 tillsammans. Här används det för en första genomgång i årskurs 7. Materialet täcker ett arbetsområde, inte hela högstadiets kemi. Läraren bedömer elevens kunskaper utifrån genomförd undervisning; sidan tilldelar inga betyg.
 
-assets/environment/giftfri-miljo-scenarier.webp är webbkopian av en AI-genererad illustration med fyra vardagsscenarier. PNG-original och exakt prompt finns bredvid. environment-scenarios.js innehåller svenska förklaringar, alttext och faktakällor. Bilden är skapad med OpenAI image_gen; fakta har kontrollerats mot primärkällor. De tidigare TikZ-bilderna i område 7 visas inte. De fem internetbilderna och deras käll-/licensuppgifter är kvar.
+## Utveckla och kontrollera
 
-## Vattenlabbet
+Starta en vanlig statisk webbserver i denna mapp. Ingen byggprocess eller extern CDN krävs. För att provspela avsnittshopp i Safari behöver den lokala servern stödja HTTP byte ranges.
 
-[Öppna experimentet](https://gandalfhello145.github.io/Kemilabbet/?lab=vatten&v=20261111-water2#omrade-6). Det finns överst i steg 2, Förstå, i område 6 och nås också med knappen Öppna Vattenlabbet ovanför filmen.
+`learning-content.js` innehåller de nya elevtexterna. `learning-tools.js` och `learning-tools.css` innehåller lässtödet. `learning-diagrams.js` använder SVG-bilder och panelgränser i `assets/diagrams-v5/index.json`. `study-galleries.js` visar miljöbilderna. `script.js` kopplar innehåll, filmer, svar och navigation.
 
-Det guidade försöket börjar med is vid −15 °C. En tydlig huvudknapp leder eleverna genom uppvärmning, smältning, kokning och kylning, med observationer innan de fortsätter. Temperatur, molekylvy och temperaturkurva samlas i samma arbetsyta. Förklaringarna kopplar ihop energin med molekylernas rörelse och det som händer vid 0 och 100 °C. Värm och Kyl startar respektive handling; Pausa stannar försöket. Egna effekt- och hastighetsreglage, jämförelsekurva och CSV finns under fördjupning. 3D-vyn med zoom och en markerad molekyl finns kvar. Simuleringen pausar när området eller lektionssteget döljs och bevarar försöket när eleven kommer tillbaka.
+Filmkällor, storyboards och tidrapporter finns i `manim/v5/`. Kör `python manim/v5/render_all.py` med Python 3.13, Manim enligt `manim/requirements.txt`, FFmpeg och TeX Live med svenska. Kontrollera slutfilmerna med `python manim/v5/audit.py`. SVG-bilderna återskapas med `python manim/v5/generate_diagrams.py`. Äldre versioner finns kvar som källhistorik.
 
-water-model.js använder en entalpimodell med konstanta, avrundade värmekapaciteter och latenta värmen. Smältning/frysning sker vid 0 °C och kokning/kondensation vid 100 °C. Massan och det yttre trycket hålls konstanta med ett schematiskt rörligt lock. Modellen inkluderar inte värmeförluster, temperaturgradienter eller avdunstning under kokpunkten. Modellkort och primärkällor finns i experimentet.
+De oförändrade kemimodellerna har 61 tester: `node --test water-model.test.mjs lab-*.test.mjs`. Filmkontrollen granskar verklig längd, native 1080p30, bildformat, kapitel, synkroniserad VTT, lästid och musik utan tal. Gränssnittet kontrolleras med tangentbord, förstoring, liten skärm och de verkliga stödknapparna.
 
-water-scene.js använder lokalt Three.js 0.184.0 (MIT; licens i vendor/three/). Grafiken visar schematiska positioner och rörelser, utan att ändra molekylernas uppbyggnad. WebGL2-vyn kompletteras av en 2D-reservvy. water-lab.js, water-lab.css och water-graph.js innehåller reglage, tillgänglighetsstöd och graf. Inga externa bibliotek hämtas när sidan körs.
+## Elevsvar och publicering
 
-Kör modellkontrollerna med node --test water-model.test.mjs från webbplatsens projektmapp.
+Elevsvar använder samma lagringsnyckel och schema som tidigare. Frågornas ämnesinnehåll och snabbkollernas rätta index är bevarade. Svar kan sparas som fil, text eller PDF från sidan. Ingen befintlig svarsfil raderas av uppdateringen.
 
-## Filer och källor
-
-`index.html`, `styles.css` och `script.js` innehåller webbplatsen. `study-galleries.js` och `study-assets.js` visar de nya ritningarna och miljöbilderna. Originalens bildkällor finns i `assets/environment/credits.json` och bredvid varje bild på sidan. Nya filmer, affischbilder och undertexter ligger i respektive `assets/*/v4/`.
-
-`manim/v4/` innehåller de nuvarande filmernas kompletta originalkod, storyboard, tidrapporter och produktionsverktyg. `core.py` innehåller bildspråk, kamerastöd och LaTeX. Scenerna är uppdelade i tre källfiler. `music_score.py` lägger till originalmusik utan tal och bevarar videobilder och kapitel. `manim/v4/README.md` länkar till de offentliga 3Blue1Brown-videor och GitHub-exempel som inspirerat visuell förklaring och rörelse. Äldre filmversioner finns kvar på sina äldre sökvägar.
-
-Faktakällor är bland annat American Chemical Society, Institute of Physics, Kemikalieinspektionen och Naturvårdsverket. Länkar finns i respektive område. Ritningarna hjälper eleverna att följa kemiska samband.
-
-## Köra och bygga
-
-För sidan behövs ingen byggprocess: kör `python3 -m http.server 8000` i projektmappen och öppna `http://localhost:8000/`.
-
-TikZ: installera TeX Live med svenska och TikZ, installera `latex/requirements.txt` i Pythonmiljön och kör `python latex/build_diagrams.py`. Ritningarna kompileras först till PDF och konverteras med PyMuPDF till SVG med inbäddade former och teckenkonturer.
-
-Filmer: använd Python 3.13, installera `manim/requirements.txt` och systemberoendena Cairo, Pango, FFmpeg samt TeX Live med svenska och dvisvgm. Kör sedan `python manim/v4/render_all.py`. Det renderar de sju korta filmerna, skapar undertexter, lägger till enbart musik samt bygger affischbilder och metadata. Ingen talsyntes eller installerad berättarröst behövs. De färdiga filmerna finns i `assets/films/v4/` och fungerar i vanliga webbläsare.
-
-## Svar och publicering
-
-Svar och framsteg sparas i elevens webbläsare. Använd sidans exportfunktion för att spara en kopia eller lämna in svar. På delade datorer kan svar finnas kvar i samma webbläsarprofil. Befintliga svarsdata använder samma lagringsnyckel och filschema som tidigare.
-
-GitHub Pages publicerar grenen `main`, mappen `/ (root)`. `.nojekyll` gör att filerna publiceras utan Jekyll.
-
-## LaTeX i labben
-
-lab-tex.js använder MathJax 3.2.2 för att sätta knappar, förklaringar, valmenyer, canvasetiketter och graftext som LaTeX till SVG-path. Alla filer körs lokalt; Apache-2.0-licens och ursprungsnotis finns i vendor/mathjax. Tillgängliga originaltexter, formulärvärden och tangentbordsstyrning bevaras. Begränsade cacheminnen återanvänder redan satta texter och bara ändrad text sätts om.
+GitHub Pages publicerar `main` från projektets rot. `source-manifest.json` listar de publicerade filerna med byteantal och SHA-256.

@@ -1,0 +1,95 @@
+{
+  "duration": 93.8666666666642,
+  "animation_seconds": 71.86666666666422,
+  "wait_seconds": 21.99999999999999,
+  "animation_calls": 34,
+  "beats": [
+    {
+      "title": "Jämför två material rättvist",
+      "text": "Vi värmer två lika långa stavar lika mycket. Bara materialet är olika.",
+      "start": 0.9999999999999999,
+      "end": 18.03333333333334,
+      "animation_seconds": 8.466666666666644,
+      "wait_seconds": 8.566666666666695,
+      "automatic_reading_hold": 0.5333333333333563
+    },
+    {
+      "title": "Koppar leder värme snabbare",
+      "text": "Värmen sprids snabbare genom koppar än genom trä. Det är en materialegenskap.",
+      "start": 18.03333333333334,
+      "end": 35.03333333333386,
+      "animation_seconds": 10.466666666667187,
+      "wait_seconds": 6.533333333333331,
+      "automatic_reading_hold": 0.5333333333327843
+    },
+    {
+      "title": "Salt och sand beter sig olika",
+      "text": "Salt löser sig i vatten. Sanden ligger kvar på botten.",
+      "start": 35.700000000000486,
+      "end": 52.73333333333285,
+      "animation_seconds": 16.966666666665706,
+      "wait_seconds": 0.06666666666666288,
+      "automatic_reading_hold": 0.03333333333429778
+    },
+    {
+      "title": "Saltet har inte försvunnit",
+      "text": "Saltets joner sprids i vattnet. Saltet finns kvar även när du inte ser det.",
+      "start": 53.39999999999948,
+      "end": 70.4333333333319,
+      "animation_seconds": 15.966666666665759,
+      "wait_seconds": 1.0666666666666629,
+      "automatic_reading_hold": 0.03333333333424093
+    },
+    {
+      "title": "Välj material efter uppgiften",
+      "text": "Kastrullens botten ska leda värme. Handtaget ska skydda handen från värmen.",
+      "start": 71.09999999999853,
+      "end": 88.13333333333107,
+      "animation_seconds": 13.466666666665901,
+      "wait_seconds": 3.5666666666666345,
+      "automatic_reading_hold": 0.5333333333340988
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 18.03333333333334,
+      "words": 12,
+      "words_per_second": 0.7
+    },
+    {
+      "start": 18.03333333333334,
+      "end": 35.700000000000486,
+      "words": 12,
+      "words_per_second": 0.68
+    },
+    {
+      "start": 35.700000000000486,
+      "end": 53.39999999999948,
+      "words": 10,
+      "words_per_second": 0.56
+    },
+    {
+      "start": 53.39999999999948,
+      "end": 71.09999999999853,
+      "words": 14,
+      "words_per_second": 0.79
+    },
+    {
+      "start": 71.09999999999853,
+      "end": 88.7999999999977,
+      "words": 11,
+      "words_per_second": 0.62
+    },
+    {
+      "start": 88.7999999999977,
+      "end": 93.8666666666642,
+      "words": 11,
+      "words_per_second": 2.17
+    }
+  ]
+}

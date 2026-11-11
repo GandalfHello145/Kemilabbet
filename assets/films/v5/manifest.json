@@ -1,0 +1,441 @@
+[
+  {
+    "module": 1,
+    "scene": "AtomMaster",
+    "file": "assets/films/v5/01-atomer.mp4",
+    "captions": "assets/captions/v5/01-atomer.vtt",
+    "poster": "assets/posters/v5/01-atomer.jpg",
+    "duration": 89.529,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 33,
+    "chapters": [
+      {
+        "title": "En atom är en byggsten",
+        "text": "Alla ämnen består av små byggstenar. De kallas atomer.",
+        "start": 0.9999999999999999,
+        "end": 17.033333333333342,
+        "animation_seconds": 7.466666666666647,
+        "wait_seconds": 8.566666666666695,
+        "automatic_reading_hold": 0.5333333333333528
+      },
+      {
+        "title": "Atomer finns av olika slag",
+        "text": "Syre och väte är två atomslag. Här har de varsin färg.",
+        "start": 17.033333333333342,
+        "end": 33.03333333333369,
+        "animation_seconds": 7.466666666667038,
+        "wait_seconds": 8.533333333333307,
+        "automatic_reading_hold": 0.5333333333329584
+      },
+      {
+        "title": "Atomer kan bilda en molekyl",
+        "text": "Två väteatomer och en syreatom sitter ihop. Gruppen kallas en vattenmolekyl.",
+        "start": 33.03333333333369,
+        "end": 49.06666666666622,
+        "animation_seconds": 13.966666666665873,
+        "wait_seconds": 2.066666666666663,
+        "automatic_reading_hold": 0.033333333334127246
+      },
+      {
+        "title": "Formeln berättar vilka atomer som ingår",
+        "text": "Vatten är en kemisk förening: olika atomslag sitter ihop. Dess formel är H2O.",
+        "start": 49.06666666666622,
+        "end": 66.09999999999899,
+        "animation_seconds": 8.966666666666157,
+        "wait_seconds": 8.066666666666606,
+        "automatic_reading_hold": 1.033333333333843
+      },
+      {
+        "title": "En blandning innehåller flera ämnen",
+        "text": "Blandningen innehåller vatten och syrgas. De två ämnena finns tillsammans men är olika.",
+        "start": 66.76666666666561,
+        "end": 83.7999999999981,
+        "animation_seconds": 14.466666666665844,
+        "wait_seconds": 2.5666666666666345,
+        "automatic_reading_hold": 0.5333333333341557
+      }
+    ]
+  },
+  {
+    "module": 2,
+    "scene": "ModelMaster",
+    "file": "assets/films/v5/02-modeller.mp4",
+    "captions": "assets/captions/v5/02-modeller.vtt",
+    "poster": "assets/posters/v5/02-modeller.jpg",
+    "duration": 94.929,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 41,
+    "chapters": [
+      {
+        "title": "Thomson: elektroner inne i atomen",
+        "text": "Thomson tänkte sig en positiv klump med negativa elektroner inuti. Sedan kom nya försök.",
+        "start": 0.9999999999999999,
+        "end": 18.00000000000006,
+        "animation_seconds": 14.4666666666667,
+        "wait_seconds": 2.53333333333336,
+        "automatic_reading_hold": 0.5333333333332995
+      },
+      {
+        "title": "Ett försök gav en ny ledtråd",
+        "text": "De flesta partiklar passerade guldfolien. Några studsade tillbaka. Vad kunde förklara det?",
+        "start": 18.66666666666676,
+        "end": 35.6666666666674,
+        "animation_seconds": 12.966666666667312,
+        "wait_seconds": 4.033333333333331,
+        "automatic_reading_hold": 0.0333333333326884
+      },
+      {
+        "title": "Rutherford: en liten kärna",
+        "text": "Positiva partiklar stöts bort av den positiva kärnan. De flesta passerar atomens tomrum.",
+        "start": 36.33333333333403,
+        "end": 53.366666666666596,
+        "animation_seconds": 12.96666666666593,
+        "wait_seconds": 4.0666666666666345,
+        "automatic_reading_hold": 0.5333333333340704
+      },
+      {
+        "title": "Som ett litet solsystem?",
+        "text": "Kärnan liknar solen i bilden. Men elektroner följer inte bestämda banor som planeter.",
+        "start": 54.033333333333225,
+        "end": 71.49999999999896,
+        "animation_seconds": 16.466666666665738,
+        "wait_seconds": 1.0,
+        "automatic_reading_hold": 0
+      },
+      {
+        "title": "Bohr: en bild med elektronskal",
+        "text": "Bohr ritade skal runt kärnan. Skalmodellen hjälper oss att hålla reda på elektroner.",
+        "start": 72.16666666666559,
+        "end": 89.19999999999824,
+        "animation_seconds": 11.966666666665986,
+        "wait_seconds": 5.066666666666663,
+        "automatic_reading_hold": 0.03333333333401356
+      }
+    ]
+  },
+  {
+    "module": 3,
+    "scene": "ElectronMaster",
+    "file": "assets/films/v5/03-elektroner.mp4",
+    "captions": "assets/captions/v5/03-elektroner.vtt",
+    "poster": "assets/posters/v5/03-elektroner.jpg",
+    "duration": 88.195,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 48,
+    "chapters": [
+      {
+        "title": "Plus, minus och ingen laddning",
+        "text": "Protoner har plus. Elektroner har minus. Neutroner har ingen laddning.",
+        "start": 0.9999999999999999,
+        "end": 17.03333333333334,
+        "animation_seconds": 14.96666666666662,
+        "wait_seconds": 1.066666666666718,
+        "automatic_reading_hold": 1.0333333333333794
+      },
+      {
+        "title": "En oladdad väteatom",
+        "text": "En proton och en elektron tar ut varandras laddningar. Atomen är neutral, alltså oladdad.",
+        "start": 17.03333333333334,
+        "end": 33.03333333333402,
+        "animation_seconds": 13.96666666666736,
+        "wait_seconds": 2.033333333333321,
+        "automatic_reading_hold": 2.0333333333326387
+      },
+      {
+        "title": "En laddad atom kallas jon",
+        "text": "När elektronen lämnar finns plus kvar. En laddad atom kallas jon.",
+        "start": 33.03333333333402,
+        "end": 49.06666666666644,
+        "animation_seconds": 14.566666666665835,
+        "wait_seconds": 1.4666666666665833,
+        "automatic_reading_hold": 1.4333333333341614
+      },
+      {
+        "title": "Två atomer kan dela ett elektronpar",
+        "text": "Två väteatomer delar två elektroner. Paret dras till båda kärnorna och håller ihop atomerna.",
+        "start": 49.73333333333307,
+        "end": 65.7666666666655,
+        "animation_seconds": 15.266666666665806,
+        "wait_seconds": 0.7666666666666231,
+        "automatic_reading_hold": 0.733333333334194
+      },
+      {
+        "title": "Flytta en elektron – eller dela ett par",
+        "text": "En elektron kan flyttas bort. Två atomer kan också dela ett elektronpar.",
+        "start": 66.43333333333213,
+        "end": 82.46666666666455,
+        "animation_seconds": 14.966666666665823,
+        "wait_seconds": 1.066666666666606,
+        "automatic_reading_hold": 1.033333333334184
+      }
+    ]
+  },
+  {
+    "module": 4,
+    "scene": "ReactionMaster",
+    "file": "assets/films/v5/04-forandringar.mp4",
+    "captions": "assets/captions/v5/04-forandringar.vtt",
+    "poster": "assets/posters/v5/04-forandringar.jpg",
+    "duration": 88.195443,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 46,
+    "chapters": [
+      {
+        "title": "Börja med en vattenmolekyl",
+        "text": "Is består av vattenmolekyler. Varje vattenmolekyl har två väteatomer och en syreatom.",
+        "start": 0.9999999999999999,
+        "end": 17.03333333333334,
+        "animation_seconds": 13.866666666666625,
+        "wait_seconds": 2.166666666666714,
+        "automatic_reading_hold": 2.1333333333333755
+      },
+      {
+        "title": "Is smälter – molekylerna finns kvar",
+        "text": "När is smälter flyttar molekylerna på sig. De är fortfarande samma vattenmolekyler.",
+        "start": 17.70000000000004,
+        "end": 33.70000000000065,
+        "animation_seconds": 14.36666666666737,
+        "wait_seconds": 1.6333333333332405,
+        "automatic_reading_hold": 1.6333333333326294
+      },
+      {
+        "title": "Före en kemisk reaktion",
+        "text": "Före reaktionen finns två vätemolekyler och en syrgasmolekyl. Följ de blå och röda atomerna.",
+        "start": 34.36666666666728,
+        "end": 50.3999999999997,
+        "animation_seconds": 13.66666666666589,
+        "wait_seconds": 2.366666666666532,
+        "automatic_reading_hold": 2.33333333333411
+      },
+      {
+        "title": "Samma atomer binds på ett nytt sätt",
+        "text": "I en reaktion grupperas atomerna om. Nya bindningar ger två vattenmolekyler.",
+        "start": 50.3999999999997,
+        "end": 66.43333333333213,
+        "animation_seconds": 14.966666666665823,
+        "wait_seconds": 1.066666666666606,
+        "automatic_reading_hold": 1.033333333334177
+      },
+      {
+        "title": "Samma ämne – eller ett nytt ämne?",
+        "text": "Is blir flytande vatten. Väte och syre kan reagera och bilda vatten, ett nytt ämne.",
+        "start": 66.43333333333213,
+        "end": 82.46666666666455,
+        "animation_seconds": 15.666666666665776,
+        "wait_seconds": 0.3666666666666458,
+        "automatic_reading_hold": 0.3333333333342239
+      }
+    ]
+  },
+  {
+    "module": 5,
+    "scene": "MaterialMaster",
+    "file": "assets/films/v5/05-egenskaper.mp4",
+    "captions": "assets/captions/v5/05-egenskaper.vtt",
+    "poster": "assets/posters/v5/05-egenskaper.jpg",
+    "duration": 93.861,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 34,
+    "chapters": [
+      {
+        "title": "Jämför två material rättvist",
+        "text": "Vi värmer två lika långa stavar lika mycket. Bara materialet är olika.",
+        "start": 0.9999999999999999,
+        "end": 18.03333333333334,
+        "animation_seconds": 8.466666666666644,
+        "wait_seconds": 8.566666666666695,
+        "automatic_reading_hold": 0.5333333333333563
+      },
+      {
+        "title": "Koppar leder värme snabbare",
+        "text": "Värmen sprids snabbare genom koppar än genom trä. Det är en materialegenskap.",
+        "start": 18.03333333333334,
+        "end": 35.03333333333386,
+        "animation_seconds": 10.466666666667187,
+        "wait_seconds": 6.533333333333331,
+        "automatic_reading_hold": 0.5333333333327843
+      },
+      {
+        "title": "Salt och sand beter sig olika",
+        "text": "Salt löser sig i vatten. Sanden ligger kvar på botten.",
+        "start": 35.700000000000486,
+        "end": 52.73333333333285,
+        "animation_seconds": 16.966666666665706,
+        "wait_seconds": 0.06666666666666288,
+        "automatic_reading_hold": 0.03333333333429778
+      },
+      {
+        "title": "Saltet har inte försvunnit",
+        "text": "Saltets joner sprids i vattnet. Saltet finns kvar även när du inte ser det.",
+        "start": 53.39999999999948,
+        "end": 70.4333333333319,
+        "animation_seconds": 15.966666666665759,
+        "wait_seconds": 1.0666666666666629,
+        "automatic_reading_hold": 0.03333333333424093
+      },
+      {
+        "title": "Välj material efter uppgiften",
+        "text": "Kastrullens botten ska leda värme. Handtaget ska skydda handen från värmen.",
+        "start": 71.09999999999853,
+        "end": 88.13333333333107,
+        "animation_seconds": 13.466666666665901,
+        "wait_seconds": 3.5666666666666345,
+        "automatic_reading_hold": 0.5333333333340988
+      }
+    ]
+  },
+  {
+    "module": 6,
+    "scene": "PhaseMaster",
+    "file": "assets/films/v5/06-faser.mp4",
+    "captions": "assets/captions/v5/06-faser.vtt",
+    "poster": "assets/posters/v5/06-faser.jpg",
+    "duration": 94.830078,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 32,
+    "chapters": [
+      {
+        "title": "Is: molekylerna har bestämda platser",
+        "text": "I is sitter vattenmolekylerna på bestämda platser. De står inte stilla, utan vibrerar.",
+        "start": 0.9999999999999999,
+        "end": 18.000000000000053,
+        "animation_seconds": 16.466666666666693,
+        "wait_seconds": 0.5333333333333599,
+        "automatic_reading_hold": 0.5333333333333066
+      },
+      {
+        "title": "Vätska: molekylerna kan byta plats",
+        "text": "När is smälter kan molekylerna röra sig förbi varandra. Det är fortfarande vatten.",
+        "start": 18.000000000000053,
+        "end": 35.000000000000576,
+        "animation_seconds": 16.46666666666722,
+        "wait_seconds": 0.533333333333303,
+        "automatic_reading_hold": 0.5333333333327808
+      },
+      {
+        "title": "Gas: längre mellan molekylerna",
+        "text": "I vattenånga rör sig molekylerna fritt. Avstånden är större, men molekylerna är lika stora.",
+        "start": 35.000000000000576,
+        "end": 52.03333333333294,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 0.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
+      },
+      {
+        "title": "Värm vattnet – följ kurvan",
+        "text": "Is smälter vid 0 grader. Vatten kokar vid 100 grader, vid vanligt lufttryck.",
+        "start": 52.03333333333294,
+        "end": 72.06666666666531,
+        "animation_seconds": 16.666666666665726,
+        "wait_seconds": 3.366666666666646,
+        "automatic_reading_hold": 0.3333333333342736
+      },
+      {
+        "title": "Vattenånga kan bli vätska igen",
+        "text": "Vattenånga som kyls blir flytande vatten. Det heter kondensering.",
+        "start": 72.06666666666531,
+        "end": 89.09999999999768,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 0.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
+      }
+    ]
+  },
+  {
+    "module": 7,
+    "scene": "EnvironmentMaster",
+    "file": "assets/films/v5/07-miljo.mp4",
+    "captions": "assets/captions/v5/07-miljo.vtt",
+    "poster": "assets/posters/v5/07-miljo.jpg",
+    "duration": 88.795443,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "audio": true,
+    "narration": false,
+    "music": true,
+    "spoken_seconds": 0,
+    "version": 5,
+    "animation_calls": 33,
+    "chapters": [
+      {
+        "title": "Häll inte färgrester i avloppet",
+        "text": "Färgrester ska inte hällas i avloppet. Vissa ämnen kan skada livet i vatten.",
+        "start": 0.9999999999999999,
+        "end": 21.000000000000053,
+        "animation_seconds": 16.466666666666693,
+        "wait_seconds": 3.53333333333336,
+        "automatic_reading_hold": 0.5333333333333066
+      },
+      {
+        "title": "Vattnet kan föra ämnen vidare",
+        "text": "Vissa ämnen följer med vattnet. De kan spridas långt från platsen där utsläppet började.",
+        "start": 21.666666666666753,
+        "end": 41.66666666666694,
+        "animation_seconds": 15.966666666666857,
+        "wait_seconds": 4.033333333333331,
+        "automatic_reading_hold": 0.033333333333143145
+      },
+      {
+        "title": "Vissa ämnen kan skada fiskar",
+        "text": "Vissa ämnen kan skada fiskar. Risken beror på ämnet och mängden.",
+        "start": 42.33333333333357,
+        "end": 62.366666666666106,
+        "animation_seconds": 13.466666666665901,
+        "wait_seconds": 6.5666666666666345,
+        "automatic_reading_hold": 0.5333333333340988
+      },
+      {
+        "title": "Lämna färgrester på rätt ställe",
+        "text": "Lämna färgrester som farligt avfall. Då kan ämnena tas om hand på rätt sätt.",
+        "start": 63.033333333332735,
+        "end": 83.0666666666651,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 3.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
+      }
+    ]
+  }
+]

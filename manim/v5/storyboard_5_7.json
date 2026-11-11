@@ -1,0 +1,122 @@
+[
+  {
+    "scene": "MaterialMaster",
+    "number": 5,
+    "topic": "Vad passar materialet till?",
+    "slug": "05-egenskaper",
+    "total_steps": 5,
+    "steps": [
+      {
+        "title": "Jämför två material rättvist",
+        "text": "Vi värmer två lika långa stavar lika mycket. Bara materialet är olika.",
+        "words": 12,
+        "seconds": 17
+      },
+      {
+        "title": "Koppar leder värme snabbare",
+        "text": "Värmen sprids snabbare genom koppar än genom trä. Det är en materialegenskap.",
+        "words": 12,
+        "seconds": 17
+      },
+      {
+        "title": "Salt och sand beter sig olika",
+        "text": "Salt löser sig i vatten. Sanden ligger kvar på botten.",
+        "words": 10,
+        "seconds": 17
+      },
+      {
+        "title": "Saltet har inte försvunnit",
+        "text": "Saltets joner sprids i vattnet. Saltet finns kvar även när du inte ser det.",
+        "words": 14,
+        "seconds": 17
+      },
+      {
+        "title": "Välj material efter uppgiften",
+        "text": "Kastrullens botten ska leda värme. Handtaget ska skydda handen från värmen.",
+        "words": 11,
+        "seconds": 17
+      }
+    ],
+    "silent": true,
+    "visible_text": "LaTeX",
+    "new_choreography": true
+  },
+  {
+    "scene": "PhaseMaster",
+    "number": 6,
+    "topic": "Samma vatten -- tre former",
+    "slug": "06-faser",
+    "total_steps": 5,
+    "steps": [
+      {
+        "title": "Is: molekylerna har bestämda platser",
+        "text": "I is sitter vattenmolekylerna på bestämda platser. De står inte stilla, utan vibrerar.",
+        "words": 13,
+        "seconds": 17
+      },
+      {
+        "title": "Vätska: molekylerna kan byta plats",
+        "text": "När is smälter kan molekylerna röra sig förbi varandra. Det är fortfarande vatten.",
+        "words": 13,
+        "seconds": 17
+      },
+      {
+        "title": "Gas: längre mellan molekylerna",
+        "text": "I vattenånga rör sig molekylerna fritt. Avstånden är större, men molekylerna är lika stora.",
+        "words": 14,
+        "seconds": 17
+      },
+      {
+        "title": "Värm vattnet -- följ kurvan",
+        "text": "Is smälter vid 0 grader. Vatten kokar vid 100 grader, vid vanligt lufttryck.",
+        "words": 13,
+        "seconds": 20
+      },
+      {
+        "title": "Vattenånga kan bli vätska igen",
+        "text": "Vattenånga som kyls blir flytande vatten. Det heter kondensering.",
+        "words": 9,
+        "seconds": 17
+      }
+    ],
+    "silent": true,
+    "visible_text": "LaTeX",
+    "new_choreography": true
+  },
+  {
+    "scene": "EnvironmentMaster",
+    "number": 7,
+    "topic": "Färgrester och livet i vattnet",
+    "slug": "07-miljo",
+    "total_steps": 4,
+    "steps": [
+      {
+        "title": "Häll inte färgrester i avloppet",
+        "text": "Färgrester ska inte hällas i avloppet. Vissa ämnen kan skada livet i vatten.",
+        "words": 13,
+        "seconds": 20
+      },
+      {
+        "title": "Vattnet kan föra ämnen vidare",
+        "text": "Vissa ämnen följer med vattnet. De kan spridas långt från platsen där utsläppet började.",
+        "words": 14,
+        "seconds": 20
+      },
+      {
+        "title": "Vissa ämnen kan skada fiskar",
+        "text": "Vissa ämnen kan skada fiskar. Risken beror på ämnet och mängden.",
+        "words": 11,
+        "seconds": 20
+      },
+      {
+        "title": "Lämna färgrester på rätt ställe",
+        "text": "Lämna färgrester som farligt avfall. Då kan ämnena tas om hand på rätt sätt.",
+        "words": 14,
+        "seconds": 20
+      }
+    ],
+    "silent": true,
+    "visible_text": "LaTeX",
+    "new_choreography": true
+  }
+]

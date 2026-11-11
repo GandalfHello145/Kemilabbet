@@ -1,0 +1,95 @@
+{
+  "duration": 89.53333333333123,
+  "animation_seconds": 57.53333333333132,
+  "wait_seconds": 31.999999999999908,
+  "animation_calls": 33,
+  "beats": [
+    {
+      "title": "En atom är en byggsten",
+      "text": "Alla ämnen består av små byggstenar. De kallas atomer.",
+      "start": 0.9999999999999999,
+      "end": 17.033333333333342,
+      "animation_seconds": 7.466666666666647,
+      "wait_seconds": 8.566666666666695,
+      "automatic_reading_hold": 0.5333333333333528
+    },
+    {
+      "title": "Atomer finns av olika slag",
+      "text": "Syre och väte är två atomslag. Här har de varsin färg.",
+      "start": 17.033333333333342,
+      "end": 33.03333333333369,
+      "animation_seconds": 7.466666666667038,
+      "wait_seconds": 8.533333333333307,
+      "automatic_reading_hold": 0.5333333333329584
+    },
+    {
+      "title": "Atomer kan bilda en molekyl",
+      "text": "Två väteatomer och en syreatom sitter ihop. Gruppen kallas en vattenmolekyl.",
+      "start": 33.03333333333369,
+      "end": 49.06666666666622,
+      "animation_seconds": 13.966666666665873,
+      "wait_seconds": 2.066666666666663,
+      "automatic_reading_hold": 0.033333333334127246
+    },
+    {
+      "title": "Formeln berättar vilka atomer som ingår",
+      "text": "Vatten är en kemisk förening: olika atomslag sitter ihop. Dess formel är H2O.",
+      "start": 49.06666666666622,
+      "end": 66.09999999999899,
+      "animation_seconds": 8.966666666666157,
+      "wait_seconds": 8.066666666666606,
+      "automatic_reading_hold": 1.033333333333843
+    },
+    {
+      "title": "En blandning innehåller flera ämnen",
+      "text": "Blandningen innehåller vatten och syrgas. De två ämnena finns tillsammans men är olika.",
+      "start": 66.76666666666561,
+      "end": 83.7999999999981,
+      "animation_seconds": 14.466666666665844,
+      "wait_seconds": 2.5666666666666345,
+      "automatic_reading_hold": 0.5333333333341557
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 17.033333333333342,
+      "words": 9,
+      "words_per_second": 0.56
+    },
+    {
+      "start": 17.033333333333342,
+      "end": 33.03333333333369,
+      "words": 11,
+      "words_per_second": 0.69
+    },
+    {
+      "start": 33.03333333333369,
+      "end": 49.06666666666622,
+      "words": 11,
+      "words_per_second": 0.69
+    },
+    {
+      "start": 49.06666666666622,
+      "end": 66.76666666666561,
+      "words": 13,
+      "words_per_second": 0.73
+    },
+    {
+      "start": 66.76666666666561,
+      "end": 84.46666666666472,
+      "words": 13,
+      "words_per_second": 0.73
+    },
+    {
+      "start": 84.46666666666472,
+      "end": 89.53333333333123,
+      "words": 13,
+      "words_per_second": 2.57
+    }
+  ]
+}

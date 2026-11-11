@@ -1,7 +1,7 @@
 export const LABS = Object.freeze({
-  1:{slug:'molekyler',title:'Molekylverkstaden',description:'Bygg molekyler och följ sambandet mellan atomer, atomslag och formler.',file:'lab-atoms.js'},
-  2:{slug:'atommodeller',title:'Atomdetektiven',description:'Skicka alfapartiklar, jämför modeller och följ deras spår.',file:'lab-models.js'},
-  3:{slug:'bindningar',title:'Bindningslabbet',description:'Följ elektroner och undersök joner och delade elektronpar.',file:'lab-bonds.js'},
+  1:{slug:'molekyler',title:'Molekylverkstaden',description:'Sätt ihop atomer. Bygg vatten och se vad en molekyl är.',file:'lab-atoms.js'},
+  2:{slug:'atommodeller',title:'Atomdetektiven',description:'Skicka en positiv partikel. Följ vägen och jämför två bilder av atomen.',file:'lab-models.js'},
+  3:{slug:'bindningar',title:'Bindningslabbet',description:'Dela två elektroner och bygg en vätemolekyl. Prova sedan plus och minus.',file:'lab-bonds.js'},
   6:{slug:'vatten',title:'Vattenlabbet',description:'Följ vatten från is till vattenånga, steg för steg. Se molekylerna och temperaturkurvan tillsammans.',file:'water-lab.js'},
 });
 export function mountSubjectLab(host, number) {

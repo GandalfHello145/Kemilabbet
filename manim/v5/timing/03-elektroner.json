@@ -1,0 +1,95 @@
+{
+  "duration": 88.19999999999769,
+  "animation_seconds": 79.59999999999783,
+  "wait_seconds": 8.599999999999854,
+  "animation_calls": 48,
+  "beats": [
+    {
+      "title": "Plus, minus och ingen laddning",
+      "text": "Protoner har plus. Elektroner har minus. Neutroner har ingen laddning.",
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "animation_seconds": 14.96666666666662,
+      "wait_seconds": 1.066666666666718,
+      "automatic_reading_hold": 1.0333333333333794
+    },
+    {
+      "title": "En oladdad väteatom",
+      "text": "En proton och en elektron tar ut varandras laddningar. Atomen är neutral, alltså oladdad.",
+      "start": 17.03333333333334,
+      "end": 33.03333333333402,
+      "animation_seconds": 13.96666666666736,
+      "wait_seconds": 2.033333333333321,
+      "automatic_reading_hold": 2.0333333333326387
+    },
+    {
+      "title": "En laddad atom kallas jon",
+      "text": "När elektronen lämnar finns plus kvar. En laddad atom kallas jon.",
+      "start": 33.03333333333402,
+      "end": 49.06666666666644,
+      "animation_seconds": 14.566666666665835,
+      "wait_seconds": 1.4666666666665833,
+      "automatic_reading_hold": 1.4333333333341614
+    },
+    {
+      "title": "Två atomer kan dela ett elektronpar",
+      "text": "Två väteatomer delar två elektroner. Paret dras till båda kärnorna och håller ihop atomerna.",
+      "start": 49.73333333333307,
+      "end": 65.7666666666655,
+      "animation_seconds": 15.266666666665806,
+      "wait_seconds": 0.7666666666666231,
+      "automatic_reading_hold": 0.733333333334194
+    },
+    {
+      "title": "Flytta en elektron -- eller dela ett par",
+      "text": "En elektron kan flyttas bort. Två atomer kan också dela ett elektronpar.",
+      "start": 66.43333333333213,
+      "end": 82.46666666666455,
+      "animation_seconds": 14.966666666665823,
+      "wait_seconds": 1.066666666666606,
+      "automatic_reading_hold": 1.033333333334184
+    }
+  ],
+  "max_duration_seconds": 120,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "reading": [
+    {
+      "start": 0.9999999999999999,
+      "end": 17.03333333333334,
+      "words": 10,
+      "words_per_second": 0.62
+    },
+    {
+      "start": 17.03333333333334,
+      "end": 33.03333333333402,
+      "words": 14,
+      "words_per_second": 0.87
+    },
+    {
+      "start": 33.03333333333402,
+      "end": 49.73333333333307,
+      "words": 11,
+      "words_per_second": 0.66
+    },
+    {
+      "start": 49.73333333333307,
+      "end": 66.43333333333213,
+      "words": 14,
+      "words_per_second": 0.84
+    },
+    {
+      "start": 66.43333333333213,
+      "end": 83.13333333333118,
+      "words": 12,
+      "words_per_second": 0.72
+    },
+    {
+      "start": 83.13333333333118,
+      "end": 88.19999999999769,
+      "words": 12,
+      "words_per_second": 2.37
+    }
+  ]
+}

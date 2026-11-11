@@ -64,6 +64,7 @@
 .water-lab .wl-chart .wl-panel-label{color:#568276;font-size:10px}
 .water-lab .wl-chart h3{font-family:LMSans,Arial,sans-serif;font-size:17px;line-height:1.4;color:#285c60;font-weight:600;margin:4px 0 0}
 .water-lab .wl-chart-units{font-family:LMSans,Arial,sans-serif;font-size:12px;line-height:1.5;color:#70857d;margin:7px 0 0}
+.water-lab .wl-graph-key{font-size:12px;line-height:1.5;color:#456e64;margin:5px 0 0}
 .wl-graph{display:block;width:100%;height:auto;min-height:0;max-height:none;touch-action:pan-y;overflow:visible;flex-shrink:0}
 .water-lab .wl-chart-readout{font-family:LMSans,Arial,sans-serif;font-size:12px;line-height:1.5;margin:4px 0 0;color:#4f786e;min-height:35px}
 .wl-reference{font-size:10px;color:#9a762f;border:1px solid #d9c799;background:#faf4e4;border-radius:5px;padding:5px 8px}
@@ -95,3 +96,5 @@ body:has(.wl-focus) #main{animation:none!important;transform:none!important}
 @media(max-height:550px){.wl-focus .wl-guide{position:relative}.wl-focus .wl-workbench{display:grid;grid-template-columns:minmax(0,1fr)}.wl-focus .wl-three,.wl-focus .wl-fallback{height:190px}.wl-focus .wl-chart{border-top:1px solid var(--wl-line);border-left:0}.wl-focus .wl-graph{max-width:650px;margin:auto}}
 @media(prefers-reduced-motion:reduce){.water-lab *{transition:none!important;scroll-behavior:auto!important}}
 @media print{.water-lab{display:none!important}}
+body[data-motion="calm"] .water-lab button{transition:none!important;transform:none!important}
+.water-lab summary:focus-visible{outline:3px solid #cf9b46;outline-offset:4px}

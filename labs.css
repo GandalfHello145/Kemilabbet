@@ -158,3 +158,13 @@ body:has(.cl-focus) #main{animation:none!important;transform:none!important}
 .chem-lab .lab-tex-option[aria-selected=true],.water-lab .lab-tex-option[aria-selected=true]{background:#e5f2eb;border-color:#87bba7}
 .chem-lab .lab-tex-option.lab-tex-option-active,.water-lab .lab-tex-option.lab-tex-option-active{outline:2px solid #0c7c83;outline-offset:-2px;background:#eff8f3}
 .lab-tex-select-button:focus-visible{outline:3px solid #cf9d50;outline-offset:3px}
+
+/* One clear action first; optional controls stay inside ordinary details. */
+.cl-controls details{border-top:1px solid #d5e2d8;padding-top:12px}
+.cl-controls details>summary{cursor:pointer;font-size:14px;font-weight:600;line-height:1.6;color:#286b65}
+.cl-controls details[open]>:not(summary){margin-top:12px}
+.cl-controls details .cl-field{margin-top:14px}
+.cl-controls details button{margin-top:8px}
+.cl-controls summary:focus-visible,.cl-view-options summary:focus-visible,.cl-model summary:focus-visible{outline:3px solid #cf9d50;outline-offset:4px}
+body[data-motion="calm"] .chem-lab button{transition:none!important;transform:none!important}
+body[data-motion="calm"] .chem-lab button:hover{transform:none!important}

@@ -1,0 +1,185 @@
+{
+  "version": 5,
+  "audience": "Första kemiundervisningen i åk7",
+  "principles": [
+    "Ett nytt begrepp per steg",
+    "10–16 ord per cue",
+    "Stora TeX-etiketter",
+    "Samma objekt följs med lugna förflyttningar",
+    "Färger och en följring, inga extra atom-ID att läsa"
+  ],
+  "films": [
+    {
+      "number": 3,
+      "topic": "Elektroner, laddning och bindning",
+      "slug": "03-elektroner",
+      "scene": "ElectronMaster",
+      "steps": [
+        {
+          "title_tex": "Plus, minus och ingen laddning",
+          "cue": "Protoner har plus. Elektroner har minus. Neutroner har ingen laddning.",
+          "words": 10,
+          "seconds": 16
+        },
+        {
+          "title_tex": "En oladdad väteatom",
+          "cue": "En proton och en elektron tar ut varandras laddningar. Atomen är neutral, alltså oladdad.",
+          "words": 14,
+          "seconds": 16
+        },
+        {
+          "title_tex": "En laddad atom kallas jon",
+          "cue": "När elektronen lämnar finns plus kvar. En laddad atom kallas jon.",
+          "words": 11,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Två atomer kan dela ett elektronpar",
+          "cue": "Två väteatomer delar två elektroner. Paret dras till båda kärnorna och håller ihop atomerna.",
+          "words": 14,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Flytta en elektron -- eller dela ett par",
+          "cue": "En elektron kan flyttas bort. Två atomer kan också dela ett elektronpar.",
+          "words": 12,
+          "seconds": 16
+        }
+      ],
+      "narration": false,
+      "text": "Tex/MathTex",
+      "native_target": "1920×1080/30fps",
+      "new_five_step_choreography": true,
+      "rendered_seconds": 88.194792,
+      "rendered_width": 1920,
+      "rendered_height": 1080,
+      "rendered_fps": 30,
+      "raw_audio_streams": 0,
+      "sha256": "5555c0c57d5bc8b3ee02308cc94aa9546b42ad834cf009cc584ed71ab927c466",
+      "max_caption_words_per_second": 2.37
+    },
+    {
+      "number": 4,
+      "topic": "Samma ämne eller ett nytt ämne?",
+      "slug": "04-forandringar",
+      "scene": "ReactionMaster",
+      "steps": [
+        {
+          "title_tex": "Börja med en vattenmolekyl",
+          "cue": "Is består av vattenmolekyler. Varje vattenmolekyl har två väteatomer och en syreatom.",
+          "words": 12,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Is smälter -- molekylerna finns kvar",
+          "cue": "När is smälter flyttar molekylerna på sig. De är fortfarande samma vattenmolekyler.",
+          "words": 12,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Före en kemisk reaktion",
+          "cue": "Före reaktionen finns två vätemolekyler och en syrgasmolekyl. Följ de blå och röda atomerna.",
+          "words": 14,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Samma atomer binds på ett nytt sätt",
+          "cue": "I en reaktion grupperas atomerna om. Nya bindningar ger två vattenmolekyler.",
+          "words": 11,
+          "seconds": 16
+        },
+        {
+          "title_tex": "Samma ämne -- eller ett nytt ämne?",
+          "cue": "Is blir flytande vatten. Väte och syre kan reagera och bilda vatten, ett nytt ämne.",
+          "words": 15,
+          "seconds": 16
+        }
+      ],
+      "narration": false,
+      "text": "Tex/MathTex",
+      "native_target": "1920×1080/30fps",
+      "new_five_step_choreography": true,
+      "rendered_seconds": 88.195443,
+      "rendered_width": 1920,
+      "rendered_height": 1080,
+      "rendered_fps": 30,
+      "raw_audio_streams": 0,
+      "sha256": "d8499197c0397526c262178b3848f01b6e7ca1b74703e70edb4ef3eafd7fcd57",
+      "max_caption_words_per_second": 2.76,
+      "final_comparison": {
+        "physical": [
+          "is → flytande vatten",
+          "fortfarande vatten"
+        ],
+        "chemical": [
+          "väte + syre → vatten",
+          "vatten är det nya ämnet"
+        ],
+        "no_molecule_quantity_vs_substance_confusion": true
+      }
+    }
+  ],
+  "reaction_conservation": {
+    "before": [
+      "H",
+      "H",
+      "H",
+      "H",
+      "O",
+      "O"
+    ],
+    "after": [
+      "H",
+      "H",
+      "H",
+      "H",
+      "O",
+      "O"
+    ],
+    "molecules_before": [
+      [
+        "H",
+        "H"
+      ],
+      [
+        "H",
+        "H"
+      ],
+      [
+        "O",
+        "O"
+      ]
+    ],
+    "molecules_after": [
+      [
+        "O",
+        "H",
+        "H"
+      ],
+      [
+        "O",
+        "H",
+        "H"
+      ]
+    ],
+    "same_mobjects": true,
+    "single_oxygen_follow_ring": true,
+    "chemical_formula_inside_atom": false
+  },
+  "sources": [
+    {
+      "title": "Skolverket, kemi åk7–9",
+      "url": "https://syllabuswebb.skolverket.se/compulsorycw/jsp/subject.htm?subjectCode=GRGRKEM01&tos=gr"
+    },
+    {
+      "title": "SPSM, läs- och skrivsvårigheter och läromedel",
+      "url": "https://hittalaromedel.spsm.se/funktionsnedsattning-och-laromedel/las-och-skrivsvarigheter-dyslexi/",
+      "use": "Nivåanpassat innehåll och begrepp som förklaras före längre text."
+    },
+    {
+      "title": "3Blue1Brown, offentligt videosarkiv",
+      "url": "https://github.com/3b1b/videos",
+      "use": "Beständiga objekt och samordnade förklaringsbilder. Ingen kopierad kod."
+    }
+  ]
+}

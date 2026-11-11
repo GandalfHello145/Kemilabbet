@@ -1,6 +1,9 @@
-import { LABS, mountSubjectLab } from './lab-router.js?v=20261111-water2';
+import { applySimpleDiagrams, renderLearningDiagram, connectDiagramPanels } from './learning-diagrams.js?v=20261111-clear8';
+import { applyYear7Content } from './learning-content.js?v=20261111-clear8';
+import { initLearningTools, refreshLearningTools, renderAnswerSupport } from './learning-tools.js?v=20261111-clear8';
+import { LABS, mountSubjectLab } from './lab-router.js?v=20261111-clear8';
 let activeLab = null;
-import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261110-labs3';
+import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261111-clear8';
 // Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
 const modules = [
   {
@@ -306,8 +309,8 @@ const lessons = {
       "correction": "En molekyl kan bestå av samma atomslag, som O₂, eller olika atomslag, som H₂O. För att ämnet ska vara en kemisk förening krävs olika grundämnen kemiskt bundna till varandra."
     },
     "film": {
-      "src": "assets/films/v4/01-atomer.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/01-atomer.jpg?v=20261111-films4",
+      "src": "assets/films/v5/01-atomer.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/01-atomer.jpg?v=20261111-clear8",
       "title": "Atomer och molekyler: följ byggstenarna",
       "before": "Följ samma vattenmolekyl. Skilj på antal atomer, antal atomslag och antal molekyler.",
       "after": "Pausa vid H₂O och 2H₂O. Vad räknar den lilla tvåan, och vad räknar siffran framför?"
@@ -399,8 +402,8 @@ const lessons = {
       "correction": "I Thomsons modell är den positiva laddningen utspridd genom atomen. En liten central kärna med samlad positiv laddning är den avgörande förändringen i Rutherfords modell."
     },
     "film": {
-      "src": "assets/films/v4/02-modeller.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/02-modeller.jpg?v=20261111-films4",
+      "src": "assets/films/v5/02-modeller.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/02-modeller.jpg?v=20261111-clear8",
       "title": "Atommodeller: från observation till förklaring",
       "before": "Se vad forskarna upptäcker. Följ sedan hur varje observation förändrar bilden av atomen.",
       "after": "Varför böjs strålarna? Vad visar guldfolieförsöket om atomens tomrum och kärna? Förklara också solsystemsliknelsen."
@@ -504,8 +507,8 @@ const lessons = {
       "correction": "Vid vanliga kemiska reaktioner finns atomkärnorna kvar. Elektroner och bindningar kan ordnas på nya sätt. Atomslaget bestäms av protonerna i kärnan, så väte är fortfarande väte även när det ingår i ett nytt ämne."
     },
     "film": {
-      "src": "assets/films/v4/03-elektroner.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/03-elektroner.jpg?v=20261111-films4",
+      "src": "assets/films/v5/03-elektroner.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/03-elektroner.jpg?v=20261111-clear8",
       "title": "Elektroner: laddningar, joner och bindningar",
       "before": "Följ den markerade elektronen från natrium till klor. Lägg märke till vad som händer med laddningen.",
       "after": "Varför blir natriumjonen positiv och kloridjonen negativ? Jämför sedan med två väteatomer som delar ett elektronpar."
@@ -589,8 +592,8 @@ const lessons = {
       "correction": "Det avgörande är om nya ämnen bildas. Klippt papper visar hur ett föremål kan vara svårt att återställa efter en fysikalisk förändring. Vid en kemisk förändring behöver förklaringen visa vilka nya ämnen som bildas."
     },
     "film": {
-      "src": "assets/films/v4/04-forandringar.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/04-forandringar.jpg?v=20261111-films4",
+      "src": "assets/films/v5/04-forandringar.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/04-forandringar.jpg?v=20261111-clear8",
       "title": "Förändringar: samma atomer, nya ämnen",
       "before": "Följ vattenmolekylerna när is smälter. Jämför sedan med hur väte och syre reagerar och bildar vatten.",
       "after": "Vad behålls vid en fasövergång? Vad ändras vid en kemisk reaktion? Följ en atom och använd orden nytt ämne."
@@ -682,8 +685,8 @@ const lessons = {
       "correction": "Färg är en egenskap bland flera. Salt och socker kan båda vara vita och lösliga i vatten. För att skilja prov åt behöver vi välja undersökningar som ger användbar information. Smaka aldrig på okända prov."
     },
     "film": {
-      "src": "assets/films/v4/05-egenskaper.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/05-egenskaper.jpg?v=20261111-films4",
+      "src": "assets/films/v5/05-egenskaper.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/05-egenskaper.jpg?v=20261111-clear8",
       "title": "Egenskaper: jämför och välj material",
       "before": "Följ energin i de två stavarna. Se vad som hålls lika för att jämförelsen ska bli rättvis.",
       "after": "Vilka egenskaper behövs i kastrullens botten och handtag? Motivera materialvalen med eftersom."
@@ -775,8 +778,8 @@ const lessons = {
       "correction": "Gasens stora volym hänger framför allt ihop med stora avstånd mellan molekylerna. Varje H₂O-molekyl behåller sin uppbyggnad med två väteatomer och en syreatom."
     },
     "film": {
-      "src": "assets/films/v4/06-faser.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/06-faser.jpg?v=20261111-films4",
+      "src": "assets/films/v5/06-faser.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/06-faser.jpg?v=20261111-clear8",
       "title": "Värme och faser: samma molekyler, nya rörelser",
       "before": "Följ samma vattenmolekyler genom fast form, flytande form och gas. Koppla deras rörelser till temperaturkurvan.",
       "after": "Varför kan temperaturen stå stilla trots att energi tillförs? Förklara vad som ändras mellan molekylerna."
@@ -872,8 +875,8 @@ const lessons = {
       "correction": "All materia består av kemiska ämnen. Målet är att förebygga skadlig exponering och minska spridning av farliga ämnen. Risk bedöms genom ämnets egenskaper tillsammans med mängd och exponering."
     },
     "film": {
-      "src": "assets/films/v4/07-miljo.mp4?v=20261111-films4",
-      "poster": "assets/posters/v4/07-miljo.jpg?v=20261111-films4",
+      "src": "assets/films/v5/07-miljo.mp4?v=20261111-clear8",
+      "poster": "assets/posters/v5/07-miljo.jpg?v=20261111-clear8",
       "title": "Giftfri miljö: följ ämnet och bryt spridningen",
       "before": "Följ ämnet från färgrester till vatten. Se hur spridningsvägen kan brytas innan utsläppet når naturen.",
       "after": "Beskriv kedjan källa, spridning och möjlig följd. Varför hjälper rätt avfallshantering mer än att bara lita på rening?"
@@ -1011,14 +1014,17 @@ const photos = [
     "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Forest_stream_at_evening._Better_viewed_large._%2850181939747%29.jpg/1280px-Forest_stream_at_evening._Better_viewed_large._%2850181939747%29.jpg"
   }
 ];
+applyYear7Content(modules,lessons);
+applySimpleDiagrams(modules);
+
 const films = {
   "1": {
     "module": 1,
     "scene": "AtomMaster",
-    "file": "assets/films/v4/01-atomer.mp4",
-    "captions": "assets/captions/v4/01-atomer.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/01-atomer.jpg",
-    "duration": 107.363,
+    "file": "assets/films/v5/01-atomer.mp4",
+    "captions": "assets/captions/v5/01-atomer.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/01-atomer.jpg",
+    "duration": 89.529,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1026,81 +1032,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 61,
+    "version": 5,
+    "animation_calls": 33,
     "chapters": [
       {
-        "title": "Från en droppe till en molekyl",
-        "text": "En vattendroppe innehåller många vattenmolekyler. Vi följer en molekyl och ser vilka byggstenar den består av. Varje färg följer samma atomslag.",
+        "title": "En atom är en byggsten",
+        "text": "Alla ämnen består av små byggstenar. De kallas atomer.",
         "start": 0.9999999999999999,
-        "end": 15.03333333333329,
-        "animation_seconds": 13.466666666666626,
-        "wait_seconds": 0.5666666666666647,
-        "automatic_reading_hold": 0.5333333333333741
+        "end": 17.033333333333342,
+        "animation_seconds": 7.466666666666647,
+        "wait_seconds": 8.566666666666695,
+        "automatic_reading_hold": 0.5333333333333528
       },
       {
-        "title": "Tre atomer -- men två atomslag",
-        "text": "Här finns två väteatomer och en syreatom. Det blir tre atomer men bara två atomslag: väte och syre.",
-        "start": 15.03333333333329,
-        "end": 29.033333333333935,
-        "animation_seconds": 12.566666666667242,
-        "wait_seconds": 1.4333333333334046,
-        "automatic_reading_hold": 1.4333333333327598
+        "title": "Atomer finns av olika slag",
+        "text": "Syre och väte är två atomslag. Här har de varsin färg.",
+        "start": 17.033333333333342,
+        "end": 33.03333333333369,
+        "animation_seconds": 7.466666666667038,
+        "wait_seconds": 8.533333333333307,
+        "automatic_reading_hold": 0.5333333333329584
       },
       {
-        "title": "Bindningarna håller ihop molekylen",
-        "text": "Två eller flera bundna atomer bildar en molekyl. I en vattenmolekyl sitter två väteatomer ihop med en syreatom.",
-        "start": 29.033333333333935,
-        "end": 43.066666666666784,
-        "animation_seconds": 12.36666666666628,
-        "wait_seconds": 1.666666666666572,
-        "automatic_reading_hold": 1.6333333333337237
+        "title": "Atomer kan bilda en molekyl",
+        "text": "Två väteatomer och en syreatom sitter ihop. Gruppen kallas en vattenmolekyl.",
+        "start": 33.03333333333369,
+        "end": 49.06666666666622,
+        "animation_seconds": 13.966666666665873,
+        "wait_seconds": 2.066666666666663,
+        "automatic_reading_hold": 0.033333333334127246
       },
       {
-        "title": "Formeln berättar samma sak som bilden",
-        "text": "Vattnets formel är H₂O. Den lilla tvåan hör till H. Den betyder två väteatomer i varje vattenmolekyl. O betyder en syreatom.",
-        "start": 43.066666666666784,
-        "end": 57.09999999999932,
-        "animation_seconds": 12.366666666665964,
-        "wait_seconds": 1.666666666666572,
-        "automatic_reading_hold": 1.6333333333340363
+        "title": "Formeln berättar vilka atomer som ingår",
+        "text": "Vatten är en kemisk förening: olika atomslag sitter ihop. Dess formel är H2O.",
+        "start": 49.06666666666622,
+        "end": 66.09999999999899,
+        "animation_seconds": 8.966666666666157,
+        "wait_seconds": 8.066666666666606,
+        "automatic_reading_hold": 1.033333333333843
       },
       {
-        "title": "Siffran framför räknar hela molekyler",
-        "text": "Två H₂O betyder två vattenmolekyler. Tillsammans har de sex atomer, men fortfarande bara två atomslag. Båda molekylerna består av vatten.",
-        "start": 57.09999999999932,
-        "end": 71.13333333333186,
-        "animation_seconds": 12.766666666665941,
-        "wait_seconds": 1.2666666666665947,
-        "automatic_reading_hold": 1.233333333334052
-      },
-      {
-        "title": "Grundämne eller kemisk förening?",
-        "text": "Syrgas består bara av syreatomer och är ett grundämne. Vatten innehåller väte och syre som är bundna: en kemisk förening.",
-        "start": 71.13333333333186,
-        "end": 85.1666666666644,
-        "animation_seconds": 12.566666666665952,
-        "wait_seconds": 1.4666666666665833,
-        "automatic_reading_hold": 1.4333333333340477
-      },
-      {
-        "title": "Flera ämnen tillsammans blir en blandning",
-        "text": "Vattenmolekyler och syrgasmolekyler tillsammans är en blandning. Molekylerna behåller sina bindningar. Flera molekyler av bara vatten är däremot ett rent ämne.",
-        "start": 85.1666666666644,
-        "end": 99.19999999999693,
-        "animation_seconds": 13.566666666665895,
-        "wait_seconds": 0.46666666666664014,
-        "automatic_reading_hold": 0.4333333333341045
+        "title": "En blandning innehåller flera ämnen",
+        "text": "Blandningen innehåller vatten och syrgas. De två ämnena finns tillsammans men är olika.",
+        "start": 66.76666666666561,
+        "end": 83.7999999999981,
+        "animation_seconds": 14.466666666665844,
+        "wait_seconds": 2.5666666666666345,
+        "automatic_reading_hold": 0.5333333333341557
       }
     ]
   },
   "2": {
     "module": 2,
     "scene": "ModelMaster",
-    "file": "assets/films/v4/02-modeller.mp4",
-    "captions": "assets/captions/v4/02-modeller.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/02-modeller.jpg",
-    "duration": 105.761458,
+    "file": "assets/films/v5/02-modeller.mp4",
+    "captions": "assets/captions/v5/02-modeller.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/02-modeller.jpg",
+    "duration": 94.929,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1108,81 +1096,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 64,
+    "version": 5,
+    "animation_calls": 41,
     "chapters": [
       {
-        "title": "Dalton: atomer som hela kulor",
-        "text": "Dalton beskrev ämnen med olika atomslag. Ämnen förenas i bestämda antal atomer. Hans modell visade inga mindre delar inuti atomen.",
+        "title": "Thomson: elektroner inne i atomen",
+        "text": "Thomson tänkte sig en positiv klump med negativa elektroner inuti. Sedan kom nya försök.",
         "start": 0.9999999999999999,
-        "end": 14.533333333333292,
-        "animation_seconds": 12.36666666666663,
-        "wait_seconds": 1.1666666666666625,
-        "automatic_reading_hold": 1.1333333333333702
+        "end": 18.00000000000006,
+        "animation_seconds": 14.4666666666667,
+        "wait_seconds": 2.53333333333336,
+        "automatic_reading_hold": 0.5333333333332995
       },
       {
-        "title": "Thomson: elektronen kräver en ny bild",
-        "text": "Elektronen upptäcktes. Atomen måste ha mindre delar. Thomson placerade negativa elektroner i en positiv laddning som var utspridd.",
-        "start": 14.533333333333292,
-        "end": 28.033333333333886,
-        "animation_seconds": 12.86666666666723,
-        "wait_seconds": 0.6333333333333648,
-        "automatic_reading_hold": 0.6333333333327715
+        "title": "Ett försök gav en ny ledtråd",
+        "text": "De flesta partiklar passerade guldfolien. Några studsade tillbaka. Vad kunde förklara det?",
+        "start": 18.66666666666676,
+        "end": 35.6666666666674,
+        "animation_seconds": 12.966666666667312,
+        "wait_seconds": 4.033333333333331,
+        "automatic_reading_hold": 0.0333333333326884
       },
       {
-        "title": "En partikel ger en ledtråd",
-        "text": "Rutherfords grupp skickade positiva alfapartiklar mot tunn guldfolie. De flesta gick igenom. Några ändrade riktning mycket. Det behövde förklaras.",
-        "start": 28.700000000000585,
-        "end": 42.2333333333335,
-        "animation_seconds": 12.166666666666323,
-        "wait_seconds": 1.366666666666589,
-        "automatic_reading_hold": 1.3333333333336768
+        "title": "Rutherford: en liten kärna",
+        "text": "Positiva partiklar stöts bort av den positiva kärnan. De flesta passerar atomens tomrum.",
+        "start": 36.33333333333403,
+        "end": 53.366666666666596,
+        "animation_seconds": 12.96666666666593,
+        "wait_seconds": 4.0666666666666345,
+        "automatic_reading_hold": 0.5333333333340704
       },
       {
-        "title": "Lika laddningar stöter bort varandra",
-        "text": "En positiv partikel böjs bort från en positiv kärna. Nära den lilla kärnan blir påverkan stark. Därför kan banan ändras mycket.",
-        "start": 42.90000000000013,
-        "end": 56.43333333333269,
-        "animation_seconds": 12.26666666666597,
-        "wait_seconds": 1.2666666666665947,
-        "automatic_reading_hold": 1.2333333333340306
+        "title": "Som ett litet solsystem?",
+        "text": "Kärnan liknar solen i bilden. Men elektroner följer inte bestämda banor som planeter.",
+        "start": 54.033333333333225,
+        "end": 71.49999999999896,
+        "animation_seconds": 16.466666666665738,
+        "wait_seconds": 1.0,
+        "automatic_reading_hold": 0
       },
       {
-        "title": "Samma start – två olika förklaringar",
-        "text": "Utspridd laddning ger svag påverkan nära mitten. Samlad laddning kan böja banan kraftigt. De flesta passerar långt från den lilla kärnan.",
-        "start": 57.09999999999932,
-        "end": 70.63333333333189,
-        "animation_seconds": 12.766666666665948,
-        "wait_seconds": 0.7666666666666231,
-        "automatic_reading_hold": 0.7333333333340519
-      },
-      {
-        "title": "Solsystemet är en liknelse",
-        "text": "Kärnan kan jämföras med solen och elektroner med planeter. Men elektriska krafter verkar i atomen. Elektroner följer inte kända planetbanor.",
-        "start": 71.29999999999852,
-        "end": 84.83333333333108,
-        "animation_seconds": 12.366666666665964,
-        "wait_seconds": 1.1666666666666003,
-        "automatic_reading_hold": 1.1333333333340363
-      },
-      {
-        "title": "Bohr: elektroner kan byta energi",
-        "text": "Bohr kopplade elektroner till bestämda energier. När elektronen byter energi kan ljus tas upp eller avges. Nya observationer förändrar modeller.",
-        "start": 85.49999999999771,
-        "end": 99.03333333333028,
-        "animation_seconds": 12.26666666666597,
-        "wait_seconds": 1.2666666666665947,
-        "automatic_reading_hold": 1.2333333333340306
+        "title": "Bohr: en bild med elektronskal",
+        "text": "Bohr ritade skal runt kärnan. Skalmodellen hjälper oss att hålla reda på elektroner.",
+        "start": 72.16666666666559,
+        "end": 89.19999999999824,
+        "animation_seconds": 11.966666666665986,
+        "wait_seconds": 5.066666666666663,
+        "automatic_reading_hold": 0.03333333333401356
       }
     ]
   },
   "3": {
     "module": 3,
     "scene": "ElectronMaster",
-    "file": "assets/films/v4/03-elektroner.mp4",
-    "captions": "assets/captions/v4/03-elektroner.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/03-elektroner.jpg",
-    "duration": 108.96,
+    "file": "assets/films/v5/03-elektroner.mp4",
+    "captions": "assets/captions/v5/03-elektroner.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/03-elektroner.jpg",
+    "duration": 88.195,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1190,81 +1160,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 65,
+    "version": 5,
+    "animation_calls": 48,
     "chapters": [
       {
-        "title": "Tre partiklar, tre laddningar",
-        "text": "Protonen är positiv, elektronen negativ och neutronen oladdad. Protoner och neutroner finns i kärnan. Elektroner finns utanför kärnan.",
+        "title": "Plus, minus och ingen laddning",
+        "text": "Protoner har plus. Elektroner har minus. Neutroner har ingen laddning.",
         "start": 0.9999999999999999,
-        "end": 15.03333333333329,
-        "animation_seconds": 12.26666666666663,
-        "wait_seconds": 1.7666666666666604,
-        "automatic_reading_hold": 1.7333333333333698
+        "end": 17.03333333333334,
+        "animation_seconds": 14.96666666666662,
+        "wait_seconds": 1.066666666666718,
+        "automatic_reading_hold": 1.0333333333333794
       },
       {
-        "title": "En neutral atom har lika många plus och minus",
-        "text": "En neutral natriumatom har elva protoner och elva elektroner. Lika mycket positiv och negativ laddning ger tillsammans laddningen noll.",
-        "start": 15.699999999999955,
-        "end": 29.700000000000635,
-        "animation_seconds": 12.966666666667294,
-        "wait_seconds": 1.0333333333333847,
-        "automatic_reading_hold": 1.0333333333327044
+        "title": "En oladdad väteatom",
+        "text": "En proton och en elektron tar ut varandras laddningar. Atomen är neutral, alltså oladdad.",
+        "start": 17.03333333333334,
+        "end": 33.03333333333402,
+        "animation_seconds": 13.96666666666736,
+        "wait_seconds": 2.033333333333321,
+        "automatic_reading_hold": 2.0333333333326387
       },
       {
-        "title": "Följ elektronen längst ut",
-        "text": "Natriums elektroner är fördelade två, åtta och en. Vi markerar den yttersta elektronen. Den får huvudrollen när natrium bildar en jon.",
-        "start": 29.700000000000635,
-        "end": 43.73333333333341,
-        "animation_seconds": 12.433333333332868,
-        "wait_seconds": 1.599999999999909,
-        "automatic_reading_hold": 1.5666666666671318
+        "title": "En laddad atom kallas jon",
+        "text": "När elektronen lämnar finns plus kvar. En laddad atom kallas jon.",
+        "start": 33.03333333333402,
+        "end": 49.06666666666644,
+        "animation_seconds": 14.566666666665835,
+        "wait_seconds": 1.4666666666665833,
+        "automatic_reading_hold": 1.4333333333341614
       },
       {
-        "title": "En elektron flyttar: två joner bildas",
-        "text": "Natrium lämnar en elektron till klor. Natrium får laddningen plus ett och klor minus ett. Antalet protoner ändras inte.",
-        "start": 43.73333333333341,
-        "end": 57.76666666666595,
-        "animation_seconds": 12.96666666666593,
-        "wait_seconds": 1.066666666666606,
-        "automatic_reading_hold": 1.0333333333340704
-      },
-      {
-        "title": "Olika laddningar håller ihop en jonkristall",
-        "text": "Positiva och negativa joner attraherar varandra. I vanligt salt finns många natriumjoner och kloridjoner i ett sammanhängande gitter.",
-        "start": 58.43333333333258,
-        "end": 72.46666666666512,
-        "animation_seconds": 12.96666666666593,
-        "wait_seconds": 1.066666666666606,
-        "automatic_reading_hold": 1.0333333333340633
-      },
-      {
-        "title": "Två väteatomer kan dela ett elektronpar",
-        "text": "Två väteatomer kan dela sina elektroner. Det delade elektronparet håller samman väteatomerna i en molekyl. En vätemolekyl skrivs H₂.",
-        "start": 73.13333333333175,
-        "end": 87.16666666666428,
-        "animation_seconds": 13.266666666665913,
+        "title": "Två atomer kan dela ett elektronpar",
+        "text": "Två väteatomer delar två elektroner. Paret dras till båda kärnorna och håller ihop atomerna.",
+        "start": 49.73333333333307,
+        "end": 65.7666666666655,
+        "animation_seconds": 15.266666666665806,
         "wait_seconds": 0.7666666666666231,
-        "automatic_reading_hold": 0.7333333333340875
+        "automatic_reading_hold": 0.733333333334194
       },
       {
-        "title": "Överföra eller dela -- två sätt att binda",
-        "text": "Vid jonbindning attraherar olika laddningar varandra. Vid elektronparbindning delas elektroner. Elektronerna är viktiga för bindningen, medan atomkärnorna finns kvar.",
-        "start": 87.83333333333091,
-        "end": 101.86666666666345,
-        "animation_seconds": 12.866666666665935,
-        "wait_seconds": 1.1666666666666003,
-        "automatic_reading_hold": 1.1333333333340647
+        "title": "Flytta en elektron – eller dela ett par",
+        "text": "En elektron kan flyttas bort. Två atomer kan också dela ett elektronpar.",
+        "start": 66.43333333333213,
+        "end": 82.46666666666455,
+        "animation_seconds": 14.966666666665823,
+        "wait_seconds": 1.066666666666606,
+        "automatic_reading_hold": 1.033333333334184
       }
     ]
   },
   "4": {
     "module": 4,
     "scene": "ReactionMaster",
-    "file": "assets/films/v4/04-forandringar.mp4",
-    "captions": "assets/captions/v4/04-forandringar.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/04-forandringar.jpg",
-    "duration": 107.927483,
+    "file": "assets/films/v5/04-forandringar.mp4",
+    "captions": "assets/captions/v5/04-forandringar.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/04-forandringar.jpg",
+    "duration": 88.195443,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1272,81 +1224,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 64,
+    "version": 5,
+    "animation_calls": 46,
     "chapters": [
       {
-        "title": "En förändring syns – men vad ändras?",
-        "text": "När is smälter ändras vattnets tillstånd. Vid en kemisk reaktion bildas nya ämnen. Molekylerna hjälper oss att se skillnaden.",
+        "title": "Börja med en vattenmolekyl",
+        "text": "Is består av vattenmolekyler. Varje vattenmolekyl har två väteatomer och en syreatom.",
         "start": 0.9999999999999999,
-        "end": 15.03333333333329,
-        "animation_seconds": 12.866666666666628,
-        "wait_seconds": 1.1666666666666625,
-        "automatic_reading_hold": 1.133333333333372
+        "end": 17.03333333333334,
+        "animation_seconds": 13.866666666666625,
+        "wait_seconds": 2.166666666666714,
+        "automatic_reading_hold": 2.1333333333333755
       },
       {
-        "title": "Is, flytande vatten och gas – fortfarande H₂O",
-        "text": "Vid ett fasbyte finns samma vattenmolekyler kvar. Molekylernas rörelse och placering ändras. Bindningarna inne i varje vattenmolekyl finns kvar.",
-        "start": 15.699999999999955,
-        "end": 29.700000000000635,
-        "animation_seconds": 13.566666666667324,
-        "wait_seconds": 0.4333333333333549,
-        "automatic_reading_hold": 0.43333333333267454
+        "title": "Is smälter – molekylerna finns kvar",
+        "text": "När is smälter flyttar molekylerna på sig. De är fortfarande samma vattenmolekyler.",
+        "start": 17.70000000000004,
+        "end": 33.70000000000065,
+        "animation_seconds": 14.36666666666737,
+        "wait_seconds": 1.6333333333332405,
+        "automatic_reading_hold": 1.6333333333326294
       },
       {
-        "title": "Före reaktionen: identifiera varje atom",
-        "text": "Här finns två vätemolekyler och en syrgasmolekyl. Vi ger varje atom ett nummer, så att samma atomer kan följas genom förändringen.",
-        "start": 30.366666666667335,
-        "end": 44.40000000000004,
-        "animation_seconds": 12.766666666666115,
-        "wait_seconds": 1.2666666666665947,
-        "automatic_reading_hold": 1.2333333333338885
+        "title": "Före en kemisk reaktion",
+        "text": "Före reaktionen finns två vätemolekyler och en syrgasmolekyl. Följ de blå och röda atomerna.",
+        "start": 34.36666666666728,
+        "end": 50.3999999999997,
+        "animation_seconds": 13.66666666666589,
+        "wait_seconds": 2.366666666666532,
+        "automatic_reading_hold": 2.33333333333411
       },
       {
-        "title": "Samma atomer får nya grannar",
-        "text": "Atomerna försvinner inte. De grupperas om när gamla bindningar ersätts av nya. Varje syreatom binds nu till två väteatomer.",
-        "start": 44.40000000000004,
-        "end": 58.43333333333258,
-        "animation_seconds": 13.566666666665895,
-        "wait_seconds": 0.46666666666664014,
-        "automatic_reading_hold": 0.4333333333341045
-      },
-      {
-        "title": "Reaktionsformeln berättar samma sak",
-        "text": "Två vätemolekyler och en syrgasmolekyl ger två vattenmolekyler. Före och efter finns fyra väteatomer och två syreatomer. Atomerna bevaras.",
-        "start": 58.43333333333258,
-        "end": 72.46666666666512,
-        "animation_seconds": 13.366666666665921,
-        "wait_seconds": 0.6666666666666288,
-        "automatic_reading_hold": 0.633333333334086
-      },
-      {
-        "title": "Två vardagsexempel visar skillnaden",
-        "text": "När is smälter är ämnet fortfarande vatten. När kol förbränns reagerar kol med syrgas och bildar ett nytt ämne: koldioxid.",
-        "start": 73.13333333333175,
-        "end": 87.16666666666428,
-        "animation_seconds": 12.96666666666593,
+        "title": "Samma atomer binds på ett nytt sätt",
+        "text": "I en reaktion grupperas atomerna om. Nya bindningar ger två vattenmolekyler.",
+        "start": 50.3999999999997,
+        "end": 66.43333333333213,
+        "animation_seconds": 14.966666666665823,
         "wait_seconds": 1.066666666666606,
-        "automatic_reading_hold": 1.0333333333340704
+        "automatic_reading_hold": 1.033333333334177
       },
       {
-        "title": "Fråga vad som finns kvar och vad som ändras",
-        "text": "Vid fasbyte är molekylerna oförändrade. Vid kemiska reaktioner bildas nya ämnen genom att atomer omgrupperas. Atomerna finns kvar i båda fallen.",
-        "start": 87.16666666666428,
-        "end": 101.19999999999682,
-        "animation_seconds": 12.766666666665941,
-        "wait_seconds": 1.2666666666665947,
-        "automatic_reading_hold": 1.233333333334059
+        "title": "Samma ämne – eller ett nytt ämne?",
+        "text": "Is blir flytande vatten. Väte och syre kan reagera och bilda vatten, ett nytt ämne.",
+        "start": 66.43333333333213,
+        "end": 82.46666666666455,
+        "animation_seconds": 15.666666666665776,
+        "wait_seconds": 0.3666666666666458,
+        "automatic_reading_hold": 0.3333333333342239
       }
     ]
   },
   "5": {
     "module": 5,
     "scene": "MaterialMaster",
-    "file": "assets/films/v4/05-egenskaper.mp4",
-    "captions": "assets/captions/v4/05-egenskaper.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/05-egenskaper.jpg",
-    "duration": 106.229433,
+    "file": "assets/films/v5/05-egenskaper.mp4",
+    "captions": "assets/captions/v5/05-egenskaper.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/05-egenskaper.jpg",
+    "duration": 93.861,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1354,72 +1288,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 53,
+    "version": 5,
+    "animation_calls": 34,
     "chapters": [
       {
-        "title": "Jämför rättvist",
-        "text": "Två lika långa stavar värms lika mycket. Vi ändrar bara materialet. Då kan vi jämföra hur snabbt värmen sprids.",
+        "title": "Jämför två material rättvist",
+        "text": "Vi värmer två lika långa stavar lika mycket. Bara materialet är olika.",
         "start": 0.9999999999999999,
-        "end": 17.033333333333296,
-        "animation_seconds": 13.766666666666625,
-        "wait_seconds": 2.266666666666671,
-        "automatic_reading_hold": 0.03333333333337407
+        "end": 18.03333333333334,
+        "animation_seconds": 8.466666666666644,
+        "wait_seconds": 8.566666666666695,
+        "automatic_reading_hold": 0.5333333333333563
       },
       {
-        "title": "Energi sprids genom materialet",
-        "text": "När ena änden värms börjar delarna där röra sig mer. Energi förs vidare till grannarna. Materialet flyttar inte genom staven.",
-        "start": 17.699999999999996,
-        "end": 33.70000000000064,
-        "animation_seconds": 13.266666666667325,
-        "wait_seconds": 2.73333333333332,
-        "automatic_reading_hold": 0.23333333333267348
+        "title": "Koppar leder värme snabbare",
+        "text": "Värmen sprids snabbare genom koppar än genom trä. Det är en materialegenskap.",
+        "start": 18.03333333333334,
+        "end": 35.03333333333386,
+        "animation_seconds": 10.466666666667187,
+        "wait_seconds": 6.533333333333331,
+        "automatic_reading_hold": 0.5333333333327843
       },
       {
-        "title": "Metall leder ström -- plast isolerar",
-        "text": "I metall kan elektroner röra sig genom materialet. En hel ledande väg behövs för ström. Plast runt sladden skyddar oss.",
-        "start": 34.36666666666727,
-        "end": 50.399999999999764,
-        "animation_seconds": 14.666666666665833,
-        "wait_seconds": 1.36666666666666,
-        "automatic_reading_hold": 0.1333333333341642
-      },
-      {
-        "title": "Salt löser sig -- jonerna sprids",
-        "text": "Vatten kan lösa salt. Natriumjoner och kloridjoner lämnar kristallen och sprids i vattnet. Jonerna finns kvar även när saltet inte syns.",
-        "start": 51.06666666666639,
-        "end": 67.09999999999881,
-        "animation_seconds": 15.166666666665805,
-        "wait_seconds": 0.8666666666666174,
-        "automatic_reading_hold": 0.8333333333341955
-      },
-      {
-        "title": "Samma vatten -- olika löslighet",
-        "text": "Lika mycket salt och sand rörs i lika mycket vatten. Saltet löser sig. Sanden ligger kvar och kan fångas i ett filter.",
-        "start": 67.76666666666544,
-        "end": 83.79999999999787,
-        "animation_seconds": 15.966666666665752,
+        "title": "Salt och sand beter sig olika",
+        "text": "Salt löser sig i vatten. Sanden ligger kvar på botten.",
+        "start": 35.700000000000486,
+        "end": 52.73333333333285,
+        "animation_seconds": 16.966666666665706,
         "wait_seconds": 0.06666666666666288,
+        "automatic_reading_hold": 0.03333333333429778
+      },
+      {
+        "title": "Saltet har inte försvunnit",
+        "text": "Saltets joner sprids i vattnet. Saltet finns kvar även när du inte ser det.",
+        "start": 53.39999999999948,
+        "end": 70.4333333333319,
+        "animation_seconds": 15.966666666665759,
+        "wait_seconds": 1.0666666666666629,
         "automatic_reading_hold": 0.03333333333424093
       },
       {
-        "title": "Välj egenskap efter uppgift",
-        "text": "Kastrullens botten ska sprida värme till maten. Handtaget ska skydda handen. Därför passar olika material till olika delar av samma produkt.",
-        "start": 84.4666666666645,
-        "end": 100.49999999999709,
-        "animation_seconds": 12.866666666665935,
-        "wait_seconds": 3.166666666666657,
-        "automatic_reading_hold": 0.13333333333406472
+        "title": "Välj material efter uppgiften",
+        "text": "Kastrullens botten ska leda värme. Handtaget ska skydda handen från värmen.",
+        "start": 71.09999999999853,
+        "end": 88.13333333333107,
+        "animation_seconds": 13.466666666665901,
+        "wait_seconds": 3.5666666666666345,
+        "automatic_reading_hold": 0.5333333333340988
       }
     ]
   },
   "6": {
     "module": 6,
     "scene": "PhaseMaster",
-    "file": "assets/films/v4/06-faser.mp4",
-    "captions": "assets/captions/v4/06-faser.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/06-faser.jpg",
-    "duration": 103.896419,
+    "file": "assets/films/v5/06-faser.mp4",
+    "captions": "assets/captions/v5/06-faser.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/06-faser.jpg",
+    "duration": 94.830078,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1427,72 +1352,63 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 38,
+    "version": 5,
+    "animation_calls": 32,
     "chapters": [
       {
-        "title": "Fast form: molekylerna vibrerar",
-        "text": "Is består av vattenmolekyler. De har bestämda platser men vibrerar. Bindningarna inuti varje vattenmolekyl håller ihop samma syre och två väten.",
+        "title": "Is: molekylerna har bestämda platser",
+        "text": "I is sitter vattenmolekylerna på bestämda platser. De står inte stilla, utan vibrerar.",
         "start": 0.9999999999999999,
-        "end": 17.03333333333334,
-        "animation_seconds": 15.766666666666659,
-        "wait_seconds": 0.26666666666667993,
-        "automatic_reading_hold": 0.2333333333333414
+        "end": 18.000000000000053,
+        "animation_seconds": 16.466666666666693,
+        "wait_seconds": 0.5333333333333599,
+        "automatic_reading_hold": 0.5333333333333066
       },
       {
-        "title": "Flytande form: molekylerna glider förbi",
-        "text": "När isen smälter släpper det fasta mönstret. Vattenmolekylerna ligger fortfarande nära men kan byta plats. Det är fortfarande vatten.",
-        "start": 17.03333333333334,
-        "end": 33.03333333333402,
-        "animation_seconds": 15.866666666667356,
-        "wait_seconds": 0.13333333333332575,
-        "automatic_reading_hold": 0.13333333333264363
+        "title": "Vätska: molekylerna kan byta plats",
+        "text": "När is smälter kan molekylerna röra sig förbi varandra. Det är fortfarande vatten.",
+        "start": 18.000000000000053,
+        "end": 35.000000000000576,
+        "animation_seconds": 16.46666666666722,
+        "wait_seconds": 0.533333333333303,
+        "automatic_reading_hold": 0.5333333333327808
       },
       {
-        "title": "Gas: molekylerna rör sig fritt",
-        "text": "I vattenånga är avstånden mellan molekylerna mycket större. Samma vattenmolekyler rör sig fritt. De växer inte och delas inte till atomer.",
-        "start": 33.03333333333402,
-        "end": 49.06666666666644,
-        "animation_seconds": 15.76666666666577,
-        "wait_seconds": 0.2666666666666515,
-        "automatic_reading_hold": 0.23333333333422956
+        "title": "Gas: längre mellan molekylerna",
+        "text": "I vattenånga rör sig molekylerna fritt. Avstånden är större, men molekylerna är lika stora.",
+        "start": 35.000000000000576,
+        "end": 52.03333333333294,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 0.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
       },
       {
-        "title": "Koppla rörelsen till uppvärmningskurvan",
-        "text": "När vatten värms ökar oftast temperaturen. Vid normalt lufttryck smälter is vid noll grader och vatten kokar vid hundra grader.",
-        "start": 49.06666666666644,
-        "end": 66.09999999999881,
-        "animation_seconds": 16.166666666665755,
-        "wait_seconds": 0.8666666666666174,
-        "automatic_reading_hold": 0.8333333333342452
+        "title": "Värm vattnet – följ kurvan",
+        "text": "Is smälter vid 0 grader. Vatten kokar vid 100 grader, vid vanligt lufttryck.",
+        "start": 52.03333333333294,
+        "end": 72.06666666666531,
+        "animation_seconds": 16.666666666665726,
+        "wait_seconds": 3.366666666666646,
+        "automatic_reading_hold": 0.3333333333342736
       },
       {
-        "title": "En platå betyder att formen ändras",
-        "text": "Vid smältning och kokning ändras ordningen mellan molekylerna. Temperaturen står stilla under övergången. Molekylerna blir inte större.",
-        "start": 66.09999999999881,
-        "end": 82.1333333333313,
-        "animation_seconds": 14.966666666665816,
-        "wait_seconds": 1.0666666666666629,
-        "automatic_reading_hold": 0.03333333333418409
-      },
-      {
-        "title": "Kondensering: vattenånga blir vätska",
-        "text": "När vattenånga kyls kan molekylerna samlas till flytande vatten. Det kallas kondensering. Moln och imma består av små vattendroppar.",
-        "start": 82.1333333333313,
-        "end": 98.16666666666372,
-        "animation_seconds": 15.76666666666577,
-        "wait_seconds": 0.2666666666666515,
-        "automatic_reading_hold": 0.23333333333422956
+        "title": "Vattenånga kan bli vätska igen",
+        "text": "Vattenånga som kyls blir flytande vatten. Det heter kondensering.",
+        "start": 72.06666666666531,
+        "end": 89.09999999999768,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 0.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
       }
     ]
   },
   "7": {
     "module": 7,
     "scene": "EnvironmentMaster",
-    "file": "assets/films/v4/07-miljo.mp4",
-    "captions": "assets/captions/v4/07-miljo.vtt?v=20261111-films4",
-    "poster": "assets/posters/v4/07-miljo.jpg",
-    "duration": 112.228125,
+    "file": "assets/films/v5/07-miljo.mp4",
+    "captions": "assets/captions/v5/07-miljo.vtt?v=20261111-clear8",
+    "poster": "assets/posters/v5/07-miljo.jpg",
+    "duration": 88.795443,
     "width": 1920,
     "height": 1080,
     "fps": 30,
@@ -1500,62 +1416,44 @@ const films = {
     "narration": false,
     "music": true,
     "spoken_seconds": 0,
-    "version": 4,
-    "animation_calls": 57,
+    "version": 5,
+    "animation_calls": 33,
     "chapters": [
       {
-        "title": "Ett utsläpp börjar vid en källa",
-        "text": "Färgrester i avloppet kan släppa ut ämnen som skadar vattenlevande organismer. Följ ett ämne från utsläpp till möjlig följd.",
+        "title": "Häll inte färgrester i avloppet",
+        "text": "Färgrester ska inte hällas i avloppet. Vissa ämnen kan skada livet i vatten.",
         "start": 0.9999999999999999,
-        "end": 18.033333333333314,
-        "animation_seconds": 15.466666666666644,
-        "wait_seconds": 1.56666666666667,
-        "automatic_reading_hold": 0.03333333333335631
+        "end": 21.000000000000053,
+        "animation_seconds": 16.466666666666693,
+        "wait_seconds": 3.53333333333336,
+        "automatic_reading_hold": 0.5333333333333066
       },
       {
-        "title": "Vatten transporterar lösta ämnen",
-        "text": "Ämnen kan lösas i vatten och följa med strömmen. Därför kan ett utsläpp påverka organismer en bit från själva källan.",
-        "start": 18.700000000000014,
-        "end": 35.700000000000465,
-        "animation_seconds": 15.766666666667188,
-        "wait_seconds": 1.2333333333332632,
-        "automatic_reading_hold": 0.033333333332880244
+        "title": "Vattnet kan föra ämnen vidare",
+        "text": "Vissa ämnen följer med vattnet. De kan spridas långt från platsen där utsläppet började.",
+        "start": 21.666666666666753,
+        "end": 41.66666666666694,
+        "animation_seconds": 15.966666666666857,
+        "wait_seconds": 4.033333333333331,
+        "automatic_reading_hold": 0.033333333333143145
       },
       {
-        "title": "Ämnet och mängden spelar roll",
-        "text": "Risken beror på ämnets egenskaper och hur mycket organismen utsätts för. Även tiden spelar roll. Alla kemiska ämnen är inte miljögifter.",
-        "start": 36.36666666666709,
-        "end": 53.39999999999956,
-        "animation_seconds": 15.266666666665799,
-        "wait_seconds": 1.7666666666666657,
-        "automatic_reading_hold": 0.0333333333341983
+        "title": "Vissa ämnen kan skada fiskar",
+        "text": "Vissa ämnen kan skada fiskar. Risken beror på ämnet och mängden.",
+        "start": 42.33333333333357,
+        "end": 62.366666666666106,
+        "animation_seconds": 13.466666666665901,
+        "wait_seconds": 6.5666666666666345,
+        "automatic_reading_hold": 0.5333333333340988
       },
       {
-        "title": "Vissa ämnen kan anrikas i näringskedjan",
-        "text": "Vissa svårnedbrytbara ämnen stannar i organismer. När rovdjur äter många bytesdjur kan halten bli högre. Vi jämför lika stora vävnadsprov.",
-        "start": 54.06666666666619,
-        "end": 71.09999999999863,
-        "animation_seconds": 15.266666666665813,
-        "wait_seconds": 1.7666666666666373,
-        "automatic_reading_hold": 0.5333333333341912
-      },
-      {
-        "title": "Rening hjälper -- allt fångas inte",
-        "text": "Ett filter fångar fasta partiklar. Lösta ämnen kan passera. Rening hjälper, men alla föroreningar tas inte bort. Förebygg därför utsläpp.",
-        "start": 71.76666666666526,
-        "end": 88.79999999999765,
-        "animation_seconds": 16.366666666665736,
-        "wait_seconds": 0.6666666666666572,
-        "automatic_reading_hold": 0.033333333334269355
-      },
-      {
-        "title": "Bryt spridningsvägen vid källan",
-        "text": "Lämna färgrester som farligt avfall. Då bryts spridningsvägen redan vid källan. Minska utsläpp innan ämnen når mark och vatten.",
-        "start": 89.46666666666428,
-        "end": 106.49999999999675,
-        "animation_seconds": 15.06666666666581,
-        "wait_seconds": 1.9666666666666544,
-        "automatic_reading_hold": 0.13333333333419262
+        "title": "Lämna färgrester på rätt ställe",
+        "text": "Lämna färgrester som farligt avfall. Då kan ämnena tas om hand på rätt sätt.",
+        "start": 63.033333333332735,
+        "end": 83.0666666666651,
+        "animation_seconds": 16.46666666666573,
+        "wait_seconds": 3.5666666666666345,
+        "automatic_reading_hold": 0.5333333333342694
       }
     ]
   }
@@ -6724,24 +6622,25 @@ function filmChapters(info) {
 function filmSection(m) {
  const f=lessons[m.id].film, info=films[m.id]||{};
  const seconds=Math.round(info.duration||0), duration=seconds?`${Math.floor(seconds/60)}:${String(seconds%60).padStart(2,'0')}`:'Film';
- return `<section class="film-section" aria-labelledby="film-title"><div class="film-heading"><div><p class="eyebrow">TITTA TILLSAMMANS · PAUSA NÄR NI VILL</p><h2 id="film-title">${esc(f.title)}</h2></div><span class="film-meta">${duration} · ${info.narration?'svensk berättarröst och text':'svensk text'} · musik</span></div><div class="film-layout"><div class="film-controlbar"><div class="film-buttons"><button class="film-control primary-control" id="pause-film">Spela filmen</button><button class="film-control" id="replay-film">Från början ↻</button></div><button class="film-control sound-control" id="sound-toggle" aria-pressed="true" aria-label="Stäng av ljudet">Ljud på</button></div><div class="film-screen"><video id="lesson-film" controls playsinline preload="none" poster="${f.poster}" aria-label="${esc(f.title)}, animerad förklaring med svensk text och musik"><source src="${f.src}" type="video/mp4">${info.captions?`<track kind="captions" src="${info.captions}" srclang="sv" label="Svenska">`:''}Din webbläsare kan inte spela filmen. Läs förklaringen nedanför.</video><div id="video-error" class="video-error" hidden>Filmen kunde inte laddas. Ni kan fortfarande undersöka ritningen och läsa förklaringen på sidan.</div></div><aside class="film-aside"><div class="before-film"><p class="margin-label">TITTA EFTER</p><p>${esc(f.before)}</p></div><div class="after-film"><p class="margin-label">PAUSA OCH PRATA</p><p>${esc(f.after)}</p></div></aside></div><details class="film-transcript"><summary>Läs en kort sammanfattning</summary><p>${esc(lessons[m.id].summary)}</p><ol>${lessons[m.id].workedExample.steps.map(step=>`<li>${esc(step)}</li>`).join('')}</ol></details>${filmChapters(info)}</section>`;
+ return `<section class="film-section" data-focus-part aria-labelledby="film-title"><div class="film-heading"><div><p class="eyebrow">TITTA TILLSAMMANS · PAUSA NÄR NI VILL</p><h2 id="film-title">${esc(f.title)}</h2></div><span class="film-meta">${duration} · ${info.narration?'svensk berättarröst och text':'svensk text'} · musik</span></div><div class="film-layout"><div class="film-controlbar"><div class="film-buttons"><button class="film-control primary-control" id="pause-film">Spela filmen</button><button class="film-control" id="replay-film">Från början ↻</button></div><button class="film-control sound-control" id="sound-toggle" aria-pressed="true" aria-label="Stäng av ljudet">Ljud på</button></div><div class="film-screen"><video id="lesson-film" controls playsinline preload="none" poster="${f.poster}" aria-label="${esc(f.title)}, animerad förklaring med svensk text och musik"><source src="${f.src}" type="video/mp4">${info.captions?`<track kind="captions" src="${info.captions}" srclang="sv" label="Svenska">`:''}Din webbläsare kan inte spela filmen. Läs förklaringen nedanför.</video><div id="video-error" class="video-error" hidden>Filmen kunde inte laddas. Ni kan fortfarande undersöka ritningen och läsa förklaringen på sidan.</div></div><aside class="film-aside"><div class="before-film"><p class="margin-label">TITTA EFTER</p><p>${esc(f.before)}</p></div><div class="after-film"><p class="margin-label">PAUSA OCH PRATA</p><p>${esc(f.after)}</p></div></aside></div><details class="film-transcript"><summary>Läs en kort sammanfattning</summary><p>${esc(lessons[m.id].summary)}</p><ol>${lessons[m.id].workedExample.steps.map(step=>`<li>${esc(step)}</li>`).join('')}</ol></details>${filmChapters(info)}</section>`;
 }
 
 function readingSection(m) {
- const l=lessons[m.id];
- const labStart=LABS[m.id]?'<div id="widget" class="interactive"></div>':'';
- const widget='';
- const article=`<div class="explanation chapter-explanation">${m.explanation.map(p=>`<p>${esc(p)}</p>`).join('')}</div>`;
- const illustration=`<figure class="tikz-figure${m.id===7?' environment-scenario-figure':''}"><div class="diagram-heading"><span class="margin-label">${m.id===7?"FÖLJ SCENARIERNA":"FÖLJ SAMBANDEN"}</span><button class="text-button" id="diagram-zoom">Öppna stor ${m.id===7?"bild":"ritning"} ↗</button></div><img class="diagram" src="${m.figure}" alt="${esc(m.figureAlt)}"><figcaption>${m.id===7?"Illustrationen visar exempel på spridning och förebyggande åtgärder. Följ pilarna och koppla varje handling till dess följd.":"Följ ritningens pilar, färger och förklaringar. Berätta för varandra vad som händer."}</figcaption></figure>`;
- const readingBody=m.id===7?illustration+renderStudyGalleries(m.id,{scenariosOnly:true})+article+renderStudyGalleries(m.id,{includeScenarios:false}):article+illustration+renderStudyGalleries(m.id);
- return `${labStart}<div class="reading-heading"><span class="margin-label">FRÅN BILD TILL FÖRKLARING</span><span class="reading-note">Läs tillsammans. Stanna vid det ni undrar över.</span></div>${readingBody}${widget}
- <details class="deep-reading"><summary><span>Gå ett steg djupare</span><small>Fler förklaringar, exempel och viktiga begrepp</small></summary><div class="deep-intro">${l.intro.map(p=>`<p>${esc(p)}</p>`).join('')}</div><div class="reading-sequence">${l.sections.map((section,i)=>`<section class="reading-section"><span class="section-number">${String(i+1).padStart(2,'0')}</span><div><h3>${esc(section.heading)}</h3><p>${esc(section.body)}</p><p class="think-question">${esc(section.question)}</p></div></section>`).join('')}</div>${exampleMarkup(l.workedExample)}${(l.extraExamples||[]).map(example=>exampleMarkup(example,'PROVA RESONEMANGET')).join('')}<section class="concept-section"><p class="margin-label">ORD ATT ANVÄNDA I ER FÖRKLARING</p><dl class="concept-list">${l.conceptMap.map(c=>`<div><dt>${esc(c.term)}</dt><dd>${esc(c.meaning)}</dd></div>`).join('')}</dl></section>${l.reflectionPrompts?.length?`<section class="reflection-section"><h3>Prata vidare</h3><ol>${l.reflectionPrompts.map(p=>`<li>${esc(p)}</li>`).join('')}</ol></section>`:''}</details>
- <aside class="misconception"><p class="margin-label">TÄNK ETT VARV TILL</p><h3>En vanlig missuppfattning</h3><p class="misconception-claim">${esc(l.misconception.claim)}</p><p>${esc(l.misconception.correction)}</p></aside><div class="takeaway-wrap"><span class="margin-label">TA MED ER DET HÄR</span><p class="chapter-takeaway">${esc(l.summary)}</p></div>`;
+ const l=lessons[m.id],learn=m.learning;
+ const words=`<section class="learning-words" data-focus-part><h2>Ord som hjälper dig</h2><dl>${learn.keyWords.map(item=>`<div><dt>${esc(item.word)}</dt><dd>${esc(item.meaning)}</dd></div>`).join('')}</dl></section>`;
+ const steps=`<section class="learning-lesson">${learn.steps.map((step,index)=>`<section class="learning-step" data-focus-part><span class="learning-step-number" aria-hidden="true">${index+1}</span><div><h3>${esc(step.heading)}</h3><p data-read-block>${esc(step.text)}</p><p class="learning-example" data-read-block><strong>Exempel:</strong> ${esc(step.example)}</p></div></section>`).join('')}</section>`;
+ const picture=m.id===7?renderStudyGalleries(7,{scenariosOnly:true}):renderLearningDiagram(m);
+ const investigation=learn.investigation?`<details class="learning-investigation" data-focus-part><summary>Hjälp att planera och förklara försöket</summary><h3>${esc(learn.investigation.question)}</h3><dl>${[['Gissa först',learn.investigation.predict],['Ändra',learn.investigation.change],['Håll lika',learn.investigation.keepSame],['Titta efter',learn.investigation.observe],['Börja slutsatsen',learn.investigation.conclusionStart]].map(([title,text])=>`<div><dt>${esc(title)}</dt><dd data-read-block>${esc(text)}</dd></div>`).join('')}</dl><p data-read-block>${esc(learn.investigation.limit)}</p></details>`:'';
+ const lab=LABS[m.id]?`<section class="learning-lab" data-focus-part><h2>Prova själv i ${esc(LABS[m.id].title)}</h2><p data-read-block>Följ knapparna i ordning. Stanna efter varje steg och berätta vad du ser.</p><div id="widget" class="interactive"></div></section>${investigation}`:'';
+ const source=learn.sourceExercise?`<section class="source-exercise" data-focus-part><h2>${esc(learn.sourceExercise.title)}</h2><p data-read-block><strong>Påstående att granska:</strong> ${esc(learn.sourceExercise.claim)}</p><ol>${learn.sourceExercise.steps.map(x=>`<li data-read-block>${esc(x)}</li>`).join('')}</ol><ul>${learn.sourceExercise.sources.map(x=>`<li><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a><p>${esc(x.why)}</p></li>`).join('')}</ul><p data-read-block><strong>Börja så här:</strong> ${esc(learn.sourceExercise.answerStarter)}</p></section>`:'';
+ const extra=`<details class="learning-extra" data-focus-part><summary>Läs en förklaring till</summary><div class="deep-intro">${l.intro.map(x=>`<p data-read-block>${esc(x)}</p>`).join('')}</div>${l.sections.map(section=>`<section><h3>${esc(section.heading)}</h3><p data-read-block>${esc(section.body)}</p><p data-read-block>${esc(section.question)}</p></section>`).join('')}${exampleMarkup(l.workedExample)}<dl class="concept-list">${l.conceptMap.map(c=>`<div><dt>${esc(c.term)}</dt><dd>${esc(c.meaning)}</dd></div>`).join('')}</dl></details>`;
+ return `<section class="learning-start" data-focus-part><h2>Börja här</h2><p data-read-block>${esc(learn.start)}</p></section>${words}${steps}${picture}${lab}<section class="learning-summary" data-focus-part><h2>Kom ihåg</h2><p data-read-block>${esc(learn.takeaway)}</p></section>${source}${extra}${renderStudyGalleries(m.id,{includeScenarios:false})}`;
 }
 
 function connectChapter(m) {
  const player=document.querySelector('#lesson-film');
  connectStudyGalleries(player);
+ connectDiagramPanels(main);
  if(player){
   const errorNode=document.querySelector('#video-error');
   const showError=()=>{if(errorNode?.isConnected)errorNode.hidden=false;};
@@ -6751,23 +6650,34 @@ function connectChapter(m) {
   const updateSound=()=>{const audible=!player.muted&&player.volume>0;soundButton.textContent=audible?'Ljud på':'Ljud av';soundButton.setAttribute('aria-pressed',String(audible));soundButton.setAttribute('aria-label',audible?'Stäng av ljudet':'Sätt på ljudet');window.renderTexText?.(soundButton);};
   player.volume=.6;
   player.addEventListener('play',updatePlayback);player.addEventListener('pause',updatePlayback);player.addEventListener('ended',updatePlayback);player.addEventListener('volumechange',updateSound);
-  const startPlayback=()=>{const bounds=player.getBoundingClientRect();if(bounds.top<80||bounds.bottom>window.innerHeight-20){const reducedMotion=window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;player.scrollIntoView({block:'center',behavior:reducedMotion?'auto':'smooth'});}player.play().catch(()=>player.focus());};
+  const startPlayback=()=>{const bounds=player.getBoundingClientRect();if(bounds.top<80||bounds.bottom>window.innerHeight-20){const reducedMotion=window.chemistryPreferences?.calmMotion||window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;player.scrollIntoView({block:'center',behavior:reducedMotion?'auto':'smooth'});}player.play().catch(()=>player.focus());};
   pauseButton.onclick=()=>{if(player.paused)startPlayback();else player.pause();};
   document.querySelector('#replay-film').onclick=()=>{player.currentTime=0;startPlayback();};
   document.querySelectorAll('[data-film-seek]').forEach(button=>button.onclick=()=>{const time=Number(button.dataset.filmSeek);if(player.readyState>=1)player.currentTime=time;else player.addEventListener('loadedmetadata',()=>{player.currentTime=time;},{once:true});startPlayback();});
   soundButton.onclick=()=>{const audible=!player.muted&&player.volume>0;if(audible)player.muted=true;else{if(player.volume===0)player.volume=.6;player.muted=false;}updateSound();};
   updateSound();
  }
- document.querySelector('#diagram-zoom').onclick=()=>{
+ const diagramButton=document.querySelector('#diagram-zoom');
+ if(diagramButton)diagramButton.onclick=()=>{
   player?.pause();
   const dialog=document.createElement('dialog');dialog.className='diagram-dialog';dialog.setAttribute('aria-label','Förstorad bild: '+m.title);
-  dialog.innerHTML=`<div class="diagram-dialog-heading"><div><p class="margin-label">OMRÅDE ${m.id} · RITNING</p><h2>${esc(m.title)}</h2></div><button class="button small secondary" aria-label="Stäng bilden">Stäng ×</button></div><img src="${m.figure}" alt="${esc(m.figureAlt)}"><p>Följ sambanden och förklara bilden tillsammans.</p>`;
-  document.body.append(dialog);const cleanup=()=>{dialog.close();dialog.remove();};dialog.querySelector('button').onclick=cleanup;dialog.addEventListener('cancel',()=>dialog.remove());dialog.showModal();window.renderTexText?.(dialog);
+  dialog.innerHTML=`<div class="diagram-dialog-heading"><div><p class="margin-label">OMRÅDE ${m.id} · RITNING</p><h2>${esc(m.title)}</h2></div><button class="button small secondary" aria-label="Stäng bilden">Stäng ×</button></div><img src="${m.figure}" alt="${esc(m.figureAlt)}"><p>${esc(m.learning.diagramText)}</p>`;
+  const selectedFigure=diagramButton.closest('[data-diagram]');
+  if(selectedFigure?.dataset.singlePanel==='true'){
+   const fragment=selectedFigure.querySelector('.diagram-fragment').cloneNode(true);
+   fragment.classList.add('enlarged-diagram-fragment');
+   dialog.querySelector('img').replaceWith(fragment);
+   dialog.querySelector('h2').textContent=selectedFigure.querySelector('.diagram-part-title').textContent;
+   dialog.querySelector('p:last-child').textContent=selectedFigure.querySelector('.diagram-part-description').textContent;
+  }
+  document.body.append(dialog);const cleanup=()=>{dialog.close();dialog.remove();};dialog.querySelector('button').onclick=()=>{cleanup();diagramButton.focus();};dialog.addEventListener('cancel',()=>{dialog.remove();diagramButton.focus();});dialog.showModal();window.renderTexText?.(dialog);
  };
 }
 
 
 
+
+initLearningTools();
 
 const KEY = 'kemilabbet-ak7-2026-v1';
 const main = document.querySelector('#main');
@@ -6794,6 +6704,8 @@ function updateProgress() {
  document.querySelectorAll('.step-link').forEach(a=>{const done=state(Number(a.dataset.step)).done;a.classList.toggle('done',done);a.querySelector('.step-num').textContent=done?'✓':String(a.dataset.step).padStart(2,'0');});
  applyTextRendering(document.querySelector('.sidebar'));
 }
+document.querySelector('#area-select').innerHTML='<option value="">Välj område</option>'+modules.map(m=>`<option value="${m.id}">${m.id}. ${escape(m.shortTitle)}</option>`).join('');
+document.querySelector('#area-select').onchange=e=>{if(e.target.value)location.hash='#omrade-'+e.target.value;};
 document.querySelector('#module-nav').innerHTML=modules.map(m=>`<a class="step-link" data-step="${m.id}" href="#omrade-${m.id}" title="${escape(m.title)}" aria-label="Område ${m.id}: ${escape(m.title)}"><span class="step-num">${String(m.id).padStart(2,'0')}</span><span class="nav-label">${escape(m.shortTitle)}</span></a>`).join('');
 function moduleView(m) {
  activeLab?.destroy(); activeLab=null;
@@ -6804,7 +6716,7 @@ function moduleView(m) {
  <section id="step-panel-1" class="lesson-stage" role="tabpanel" aria-labelledby="step-tab-1" tabindex="-1">${filmSection(m)}<details class="first-thought optional-thought" id="first-thought"><summary>Vad tror ni? Skriv en första tanke om ni vill.</summary><label for="first-answer">${escape(m.firstQuestion)}</label><textarea id="first-answer" placeholder="Vi tror att …" maxlength="10000">${escape(s.first)}</textarea><div class="actions"><button class="button small" id="reveal">Spara vår första tanke</button><button class="button small secondary" id="first-unknown">Vi vet inte än</button></div><p class="tiny">Ni kan titta på filmen direkt. Er första tanke kan hjälpa er att se hur er förklaring utvecklas.</p></details>
  <div class="stage-navigation"><span class="tiny">Nästa steg: läs och undersök.</span><button class="button" data-go-stage="2">Till förklaringen →</button></div></section>
  <section id="step-panel-2" class="lesson-stage" role="tabpanel" aria-labelledby="step-tab-2" tabindex="-1" hidden><article class="lesson-article">${readingSection(m)}</article><div class="stage-navigation"><button class="button secondary" data-go-stage="1">← Till filmen</button><button class="button" data-go-stage="3">Skriv ert svar →</button></div></section>
- <section id="step-panel-3" class="lesson-stage" role="tabpanel" aria-labelledby="step-tab-3" tabindex="-1" hidden><div class="answer-desk"><p class="eyebrow">PARETS FÖRKLARING</p><h2>Förklara med egna ord.</h2><p class="answer-instruction">Berätta först för varandra hur ni tänker. Skriv sedan med egna ord.</p><label class="task" for="final-answer">${escape(m.task)}</label><textarea id="final-answer" maxlength="20000" placeholder="Vår förklaring …">${escape(s.answer)}</textarea><details class="hint"><summary>Vi behöver en ledtråd</summary><p>${escape(m.hint)}</p></details><div class="actions"><button id="show-example" class="button small secondary">Jämför med ett exempel</button></div><div class="example" id="example" ${s.exampleSeen?'':'hidden'}><h3>En möjlig förklaring</h3><p>${escape(m.example)}</p><p class="tiny">Vad har ni med i ert svar? Lägg till ett samband eller ett exempel som gör förklaringen tydligare.</p></div>
+ <section id="step-panel-3" class="lesson-stage" role="tabpanel" aria-labelledby="step-tab-3" tabindex="-1" hidden><div class="answer-desk" data-focus-part><p class="eyebrow">PARETS FÖRKLARING</p><h2>Förklara med egna ord.</h2><p class="answer-instruction">Berätta först för varandra hur ni tänker. Skriv sedan med egna ord.</p><label class="task" for="final-answer">${escape(m.task)}</label>${renderAnswerSupport(m)}<textarea id="final-answer" maxlength="20000" placeholder="Vår förklaring …">${escape(s.answer)}</textarea><details class="hint"><summary>Vi behöver en ledtråd</summary><p>${escape(m.hint)}</p></details><div class="actions"><button id="show-example" class="button small secondary">Jämför med ett exempel</button></div><div class="example" id="example" ${s.exampleSeen?'':'hidden'}><h3>En möjlig förklaring</h3><p>${escape(m.example)}</p><p class="tiny">Vad har ni med i ert svar? Lägg till ett samband eller ett exempel som gör förklaringen tydligare.</p></div>
  <section class="check"><p class="margin-label">PRÖVA ERT RESONEMANG</p><fieldset><legend>Snabbkoll: ${escape(m.check.question)}</legend>${m.check.options.map((o,i)=>`<label class="radio-line"><input type="radio" name="check" value="${i}" ${s.choice===i?'checked':''}>${escape(o)}</label>`).join('')}</fieldset><button class="button small secondary" id="check-answer">Kontrollera snabbkollen</button><div id="check-feedback" role="status" ${s.checked?'':'hidden'}></div></section>
  <section class="rating"><fieldset><legend>Hur säkra känner ni er?</legend><div class="rating-options">${[['själv','Vi kan förklara själva'],['med stöd','Vi kan förklara med stöd'],['öva','Vi behöver öva mer']].map(([v,label])=>`<label><input type="radio" name="rating" value="${v}" ${s.rating===v?'checked':''}>${label}</label>`).join('')}</div></fieldset></section><div class="complete-line"><label><input type="checkbox" id="mark-done" ${s.done?'checked':''}>Vi har diskuterat och skrivit. Båda har varit delaktiga.</label></div><details class="hint"><summary>Om ni hinner: tänk ett steg till</summary><p>${escape(m.stretch)}</p></details></div>
  <div class="stage-navigation"><button class="button secondary" data-go-stage="2">← Läs förklaringen</button><a class="button" href="${m.id===7?'#svar':'#omrade-'+(m.id+1)}">${m.id===7?'Se era svar':'Nästa område'} →</a></div></section></div>`;
@@ -6819,7 +6731,7 @@ function moduleView(m) {
  document.querySelector('#mark-done').onchange=e=>{if(e.target.checked&&(!s.answer.trim()||!s.rating)){e.target.checked=false;notify('Skriv ert svar och välj hur säkra ni känner er först.');return;}s.done=e.target.checked;save();};
  connectChapter(m);
  let currentStage=1;
- const setStage=(number,focus=true)=>{const target=Math.max(1,Math.min(3,Number(number)));if(target!==1)document.querySelector('#lesson-film')?.pause();if(target!==2)cancelAnimationFrame(animation);activeLab?.setActive(target===2);const launch=document.querySelector('.cl-launch');if(launch)launch.hidden=target===2;currentStage=target;document.querySelectorAll('[data-stage]').forEach(tab=>{const active=Number(tab.dataset.stage)===target;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});document.querySelectorAll('.lesson-stage').forEach((panel,i)=>panel.hidden=i+1!==target);if(target===2){s.revealed=true;save();setupWidget(m,s);}applyTextRendering(main);if(focus){document.querySelector('#step-panel-'+target).focus({preventScroll:true});document.querySelector('.lesson-steps').scrollIntoView({block:'start',behavior:'auto'});}};
+ const setStage=(number,focus=true)=>{const target=Math.max(1,Math.min(3,Number(number)));if(target!==1)document.querySelector('#lesson-film')?.pause();if(target!==2)cancelAnimationFrame(animation);activeLab?.setActive(target===2);const launch=document.querySelector('.cl-launch');if(launch)launch.hidden=target===2;currentStage=target;document.querySelectorAll('[data-stage]').forEach(tab=>{const active=Number(tab.dataset.stage)===target;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});document.querySelectorAll('.lesson-stage').forEach((panel,i)=>panel.hidden=i+1!==target);if(target===2){s.revealed=true;save();setupWidget(m,s);}applyTextRendering(main);refreshLearningTools(main,m);if(focus){document.querySelector('#step-panel-'+target).focus({preventScroll:true});document.querySelector('.lesson-steps').scrollIntoView({block:'start',behavior:'auto'});}};
  document.querySelectorAll('[data-stage]').forEach(tab=>{tab.onclick=()=>setStage(tab.dataset.stage);tab.onkeydown=e=>{let next;if(e.key==='ArrowRight')next=currentStage===3?1:currentStage+1;else if(e.key==='ArrowLeft')next=currentStage===1?3:currentStage-1;else if(e.key==='Home')next=1;else if(e.key==='End')next=3;else return;e.preventDefault();setStage(next);document.querySelector('#step-tab-'+next).focus({preventScroll:true});};});
  document.querySelectorAll('[data-go-stage]').forEach(button=>button.onclick=()=>setStage(button.dataset.goStage));
  setStage(['alla',LABS[m.id]?.slug,String(m.id),m.id===4?'reaktioner':m.id===5?'material':m.id===7?'miljo':''].includes(new URLSearchParams(location.search).get('lab'))?2:1,false);
@@ -6837,7 +6749,7 @@ function plainReport(d=data){const lines=['KEMINS GRUNDER (i) – ERA SVAR','Pro
 function download(content,extension,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`Kemins_grunder_i_svar_${new Date().toLocaleDateString('sv-SE')}.${extension}`;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function downloadJSON(){save();download(JSON.stringify(data,null,2),'json','application/json');notify('Svarsfilen laddas ned. Ni kan öppna den här nästa gång.');}
 async function restore(e){const file=e.target.files?.[0];if(!file)return;try{if(file.size>2e6)throw new Error('Filen är för stor. Välj en svarsfil under 2 MB.');const parsed=validate(JSON.parse(await file.text()));if(Object.values(data.modules).some(s=>s.first||s.answer)&&!confirm('Öppna filen och ersätta svaren i den här arbetsytan? Ladda ned nuvarande svar först om ni vill behålla dem.'))return;data=parsed;save();notify('Svarsfilen är öppnad.');render();}catch(error){notify(error instanceof SyntaxError?'Filen går inte att läsa som JSON. Välj en svarsfil från Kemins grunder (i).':error.message);}e.target.value='';}
-function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensamma förklaringar</span><span>Kemi · Sju områden</span></div><h1>Vad har ni<br><em>kommit fram till?</em></h1><p class="lead">Läs igenom era svar tillsammans. Vad kan ni förklara nu? Vad vill ni öva på en gång till?</p><div class="export-grid"><section class="panel"><h2>Era sju områden</h2>${modules.map(m=>{const s=state(m.id);return `<article class="summary-module"><h3>${m.id}. ${escape(m.title)} <a href="#omrade-${m.id}" aria-label="Ändra svaret för ${escape(m.title)}">↗</a></h3><p class="tiny">Första tanke: ${escape(s.first||'Inte besvarat')}</p><p class="answer-text">${escape(s.answer||'Ni har inte skrivit en förklaring än.')}</p><p class="tiny">Självskattning: ${escape(s.rating||'inte vald')} · ${s.done?'Markerat klart':'Inte markerat klart'}</p></article>`;}).join('')}</section><div><section class="panel teal"><h2>Spara ert arbete</h2><p class="tiny">Spara en kopia när ni avslutar. Då kan ni fortsätta där ni slutade.</p><div class="actions"><button class="button" id="download-json">Spara svarsfil</button><button class="button secondary" id="copy-report">Kopiera svaren</button><button class="button secondary" id="download-text">Ladda ned som text</button><button class="button secondary" id="print-report">Skriv ut / spara som PDF</button></div><p class="tiny">Ni kan också kopiera sammanställningen som vanlig text.</p><p class="important-note">Arbeta två vid samma dator. Svarsfilen är er kopia av arbetet.</p><details class="hint"><summary>Visa kopierbar text</summary><label class="sr-only" for="report-text">Alla svar som kopierbar text</label><textarea id="report-text" class="export-preview" readonly>${escape(plainReport())}</textarea></details></section><section class="panel" style="margin-top:20px"><h3>Fortsätt med ett sparat arbete</h3><p class="tiny">Spara en svarsfil här. Öppna den på nästa dator med knappen nedanför.</p><div class="actions"><button id="restore-trigger" class="button small secondary">Öppna svarsfil</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden aria-label="Öppna svarsfil"><details class="hint"><summary>Börja ett nytt arbete</summary><p>Spara en kopia först om ni vill behålla era svar.</p><button class="button small secondary" id="new-work">Öppna en tom arbetsyta</button></details></section></div></div>
+function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensamma förklaringar</span><span>Kemi · Sju områden</span></div><h1>Vad har ni<br><em>kommit fram till?</em></h1><p class="lead">Läs igenom era svar tillsammans. Vad kan ni förklara nu? Vad vill ni öva på en gång till?</p><div class="export-grid"><section class="panel"><h2>Era sju områden</h2>${modules.map(m=>{const s=state(m.id);return `<article class="summary-module"><h3>${m.id}. ${escape(m.title)} <a href="#omrade-${m.id}" aria-label="Ändra svaret för ${escape(m.title)}">↗</a></h3><p class="tiny">Första tanke: ${escape(s.first||'Inte besvarat')}</p><p class="answer-text">${escape(s.answer||'Ni har inte skrivit en förklaring än.')}</p><p class="tiny">Så säkra är vi: ${escape(s.rating||'inte vald')} · ${s.done?'Markerat klart':'Inte markerat klart'}</p></article>`;}).join('')}</section><div><section class="panel teal"><h2>Spara ert arbete</h2><p class="tiny">Spara en kopia när ni avslutar. Då kan ni fortsätta där ni slutade.</p><div class="actions"><button class="button" id="download-json">Spara svarsfil</button><button class="button secondary" id="copy-report">Kopiera svaren</button><button class="button secondary" id="download-text">Ladda ned som text</button><button class="button secondary" id="print-report">Skriv ut / spara som PDF</button></div><p class="tiny">Ni kan också kopiera sammanställningen som vanlig text.</p><p class="important-note">Arbeta två vid samma dator. Svarsfilen är er kopia av arbetet.</p><details class="hint"><summary>Visa kopierbar text</summary><label class="sr-only" for="report-text">Alla svar som kopierbar text</label><textarea id="report-text" class="export-preview" readonly>${escape(plainReport())}</textarea></details></section><section class="panel" style="margin-top:20px"><h3>Fortsätt med ett sparat arbete</h3><p class="tiny">Spara en svarsfil här. Öppna den på nästa dator med knappen nedanför.</p><div class="actions"><button id="restore-trigger" class="button small secondary">Öppna svarsfil</button></div><input id="restore-file" type="file" accept=".json,application/json" hidden aria-label="Öppna svarsfil"><details class="hint"><summary>Börja ett nytt arbete</summary><p>Spara en kopia först om ni vill behålla era svar.</p><button class="button small secondary" id="new-work">Öppna en tom arbetsyta</button></details></section></div></div>
  <section class="panel" style="margin-top:24px"><div class="field-heading">Pröva själva · arbeta var för sig</div><h2>Vad kan du förklara nu?</h2><p class="tiny">Välj en sak du nu kan förklara. Skriv din förklaring utan att läsa parets svar. Avsluta med något du fortfarande undrar över.</p><div class="exit-grid"><div><label for="exit-a">Elev A</label><textarea id="exit-a" maxlength="10000" placeholder="Nu kan jag förklara … Jag undrar fortfarande …">${escape(data.exitA)}</textarea></div><div><label for="exit-b">Elev B</label><textarea id="exit-b" maxlength="10000" placeholder="Nu kan jag förklara … Jag undrar fortfarande …">${escape(data.exitB)}</textarea></div></div><p class="tiny">Spara en ny kopia efter att ni skrivit era sista förklaringar.</p></section>`;
  for(const [id,key] of [['exit-a','exitA'],['exit-b','exitB']])document.querySelector('#'+id).oninput=e=>{data[key]=e.target.value;save();document.querySelector('#report-text').value=plainReport();};
  document.querySelector('#download-json').onclick=downloadJSON;document.querySelector('#download-text').onclick=()=>{save();download(plainReport(),'txt','text/plain;charset=utf-8');};document.querySelector('#print-report').onclick=()=>window.print();
@@ -6846,11 +6758,13 @@ function reportView(){main.innerHTML=`<div class="intro-meta"><span>Era gemensam
  document.querySelector('#new-work').onclick=()=>{if(!confirm('Börja ett nytt arbete? Spara era nuvarande svar först om ni vill behålla dem.'))return;data=fresh();save();location.hash='#omrade-1';};
 }
 function resolveRoute(hash){return /^#omrade-[1-7]$/.test(hash)||hash==='#svar'?hash:'#omrade-1';}
-function render(){activeLab?.destroy();activeLab=null;document.querySelectorAll('video').forEach(video=>video.pause());cancelAnimationFrame(animation);const route=resolveRoute(location.hash);document.querySelectorAll('.step-link').forEach(a=>{const active=a.hash===route;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});document.querySelector('#student-link').classList.toggle('active',route!=='#svar');document.querySelector('#answers-link').classList.toggle('active',route==='#svar');const match=route.match(/^#omrade-([1-7])$/);if(match)moduleView(modules[Number(match[1])-1]);else reportView();updateProgress();document.title=(match?modules[Number(match[1])-1].title+' · ':'Era svar · ')+'Kemins grunder (i)';window.scrollTo({top:0,behavior:'instant'});main.classList.remove('chapter-enter');requestAnimationFrame(()=>main.classList.add('chapter-enter'));applyTextRendering(document.body);}
+function render(){activeLab?.destroy();activeLab=null;document.querySelectorAll('video').forEach(video=>video.pause());cancelAnimationFrame(animation);const route=resolveRoute(location.hash);document.querySelectorAll('.step-link').forEach(a=>{const active=a.hash===route;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current');});document.querySelector('#student-link').classList.toggle('active',route!=='#svar');document.querySelector('#answers-link').classList.toggle('active',route==='#svar');const match=route.match(/^#omrade-([1-7])$/);if(match)moduleView(modules[Number(match[1])-1]);else reportView();updateProgress();document.title=(match?modules[Number(match[1])-1].title+' · ':'Era svar · ')+'Kemins grunder (i)';window.scrollTo({top:0,behavior:'instant'});main.classList.remove('chapter-enter');requestAnimationFrame(()=>main.classList.add('chapter-enter'));applyTextRendering(document.body);refreshLearningTools(main,match?modules[Number(match[1])-1]:null);document.querySelector('#area-select').value=match?match[1]:'';}
 document.querySelector('#module-nav').addEventListener('click',e=>{const link=e.target.closest('a[data-step]');if(link&&link.hash===location.hash){e.preventDefault();moduleView(modules[Number(link.dataset.step)-1]);applyTextRendering(main);window.scrollTo({top:0,behavior:'instant'});}});
 main.addEventListener('click',()=>queueMicrotask(()=>applyTextRendering(main)));
 main.addEventListener('change',()=>queueMicrotask(()=>applyTextRendering(main)));
 document.querySelector('.skip').addEventListener('click',e=>{e.preventDefault();main.focus();main.scrollIntoView();});
+window.addEventListener('chemistry:content',()=>refreshLearningTools(main));
+window.addEventListener('chemistry:focus',()=>{const host=document.querySelector('#widget');activeLab?.setActive(Boolean(host&&!host.closest('[hidden],.study-focus-hidden')));});
 window.addEventListener('hashchange',()=>{render();main.focus({preventScroll:true});});
 window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue)notify('Arbetsytan ändrades i en annan flik. Använd en flik per par.');});
 render();

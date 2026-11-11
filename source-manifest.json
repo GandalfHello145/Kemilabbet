@@ -1,6 +1,6 @@
 {
   "title": "Kemins grunder (i)",
-  "revision": 7,
+  "revision": 8,
   "updated": "2026-11-11",
   "original_source": {
     "filename": "Kemilabbet (2).html",
@@ -19,16 +19,17 @@
     "Rebuilt Atomdetektiven to reveal Thomson, then Rutherford, then a fair comparison; preserved slow motion and force close-up; removed degree values and technical controls",
     "Typeset active simulation text with locally vendored MathJax TeX-to-SVG; removed the extra discussion section and scale labels from diagrams, text and active films",
     "Removed Materialdetektiven; rebuilt Vattenlabbet with a guided heating/cooling sequence, observation pauses, clear actions and a unified sample/molecule/temperature-curve workspace",
-    "Replaced all seven active films with newly animated, grade-7 explanations under 120 seconds; native1080p30, LaTeX, captions, purposeful motion and instrumental music without narration"
+    "Replaced all seven active films with newly animated, grade-7 explanations under 120 seconds; native1080p30, LaTeX, captions, purposeful motion and instrumental music without narration",
+    "Rebuilt all seven areas for introductory year-7 chemistry: short prose, explicit concepts, simple panel diagrams, new concise films, simplified existing labs, optional reading and writing supports"
   ],
   "active_movies": [
     {
       "module": 1,
       "scene": "AtomMaster",
-      "file": "assets/films/v4/01-atomer.mp4",
-      "captions": "assets/captions/v4/01-atomer.vtt",
-      "poster": "assets/posters/v4/01-atomer.jpg",
-      "duration": 107.363,
+      "file": "assets/films/v5/01-atomer.mp4",
+      "captions": "assets/captions/v5/01-atomer.vtt",
+      "poster": "assets/posters/v5/01-atomer.jpg",
+      "duration": 89.529,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -36,81 +37,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 61,
+      "version": 5,
+      "animation_calls": 33,
       "chapters": [
         {
-          "title": "Från en droppe till en molekyl",
-          "text": "En vattendroppe innehåller många vattenmolekyler. Vi följer en molekyl och ser vilka byggstenar den består av. Varje färg följer samma atomslag.",
+          "title": "En atom är en byggsten",
+          "text": "Alla ämnen består av små byggstenar. De kallas atomer.",
           "start": 0.9999999999999999,
-          "end": 15.03333333333329,
-          "animation_seconds": 13.466666666666626,
-          "wait_seconds": 0.5666666666666647,
-          "automatic_reading_hold": 0.5333333333333741
+          "end": 17.033333333333342,
+          "animation_seconds": 7.466666666666647,
+          "wait_seconds": 8.566666666666695,
+          "automatic_reading_hold": 0.5333333333333528
         },
         {
-          "title": "Tre atomer -- men två atomslag",
-          "text": "Här finns två väteatomer och en syreatom. Det blir tre atomer men bara två atomslag: väte och syre.",
-          "start": 15.03333333333329,
-          "end": 29.033333333333935,
-          "animation_seconds": 12.566666666667242,
-          "wait_seconds": 1.4333333333334046,
-          "automatic_reading_hold": 1.4333333333327598
+          "title": "Atomer finns av olika slag",
+          "text": "Syre och väte är två atomslag. Här har de varsin färg.",
+          "start": 17.033333333333342,
+          "end": 33.03333333333369,
+          "animation_seconds": 7.466666666667038,
+          "wait_seconds": 8.533333333333307,
+          "automatic_reading_hold": 0.5333333333329584
         },
         {
-          "title": "Bindningarna håller ihop molekylen",
-          "text": "Två eller flera bundna atomer bildar en molekyl. I en vattenmolekyl sitter två väteatomer ihop med en syreatom.",
-          "start": 29.033333333333935,
-          "end": 43.066666666666784,
-          "animation_seconds": 12.36666666666628,
-          "wait_seconds": 1.666666666666572,
-          "automatic_reading_hold": 1.6333333333337237
+          "title": "Atomer kan bilda en molekyl",
+          "text": "Två väteatomer och en syreatom sitter ihop. Gruppen kallas en vattenmolekyl.",
+          "start": 33.03333333333369,
+          "end": 49.06666666666622,
+          "animation_seconds": 13.966666666665873,
+          "wait_seconds": 2.066666666666663,
+          "automatic_reading_hold": 0.033333333334127246
         },
         {
-          "title": "Formeln berättar samma sak som bilden",
-          "text": "Vattnets formel är H₂O. Den lilla tvåan hör till H. Den betyder två väteatomer i varje vattenmolekyl. O betyder en syreatom.",
-          "start": 43.066666666666784,
-          "end": 57.09999999999932,
-          "animation_seconds": 12.366666666665964,
-          "wait_seconds": 1.666666666666572,
-          "automatic_reading_hold": 1.6333333333340363
+          "title": "Formeln berättar vilka atomer som ingår",
+          "text": "Vatten är en kemisk förening: olika atomslag sitter ihop. Dess formel är H2O.",
+          "start": 49.06666666666622,
+          "end": 66.09999999999899,
+          "animation_seconds": 8.966666666666157,
+          "wait_seconds": 8.066666666666606,
+          "automatic_reading_hold": 1.033333333333843
         },
         {
-          "title": "Siffran framför räknar hela molekyler",
-          "text": "Två H₂O betyder två vattenmolekyler. Tillsammans har de sex atomer, men fortfarande bara två atomslag. Båda molekylerna består av vatten.",
-          "start": 57.09999999999932,
-          "end": 71.13333333333186,
-          "animation_seconds": 12.766666666665941,
-          "wait_seconds": 1.2666666666665947,
-          "automatic_reading_hold": 1.233333333334052
-        },
-        {
-          "title": "Grundämne eller kemisk förening?",
-          "text": "Syrgas består bara av syreatomer och är ett grundämne. Vatten innehåller väte och syre som är bundna: en kemisk förening.",
-          "start": 71.13333333333186,
-          "end": 85.1666666666644,
-          "animation_seconds": 12.566666666665952,
-          "wait_seconds": 1.4666666666665833,
-          "automatic_reading_hold": 1.4333333333340477
-        },
-        {
-          "title": "Flera ämnen tillsammans blir en blandning",
-          "text": "Vattenmolekyler och syrgasmolekyler tillsammans är en blandning. Molekylerna behåller sina bindningar. Flera molekyler av bara vatten är däremot ett rent ämne.",
-          "start": 85.1666666666644,
-          "end": 99.19999999999693,
-          "animation_seconds": 13.566666666665895,
-          "wait_seconds": 0.46666666666664014,
-          "automatic_reading_hold": 0.4333333333341045
+          "title": "En blandning innehåller flera ämnen",
+          "text": "Blandningen innehåller vatten och syrgas. De två ämnena finns tillsammans men är olika.",
+          "start": 66.76666666666561,
+          "end": 83.7999999999981,
+          "animation_seconds": 14.466666666665844,
+          "wait_seconds": 2.5666666666666345,
+          "automatic_reading_hold": 0.5333333333341557
         }
       ]
     },
     {
       "module": 2,
       "scene": "ModelMaster",
-      "file": "assets/films/v4/02-modeller.mp4",
-      "captions": "assets/captions/v4/02-modeller.vtt",
-      "poster": "assets/posters/v4/02-modeller.jpg",
-      "duration": 105.761458,
+      "file": "assets/films/v5/02-modeller.mp4",
+      "captions": "assets/captions/v5/02-modeller.vtt",
+      "poster": "assets/posters/v5/02-modeller.jpg",
+      "duration": 94.929,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -118,81 +101,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 64,
+      "version": 5,
+      "animation_calls": 41,
       "chapters": [
         {
-          "title": "Dalton: atomer som hela kulor",
-          "text": "Dalton beskrev ämnen med olika atomslag. Ämnen förenas i bestämda antal atomer. Hans modell visade inga mindre delar inuti atomen.",
+          "title": "Thomson: elektroner inne i atomen",
+          "text": "Thomson tänkte sig en positiv klump med negativa elektroner inuti. Sedan kom nya försök.",
           "start": 0.9999999999999999,
-          "end": 14.533333333333292,
-          "animation_seconds": 12.36666666666663,
-          "wait_seconds": 1.1666666666666625,
-          "automatic_reading_hold": 1.1333333333333702
+          "end": 18.00000000000006,
+          "animation_seconds": 14.4666666666667,
+          "wait_seconds": 2.53333333333336,
+          "automatic_reading_hold": 0.5333333333332995
         },
         {
-          "title": "Thomson: elektronen kräver en ny bild",
-          "text": "Elektronen upptäcktes. Atomen måste ha mindre delar. Thomson placerade negativa elektroner i en positiv laddning som var utspridd.",
-          "start": 14.533333333333292,
-          "end": 28.033333333333886,
-          "animation_seconds": 12.86666666666723,
-          "wait_seconds": 0.6333333333333648,
-          "automatic_reading_hold": 0.6333333333327715
+          "title": "Ett försök gav en ny ledtråd",
+          "text": "De flesta partiklar passerade guldfolien. Några studsade tillbaka. Vad kunde förklara det?",
+          "start": 18.66666666666676,
+          "end": 35.6666666666674,
+          "animation_seconds": 12.966666666667312,
+          "wait_seconds": 4.033333333333331,
+          "automatic_reading_hold": 0.0333333333326884
         },
         {
-          "title": "En partikel ger en ledtråd",
-          "text": "Rutherfords grupp skickade positiva alfapartiklar mot tunn guldfolie. De flesta gick igenom. Några ändrade riktning mycket. Det behövde förklaras.",
-          "start": 28.700000000000585,
-          "end": 42.2333333333335,
-          "animation_seconds": 12.166666666666323,
-          "wait_seconds": 1.366666666666589,
-          "automatic_reading_hold": 1.3333333333336768
+          "title": "Rutherford: en liten kärna",
+          "text": "Positiva partiklar stöts bort av den positiva kärnan. De flesta passerar atomens tomrum.",
+          "start": 36.33333333333403,
+          "end": 53.366666666666596,
+          "animation_seconds": 12.96666666666593,
+          "wait_seconds": 4.0666666666666345,
+          "automatic_reading_hold": 0.5333333333340704
         },
         {
-          "title": "Lika laddningar stöter bort varandra",
-          "text": "En positiv partikel böjs bort från en positiv kärna. Nära den lilla kärnan blir påverkan stark. Därför kan banan ändras mycket.",
-          "start": 42.90000000000013,
-          "end": 56.43333333333269,
-          "animation_seconds": 12.26666666666597,
-          "wait_seconds": 1.2666666666665947,
-          "automatic_reading_hold": 1.2333333333340306
+          "title": "Som ett litet solsystem?",
+          "text": "Kärnan liknar solen i bilden. Men elektroner följer inte bestämda banor som planeter.",
+          "start": 54.033333333333225,
+          "end": 71.49999999999896,
+          "animation_seconds": 16.466666666665738,
+          "wait_seconds": 1.0,
+          "automatic_reading_hold": 0
         },
         {
-          "title": "Samma start – två olika förklaringar",
-          "text": "Utspridd laddning ger svag påverkan nära mitten. Samlad laddning kan böja banan kraftigt. De flesta passerar långt från den lilla kärnan.",
-          "start": 57.09999999999932,
-          "end": 70.63333333333189,
-          "animation_seconds": 12.766666666665948,
-          "wait_seconds": 0.7666666666666231,
-          "automatic_reading_hold": 0.7333333333340519
-        },
-        {
-          "title": "Solsystemet är en liknelse",
-          "text": "Kärnan kan jämföras med solen och elektroner med planeter. Men elektriska krafter verkar i atomen. Elektroner följer inte kända planetbanor.",
-          "start": 71.29999999999852,
-          "end": 84.83333333333108,
-          "animation_seconds": 12.366666666665964,
-          "wait_seconds": 1.1666666666666003,
-          "automatic_reading_hold": 1.1333333333340363
-        },
-        {
-          "title": "Bohr: elektroner kan byta energi",
-          "text": "Bohr kopplade elektroner till bestämda energier. När elektronen byter energi kan ljus tas upp eller avges. Nya observationer förändrar modeller.",
-          "start": 85.49999999999771,
-          "end": 99.03333333333028,
-          "animation_seconds": 12.26666666666597,
-          "wait_seconds": 1.2666666666665947,
-          "automatic_reading_hold": 1.2333333333340306
+          "title": "Bohr: en bild med elektronskal",
+          "text": "Bohr ritade skal runt kärnan. Skalmodellen hjälper oss att hålla reda på elektroner.",
+          "start": 72.16666666666559,
+          "end": 89.19999999999824,
+          "animation_seconds": 11.966666666665986,
+          "wait_seconds": 5.066666666666663,
+          "automatic_reading_hold": 0.03333333333401356
         }
       ]
     },
     {
       "module": 3,
       "scene": "ElectronMaster",
-      "file": "assets/films/v4/03-elektroner.mp4",
-      "captions": "assets/captions/v4/03-elektroner.vtt",
-      "poster": "assets/posters/v4/03-elektroner.jpg",
-      "duration": 108.96,
+      "file": "assets/films/v5/03-elektroner.mp4",
+      "captions": "assets/captions/v5/03-elektroner.vtt",
+      "poster": "assets/posters/v5/03-elektroner.jpg",
+      "duration": 88.195,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -200,81 +165,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 65,
+      "version": 5,
+      "animation_calls": 48,
       "chapters": [
         {
-          "title": "Tre partiklar, tre laddningar",
-          "text": "Protonen är positiv, elektronen negativ och neutronen oladdad. Protoner och neutroner finns i kärnan. Elektroner finns utanför kärnan.",
+          "title": "Plus, minus och ingen laddning",
+          "text": "Protoner har plus. Elektroner har minus. Neutroner har ingen laddning.",
           "start": 0.9999999999999999,
-          "end": 15.03333333333329,
-          "animation_seconds": 12.26666666666663,
-          "wait_seconds": 1.7666666666666604,
-          "automatic_reading_hold": 1.7333333333333698
+          "end": 17.03333333333334,
+          "animation_seconds": 14.96666666666662,
+          "wait_seconds": 1.066666666666718,
+          "automatic_reading_hold": 1.0333333333333794
         },
         {
-          "title": "En neutral atom har lika många plus och minus",
-          "text": "En neutral natriumatom har elva protoner och elva elektroner. Lika mycket positiv och negativ laddning ger tillsammans laddningen noll.",
-          "start": 15.699999999999955,
-          "end": 29.700000000000635,
-          "animation_seconds": 12.966666666667294,
-          "wait_seconds": 1.0333333333333847,
-          "automatic_reading_hold": 1.0333333333327044
+          "title": "En oladdad väteatom",
+          "text": "En proton och en elektron tar ut varandras laddningar. Atomen är neutral, alltså oladdad.",
+          "start": 17.03333333333334,
+          "end": 33.03333333333402,
+          "animation_seconds": 13.96666666666736,
+          "wait_seconds": 2.033333333333321,
+          "automatic_reading_hold": 2.0333333333326387
         },
         {
-          "title": "Följ elektronen längst ut",
-          "text": "Natriums elektroner är fördelade två, åtta och en. Vi markerar den yttersta elektronen. Den får huvudrollen när natrium bildar en jon.",
-          "start": 29.700000000000635,
-          "end": 43.73333333333341,
-          "animation_seconds": 12.433333333332868,
-          "wait_seconds": 1.599999999999909,
-          "automatic_reading_hold": 1.5666666666671318
+          "title": "En laddad atom kallas jon",
+          "text": "När elektronen lämnar finns plus kvar. En laddad atom kallas jon.",
+          "start": 33.03333333333402,
+          "end": 49.06666666666644,
+          "animation_seconds": 14.566666666665835,
+          "wait_seconds": 1.4666666666665833,
+          "automatic_reading_hold": 1.4333333333341614
         },
         {
-          "title": "En elektron flyttar: två joner bildas",
-          "text": "Natrium lämnar en elektron till klor. Natrium får laddningen plus ett och klor minus ett. Antalet protoner ändras inte.",
-          "start": 43.73333333333341,
-          "end": 57.76666666666595,
-          "animation_seconds": 12.96666666666593,
-          "wait_seconds": 1.066666666666606,
-          "automatic_reading_hold": 1.0333333333340704
-        },
-        {
-          "title": "Olika laddningar håller ihop en jonkristall",
-          "text": "Positiva och negativa joner attraherar varandra. I vanligt salt finns många natriumjoner och kloridjoner i ett sammanhängande gitter.",
-          "start": 58.43333333333258,
-          "end": 72.46666666666512,
-          "animation_seconds": 12.96666666666593,
-          "wait_seconds": 1.066666666666606,
-          "automatic_reading_hold": 1.0333333333340633
-        },
-        {
-          "title": "Två väteatomer kan dela ett elektronpar",
-          "text": "Två väteatomer kan dela sina elektroner. Det delade elektronparet håller samman väteatomerna i en molekyl. En vätemolekyl skrivs H₂.",
-          "start": 73.13333333333175,
-          "end": 87.16666666666428,
-          "animation_seconds": 13.266666666665913,
+          "title": "Två atomer kan dela ett elektronpar",
+          "text": "Två väteatomer delar två elektroner. Paret dras till båda kärnorna och håller ihop atomerna.",
+          "start": 49.73333333333307,
+          "end": 65.7666666666655,
+          "animation_seconds": 15.266666666665806,
           "wait_seconds": 0.7666666666666231,
-          "automatic_reading_hold": 0.7333333333340875
+          "automatic_reading_hold": 0.733333333334194
         },
         {
-          "title": "Överföra eller dela -- två sätt att binda",
-          "text": "Vid jonbindning attraherar olika laddningar varandra. Vid elektronparbindning delas elektroner. Elektronerna är viktiga för bindningen, medan atomkärnorna finns kvar.",
-          "start": 87.83333333333091,
-          "end": 101.86666666666345,
-          "animation_seconds": 12.866666666665935,
-          "wait_seconds": 1.1666666666666003,
-          "automatic_reading_hold": 1.1333333333340647
+          "title": "Flytta en elektron – eller dela ett par",
+          "text": "En elektron kan flyttas bort. Två atomer kan också dela ett elektronpar.",
+          "start": 66.43333333333213,
+          "end": 82.46666666666455,
+          "animation_seconds": 14.966666666665823,
+          "wait_seconds": 1.066666666666606,
+          "automatic_reading_hold": 1.033333333334184
         }
       ]
     },
     {
       "module": 4,
       "scene": "ReactionMaster",
-      "file": "assets/films/v4/04-forandringar.mp4",
-      "captions": "assets/captions/v4/04-forandringar.vtt",
-      "poster": "assets/posters/v4/04-forandringar.jpg",
-      "duration": 107.927483,
+      "file": "assets/films/v5/04-forandringar.mp4",
+      "captions": "assets/captions/v5/04-forandringar.vtt",
+      "poster": "assets/posters/v5/04-forandringar.jpg",
+      "duration": 88.195443,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -282,81 +229,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 64,
+      "version": 5,
+      "animation_calls": 46,
       "chapters": [
         {
-          "title": "En förändring syns – men vad ändras?",
-          "text": "När is smälter ändras vattnets tillstånd. Vid en kemisk reaktion bildas nya ämnen. Molekylerna hjälper oss att se skillnaden.",
+          "title": "Börja med en vattenmolekyl",
+          "text": "Is består av vattenmolekyler. Varje vattenmolekyl har två väteatomer och en syreatom.",
           "start": 0.9999999999999999,
-          "end": 15.03333333333329,
-          "animation_seconds": 12.866666666666628,
-          "wait_seconds": 1.1666666666666625,
-          "automatic_reading_hold": 1.133333333333372
+          "end": 17.03333333333334,
+          "animation_seconds": 13.866666666666625,
+          "wait_seconds": 2.166666666666714,
+          "automatic_reading_hold": 2.1333333333333755
         },
         {
-          "title": "Is, flytande vatten och gas – fortfarande H₂O",
-          "text": "Vid ett fasbyte finns samma vattenmolekyler kvar. Molekylernas rörelse och placering ändras. Bindningarna inne i varje vattenmolekyl finns kvar.",
-          "start": 15.699999999999955,
-          "end": 29.700000000000635,
-          "animation_seconds": 13.566666666667324,
-          "wait_seconds": 0.4333333333333549,
-          "automatic_reading_hold": 0.43333333333267454
+          "title": "Is smälter – molekylerna finns kvar",
+          "text": "När is smälter flyttar molekylerna på sig. De är fortfarande samma vattenmolekyler.",
+          "start": 17.70000000000004,
+          "end": 33.70000000000065,
+          "animation_seconds": 14.36666666666737,
+          "wait_seconds": 1.6333333333332405,
+          "automatic_reading_hold": 1.6333333333326294
         },
         {
-          "title": "Före reaktionen: identifiera varje atom",
-          "text": "Här finns två vätemolekyler och en syrgasmolekyl. Vi ger varje atom ett nummer, så att samma atomer kan följas genom förändringen.",
-          "start": 30.366666666667335,
-          "end": 44.40000000000004,
-          "animation_seconds": 12.766666666666115,
-          "wait_seconds": 1.2666666666665947,
-          "automatic_reading_hold": 1.2333333333338885
+          "title": "Före en kemisk reaktion",
+          "text": "Före reaktionen finns två vätemolekyler och en syrgasmolekyl. Följ de blå och röda atomerna.",
+          "start": 34.36666666666728,
+          "end": 50.3999999999997,
+          "animation_seconds": 13.66666666666589,
+          "wait_seconds": 2.366666666666532,
+          "automatic_reading_hold": 2.33333333333411
         },
         {
-          "title": "Samma atomer får nya grannar",
-          "text": "Atomerna försvinner inte. De grupperas om när gamla bindningar ersätts av nya. Varje syreatom binds nu till två väteatomer.",
-          "start": 44.40000000000004,
-          "end": 58.43333333333258,
-          "animation_seconds": 13.566666666665895,
-          "wait_seconds": 0.46666666666664014,
-          "automatic_reading_hold": 0.4333333333341045
-        },
-        {
-          "title": "Reaktionsformeln berättar samma sak",
-          "text": "Två vätemolekyler och en syrgasmolekyl ger två vattenmolekyler. Före och efter finns fyra väteatomer och två syreatomer. Atomerna bevaras.",
-          "start": 58.43333333333258,
-          "end": 72.46666666666512,
-          "animation_seconds": 13.366666666665921,
-          "wait_seconds": 0.6666666666666288,
-          "automatic_reading_hold": 0.633333333334086
-        },
-        {
-          "title": "Två vardagsexempel visar skillnaden",
-          "text": "När is smälter är ämnet fortfarande vatten. När kol förbränns reagerar kol med syrgas och bildar ett nytt ämne: koldioxid.",
-          "start": 73.13333333333175,
-          "end": 87.16666666666428,
-          "animation_seconds": 12.96666666666593,
+          "title": "Samma atomer binds på ett nytt sätt",
+          "text": "I en reaktion grupperas atomerna om. Nya bindningar ger två vattenmolekyler.",
+          "start": 50.3999999999997,
+          "end": 66.43333333333213,
+          "animation_seconds": 14.966666666665823,
           "wait_seconds": 1.066666666666606,
-          "automatic_reading_hold": 1.0333333333340704
+          "automatic_reading_hold": 1.033333333334177
         },
         {
-          "title": "Fråga vad som finns kvar och vad som ändras",
-          "text": "Vid fasbyte är molekylerna oförändrade. Vid kemiska reaktioner bildas nya ämnen genom att atomer omgrupperas. Atomerna finns kvar i båda fallen.",
-          "start": 87.16666666666428,
-          "end": 101.19999999999682,
-          "animation_seconds": 12.766666666665941,
-          "wait_seconds": 1.2666666666665947,
-          "automatic_reading_hold": 1.233333333334059
+          "title": "Samma ämne – eller ett nytt ämne?",
+          "text": "Is blir flytande vatten. Väte och syre kan reagera och bilda vatten, ett nytt ämne.",
+          "start": 66.43333333333213,
+          "end": 82.46666666666455,
+          "animation_seconds": 15.666666666665776,
+          "wait_seconds": 0.3666666666666458,
+          "automatic_reading_hold": 0.3333333333342239
         }
       ]
     },
     {
       "module": 5,
       "scene": "MaterialMaster",
-      "file": "assets/films/v4/05-egenskaper.mp4",
-      "captions": "assets/captions/v4/05-egenskaper.vtt",
-      "poster": "assets/posters/v4/05-egenskaper.jpg",
-      "duration": 106.229433,
+      "file": "assets/films/v5/05-egenskaper.mp4",
+      "captions": "assets/captions/v5/05-egenskaper.vtt",
+      "poster": "assets/posters/v5/05-egenskaper.jpg",
+      "duration": 93.861,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -364,72 +293,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 53,
+      "version": 5,
+      "animation_calls": 34,
       "chapters": [
         {
-          "title": "Jämför rättvist",
-          "text": "Två lika långa stavar värms lika mycket. Vi ändrar bara materialet. Då kan vi jämföra hur snabbt värmen sprids.",
+          "title": "Jämför två material rättvist",
+          "text": "Vi värmer två lika långa stavar lika mycket. Bara materialet är olika.",
           "start": 0.9999999999999999,
-          "end": 17.033333333333296,
-          "animation_seconds": 13.766666666666625,
-          "wait_seconds": 2.266666666666671,
-          "automatic_reading_hold": 0.03333333333337407
+          "end": 18.03333333333334,
+          "animation_seconds": 8.466666666666644,
+          "wait_seconds": 8.566666666666695,
+          "automatic_reading_hold": 0.5333333333333563
         },
         {
-          "title": "Energi sprids genom materialet",
-          "text": "När ena änden värms börjar delarna där röra sig mer. Energi förs vidare till grannarna. Materialet flyttar inte genom staven.",
-          "start": 17.699999999999996,
-          "end": 33.70000000000064,
-          "animation_seconds": 13.266666666667325,
-          "wait_seconds": 2.73333333333332,
-          "automatic_reading_hold": 0.23333333333267348
+          "title": "Koppar leder värme snabbare",
+          "text": "Värmen sprids snabbare genom koppar än genom trä. Det är en materialegenskap.",
+          "start": 18.03333333333334,
+          "end": 35.03333333333386,
+          "animation_seconds": 10.466666666667187,
+          "wait_seconds": 6.533333333333331,
+          "automatic_reading_hold": 0.5333333333327843
         },
         {
-          "title": "Metall leder ström -- plast isolerar",
-          "text": "I metall kan elektroner röra sig genom materialet. En hel ledande väg behövs för ström. Plast runt sladden skyddar oss.",
-          "start": 34.36666666666727,
-          "end": 50.399999999999764,
-          "animation_seconds": 14.666666666665833,
-          "wait_seconds": 1.36666666666666,
-          "automatic_reading_hold": 0.1333333333341642
-        },
-        {
-          "title": "Salt löser sig -- jonerna sprids",
-          "text": "Vatten kan lösa salt. Natriumjoner och kloridjoner lämnar kristallen och sprids i vattnet. Jonerna finns kvar även när saltet inte syns.",
-          "start": 51.06666666666639,
-          "end": 67.09999999999881,
-          "animation_seconds": 15.166666666665805,
-          "wait_seconds": 0.8666666666666174,
-          "automatic_reading_hold": 0.8333333333341955
-        },
-        {
-          "title": "Samma vatten -- olika löslighet",
-          "text": "Lika mycket salt och sand rörs i lika mycket vatten. Saltet löser sig. Sanden ligger kvar och kan fångas i ett filter.",
-          "start": 67.76666666666544,
-          "end": 83.79999999999787,
-          "animation_seconds": 15.966666666665752,
+          "title": "Salt och sand beter sig olika",
+          "text": "Salt löser sig i vatten. Sanden ligger kvar på botten.",
+          "start": 35.700000000000486,
+          "end": 52.73333333333285,
+          "animation_seconds": 16.966666666665706,
           "wait_seconds": 0.06666666666666288,
+          "automatic_reading_hold": 0.03333333333429778
+        },
+        {
+          "title": "Saltet har inte försvunnit",
+          "text": "Saltets joner sprids i vattnet. Saltet finns kvar även när du inte ser det.",
+          "start": 53.39999999999948,
+          "end": 70.4333333333319,
+          "animation_seconds": 15.966666666665759,
+          "wait_seconds": 1.0666666666666629,
           "automatic_reading_hold": 0.03333333333424093
         },
         {
-          "title": "Välj egenskap efter uppgift",
-          "text": "Kastrullens botten ska sprida värme till maten. Handtaget ska skydda handen. Därför passar olika material till olika delar av samma produkt.",
-          "start": 84.4666666666645,
-          "end": 100.49999999999709,
-          "animation_seconds": 12.866666666665935,
-          "wait_seconds": 3.166666666666657,
-          "automatic_reading_hold": 0.13333333333406472
+          "title": "Välj material efter uppgiften",
+          "text": "Kastrullens botten ska leda värme. Handtaget ska skydda handen från värmen.",
+          "start": 71.09999999999853,
+          "end": 88.13333333333107,
+          "animation_seconds": 13.466666666665901,
+          "wait_seconds": 3.5666666666666345,
+          "automatic_reading_hold": 0.5333333333340988
         }
       ]
     },
     {
       "module": 6,
       "scene": "PhaseMaster",
-      "file": "assets/films/v4/06-faser.mp4",
-      "captions": "assets/captions/v4/06-faser.vtt",
-      "poster": "assets/posters/v4/06-faser.jpg",
-      "duration": 103.896419,
+      "file": "assets/films/v5/06-faser.mp4",
+      "captions": "assets/captions/v5/06-faser.vtt",
+      "poster": "assets/posters/v5/06-faser.jpg",
+      "duration": 94.830078,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -437,72 +357,63 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 38,
+      "version": 5,
+      "animation_calls": 32,
       "chapters": [
         {
-          "title": "Fast form: molekylerna vibrerar",
-          "text": "Is består av vattenmolekyler. De har bestämda platser men vibrerar. Bindningarna inuti varje vattenmolekyl håller ihop samma syre och två väten.",
+          "title": "Is: molekylerna har bestämda platser",
+          "text": "I is sitter vattenmolekylerna på bestämda platser. De står inte stilla, utan vibrerar.",
           "start": 0.9999999999999999,
-          "end": 17.03333333333334,
-          "animation_seconds": 15.766666666666659,
-          "wait_seconds": 0.26666666666667993,
-          "automatic_reading_hold": 0.2333333333333414
+          "end": 18.000000000000053,
+          "animation_seconds": 16.466666666666693,
+          "wait_seconds": 0.5333333333333599,
+          "automatic_reading_hold": 0.5333333333333066
         },
         {
-          "title": "Flytande form: molekylerna glider förbi",
-          "text": "När isen smälter släpper det fasta mönstret. Vattenmolekylerna ligger fortfarande nära men kan byta plats. Det är fortfarande vatten.",
-          "start": 17.03333333333334,
-          "end": 33.03333333333402,
-          "animation_seconds": 15.866666666667356,
-          "wait_seconds": 0.13333333333332575,
-          "automatic_reading_hold": 0.13333333333264363
+          "title": "Vätska: molekylerna kan byta plats",
+          "text": "När is smälter kan molekylerna röra sig förbi varandra. Det är fortfarande vatten.",
+          "start": 18.000000000000053,
+          "end": 35.000000000000576,
+          "animation_seconds": 16.46666666666722,
+          "wait_seconds": 0.533333333333303,
+          "automatic_reading_hold": 0.5333333333327808
         },
         {
-          "title": "Gas: molekylerna rör sig fritt",
-          "text": "I vattenånga är avstånden mellan molekylerna mycket större. Samma vattenmolekyler rör sig fritt. De växer inte och delas inte till atomer.",
-          "start": 33.03333333333402,
-          "end": 49.06666666666644,
-          "animation_seconds": 15.76666666666577,
-          "wait_seconds": 0.2666666666666515,
-          "automatic_reading_hold": 0.23333333333422956
+          "title": "Gas: längre mellan molekylerna",
+          "text": "I vattenånga rör sig molekylerna fritt. Avstånden är större, men molekylerna är lika stora.",
+          "start": 35.000000000000576,
+          "end": 52.03333333333294,
+          "animation_seconds": 16.46666666666573,
+          "wait_seconds": 0.5666666666666345,
+          "automatic_reading_hold": 0.5333333333342694
         },
         {
-          "title": "Koppla rörelsen till uppvärmningskurvan",
-          "text": "När vatten värms ökar oftast temperaturen. Vid normalt lufttryck smälter is vid noll grader och vatten kokar vid hundra grader.",
-          "start": 49.06666666666644,
-          "end": 66.09999999999881,
-          "animation_seconds": 16.166666666665755,
-          "wait_seconds": 0.8666666666666174,
-          "automatic_reading_hold": 0.8333333333342452
+          "title": "Värm vattnet – följ kurvan",
+          "text": "Is smälter vid 0 grader. Vatten kokar vid 100 grader, vid vanligt lufttryck.",
+          "start": 52.03333333333294,
+          "end": 72.06666666666531,
+          "animation_seconds": 16.666666666665726,
+          "wait_seconds": 3.366666666666646,
+          "automatic_reading_hold": 0.3333333333342736
         },
         {
-          "title": "En platå betyder att formen ändras",
-          "text": "Vid smältning och kokning ändras ordningen mellan molekylerna. Temperaturen står stilla under övergången. Molekylerna blir inte större.",
-          "start": 66.09999999999881,
-          "end": 82.1333333333313,
-          "animation_seconds": 14.966666666665816,
-          "wait_seconds": 1.0666666666666629,
-          "automatic_reading_hold": 0.03333333333418409
-        },
-        {
-          "title": "Kondensering: vattenånga blir vätska",
-          "text": "När vattenånga kyls kan molekylerna samlas till flytande vatten. Det kallas kondensering. Moln och imma består av små vattendroppar.",
-          "start": 82.1333333333313,
-          "end": 98.16666666666372,
-          "animation_seconds": 15.76666666666577,
-          "wait_seconds": 0.2666666666666515,
-          "automatic_reading_hold": 0.23333333333422956
+          "title": "Vattenånga kan bli vätska igen",
+          "text": "Vattenånga som kyls blir flytande vatten. Det heter kondensering.",
+          "start": 72.06666666666531,
+          "end": 89.09999999999768,
+          "animation_seconds": 16.46666666666573,
+          "wait_seconds": 0.5666666666666345,
+          "automatic_reading_hold": 0.5333333333342694
         }
       ]
     },
     {
       "module": 7,
       "scene": "EnvironmentMaster",
-      "file": "assets/films/v4/07-miljo.mp4",
-      "captions": "assets/captions/v4/07-miljo.vtt",
-      "poster": "assets/posters/v4/07-miljo.jpg",
-      "duration": 112.228125,
+      "file": "assets/films/v5/07-miljo.mp4",
+      "captions": "assets/captions/v5/07-miljo.vtt",
+      "poster": "assets/posters/v5/07-miljo.jpg",
+      "duration": 88.795443,
       "width": 1920,
       "height": 1080,
       "fps": 30,
@@ -510,67 +421,49 @@
       "narration": false,
       "music": true,
       "spoken_seconds": 0,
-      "version": 4,
-      "animation_calls": 57,
+      "version": 5,
+      "animation_calls": 33,
       "chapters": [
         {
-          "title": "Ett utsläpp börjar vid en källa",
-          "text": "Färgrester i avloppet kan släppa ut ämnen som skadar vattenlevande organismer. Följ ett ämne från utsläpp till möjlig följd.",
+          "title": "Häll inte färgrester i avloppet",
+          "text": "Färgrester ska inte hällas i avloppet. Vissa ämnen kan skada livet i vatten.",
           "start": 0.9999999999999999,
-          "end": 18.033333333333314,
-          "animation_seconds": 15.466666666666644,
-          "wait_seconds": 1.56666666666667,
-          "automatic_reading_hold": 0.03333333333335631
+          "end": 21.000000000000053,
+          "animation_seconds": 16.466666666666693,
+          "wait_seconds": 3.53333333333336,
+          "automatic_reading_hold": 0.5333333333333066
         },
         {
-          "title": "Vatten transporterar lösta ämnen",
-          "text": "Ämnen kan lösas i vatten och följa med strömmen. Därför kan ett utsläpp påverka organismer en bit från själva källan.",
-          "start": 18.700000000000014,
-          "end": 35.700000000000465,
-          "animation_seconds": 15.766666666667188,
-          "wait_seconds": 1.2333333333332632,
-          "automatic_reading_hold": 0.033333333332880244
+          "title": "Vattnet kan föra ämnen vidare",
+          "text": "Vissa ämnen följer med vattnet. De kan spridas långt från platsen där utsläppet började.",
+          "start": 21.666666666666753,
+          "end": 41.66666666666694,
+          "animation_seconds": 15.966666666666857,
+          "wait_seconds": 4.033333333333331,
+          "automatic_reading_hold": 0.033333333333143145
         },
         {
-          "title": "Ämnet och mängden spelar roll",
-          "text": "Risken beror på ämnets egenskaper och hur mycket organismen utsätts för. Även tiden spelar roll. Alla kemiska ämnen är inte miljögifter.",
-          "start": 36.36666666666709,
-          "end": 53.39999999999956,
-          "animation_seconds": 15.266666666665799,
-          "wait_seconds": 1.7666666666666657,
-          "automatic_reading_hold": 0.0333333333341983
+          "title": "Vissa ämnen kan skada fiskar",
+          "text": "Vissa ämnen kan skada fiskar. Risken beror på ämnet och mängden.",
+          "start": 42.33333333333357,
+          "end": 62.366666666666106,
+          "animation_seconds": 13.466666666665901,
+          "wait_seconds": 6.5666666666666345,
+          "automatic_reading_hold": 0.5333333333340988
         },
         {
-          "title": "Vissa ämnen kan anrikas i näringskedjan",
-          "text": "Vissa svårnedbrytbara ämnen stannar i organismer. När rovdjur äter många bytesdjur kan halten bli högre. Vi jämför lika stora vävnadsprov.",
-          "start": 54.06666666666619,
-          "end": 71.09999999999863,
-          "animation_seconds": 15.266666666665813,
-          "wait_seconds": 1.7666666666666373,
-          "automatic_reading_hold": 0.5333333333341912
-        },
-        {
-          "title": "Rening hjälper -- allt fångas inte",
-          "text": "Ett filter fångar fasta partiklar. Lösta ämnen kan passera. Rening hjälper, men alla föroreningar tas inte bort. Förebygg därför utsläpp.",
-          "start": 71.76666666666526,
-          "end": 88.79999999999765,
-          "animation_seconds": 16.366666666665736,
-          "wait_seconds": 0.6666666666666572,
-          "automatic_reading_hold": 0.033333333334269355
-        },
-        {
-          "title": "Bryt spridningsvägen vid källan",
-          "text": "Lämna färgrester som farligt avfall. Då bryts spridningsvägen redan vid källan. Minska utsläpp innan ämnen når mark och vatten.",
-          "start": 89.46666666666428,
-          "end": 106.49999999999675,
-          "animation_seconds": 15.06666666666581,
-          "wait_seconds": 1.9666666666666544,
-          "automatic_reading_hold": 0.13333333333419262
+          "title": "Lämna färgrester på rätt ställe",
+          "text": "Lämna färgrester som farligt avfall. Då kan ämnena tas om hand på rätt sätt.",
+          "start": 63.033333333332735,
+          "end": 83.0666666666651,
+          "animation_seconds": 16.46666666666573,
+          "wait_seconds": 3.5666666666666345,
+          "automatic_reading_hold": 0.5333333333342694
         }
       ]
     }
   ],
-  "new_diagram_manifest": "assets/diagrams-v2/manifest.json",
+  "new_diagram_manifest": "assets/diagrams-v5/index.json",
   "environment_credits": "assets/environment/credits.json",
   "files": [
     {
@@ -584,9 +477,14 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "PEDAGOGIK.md",
+      "bytes": 12312,
+      "sha256": "73c388369b3efffaaf2fb7aa0a7e4efbb330ed8376d669650e3f87c391eba74e"
+    },
+    {
       "path": "README.md",
-      "bytes": 8239,
-      "sha256": "9cae4416b916e927100f216758c2f385a7e3ff159a1444007272d34e797a8fef"
+      "bytes": 5288,
+      "sha256": "1ed22293a2ca54229bb05b5553cc2e7e5932978b48391a6664169dc4f4715049"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -729,6 +627,41 @@
       "sha256": "e01a944a846108c18bb3c7ec6f476fc8cacb9b536a290ab1577ac72dc735d223"
     },
     {
+      "path": "assets/captions/v5/01-atomer.vtt",
+      "bytes": 646,
+      "sha256": "c826c09d2a894bbf49a372d94f136e825e7a31da76d24c0de82452a93a6ec03d"
+    },
+    {
+      "path": "assets/captions/v5/02-modeller.vtt",
+      "bytes": 734,
+      "sha256": "d3219d1229c03786c5c1a5184e99bc0867f0e5f40cf69b5cade300486ca74761"
+    },
+    {
+      "path": "assets/captions/v5/03-elektroner.vtt",
+      "bytes": 682,
+      "sha256": "2939f36b9bf2da10be08c703078e877137f58f0028157063e41d235ac3ccd20d"
+    },
+    {
+      "path": "assets/captions/v5/04-forandringar.vtt",
+      "bytes": 731,
+      "sha256": "9eab320f1a7baf05e7faeccb6bd8bff88f98fc3b1397b22b42c931bdf3509104"
+    },
+    {
+      "path": "assets/captions/v5/05-egenskaper.vtt",
+      "bytes": 653,
+      "sha256": "d50f44c0eadbfd5fdb0844db1fbf90240c24d7c60acad502398791b695192650"
+    },
+    {
+      "path": "assets/captions/v5/06-faser.vtt",
+      "bytes": 777,
+      "sha256": "089682e2220b8194bc1cbb43a8c526e2aa1bc282a027a336073ea6855682364b"
+    },
+    {
+      "path": "assets/captions/v5/07-miljo.vtt",
+      "bytes": 574,
+      "sha256": "5863a877cfdc3a101f599149b6ce27742f21cdf3a4275e2dc109220926f57077"
+    },
+    {
       "path": "assets/diagrams-v2/01-01-atom-molekyl-atomslag.svg",
       "bytes": 107449,
       "sha256": "77164e3cef3b2e8a4fa421d886006f2c2af7139b5b913caf8c868f704f84f8c2"
@@ -837,6 +770,41 @@
       "path": "assets/diagrams-v2/manifest.json",
       "bytes": 12963,
       "sha256": "04658874fb9575e22aae6d5c815bbcacbfcda2b6f91602e797753e1198633257"
+    },
+    {
+      "path": "assets/diagrams-v5/01-atomer.svg",
+      "bytes": 5114,
+      "sha256": "088d308fb080b78d4704179a2488782ee917eb7dcc2f66e0a05119bbc60dc2ba"
+    },
+    {
+      "path": "assets/diagrams-v5/02-modeller.svg",
+      "bytes": 3808,
+      "sha256": "1e8d7154cbf4168fb23884e26dd4080d80c0010ee422fc5d75602d75d411c79e"
+    },
+    {
+      "path": "assets/diagrams-v5/03-elektroner.svg",
+      "bytes": 4217,
+      "sha256": "4f812df5ec1b2c0b1662f0021629fcff0d148758e49a41c6841fa736c45a9e05"
+    },
+    {
+      "path": "assets/diagrams-v5/04-forandringar.svg",
+      "bytes": 9025,
+      "sha256": "45653c5abab5941b30849a4469b3dbcd34a69ae8b035d63df6e606e466126616"
+    },
+    {
+      "path": "assets/diagrams-v5/05-egenskaper.svg",
+      "bytes": 5347,
+      "sha256": "3d9f0d5ed7092e42487c56edd723527a24ebcf10738a03ebbee4de74a5cc7752"
+    },
+    {
+      "path": "assets/diagrams-v5/06-faser.svg",
+      "bytes": 13082,
+      "sha256": "f7bd894f1ea8d3832f2c9fb983ff769a9a9919f16054a35cc70a7408cb55e2f0"
+    },
+    {
+      "path": "assets/diagrams-v5/index.json",
+      "bytes": 6059,
+      "sha256": "d63942df7dc5e23e01962b35eda060adcc0126c06fb3997788d293cf456ea3e8"
     },
     {
       "path": "assets/diagrams/01-atomer.svg",
@@ -1144,6 +1112,81 @@
       "sha256": "90168a43751a913fb4715a95bc12fb3be6d8ee960526adec1b2256aa5fef68c9"
     },
     {
+      "path": "assets/films/v5/01-atomer.audio.json",
+      "bytes": 252,
+      "sha256": "a725925ac760d3a89d37f560383ee74e7d66b3ff3e2e8f9bd42b84129871f53a"
+    },
+    {
+      "path": "assets/films/v5/01-atomer.mp4",
+      "bytes": 5056389,
+      "sha256": "c6e1ca802275d9672c504fa8242337d3210c7294e69e0663c771d56ed75fcb8f"
+    },
+    {
+      "path": "assets/films/v5/02-modeller.audio.json",
+      "bytes": 254,
+      "sha256": "9bf04f56995e4658d18dfc7d963040dba563d5f7c380420ae5d06ae0be529297"
+    },
+    {
+      "path": "assets/films/v5/02-modeller.mp4",
+      "bytes": 5376857,
+      "sha256": "7ad2986dd364c2bac1e32f1486f9815bc1d59c2ba0a276ca8c7aaf2642d7e373"
+    },
+    {
+      "path": "assets/films/v5/03-elektroner.audio.json",
+      "bytes": 256,
+      "sha256": "f03dda8636392988460b2ff2394ff233d14f70b9891760dcf2bebe1e6ed5473e"
+    },
+    {
+      "path": "assets/films/v5/03-elektroner.mp4",
+      "bytes": 5686838,
+      "sha256": "9b0919e630b38343cb957403f0e912c09705509f888733a27d0f8c41b64fbcf5"
+    },
+    {
+      "path": "assets/films/v5/04-forandringar.audio.json",
+      "bytes": 261,
+      "sha256": "f0a5bd4f58d86ec47ba2621f797d954e58dea4a79909c4e388481203f70520f9"
+    },
+    {
+      "path": "assets/films/v5/04-forandringar.mp4",
+      "bytes": 6409718,
+      "sha256": "2fdbbd112d118b3570e8a64bfac07dfd28142d54382179f8ef59bdf4ed901e64"
+    },
+    {
+      "path": "assets/films/v5/05-egenskaper.audio.json",
+      "bytes": 256,
+      "sha256": "ae03fe2005c3246efa802aa3f6e2c3437c18f8ae2c2ca0708f7059fdfcbda4ec"
+    },
+    {
+      "path": "assets/films/v5/05-egenskaper.mp4",
+      "bytes": 5002085,
+      "sha256": "2386208158b9970590e59dd8d8cecc61010cb2eb54d5ce439809abfcae267fee"
+    },
+    {
+      "path": "assets/films/v5/06-faser.audio.json",
+      "bytes": 254,
+      "sha256": "fae78c4b566c010c83c1e9aba45e502fb1361a6975a0db7a1400e40d2f7b1c61"
+    },
+    {
+      "path": "assets/films/v5/06-faser.mp4",
+      "bytes": 7123061,
+      "sha256": "dc6c451703f39b35ded10a86f45f800ac084c57655e5004d21bc7dd7753758be"
+    },
+    {
+      "path": "assets/films/v5/07-miljo.audio.json",
+      "bytes": 254,
+      "sha256": "5a4e2fe57beadac9b2b973465df9704e3867d9b896442b22b1d401b01f2e1011"
+    },
+    {
+      "path": "assets/films/v5/07-miljo.mp4",
+      "bytes": 5016938,
+      "sha256": "ad2324e0fe72ddaf4d0c4f5d07acd01bd8699bf902351abce6df04af396c4799"
+    },
+    {
+      "path": "assets/films/v5/manifest.json",
+      "bytes": 16172,
+      "sha256": "78f90eda680f8af1ed8f10c632bedea363a87c4c8c78cd765aaa86040cc2650f"
+    },
+    {
       "path": "assets/fonts/lmmath.woff",
       "bytes": 483808,
       "sha256": "a1965e4a0f5ad2600b1033c5c2034a696be428a7a2faf1cf0c47b541fe6e9e0a"
@@ -1349,14 +1392,49 @@
       "sha256": "8b8d7554f69522af61448fa9df1ce758064664bea1782f699f5116c7678c118d"
     },
     {
+      "path": "assets/posters/v5/01-atomer.jpg",
+      "bytes": 84364,
+      "sha256": "c0d911ba249b23c44ed0a6182364d3712c2deaf668a1e43bb568f82ebc342dfe"
+    },
+    {
+      "path": "assets/posters/v5/02-modeller.jpg",
+      "bytes": 86087,
+      "sha256": "e713cc088bbd26a084b1480a10e56abc081fa74aa0ff3f8065bbc30a136143c8"
+    },
+    {
+      "path": "assets/posters/v5/03-elektroner.jpg",
+      "bytes": 77227,
+      "sha256": "b7a4c32e69fe41df5cd06af6e4b2062d533c2a4141b6757c617d4304e5389ea4"
+    },
+    {
+      "path": "assets/posters/v5/04-forandringar.jpg",
+      "bytes": 101437,
+      "sha256": "000e014176c7ae951e1bf2728702779d2bc0eb9a6a55dbda3b26d14e641e1406"
+    },
+    {
+      "path": "assets/posters/v5/05-egenskaper.jpg",
+      "bytes": 83415,
+      "sha256": "a379b99553ce69a2d6a3b6ae146c12f169c503836e84d7656f9d5b4722812393"
+    },
+    {
+      "path": "assets/posters/v5/06-faser.jpg",
+      "bytes": 96264,
+      "sha256": "1f917767cc4547bb2879782df413505c2c6de1c3fe701118c02db6222e79d7b6"
+    },
+    {
+      "path": "assets/posters/v5/07-miljo.jpg",
+      "bytes": 84438,
+      "sha256": "189661bda89d7b3e67d1b2c75469e23738e5b3a8ad66238905cd201f0a0f8232"
+    },
+    {
       "path": "environment-scenarios.js",
       "bytes": 4410,
       "sha256": "8229fbe79bbb6defe8f4418b40c1c8faf39761c7e601d7df0351a6bcf0dccdee"
     },
     {
       "path": "index.html",
-      "bytes": 2128,
-      "sha256": "1c854cc225500ebb35bacf56b6e39005141401f26a2f6161591b0635f6d88426"
+      "bytes": 2275,
+      "sha256": "060ba66bb1a36fba114363ca853fe6867ec181fd33b795ed8bd9c4045d5fd5c2"
     },
     {
       "path": "lab-atoms-model.js",
@@ -1370,8 +1448,8 @@
     },
     {
       "path": "lab-atoms.js",
-      "bytes": 17855,
-      "sha256": "6d900777c5071d6608ca7af1642f70650884afef07e7055205db76e57ad07cd9"
+      "bytes": 18107,
+      "sha256": "5f03b334f5ffc3a4c6a9ca4531cb58a676a13d700bbccd326a73e6df6c5bbf79"
     },
     {
       "path": "lab-bonds-model.js",
@@ -1385,8 +1463,8 @@
     },
     {
       "path": "lab-bonds.js",
-      "bytes": 19431,
-      "sha256": "7acf5874c98e12f433e3fe39a55494d545e8f42192deab40dccb64e21bab1603"
+      "bytes": 20991,
+      "sha256": "2343eef962915dad1de616ec0f4c32d8cdecd9e41b1a32057dcf65be96f1f608"
     },
     {
       "path": "lab-environment-model.js",
@@ -1405,8 +1483,8 @@
     },
     {
       "path": "lab-kit.js",
-      "bytes": 14971,
-      "sha256": "f46a2113d3a94c164cc62beefdf23f7d704ea0fb884ccbf6862dc7abbaec1927"
+      "bytes": 15380,
+      "sha256": "8d3fe042935880bc5fbe5742f181acfdf8f746f0c015501c1ef722c5f6939a3d"
     },
     {
       "path": "lab-materials-model.js",
@@ -1435,8 +1513,8 @@
     },
     {
       "path": "lab-models.js",
-      "bytes": 19363,
-      "sha256": "dcf7c53ae9fb0f3c7a4dfb9148b170fd69ae6c38ab029631416fa27a2a95ed4d"
+      "bytes": 18229,
+      "sha256": "bb9651a668b4233741550a148d1febe50912572a11da29d02b67c474db906d8d"
     },
     {
       "path": "lab-reactions-model.js",
@@ -1455,18 +1533,18 @@
     },
     {
       "path": "lab-router.js",
-      "bytes": 1670,
-      "sha256": "9c1095f0a19d149fcd4fbdde4e2ee3d44bb266bfaf82effc5833936fa1cb6446"
+      "bytes": 1684,
+      "sha256": "17b900f7c62f47b86f82475e683f4922495e32df877ccce17a64907ae89878db"
     },
     {
       "path": "lab-tex.js",
-      "bytes": 21358,
-      "sha256": "efa3efcd3b42fba65ab2e6e44afc29c597c6cf73d3ba90b27018d94b4f6719de"
+      "bytes": 22008,
+      "sha256": "c4b798628b3ee818bd96fe72743de441aa71dea2ba4aa07b7738c7049e5b51bc"
     },
     {
       "path": "labs.css",
-      "bytes": 23618,
-      "sha256": "e178272921fe9702583ac5d77ec6a747c336a2352cafd843c022e227154d8aa2"
+      "bytes": 24341,
+      "sha256": "89fd7591817b6a58ea46eaded6f8c2c486d772e7c0bd55e1a950644570bdda42"
     },
     {
       "path": "latex/01-01-atom-molekyl-atomslag.tex",
@@ -1582,6 +1660,26 @@
       "path": "latex/requirements.txt",
       "bytes": 13,
       "sha256": "a04acdc8c0e79b5b86df2b88a9414577763e3be416dc25ed619f29c2a1389981"
+    },
+    {
+      "path": "learning-content.js",
+      "bytes": 64171,
+      "sha256": "c48998fea62b671531ef7d41d87efe8cb588796c3aab6f6183573567c5d179f4"
+    },
+    {
+      "path": "learning-diagrams.js",
+      "bytes": 10463,
+      "sha256": "c1941f3c0470687b34b87d33e82e802a80f22d58abdf07d83549d5db967651c1"
+    },
+    {
+      "path": "learning-tools.css",
+      "bytes": 14810,
+      "sha256": "23dc445cceb831f0a80af8aaa64aacc4327ced25449198a81b48d26f968838a8"
+    },
+    {
+      "path": "learning-tools.js",
+      "bytes": 20057,
+      "sha256": "1ac6f038fbb82635ebb0c1f123313e0fb162fa65728c6182c8c005c0b41cb178"
     },
     {
       "path": "manim/compose_score.py",
@@ -1784,9 +1882,114 @@
       "sha256": "36237caff8fa8e1fb316c9e974b8a8bc33545067a7159697416e3100479012b3"
     },
     {
+      "path": "manim/v5/README.md",
+      "bytes": 2953,
+      "sha256": "ace8f7665ef66ce3b1365b062bb05734537171eb0a11210582e26075a66d4e01"
+    },
+    {
+      "path": "manim/v5/audit.py",
+      "bytes": 4041,
+      "sha256": "31a9b585e8637e188f411bc1849133d7621b06e8ae63e32f0c857b2d522fd3c8"
+    },
+    {
+      "path": "manim/v5/core.py",
+      "bytes": 11410,
+      "sha256": "43e8d22ade02839a1696bd444857c9dfa06bfdb0dfe0ab253110a2f3aa23bdc5"
+    },
+    {
+      "path": "manim/v5/generate_diagrams.py",
+      "bytes": 11497,
+      "sha256": "61e775420ad7ac884a07ad9e163f25cb2df1123d9df8dae67cb0db89adb64c8d"
+    },
+    {
+      "path": "manim/v5/music_score.py",
+      "bytes": 4384,
+      "sha256": "5d84e5a82250be7878f2e8179821b526963296e9924c27d853f72248b1932cca"
+    },
+    {
+      "path": "manim/v5/qa.py",
+      "bytes": 2395,
+      "sha256": "5e9b03ed362b56f357e9e3b3a0204cf8f72469622ecca66ac8a331f420ff6c47"
+    },
+    {
+      "path": "manim/v5/render_all.py",
+      "bytes": 4095,
+      "sha256": "94ff44c64a831934e67123f84b5a339467a58cca02a300e9b34f7777b8bce6df"
+    },
+    {
+      "path": "manim/v5/scenes_1_2.py",
+      "bytes": 9356,
+      "sha256": "bd41e778313fa1333252b7c77f47e5e568406e3ff74bbefd0e97406d1cc2852e"
+    },
+    {
+      "path": "manim/v5/scenes_3_4.py",
+      "bytes": 16584,
+      "sha256": "198e02f0bb151f6484413203e583462cc80054289799ccbde140336221619dcc"
+    },
+    {
+      "path": "manim/v5/scenes_5_7.py",
+      "bytes": 16488,
+      "sha256": "6e5e2832539078ac33e734b914a9c6ec600ed71536359ecc1e59bd9150a72818"
+    },
+    {
+      "path": "manim/v5/shared.py",
+      "bytes": 1760,
+      "sha256": "6b7fdfc9124c1ff69ff8a7ce03a49e26bda086b3ef6199e8dff65ebb0d0b9fdf"
+    },
+    {
+      "path": "manim/v5/storyboard_1_2.json",
+      "bytes": 2610,
+      "sha256": "2c165761c027fe059ad71b32d07a82aeb12b244f2ebfb45df3157db0d4af15d2"
+    },
+    {
+      "path": "manim/v5/storyboard_3_4.json",
+      "bytes": 5398,
+      "sha256": "eb80fff271ae472555aa5a02c35818eb7c623a1d38d218e274c6fbac0593520b"
+    },
+    {
+      "path": "manim/v5/storyboard_5_7.json",
+      "bytes": 3708,
+      "sha256": "b9b96f8aca25fcc2da943e78ec4fee1ee4a480d7b6c1729d72fc133200e8c1f5"
+    },
+    {
+      "path": "manim/v5/timing/01-atomer.json",
+      "bytes": 2828,
+      "sha256": "522c9811e5c17b88c5f1b09e62a6a4b89d5ca4c48d2117e0ce659ea341a9855a"
+    },
+    {
+      "path": "manim/v5/timing/02-modeller.json",
+      "bytes": 2871,
+      "sha256": "62185acda683ceb0f1cf424f9d9efe4b108675caa4b8e0b1124b86cd58474c59"
+    },
+    {
+      "path": "manim/v5/timing/03-elektroner.json",
+      "bytes": 2855,
+      "sha256": "a9e014d52637fffe2afaa6773899847ea27b9f342b0f715fbd9074269b030d27"
+    },
+    {
+      "path": "manim/v5/timing/04-forandringar.json",
+      "bytes": 2895,
+      "sha256": "e0ca9450477773417373f6dd55c9a0fb820f65ee8c46c738b45ec6fd92e1a215"
+    },
+    {
+      "path": "manim/v5/timing/05-egenskaper.json",
+      "bytes": 2821,
+      "sha256": "71bcaf3c036a4ed28d0afcc991685cdbda6efa18c23791d1134ec9c10087c4ae"
+    },
+    {
+      "path": "manim/v5/timing/06-faser.json",
+      "bytes": 3020,
+      "sha256": "c3a89aa10acaee9260393996ad97e4ea5ffd71e067ae28e68c21456326788c3a"
+    },
+    {
+      "path": "manim/v5/timing/07-miljo.json",
+      "bytes": 2387,
+      "sha256": "ece5266356b0fe4b0a78aac8d219f1df0b765e0a96f5802a3dfbd7b19e4d0c2b"
+    },
+    {
       "path": "script.js",
-      "bytes": 470101,
-      "sha256": "794a6f831f95eeab33f28f3df582706572762cee634bf46e91410d29e188d5e0"
+      "bytes": 464917,
+      "sha256": "910323befa4143fbb0c4e5e139db8dc5e063ee6fc041f3321af7fd0bef63fb33"
     },
     {
       "path": "study-assets.js",
@@ -1795,8 +1998,8 @@
     },
     {
       "path": "study-galleries.js",
-      "bytes": 6569,
-      "sha256": "a948ebfb18d985d0625991daec50895cc5ee7f79f4d2e3683bab3639e1f25d7c"
+      "bytes": 8377,
+      "sha256": "3e460de53b59e1ae49cd44bc8de2ee28a74ab8e93afa6a8a5e3c4999a6131998"
     },
     {
       "path": "styles.css",
@@ -1850,13 +2053,13 @@
     },
     {
       "path": "water-lab.css",
-      "bytes": 14770,
-      "sha256": "9b722fa0360fa25d7e3d4711a2f301728ae546527dc1c984eb765d15ca7fe913"
+      "bytes": 15030,
+      "sha256": "8451f0a70b7d9be4b0ab6eb3aa099b846ab6e6dbfc0f2c66fb214c9b205d62ad"
     },
     {
       "path": "water-lab.js",
-      "bytes": 31289,
-      "sha256": "f6f78fb50c89b2be5cae20eb8026b6fd2f538d1d2772e3855092ef2740c6b4a2"
+      "bytes": 31332,
+      "sha256": "5f5596db181fc099458e9bca3498d2884a91c713cd3e2fc6de55826ccc4228cd"
     },
     {
       "path": "water-model.js",
@@ -1879,17 +2082,14 @@
   "video_production": {
     "render": "Native1920x1080at30fps",
     "duration_range_seconds": [
-      90,
+      70,
       120
     ],
-    "teaching_chapters": 46,
-    "source": "manim/v4/README.md",
+    "teaching_chapters": 34,
+    "source": "manim/v5/README.md",
     "narration": false,
     "music": "Original instrumental score",
-    "retimed_previous_movies": false,
-    "curriculum": "Lgr22 chemistry, relevant central content for years 7–9; introductory year-7 language",
-    "curriculum_source": "https://syllabuswebb.skolverket.se/compulsorycw/jsp/subject.htm?subjectCode=GRGRKEM01&tos=gr",
-    "curriculum_checked": "2026-11-11"
+    "retimed_previous_movies": false
   },
   "simulations": [
     {
@@ -1963,7 +2163,10 @@
     "scientificScope": "Teaching models with explicit assumptions and checks of forces, chemical inventories, energy and conservation",
     "texRendererChecks": 90,
     "waterGuideChecks": 63,
-    "filmAudit": "manim/v4/audit.py"
+    "filmAudit": "manim/v5/audit.py",
+    "plainSpeechAndEscapingChecks": 4,
+    "learningAreas": 7,
+    "learningSteps": 21
   },
   "retired_simulations": [
     {
@@ -1993,7 +2196,7 @@
     "renderer": "MathJax 3.2.2, local TeX to self-contained SVG paths",
     "source": "lab-tex.js",
     "vendor": "vendor/mathjax/tex-svg-full.js",
-    "scope": "All visible prose, controls, canvas labels and graph text in the four active experiments"
+    "scope": "Real accessible Swedish prose; native LaTeX in films; local MathJax in labs with a selectable plain-text alternative"
   },
   "waterLabExperience": {
     "guided": true,
@@ -2001,5 +2204,34 @@
     "physics": "Unchanged constant-pressure water enthalpy model",
     "observations": "Melting, warming, boiling, condensation and cooling",
     "advancedControls": "Collapsible free investigation and data tools"
+  },
+  "pedagogy": {
+    "source": "PEDAGOGIK.md",
+    "student_content": "learning-content.js",
+    "three_steps_per_area": true,
+    "key_words_per_area": [
+      3,
+      4
+    ],
+    "scope": "Introductory chemistry unit, relevant Lgr22 years 7–9 content adapted for year 7",
+    "assessment": "No automated grades or invented official year-7 criteria"
+  },
+  "reading_support": {
+    "source": "learning-tools.js",
+    "settings": "Separate browser-local preference key",
+    "speech": "Optional Web Speech with paragraph following",
+    "dictation": "Optional if supported; explicit student action; appends without replacing answers",
+    "tools": [
+      "font size",
+      "font choice",
+      "spacing",
+      "background/contrast",
+      "reading ruler",
+      "one section at a time",
+      "glossary",
+      "writing starters",
+      "calm motion",
+      "plain lab text"
+    ]
   }
 }

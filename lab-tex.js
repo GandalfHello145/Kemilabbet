@@ -95,10 +95,14 @@ export function installCanvasTeX(ctx){
   if(!ctx)return()=>{};
   if(canvasHooks.has(ctx))return canvasHooks.get(ctx);
   const own={fillText:Object.getOwnPropertyDescriptor(ctx,'fillText'),strokeText:Object.getOwnPropertyDescriptor(ctx,'strokeText'),measureText:Object.getOwnPropertyDescriptor(ctx,'measureText')};
-  const nativeMeasure=ctx.measureText.bind(ctx);
+  const nativeMeasure=ctx.measureText.bind(ctx),nativeFill=ctx.fillText.bind(ctx),nativeStroke=ctx.strokeText.bind(ctx);
+  const plainText=()=>globalThis.document?.body?.dataset.labText==='plain';
+  const withReadableFont=callback=>{const before=ctx.font;ctx.font=before.replace(/(\d+(?:\.\d+)?px)\s+.+$/,'$1 '+(globalThis.document?.body?.dataset.readFont==='serif'?'Georgia':'Arial'));try{return callback();}finally{ctx.font=before;}};
   const style=()=>({size:Number(/([\d.]+)px/.exec(ctx.font)?.[1]||16),bold:/\b(?:bold|[6-9]00)\b/.test(ctx.font)});
   function draw(text,x,y,maxWidth,stroke=false){
-    text=String(text);if(!engine)return;
+    text=String(text);
+    if(plainText())return withReadableFont(()=>{const native=stroke?nativeStroke:nativeFill;if(Number.isFinite(maxWidth)&&maxWidth>0)native(text,x,y,maxWidth);else native(text,x,y);});
+    if(!engine)return;
     let entry;try{entry=entryFor(text,style().bold);}catch(error){console.error(error);return;}
     const {size,bold}=style(),color=typeof(stroke?ctx.strokeStyle:ctx.fillStyle)==='string'?(stroke?ctx.strokeStyle:ctx.fillStyle):'#000';
     const value=canvasImage(entry,color,bold,text);if(!value.ready)return;
@@ -114,7 +118,7 @@ export function installCanvasTeX(ctx){
   }
   ctx.fillText=function(text,x,y,maxWidth){draw(text,x,y,maxWidth);};
   ctx.strokeText=function(text,x,y,maxWidth){draw(text,x,y,maxWidth,true);};
-  ctx.measureText=function(text){const measured=nativeMeasure(String(text));if(!engine)return measured;const {size,bold}=style();let entry;try{entry=entryFor(String(text),bold);}catch{return measured;}return new Proxy(measured,{get(target,key){if(key==='width')return entry.width*size;if(key==='actualBoundingBoxAscent')return entry.ascent*size;if(key==='actualBoundingBoxDescent')return entry.depth*size;const value=Reflect.get(target,key,target);return typeof value==='function'?value.bind(target):value;}});};
+  ctx.measureText=function(text){if(plainText())return withReadableFont(()=>nativeMeasure(String(text)));const measured=nativeMeasure(String(text));if(!engine)return measured;const {size,bold}=style();let entry;try{entry=entryFor(String(text),bold);}catch{return measured;}return new Proxy(measured,{get(target,key){if(key==='width')return entry.width*size;if(key==='actualBoundingBoxAscent')return entry.ascent*size;if(key==='actualBoundingBoxDescent')return entry.depth*size;const value=Reflect.get(target,key,target);return typeof value==='function'?value.bind(target):value;}});};
   loadLabTeX().catch(console.error);
   const restore=()=>{for(const[name,descriptor]of Object.entries(own)){if(descriptor)Object.defineProperty(ctx,name,descriptor);else delete ctx[name];}canvasHooks.delete(ctx);};
   canvasHooks.set(ctx,restore);return restore;

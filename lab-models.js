@@ -1,25 +1,25 @@
-import { createLab, roundRect } from './lab-kit.js?v=20261110-labs3';
+import { createLab, roundRect } from './lab-kit.js?v=20261111-clear8';
 import { ATOM_RADIUS, createExperiment, advanceExperiment, forceAt, traceTrajectory,
   DETECTOR_STAGES,createDetectorLesson,observeDetectorLesson,nextDetectorStage,
-  qualitativeScattering } from './lab-models-model.js?v=20261110-labs3';
+  qualitativeScattering } from './lab-models-model.js?v=20261111-clear8';
 
 export function mountLab(host){
   const COLORS={thomson:'#6fe2d4',rutherford:'#ffd77e'},CHARGE=40,SEED=20261111;
   let lesson=createDetectorLesson(),experiment=createExperiment({count:0}),impact=.12;
-  let finished=false,dragging=false,focusId=0,wasRunning=false,preview={};
+  let finished=false,dragging=false,focusId=0,wasRunning=false,preview={},slow=true,calm=false;
   const lab=createLab(host,{
-    id:'models',title:'Atomdetektiven',badge:'FÖLJ → UPPTÄCK → JÄMFÖR',
-    subtitle:'Undersök en idé i taget. Varför ändrar en positiv partikel sin väg?',
-    steps:[{title:'Thomson',text:'Positiv laddning utspridd.'},{title:'Rutherford',text:'Positiv laddning i en liten kärna.'},{title:'Jämför',text:'Samma start i båda modellerna.'}],
-    objective:'Börja med Thomson. Följ en positiv partikel genom atomen.',
+    id:'models',title:'Atomdetektiven',badge:'SKICKA → TITTA → FÖRKLARA',
+    subtitle:'Skicka en positiv partikel (+). Titta på vägen. Jämför två äldre idéer om atomen.',
+    steps:[{title:'Thomson',text:'Plus utspritt i atomen.'},{title:'Rutherford',text:'Plus i en liten kärna.'},{title:'Jämför',text:'Samma start, två idéer.'}],
+    objective:'Tryck på Skicka en partikel. Följ den turkosa punkten (+).',
     hideRun:true,running:false,tools:'Följ stegen med den stora knappen. Pausa om du vill titta närmare.',
-    canvasLabel:'En atommodell visas i taget: först Thomson, sedan Rutherford. En närbild visar kraften på en positiv partikel. I sista steget kan samma start jämföras i båda modellerna.',
-    metrics:'<div class="cl-counter"><strong data-metric="model">Thomson</strong><span>idén vi undersöker</span></div><div class="cl-counter"><strong data-metric="effect">Följ partikeln</strong><span>det vi ser</span></div><div class="cl-counter"><strong data-metric="clue">Utspridd laddning</strong><span>det vi förklarar med</span></div>',
-    controls:'<p class="cl-task-hint" data-hint>Följ först bara den turkosa partikeln.</p><button type="button" class="cl-primary" data-next>Skicka en partikel</button><button type="button" class="cl-secondary" data-replay hidden>Se samma passage igen</button><button type="button" data-pause hidden>Pausa partikeln</button><div data-explore hidden><p class="cl-task-hint">Nu kan du styra själv. Dra det gula handtaget och släpp, eller välj här:</p><div class="cl-buttons"><button type="button" class="cl-secondary" data-near>Pröva nära mitten</button><button type="button" class="cl-secondary" data-far>Pröva längre från mitten</button></div></div><button type="button" data-reset>Börja om med Thomson</button>',
-    below:'<div class="cl-grid"><div><strong data-idea-title>Thomsons idé</strong><p data-idea>Positiv laddning är utspridd genom atomen. De negativa elektronerna finns inuti.</p></div><div><strong>Det här är ledtråden</strong><p data-discovery>Se vad som händer med den positiva partikeln. En pil visar vilken väg den elektriska kraften verkar.</p></div></div><details><summary>Solsystemsliknelsen · vad hjälper den oss med?</summary><p>I den historiska liknelsen motsvarar kärnan solen och elektronerna planeterna. Men planeter hålls av gravitation, medan elektriska krafter verkar i atomen. Dagens atommodell beskriver inte elektroner som små planeter i kända banor.</p></details>',
-    explanationTitle:'Thomson: positiv laddning över hela atomen.',
-    explanation:'Thomson tänkte sig negativt laddade elektroner inuti en utspridd positiv laddning. Skicka den positiva partikeln och följ hur vägen påverkas.',
-    model:'<p>Här jämförs den positiva laddningen som en jämnt laddad sfär (Thomson) eller en koncentrerad punkt (Rutherford). De negativa elektronerna i Thomsonbilden visar modellens idé; deras enskilda krafter beräknas inte. Elektronernas detaljfält, flera atomlager och energiförluster förenklas bort.</p><p>Banorna beräknas från repulsiv elektrisk kraft. Ingen hård yta vänder partikeln. Utanför en jämnt laddad sfär är fältet detsamma som från lika stor punktladdning; inne i sfären är påverkan svag nära mitten. Laddning, massa, tid och avstånd använder anpassade modellenheter. Kärnan och atomregionen visas förstorade. Testpartikeln visas långsammare nära mitten utan att kraftlagen ändras.</p><p>I sista steget överlagras två alternativa modeller för jämförelse; de bildar inte en kombinerad atom. Båda får exakt samma inkommande partikel. De många partiklarnas startlägen är reproducerbara. Visningen förklarar försöksidén och återger inte historiska mätetal.</p><p>Primärkälla: <a href="https://web.mit.edu/8.13/8.13c/references-fall/rutherford/rutherford-scattering-of-alpha-and-beta-particles.pdf" target="_blank" rel="noopener">Rutherford (1911), The scattering of α and β particles by matter and the structure of the atom</a>. Historisk förklaring: <a href="https://history.aip.org/exhibits/rutherford/sections/alpha-particles-atom.html" target="_blank" rel="noopener">American Institute of Physics: kärnans upptäckt</a>.</p>',
+    canvasLabel:'Följ den positiva partikeln som en färgad punkt med plus. Thomson och Rutherford visas först var för sig. I sista steget jämförs samma start. Knapparna Nära mitten och Längre från mitten ersätter dragning.',
+    metrics:'<div class="cl-counter"><strong data-metric="model">Thomson</strong><span>idén vi provar</span></div><div class="cl-counter"><strong data-metric="effect">Följ punkten</strong><span>det vi ser</span></div><div class="cl-counter"><strong data-metric="clue">Plus utspritt</strong><span>vår förklaring</span></div>',
+    controls:'<p class="cl-task-hint" data-hint>Följ den turkosa punkten med plus.</p><button type="button" class="cl-primary" data-next aria-label="Skicka en positiv partikel genom Thomsons atom">Skicka en partikel</button><button type="button" class="cl-secondary" data-replay hidden>Se samma väg igen</button><button type="button" data-pause hidden>Pausa rörelsen</button><details><summary>Fler verktyg</summary><label class="cl-note"><input type="checkbox" data-slow checked> Visa långsamt nära mitten</label><div data-explore hidden><p class="cl-task-hint">Flytta starten med det gula handtaget, eller använd en knapp.</p><div class="cl-buttons"><button type="button" class="cl-secondary" data-near aria-label="Skicka båda partiklarna nära atomens mitt">Nära mitten</button><button type="button" class="cl-secondary" data-far aria-label="Skicka båda partiklarna längre från atomens mitt">Längre från mitten</button></div></div><details><summary>En liknelse med solsystemet</summary><p>Kärnan liknas vid solen och elektronerna vid planeter. I atomen verkar elektriska krafter. Elektroner följer inte bestämda planetbanor i dagens atommodell.</p></details></details><button type="button" data-reset>Börja om med Thomson</button>',
+    below:'<div class="cl-grid"><div><strong data-idea-title>Thomsons idé</strong><p data-idea>Plusladdningen är utspridd i atomen. Elektroner med minus finns inuti.</p></div><div><strong>Läs pilen</strong><p data-discovery>Pilen visar åt vilket håll den elektriska kraften verkar. Kraften påverkar partikelns rörelse.</p></div></div>',
+    explanationTitle:'Börja med Thomsons idé.',
+    explanation:'Plusladdningen är utspridd i atomen. Skicka partikeln och se om vägen ändras.',
+    model:'<p>Här jämförs två äldre idéer om atomen. I Thomsons idé är plusladdningen utspridd. I Rutherfords idé är den samlad i en liten kärna. Elektronerna i Thomsonbilden visar var de tänktes finnas. Deras egna krafter räknas inte med.</p><p>Två plusladdningar stöter bort varandra med elektrisk kraft. Därför böjer partikeln av utan att träffa en hård vägg. Nära mitten av Thomsons atom är påverkan svag här. Samlad laddning i en kärna kan påverka partikeln mycket mer.</p><p>Det sista steget visar två alternativ ovanpå varandra för jämförelse. De är inte en gemensam atom. De får samma start. Långsam visning ändrar uppspelningen, inte beräkningen av kraften. Flera atomlager och energiförluster ingår inte.</p><p>Källor: <a href="https://web.mit.edu/8.13/8.13c/references-fall/rutherford/rutherford-scattering-of-alpha-and-beta-particles.pdf" target="_blank" rel="noopener">Rutherfords artikel om atomkärnan (1911)</a> och <a href="https://history.aip.org/exhibits/rutherford/sections/alpha-particles-atom.html" target="_blank" rel="noopener">American Institute of Physics: kärnans upptäckt</a>.</p>',
   });
   const spec=()=>DETECTOR_STAGES[lesson.stage];
   const visible=()=>spec().view==='both'?['thomson','rutherford']:[spec().view];
@@ -27,32 +27,33 @@ export function mountLab(host){
   function refresh(){
     const stage=lesson.stage,observed=lesson.observed;
     lab.setStep?.(stage===0?0:stage===3?2:1);
-    lab.setObjective?.(observed?['Utspridd laddning gav svag påverkan.','En liten positiv kärna kan böja banan kraftigt.','De flesta går förbi kärnan. Runt den finns mycket utrymme.','Samma start, olika laddningsfördelning – olika väg.'][stage]:
-      ['Följ en positiv partikel genom Thomsons atom.','Skicka samma positiva partikel nära Rutherfords kärna.','Följ många partiklar. Vad händer med de flesta?','Följ samma start i båda modellerna.'][stage],observed);
+    lab.setObjective?.(observed?['Partikeln gick nästan rakt.','Nära kärnan böjde partikeln av.','De flesta gick förbi kärnan.','Samma start gav olika vägar.'][stage]:
+      ['Tryck på Skicka. Följ den turkosa punkten (+).','Tryck på Skicka. Följ punkten nära kärnan.','Skicka flera. Titta på var de flesta passerar.','Skicka i båda. Jämför de två spåren.'][stage],observed);
     lab.$('[data-next]').textContent=observed?
-      ['Upptäck Rutherford','Pröva flera partiklar','Jämför modellerna','Skicka samma start igen'][stage]:
-      ['Skicka en partikel','Skicka samma partikel','Skicka flera partiklar','Skicka i båda modellerna'][stage];
+      ['Nästa: prova Rutherford','Nästa: prova flera','Nästa: jämför idéerna','Skicka i båda igen'][stage]:
+      ['Skicka en partikel','Skicka nära kärnan','Skicka flera partiklar','Skicka i båda modellerna'][stage];
+    lab.$('[data-next]').setAttribute('aria-label',observed&&stage<3?['Gå vidare till Rutherfords idé','Gå vidare till flera partiklar','Gå vidare till jämförelsen'][stage]:stage===3?'Skicka samma positiva partikel i båda atommodellerna':'Skicka positiva partiklar genom den visade atommodellen');
     lab.$('[data-next]').disabled=Boolean(experiment.count&&!finished);
     lab.$('[data-replay]').hidden=!observed||stage===3;
-    lab.$('[data-hint]').textContent=['Börja med en enda idé och följ den turkosa partikeln.','Här är samma positiva laddning samlad i en liten kärna.','Titta både på vanliga passager och på dem som böjer av mycket.','Guld är Rutherford. Turkos är Thomson. De får samma start.'][stage];
+    lab.$('[data-hint]').textContent=['Följ den turkosa punkten med plus.','Nu är plusladdningen samlad i en liten kärna.','Titta först på de partiklar som går nästan rakt.','Gult är Rutherford. Turkos är Thomson.'][stage];
     lab.$('[data-explore]').hidden=stage!==3;
     lab.$('[data-pause]').hidden=!experiment.count||finished;
-    lab.$('[data-pause]').textContent=lab.running?'Pausa partiklarna':'Fortsätt partiklarna';
+    lab.$('[data-pause]').textContent=lab.running?'Pausa rörelsen':'Fortsätt rörelsen';
     lab.setMetric('model',stage===0?'Thomson':stage===3?'Båda idéerna':'Rutherford');
-    lab.setMetric('effect',!finished?'Följ partikeln':stage===0?'Svag påverkan':stage===2?'Flest går förbi':stage===3?'Olika vägar':'Tydlig avböjning');
-    lab.setMetric('clue',stage===0?'Utspridd laddning':stage===2?'Utrymme runt kärnan':stage===3?'Samma start':'Liten positiv kärna');
+    lab.setMetric('effect',!finished?'Följ punkten':stage===0?'Nästan rakt':stage===2?'Flest går förbi':stage===3?'Olika vägar':'Böjer av');
+    lab.setMetric('clue',stage===0?'Plus utspritt':stage===2?'Liten kärna':stage===3?'Samma start':'Plus i kärnan');
     lab.$('[data-idea-title]').textContent=stage===0?'Thomsons idé':stage===3?'En rättvis jämförelse':'Rutherfords idé';
-    lab.$('[data-idea]').textContent=stage===0?'Positiv laddning är utspridd genom atomen. De negativa elektronerna finns inuti.':
-      stage===3?'Positiv laddning är lika stor i båda alternativen, men fördelad på olika sätt. Samma strålstart gör skillnaden lättare att upptäcka.':
-      'Den positiva laddningen och nästan hela atomens massa finns i en mycket liten kärna. Området runt kärnan tar upp det mesta av atomens volym.';
+    lab.$('[data-idea]').textContent=stage===0?'Plusladdningen är utspridd i atomen. Elektroner med minus finns inuti.':
+      stage===3?'Båda har lika mycket plusladdning. I den ena är den utspridd. I den andra finns den i kärnan.':
+      'Plusladdningen och nästan hela atomens massa finns i en liten kärna. Runt kärnan finns mycket utrymme.';
     lab.invalidate();
   }
   function explainStage(){
     const text=[
-      ['Thomson: positiv laddning över hela atomen.','Thomson tänkte sig negativt laddade elektroner inuti en utspridd positiv laddning. Skicka den positiva partikeln och följ hur vägen påverkas.'],
-      ['Rutherford: laddningen är samlad i en liten kärna.','Nu provar vi samma start nära en liten positiv kärna. Både kärnan och den inkommande partikeln är positiva. Lika laddningar stöter bort varandra.'],
-      ['Vad händer med de flesta partiklarna?','Skicka flera genom samma område. Många passerar långt från den lilla kärnan. Följ också dem som kommer nära.'],
-      ['Nu är du redo att jämföra.','Båda får samma positiva partikel från samma start. Titta på kraftpilen nära mitten: koncentrerad laddning kan ändra vägen mycket mer.'],
+      ['Börja med Thomsons idé.','Plusladdningen är utspridd i atomen. Skicka partikeln och se om vägen ändras.'],
+      ['Prova Rutherfords idé.','Här finns en liten kärna med plusladdning. Partikeln är också positiv. Två plus stöter bort varandra.'],
+      ['Prova flera partiklar.','Titta på de flesta först. Går de nära kärnan eller långt ifrån den?'],
+      ['Jämför samma start.','Nu visas båda idéerna. Se vilket spår som böjer av mest nära mitten.'],
     ][lesson.stage];
     lab.setExplanation(...text);lab.$('[data-discovery]').textContent=text[1];
   }
@@ -65,26 +66,26 @@ export function mountLab(host){
     experiment=createExperiment({seed:SEED,charge:CHARGE,impact,count:spec().count,spread:spec().count===1?0:1.65});
     focusId=experiment.impacts.reduce((best,b,i)=>Math.abs(b)<Math.abs(experiment.impacts[best])?i:best,0);
     finished=false;preview={};lab.setRunning(true);refresh();
-    lab.setExplanation(spec().count===1?'Följ den positiva partikeln.':'Följ de många passagerna.',
-      lesson.stage===0?'Den positiva laddningen är utspridd. Se hur lite partikelns väg ändras när den passerar nära mitten.':
-      lesson.stage===2?'De flesta partiklar passerar utan att komma mycket nära kärnan. Några får starkare påverkan.':
-      lesson.stage===3?'Samma start, två alternativ. Guld visar Rutherford och turkos Thomson. Kraften verkar bort från positiv laddning.':
-      'Partikeln närmar sig en positiv kärna. Pilen pekar bort från kärnan: lika laddningar stöter bort varandra. Rörelsen visas långsamt här.');
-    lab.announce('Partikeln är skickad. Följ rörelsen och kraftpilen.');
+    lab.setExplanation(spec().count===1?'Följ punkten med plus.':'Titta på partiklarnas vägar.',
+      lesson.stage===0?'Punkten passerar genom atomen. Titta på hur mycket vägen böjer.':
+      lesson.stage===2?'De flesta går långt från kärnan. Följ också någon som kommer nära.':
+      lesson.stage===3?'Gult är Rutherford. Turkos är Thomson. De startar på samma sätt.':
+      'Pilen pekar bort från kärnan. En elektrisk kraft påverkar rörelsen: två plus stöter bort varandra.');
+    lab.announce('Partikeln är skickad. Följ punkten och pilen.');
   }
   function complete(){
     if(!observeDetectorLesson(lesson,experiment))return;
     finished=true;lab.setRunning(false);
     const stage=lesson.stage;
     let title,text;
-    if(stage===0){title='Utspridd laddning ger svag påverkan här.';text='Partikeln gick nästan rakt genom området. I Thomsons idé är den positiva laddningen utspridd, så kraften nära mitten är svag. Nästa steg provar en annan förklaring med samma start.';}
-    else if(stage===1){title='En liten positiv kärna ändrar vägen mycket mer.';text='Nära den samlade positiva laddningen blir bortstötningen stark. Partikeln böjer av gradvis av elektrisk kraft. Den studsar inte mot någon vägg. Stora avböjningar blev en ledtråd till kärnan.';}
-    else if(stage===2){const outcome=qualitativeScattering(experiment.models.rutherford);title='Den lilla kärnan lämnar mycket utrymme omkring sig.';text=outcome.mostPass?
-      'De flesta gick förbi utan stark påverkan. Några som kom nära böjde av mycket, och några vände tillbaka. Tillsammans pekade observationerna mot en liten positiv kärna och mycket utrymme runt den. De stora avböjningarna var svåra att förklara med Thomsons modell. Rutherfords kärnmodell gav en bättre förklaring till försöket.':
-      'Partiklarnas olika startlägen gav olika passager. De kraftigaste ändringarna kom nära den lilla positiva kärnan. Området runt kärnan tar upp det mesta av atomens volym.';}
-    else{title='Samma start visar varför fördelningen spelar roll.';text=Math.abs(impact)<.5?
-      'Nära mitten böjs guldspåret mycket mer än det turkosa. Den positiva laddningen är samlad i en liten kärna i Rutherfordmodellen, men utspridd i Thomsonmodellen. Lika laddningar stöter bort varandra i båda fallen.':
-      'Längre från mitten blir skillnaden mindre. Det är särskilt de nära passagerna som kan avslöja att den positiva laddningen är samlad i en liten kärna. Pröva nära mitten igen.';}
+    if(stage===0){title='Partikeln gick nästan rakt.';text='Thomson tänkte att plusladdningen var utspridd i atomen. Här påverkas partikeln därför lite nära mitten.';}
+    else if(stage===1){title='Partikeln böjde av nära kärnan.';text='Kärnan och partikeln är båda positiva. Två plus stöter bort varandra. Den lilla kärnan kan därför ändra partikelns väg mycket.';}
+    else if(stage===2){const outcome=qualitativeScattering(experiment.models.rutherford);title='De flesta gick förbi kärnan.';text=outcome.mostPass?
+      'De flesta kom långt från kärnan och gick nästan rakt. Några kom nära och böjde av mycket. Det passar med en liten kärna.':
+      'Några kom nära kärnan och böjde av mycket. Andra gick längre ifrån den och påverkades mindre.';}
+    else{title='Samma start gav olika vägar.';text=Math.abs(impact)<.5?
+      'Det gula spåret böjer av mer nära mitten. En liten kärna förklarar stora böjningar bättre än utspridd plusladdning.':
+      'Längre från mitten blir skillnaden mindre. Öppna Fler verktyg och välj Nära mitten för att jämföra igen.';}
     lab.setExplanation(title,text);lab.$('[data-discovery]').textContent=text;refresh();lab.celebrate?.(410,218);lab.announce(title+' '+text);
   }
   lab.on('[data-next]','click',()=>{
@@ -94,13 +95,14 @@ export function mountLab(host){
   });
   lab.on('[data-replay]','click',()=>fire());
   lab.on('[data-pause]','click',()=>{lab.setRunning(!lab.running);refresh();});
+  lab.on('[data-slow]','change',e=>{slow=e.target.checked;lab.announce(slow?'Passagen visas långsamt nära mitten.':'Passagen visas med jämn uppspelningshastighet.');});
   lab.on('[data-near]','click',()=>{impact=.12;fire({custom:true});});
   lab.on('[data-far]','click',()=>{impact=1.2;fire({custom:true});});
   lab.on('[data-reset]','click',()=>{lesson=createDetectorLesson();resetPicture();});
   function aim(e){
     impact=Math.max(-2,Math.min(2,(218-lab.point(e).y)/32));experiment=createExperiment({count:0});finished=false;lab.setRunning(false);
     for(const model of ['thomson','rutherford'])preview[model]=traceTrajectory({model,charge:CHARGE,impact});
-    lab.setExplanation('Släpp och jämför samma start.','Det gula handtaget flyttar startläget för båda partiklarna samtidigt. Släpp för att se dem röra sig.');lab.invalidate();
+    lab.setExplanation('Släpp för att jämföra.','Handtaget flyttar starten i båda bilderna. Släpp så rör sig partiklarna.');lab.invalidate();
   }
   lab.canvas.style.touchAction='none';
   lab.on(lab.canvas,'pointerdown',e=>{const p=lab.point(e);if(lesson.stage===3&&p.x<190&&p.y>80&&p.y<335){dragging=true;lab.canvas.setPointerCapture(e.pointerId);aim(e);}});
@@ -132,20 +134,21 @@ export function mountLab(host){
     }
   }
   function bead(ctx,p,px,py,color,large){
-    const x=px(p.x),y=py(p.y),r=large?13:4;ctx.save();ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=large?18:4;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
+    const x=px(p.x),y=py(p.y),r=large?13:4;ctx.save();ctx.fillStyle=color;ctx.shadowColor=color;ctx.shadowBlur=calm?0:large?18:4;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.shadowBlur=0;
     if(large){ctx.fillStyle='#173646';ctx.font='700 26px Arial,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('+',x,y);}
     ctx.restore();
   }
-  lab.setDraw(({ctx,dt,running,compact})=>{
+  lab.setDraw(({ctx,dt,running,calm:quiet,compact})=>{
+    calm=Boolean(quiet);
     if(running&&experiment.count&&!finished){
       const names=visible();const close=experiment.count===1&&names.some(name=>experiment.models[name].particles.some(p=>!p.done&&Math.hypot(p.x,p.y)<1.7));
-      advanceExperiment(experiment,dt,{rate:close?.5:experiment.count===1?2.2:1.6});
+      advanceExperiment(experiment,dt,{rate:close&&slow?.5:experiment.count===1?2.2:1.6});
       if(names.every(name=>experiment.models[name].completed===experiment.count))complete();
     }
     if(wasRunning!==running){wasRunning=running;refresh();}
     const stage=lesson.stage,font=compact?32:29,names=visible(),count=experiment.count;
     ctx.save();ctx.textAlign='left';ctx.font=`600 ${font}px Arial,sans-serif`;ctx.fillStyle='#e4f5f3';ctx.fillText(stage===0?'Thomson':stage===3?'Samma start i båda modellerna':'Rutherford',38,43);
-    ctx.textAlign='center';ctx.fillText('Följ kraften',812,58);
+    ctx.textAlign='center';ctx.fillText('Se närmare',812,58);
     const beamY=sy(impact);
     ctx.save();ctx.setLineDash([7,10]);ctx.strokeStyle='#c3d9df33';ctx.beginPath();ctx.moveTo(145,beamY);ctx.lineTo(675,beamY);ctx.stroke();ctx.restore();
     arrow(ctx,65,beamY,64,0,'#ffd77e',4);roundRect(ctx,132,beamY-22,28,44,9,'#ffd77e','#fff0b5');
@@ -167,9 +170,9 @@ export function mountLab(host){
     }ctx.restore();
     ctx.fillStyle='#ffbd9b';ctx.textAlign='center';ctx.font=`500 ${compact?30:27}px Arial,sans-serif`;ctx.fillText('Pil = kraft',814,365);
     ctx.textAlign='left';ctx.fillStyle='#d2eae9';ctx.font=`500 ${font}px Arial,sans-serif`;
-    const line=stage===0?'Utspridd positiv laddning':stage===1?'Lika laddningar stöter bort varandra':stage===2?'De flesta passerar förbi kärnan':'Guld: Rutherford · Turkos: Thomson';
+    const line=stage===0?'Plusladdningen är utspridd':stage===1?'Två plus stöter bort varandra':stage===2?'De flesta passerar förbi kärnan':'Gult: Rutherford · Turkos: Thomson';
     ctx.fillText(line,38,414);
-    ctx.fillStyle='#a8c7d0';ctx.font=`400 ${compact?30:26}px Arial,sans-serif`;ctx.fillText(stage===3?'Dra handtaget och släpp för en ny jämförelse.':'Följ partikeln. Läs sedan upptäckten ovanför bilden.',38,452);
+    ctx.fillStyle='#a8c7d0';ctx.font=`400 ${compact?30:26}px Arial,sans-serif`;ctx.fillText(stage===3?'Flytta starten med handtaget eller Fler verktyg.':'Titta på vägen. Läs sedan förklaringen ovanför.',38,452);
     ctx.restore();
   });
   resetPicture();
