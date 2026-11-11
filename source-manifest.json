@@ -1,7 +1,7 @@
 {
   "title": "Kemins grunder (i)",
-  "revision": 5,
-  "updated": "2026-11-10",
+  "revision": 6,
+  "updated": "2026-11-11",
   "original_source": {
     "filename": "Kemilabbet (2).html",
     "sha256": "e266f90f52eb2ae810299479db104facdff4079c54c67ca2ec22dfc0b671bcbe"
@@ -17,7 +17,8 @@
     "Rebuilt six labs with guided investigations, direct drag-and-snap interaction, animated causal feedback, clearer tools and an expanded workspace",
     "Removed simulations from areas 4 and 7; added a generated four-scenario environmental illustration with explanatory cards and primary sources",
     "Rebuilt Atomdetektiven to reveal Thomson, then Rutherford, then a fair comparison; preserved slow motion and force close-up; removed degree values and technical controls",
-    "Typeset active simulation text with locally vendored MathJax TeX-to-SVG; removed the extra discussion section and scale labels from diagrams, text and active films"
+    "Typeset active simulation text with locally vendored MathJax TeX-to-SVG; removed the extra discussion section and scale labels from diagrams, text and active films",
+    "Removed Materialdetektiven; rebuilt Vattenlabbet with a guided heating/cooling sequence, observation pauses, clear actions and a unified sample/molecule/temperature-curve workspace"
   ],
   "active_movies": [
     {
@@ -1024,8 +1025,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8037,
-      "sha256": "c2c0a19a97b3b89b0dc5bfc8943500b94011b2138a02d92d4d75b3411d11ad09"
+      "bytes": 8274,
+      "sha256": "0506810d022626a014893c84626d9d54768d60fefe9e30a578f8a66db3affaad"
     },
     {
       "path": "assets/captions/01-atomer.vtt",
@@ -1649,8 +1650,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 2126,
-      "sha256": "90ef3847780443b6098f9f9865e4f42858f146a398bfea927c9698f7210a4a14"
+      "bytes": 2128,
+      "sha256": "8a5c3a76973b37d347fedb441130fc6bbd5a1dfbfb5b1cae2363019685161822"
     },
     {
       "path": "lab-atoms-model.js",
@@ -1749,8 +1750,8 @@
     },
     {
       "path": "lab-router.js",
-      "bytes": 1769,
-      "sha256": "9639720e159032cda283dfbe29b5dec72a1503044a9c2c43c6f2446fed9ca160"
+      "bytes": 1670,
+      "sha256": "9c1095f0a19d149fcd4fbdde4e2ee3d44bb266bfaf82effc5833936fa1cb6446"
     },
     {
       "path": "lab-tex.js",
@@ -1989,8 +1990,8 @@
     },
     {
       "path": "script.js",
-      "bytes": 467278,
-      "sha256": "761f7edd60b4201ce25e35009722c6697028a3ff9fba3ad3fe9651161f84b374"
+      "bytes": 467299,
+      "sha256": "2dba4223774ed85dce4483a181656904371fec62e6668479b9139dfddb8f4bc3"
     },
     {
       "path": "study-assets.js",
@@ -2049,18 +2050,18 @@
     },
     {
       "path": "water-graph.js",
-      "bytes": 11740,
-      "sha256": "f8cf082daec0646c01d61d32c81361eb8e9fdc20e36cc05aab579d06b4ccfbde"
+      "bytes": 15416,
+      "sha256": "0a92d2cb925f2fdb425e31863a9a45fded0116d1a26b61b7b1a1cee043b2cadc"
     },
     {
       "path": "water-lab.css",
-      "bytes": 15516,
-      "sha256": "95c5e4d2ba69a4b15e519640b62654d01dbd3a98f5c93484329223b2986a56b9"
+      "bytes": 14770,
+      "sha256": "9b722fa0360fa25d7e3d4711a2f301728ae546527dc1c984eb765d15ca7fe913"
     },
     {
       "path": "water-lab.js",
-      "bytes": 24172,
-      "sha256": "38daa44806254cb5ff555b883efa0e1fed5529eb184cef732d47b12c37f2501a"
+      "bytes": 31289,
+      "sha256": "f6f78fb50c89b2be5cae20eb8026b6fd2f538d1d2772e3855092ef2740c6b4a2"
     },
     {
       "path": "water-model.js",
@@ -2135,20 +2136,6 @@
       "tests": "lab-bonds-model.test.mjs"
     },
     {
-      "id": "materials",
-      "title": "Materialdetektiven",
-      "module": 5,
-      "entry": "?lab=material#omrade-5",
-      "source": [
-        "lab-materials.js",
-        "lab-materials-model.js",
-        "lab-kit.js",
-        "labs.css"
-      ],
-      "renderer": "Canvas 2D",
-      "tests": "lab-materials-model.test.mjs"
-    },
-    {
       "id": "vattenlabbet",
       "title": "Vattenlabbet",
       "module": 6,
@@ -2175,12 +2162,17 @@
     "modelTests": 61,
     "modelTestCommand": "node --test water-model.test.mjs lab-*.test.mjs",
     "scientificScope": "Teaching models with explicit assumptions and checks of forces, chemical inventories, energy and conservation",
-    "texRendererChecks": 90
+    "texRendererChecks": 90,
+    "waterGuideChecks": 63
   },
   "retired_simulations": [
     {
       "module": 4,
       "reason": "Image explanation without a simulation"
+    },
+    {
+      "module": 5,
+      "reason": "Materialdetektiven removed from student pages; properties explained with lessons, films and pictures"
     },
     {
       "module": 7,
@@ -2201,6 +2193,13 @@
     "renderer": "MathJax 3.2.2, local TeX to self-contained SVG paths",
     "source": "lab-tex.js",
     "vendor": "vendor/mathjax/tex-svg-full.js",
-    "scope": "All visible prose, controls, canvas labels and graph text in the five active experiments"
+    "scope": "All visible prose, controls, canvas labels and graph text in the four active experiments"
+  },
+  "waterLabExperience": {
+    "guided": true,
+    "start": "Ice at -15 degrees Celsius",
+    "physics": "Unchanged constant-pressure water enthalpy model",
+    "observations": "Melting, warming, boiling, condensation and cooling",
+    "advancedControls": "Collapsible free investigation and data tools"
   }
 }

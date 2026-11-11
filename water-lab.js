@@ -1,68 +1,62 @@
-import { WaterModel, MODEL_CARD } from './water-model.js?v=20261110-labs3';
-import { createTemperatureGraph } from './water-graph.js?v=20261110-labs3';
+import {WaterModel,WATER_CONSTANTS as C,MODEL_CARD,energyForState} from './water-model.js?v=20261110-labs3';
+import {createTemperatureGraph} from './water-graph.js?v=20261111-water2';
 import {attachLabTeX,installCanvasTeX} from './lab-tex.js?v=20261110-labs3';
 
-const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-const number = (v, digits = 1) => Number(v).toLocaleString('sv-SE', { maximumFractionDigits: digits, minimumFractionDigits: digits, useGrouping: false });
-const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const names = { solid: 'Is', melting: 'Is + flytande vatten', liquid: 'Flytande vatten', boiling: 'Vatten + vattenånga', gas: 'Vattenånga' };
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const number=(v,digits=1)=>Number(v).toLocaleString('sv-SE',{maximumFractionDigits:digits,minimumFractionDigits:digits,useGrouping:false});
+const esc=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const names={solid:'Is',melting:'Is och flytande vatten',liquid:'Flytande vatten',boiling:'Vatten och vattenånga',gas:'Vattenånga'};
 
-export function mountWaterLab(host) {
+/** Guided stops are enthalpy states; the ordinary WaterModel stays unchanged. */
+export function waterGuideStages(massKg=.05){
+  const fusion=massKg*C.fusion,boil=energyForState({massKg,temperature:100,phase:'liquid'}),liquid20=energyForState({massKg,temperature:20,phase:'liquid'});
+  return [
+    {title:'Börja med kall is',copy:'Provet är is vid −15 °C. Värm isen och följ temperaturen. Guiden stannar när isen når 0 °C.',action:'Värm isen till 0 °C',target:0,power:300,speed:2,group:0},
+    {title:'Stanna och se: isen är 0 °C',copy:'Det är fortfarande is. Fortsätt tillföra energi och följ både temperaturkurvan och hur mycket is som finns kvar.',action:'Värm och smält en del av isen',target:fusion*.5,power:300,speed:10,group:1},
+    {title:'0 °C: isen smälter',copy:'Halva provet är is och halva är flytande vatten. Temperaturen är kvar på 0 °C. Energin har gjort mer is till vatten. Se den plana delen av kurvan.',action:'Smält resten och värm vattnet',target:liquid20,power:300,speed:10,group:1},
+    {title:'Nu är allt flytande vatten',copy:'Isen är borta och vattnet är 20 °C. Molekylerna kan glida förbi varandra. Värm vidare och följ när temperaturen börjar stanna igen.',action:'Värm tills vattnet kokar',target:boil+massKg*C.vaporization*.15,power:300,speed:10,group:2},
+    {title:'100 °C: vatten blir vattenånga',copy:'Vattnet kokar och en del har blivit gas. Temperaturen stannar på 100 °C medan gasandelen ökar. Samma H₂O-molekyler finns kvar.',action:'Värm och bilda mer vattenånga',target:boil+massKg*C.vaporization*.5,power:300,speed:10,group:3},
+    {title:'Fortfarande 100 °C — nu är halva provet gas',copy:'Mer tillförd energi har bildat mer vattenånga. Temperaturen har varit oförändrad. Kyl nu och följ hur gasen blir flytande vatten igen.',action:'Kyl vattenångan till flytande vatten',target:boil,power:-300,speed:10,group:3},
+    {title:'100 °C: ångan har kondenserat',copy:'Hela provet är flytande igen. Temperaturen var 100 °C medan gasen kondenserade. Fortsätt kyla: nu kan temperaturen sjunka.',action:'Kyl vattnet till 20 °C',target:liquid20,power:-300,speed:10,group:4},
+    {title:'Samma vatten genom hela övningen',copy:'Ni har följt is, flytande vatten och vattenånga. Vid 0 och 100 °C ändrades fasen utan att temperaturen ändrades. Hela tiden fanns samma 50 g vatten och samma H₂O-molekyler kvar.',action:'Gör guiden igen',group:4},
+  ];
+}
+
+export function mountWaterLab(host){
   host.classList.add('water-lab-host');
-  host.innerHTML = [
-    '<section class="water-lab" data-tex-rendered="water-lab" aria-labelledby="wl-title">',
-    '<header class="wl-header"><div><p class="wl-kicker"><span></span> ETT EXPERIMENT ATT STYRA</p><h2 id="wl-title">Vattenlabbet<span>.</span></h2><p>Värm, kyl och följ samma vattenmolekyler.</p></div><div class="wl-spec">RENT VATTEN<br><strong>50 g · normalt lufttryck</strong></div></header>',
-    '<div class="wl-start"><span>Börja med</span><div class="wl-segment" aria-label="Välj provets starttillstånd"><button data-wl-preset="solid" aria-pressed="false">Is <small>−15 °C</small></button><button data-wl-preset="liquid" aria-pressed="true">Vatten <small>20 °C</small></button><button data-wl-preset="gas" aria-pressed="false">Vattenånga <small>110 °C</small></button></div><button class="wl-reset" data-wl="reset" aria-label="Nollställ hela Vattenlabbet">Börja om ↺</button></div>',
-    '<div class="wl-stage"><div class="wl-sample"><p class="wl-panel-label">01 / VATTENPROVET</p><div class="wl-temperature"><output data-wl="temp">20,0</output><span>°C</span></div><p class="wl-phase" data-wl="phase">Flytande vatten</p>',
-    '<svg class="wl-vessel" data-wl="vessel" viewBox="0 0 260 245" role="img" aria-label="Vattenprov med rörligt lock vid konstant tryck">',
-    '<defs><linearGradient id="wl-water-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#61dfeb" stop-opacity=".8"/><stop offset="1" stop-color="#2377a6" stop-opacity=".85"/></linearGradient><linearGradient id="wl-glass" x1="0" y1="0" x2="1" y2=".3"><stop stop-color="#b6e7ef" stop-opacity=".12"/><stop offset=".5" stop-color="#87c6da" stop-opacity=".01"/><stop offset="1" stop-color="#b6e7ef" stop-opacity=".18"/></linearGradient><clipPath id="wl-clip"><rect x="58" y="24" width="144" height="181" rx="9"/></clipPath></defs>',
-    '<path d="M55 30V199Q55 212 69 212H191Q205 212 205 199V30" fill="url(#wl-glass)" stroke="#a6dce2" stroke-width="2"/>',
-    '<g clip-path="url(#wl-clip)"><rect data-wl="liquid-fill" x="58" y="118" width="144" height="88" fill="url(#wl-water-fill)"/><g data-wl="ice-pieces"></g><g data-wl="steam-dots"></g><path data-wl="surface" d="M58 118Q94 112 130 118T202 118" fill="none" stroke="#c2faff" stroke-width="2"/></g>',
-    '<g data-wl="lid"><rect x="51" y="90" width="158" height="8" rx="4" fill="#6b9aab" stroke="#c3e8e9"/><path d="M130 90V54" stroke="#90b4be" stroke-width="5"/><rect x="108" y="47" width="44" height="8" rx="4" fill="#9fbdc5"/></g>',
-    '<g data-wl="heat-arrows" fill="none" stroke="#ffa66c" stroke-width="3" stroke-linecap="round"></g><path d="M43 221H217" stroke="#567784" stroke-width="5" stroke-linecap="round"/>',
-    '</svg><p class="wl-vessel-note">Rörligt lock håller trycket konstant.</p></div>',
-    '<div class="wl-molecules"><div class="wl-scene-top"><p class="wl-panel-label">02 / ZOOMA IN PÅ MOLEKYLERNA</p><span class="wl-view-mode" data-wl="mode">Molekylmodell</span></div>',
-    '<canvas class="wl-three" data-wl="scene" tabindex="0" aria-label="Roterbar molekylmodell. Dra för att vrida, använd plus och minus för zoom. Tryck Enter för att markera en molekyl."></canvas><canvas class="wl-fallback" data-wl="fallback" role="img" aria-label="Tvådimensionell molekylmodell"></canvas>',
-    '<div class="wl-scene-hint" data-wl="scene-hint">Dra för att vrida · klicka på en molekyl</div><div class="wl-scene-tools"><button data-wl="follow" aria-pressed="false"><span class="wl-target">⊙</span> Följ en molekyl</button><button data-wl="camera" aria-label="Återställ molekylvyn">Återställ vy ↺</button><label>Zoom <input data-wl="zoom" type="range" min="0" max="100" value="35" aria-label="Zooma in på molekylerna"></label></div>',
-    '<div class="wl-atom-key"><span><i class="wl-oxygen"></i> Syre, O</span><span><i class="wl-hydrogen"></i> Väte, H</span><span data-wl="selected-note">Varje H₂O har 1 O och 2 H.</span></div></div></div>',
-    '<div class="wl-fractions" aria-label="Andel av vattenmängden i varje tillstånd"><div class="wl-fraction-bar"><span data-wl="ice-bar"></span><span data-wl="water-bar"></span><span data-wl="vapor-bar"></span></div><div class="wl-fraction-labels"><span><i></i> Is <output data-wl="ice-pct">0</output> %</span><span><i></i> Flytande <output data-wl="water-pct">100</output> %</span><span><i></i> Gas <output data-wl="vapor-pct">0</output> %</span></div></div>',
-    '<div class="wl-controls"><div class="wl-energy-control"><div class="wl-control-title"><label for="wl-power">Energi till eller från provet</label><output data-wl="power-label">0 W</output></div><input id="wl-power" data-wl="power" type="range" min="-300" max="300" step="10" value="0" aria-label="Värmeeffekt, från kylning minus 300 till uppvärmning plus 300 watt"><div class="wl-power-ends"><span>← Ta bort energi</span><span>Tillför energi →</span></div><div class="wl-action-buttons"><button class="wl-cool" data-wl="cool">❄ Kyl</button><button class="wl-neutral" data-wl="zero">Ingen värme</button><button class="wl-heat" data-wl="heat">☀ Värm</button></div></div>',
-    '<div class="wl-time-control"><button class="wl-play" data-wl="play" aria-pressed="false">▶ Starta</button><label for="wl-speed">Modellens hastighet <select id="wl-speed" data-wl="speed"><option value="1">1× · verklig tid</option><option value="10" selected>10× · snabbare</option><option value="30">30× · snabbast</option></select></label><p data-wl="speed-note">1 sekund här = 10 sekunder i modellen.</p></div></div>',
-    '<div class="wl-insight"><span data-wl="insight-icon">↗</span><div><strong data-wl="insight-title">Vad händer om ni tillför energi?</strong><p data-wl="insight">Välj Värm eller Kyl. Följ temperaturen och hur molekylerna rör sig.</p></div></div>',
-    '<div class="wl-chart"><div class="wl-chart-header"><div><p class="wl-kicker">03 / FÖLJ SAMBANDET</p><h3>Temperaturens väg</h3></div><div class="wl-chart-actions"><button data-wl="save-curve">Spara jämförelse</button><button data-wl="clear-curve" hidden>Ta bort jämförelse</button><button data-wl="csv">Ladda ned mätdata ↓</button></div></div><div class="wl-chart-metrics"><span>Modelltid <strong data-wl="time">0:00</strong></span><span>Nettoenergi <strong data-wl="energy">0,0 kJ</strong></span><span class="wl-reference" data-wl="reference" hidden>● Sparat försök</span><label class="wl-motion"><input type="checkbox" data-wl="motion"> Stilla molekylvy</label></div><svg data-wl="graph" class="wl-graph" role="img" aria-label="Temperaturkurva för ert försök"></svg><p class="wl-chart-readout" data-wl="graph-readout">Dra längs kurvan för att läsa av tid och temperatur.</p></div>',
-    '<div class="wl-challenges"><p class="wl-kicker">UNDERSÖK TILLSAMMANS</p><div><p><b>1.</b> Börja med is. Varför stannar temperaturen vid 0 °C trots att ni värmer?</p><p><b>2.</b> Följ en molekyl. Vad förändras när vattnet kokar, och vad är kvar?</p><p><b>3.</b> Spara en kurva. Jämför sedan ett försök med lägre värmeeffekt.</p></div></div>',
-    '<details class="wl-model"><summary>Så fungerar modellen · antaganden och källor</summary><p>Vi följer 50 g rent vatten i en idealiserad behållare med rörligt lock. Trycket hålls vid normalt lufttryck, 101,3 kPa. Samma vattenmängd finns kvar även när den blir gas.</p><p>Temperatur och fasandelar beräknas från tillförd eller bortförd energi. Under smältning och kokning går energin till fasövergången. Molekylbilden visar ett litet representativt utsnitt; 48 molekyler är inte hela provet.</p><p>Is har en öppnare struktur än flytande vatten. Molekylerna fortsätter röra sig och deras H–O-bindningar behålls. </p><p>Modellen förenklar till jämvikt utan värmeförluster, temperaturgradienter eller avdunstning under 100 °C. Den visar −30 till 120 °C.</p><p class="wl-equation">Energi = effekt × modelltid · Q = P · Δt</p><ul>' + MODEL_CARD.sources.map(s => '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.title) + '</a></li>').join('') + '</ul></details>',
-    '<p class="sr-only" data-wl="status" role="status" aria-live="polite"></p></section>'
-  ].join('');
+  host.innerHTML=`<section class="water-lab" data-tex-rendered="water-lab" aria-labelledby="wl-title">
+  <header class="wl-header"><div><p class="wl-kicker">FÖLJ TRE BILDER AV SAMMA VATTEN</p><h2 id="wl-title">Vattenlabbet</h2><p>50 g rent vatten · normalt lufttryck</p></div><button type="button" class="wl-focus-button" data-wl="focus" aria-expanded="false">Visa allt tillsammans</button></header>
+  <ol class="wl-progress" aria-label="Vattnets väg"><li data-guide-group="0">Is</li><li data-guide-group="1">Smältning · 0 °C</li><li data-guide-group="2">Flytande vatten</li><li data-guide-group="3">Kokning · 100 °C</li><li data-guide-group="4">Kylning</li></ol>
+  <div class="wl-guide" aria-labelledby="wl-guide-title"><p class="wl-guide-counter" data-wl="guide-counter">Steg 1 av 7</p><h3 id="wl-guide-title" data-wl="guide-title">Börja med kall is</h3><p data-wl="guide-copy">Värm isen och följ temperaturen.</p><div class="wl-main-actions"><button type="button" class="wl-primary" data-wl="next">Värm isen till 0 °C</button><button type="button" class="wl-pause" data-wl="pause" disabled>Pausa</button><button type="button" class="wl-reset" data-wl="reset">Börja om guiden ↺</button></div><div class="wl-action-state"><strong data-wl="run-state">Redo</strong><span data-wl="speed-note">Guiden pausar automatiskt så att ni kan se vad som händer.</span></div></div>
+  <div class="wl-workbench"><div class="wl-stage">
+    <div class="wl-sample"><p class="wl-panel-label">1 · PROVET</p><div class="wl-temperature"><output data-wl="temp">−15,0</output><span>°C</span></div><p class="wl-phase" data-wl="phase">Is</p>
+<svg class="wl-vessel" data-wl="vessel" viewBox="0 0 260 245" role="img" aria-label="Vattenprov med rörligt lock vid konstant tryck"><defs><linearGradient id="wl-water-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#61dfeb" stop-opacity=".8"/><stop offset="1" stop-color="#2377a6" stop-opacity=".85"/></linearGradient><linearGradient id="wl-glass" x1="0" y1="0" x2="1" y2=".3"><stop stop-color="#b6e7ef" stop-opacity=".12"/><stop offset=".5" stop-color="#87c6da" stop-opacity=".01"/><stop offset="1" stop-color="#b6e7ef" stop-opacity=".18"/></linearGradient><clipPath id="wl-clip"><rect x="58" y="24" width="144" height="181" rx="9"/></clipPath></defs><path d="M55 30V199Q55 212 69 212H191Q205 212 205 199V30" fill="url(#wl-glass)" stroke="#a6dce2" stroke-width="2"/><g clip-path="url(#wl-clip)"><rect data-wl="liquid-fill" x="58" y="118" width="144" height="88" fill="url(#wl-water-fill)"/><g data-wl="ice-pieces"></g><g data-wl="steam-dots"></g><path data-wl="surface" d="M58 118Q94 112 130 118T202 118" fill="none" stroke="#c2faff" stroke-width="2"/></g><g data-wl="lid"><rect x="51" y="90" width="158" height="8" rx="4" fill="#6b9aab" stroke="#c3e8e9"/><path d="M130 90V54" stroke="#90b4be" stroke-width="5"/><rect x="108" y="47" width="44" height="8" rx="4" fill="#9fbdc5"/></g><g data-wl="heat-arrows" fill="none" stroke="#ffa66c" stroke-width="3" stroke-linecap="round"></g><path d="M43 221H217" stroke="#567784" stroke-width="5" stroke-linecap="round"/></svg>
+    </div><div class="wl-molecules"><div class="wl-scene-top"><p class="wl-panel-label">2 · MOLEKYLERNA</p><span data-wl="mode">Molekylvy</span></div><canvas class="wl-three" data-wl="scene" tabindex="0" aria-label="Molekylvy. Dra för att vrida. Plus och minus zoomar. Enter markerar en molekyl."></canvas><canvas class="wl-fallback" data-wl="fallback" role="img" aria-label="Molekylerna i provet"></canvas><div class="wl-scene-tools"><button type="button" data-wl="follow" aria-pressed="false">Följ en H₂O-molekyl</button><details class="wl-camera-details"><summary>Vrid och zooma</summary><div><p data-wl="scene-hint">Dra i bilden för att vrida.</p><label>Zooma <input data-wl="zoom" type="range" min="0" max="100" value="35" aria-label="Zooma molekylvyn"></label><button type="button" data-wl="camera">Återställ vy ↺</button><label><input type="checkbox" data-wl="motion"> Stilla molekylbild</label></div></details></div><p class="wl-atom-key" data-wl="selected-note">Varje H₂O: en O och två H. Bindningarna finns kvar.</p></div>
+    <div class="wl-fractions" aria-label="Andel av hela vattenmängden"><div class="wl-fraction-bar"><span data-wl="ice-bar"></span><span data-wl="water-bar"></span><span data-wl="vapor-bar"></span></div><div class="wl-fraction-labels"><span>Is <output data-wl="ice-pct">100</output> %</span><span>Flytande <output data-wl="water-pct">0</output> %</span><span>Gas <output data-wl="vapor-pct">0</output> %</span></div></div>
+  </div><div class="wl-chart"><div class="wl-chart-header"><div><p class="wl-panel-label">3 · TEMPERATURKURVAN</p><h3>Följ punkten på kurvan</h3></div><span class="wl-reference" data-wl="reference" hidden>Sparad jämförelse</span></div><p class="wl-chart-units">Temperatur i °C · provets tid i minuter</p><svg data-wl="graph" class="wl-graph" role="img" aria-label="Temperaturen i vattenprovet över tid"></svg><p class="wl-chart-readout" data-wl="graph-readout">Punkten visar provets temperatur just nu.</p></div></div>
+  <details class="wl-advanced" data-wl="advanced"><summary>Egna försök, jämförelse och mätdata</summary><div class="wl-advanced-body"><p>Gör ett eget försök från det tillstånd ni ser nu, eller välj ett nytt startprov. Värm och Kyl startar handlingen direkt.</p><div class="wl-segment" aria-label="Välj ett eget startprov"><button type="button" data-wl-preset="solid">Is · −15 °C</button><button type="button" data-wl-preset="liquid">Vatten · 20 °C</button><button type="button" data-wl-preset="gas">Vattenånga · 110 °C</button></div><div class="wl-control-grid"><label class="wl-field" for="wl-power">Välj effekt för ett eget försök <output data-wl="power-label">300 W</output><input id="wl-power" data-wl="power" type="range" min="10" max="300" step="10" value="300"></label><label class="wl-field" for="wl-speed">Tidshastighet för eget försök<select id="wl-speed" data-wl="speed"><option value="1">1× · samma takt som klockan</option><option value="2">2× · snabbare</option><option value="10" selected>10× · snabbare</option><option value="30">30× · snabbast</option></select></label></div><div class="wl-action-buttons"><button type="button" class="wl-heat" data-wl="heat">Värm</button><button type="button" class="wl-cool" data-wl="cool">Kyl</button><button type="button" data-wl="zero">Följ utan värmeöverföring · 0 W</button></div><p class="wl-own-note" data-wl="own-note">Guiden är aktiv. Egna val startar ett fritt försök.</p><div class="wl-chart-actions"><button type="button" data-wl="save-curve">Spara kurvan som jämförelse</button><button type="button" data-wl="clear-curve" hidden>Ta bort jämförelsen</button><button type="button" data-wl="csv">Ladda ned mätdata ↓</button></div><p class="wl-data">Provets tid <strong data-wl="time">0:00</strong> · Nettoenergi <strong data-wl="energy">0,0 kJ</strong></p><button type="button" data-wl="back-guide">Tillbaka till guiden</button></div></details>
+  <details class="wl-model"><summary>Om experimentet och källorna</summary><p>Vi följer 50 g rent vatten vid konstant normalt lufttryck, 101,3 kPa. Ett rörligt lock gör att samma vattenmängd kan finnas kvar när volymen ändras.</p><p>Temperatur och fasandelar beräknas från tillförd eller bortförd energi. Under smältning och kokning går energi till fasövergången. Bilden av molekyler visar ett litet utsnitt av hela provet.</p><p>Guiden pausar vid bestämda energitillstånd. Den första uppvärmningen visas i 2× hastighet; därefter används 10×. Provets tid på kurvan räknas alltid med samma fysikmodell. Vid paus står provets tid och energiöverföring stilla.</p><p>Isens öppnare struktur, rörelserna och ändrade avstånd hjälper er att följa tillstånden. H–O-bindningarna inne i varje H₂O-molekyl finns kvar. Modellen beräknar jämvikt utan värmeförluster, temperaturgradienter eller avdunstning under 100 °C, mellan −30 och 120 °C.</p><p>Energi = effekt × provets tid · Q = P · Δt</p><ul>${MODEL_CARD.sources.map(s=>'<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.title)+'</a></li>').join('')}</ul></details><button type="button" class="wl-focus-exit" data-wl="close-focus" aria-label="Stäng förstoring">Stäng ×</button><p class="sr-only" data-wl="status" role="status" aria-live="polite"></p></section>`;
+  const root=host.querySelector('.water-lab'),$=name=>root.querySelector('[data-wl="'+name+'"]');
+  const model=new WaterModel({initialPhase:'solid',initialTemperature:-15}),guide=waterGuideStages(model.state.massKg);
+  let mode='guide',guideIndex=0,goal=null,startEnergy=model.state.energyJ,history=[{timeSeconds:0,temperature:-15,milestone:true}],reference=[];
+  let active=true,inView=true,destroyed=false,running=false,power=0,speed=2,manualSpeed=10,magnitude=300;
+  let frame=0,last=0,lastUI=0,lastSample=0,visualTime=0,selected=false,scene=null,inspectorUntil=0;
+  let motionOff=matchMedia('(prefers-reduced-motion: reduce)').matches,focused=false,previousOverflow='',focusReturn=null;
+  const listeners=[],on=(target,event,handler)=>{const node=typeof target==='string'?$(target):target;node.addEventListener(event,handler);listeners.push(()=>node.removeEventListener(event,handler));};
+  const graph=createTemperatureGraph($('graph'),{onInspect(point){inspectorUntil=performance.now()+2200;put('graph-readout','Avläst: '+number(point.timeSeconds/60,2)+' min · '+number(point.temperature)+' °C.');}});
+  const ctx=$('fallback').getContext('2d'),restoreCanvasTeX=installCanvasTeX(ctx),restoreDOMTeX=attachLabTeX(host);
+  const particles=Array.from({length:24},(_,i)=>({x:((i*73)%311)/311,y:((i*131+41)%277)/277}));
+  $('motion').checked=motionOff;
+  function put(name,value){const node=$(name),text=String(value);if(node.textContent!==text)node.textContent=text;}
+  function announce(text){put('status',text);}
+  function appendPoint(point){const previous=history.at(-1);if(Math.abs(previous.timeSeconds-point.timeSeconds)<1e-8)history[history.length-1]={...previous,...point,milestone:Boolean(previous.milestone||point.milestone)};else if(point.timeSeconds>previous.timeSeconds)history.push(point);}
+  function recordCurrent(milestone=false){const s=model.state;appendPoint({timeSeconds:s.timeSeconds,temperature:s.temperature,milestone});}
+  function select(value){selected=Boolean(value);$('follow').setAttribute('aria-pressed',String(selected));put('selected-note',selected?'Markerad H₂O: samma O och två H genom alla tillstånd.':'Varje H₂O: en O och två H. Bindningarna finns kvar.');scene?.setSelected(selected);}
 
-  const $ = name => host.querySelector('[data-wl="' + name + '"]');
-  const model = new WaterModel();
-  let startEnergy = model.state.energyJ, history = [{timeSeconds: 0, temperature: 20}], reference = [];
-  let active = true, inView = true, destroyed = false, running = false, power = 0, speed = 10;
-  let frame = 0, last = 0, lastUI = 0, lastSample = 0, visualTime = 0, selected = false, scene = null;
-  let motionOff = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let previousPhase = model.state.phase, inspectorUntil = 0;
-  const graph = createTemperatureGraph($('graph'), { onInspect(point) {
-    inspectorUntil = performance.now() + 1800;
-    $('graph-readout').textContent = point ? 'Avläst: ' + number(point.timeSeconds / 60, 2) + ' min · ' + number(point.temperature) + ' °C' : 'Dra längs kurvan för att läsa av tid och temperatur.';
-  } });
-  $('motion').checked = motionOff;
-  const ctx = $('fallback').getContext('2d');
-  const restoreCanvasTeX=installCanvasTeX(ctx);
-  const restoreDOMTeX=attachLabTeX(host);
-  const particles = Array.from({length: 24}, (_, i) => ({x: ((i * 73) % 311) / 311, y: ((i * 131 + 41) % 277) / 277}));
-  function announce(text) { $('status').textContent = text; }
-  function recordCurrent() { const state=model.state, point={timeSeconds:state.timeSeconds,temperature:state.temperature}; if(Math.abs(history.at(-1).timeSeconds-point.timeSeconds)<1e-8)history[history.length-1]=point;else history.push(point); }
-  function select(value) {
-    selected = !!value;
-    $('follow').setAttribute('aria-pressed', String(selected));
-    $('selected-note').textContent = selected ? 'Markerad H₂O: samma 1 O och 2 H i alla tillstånd.' : 'Varje H₂O har 1 O och 2 H.';
-    scene?.setSelected(selected);
-  }
   function drawFallback(state) {
     if (!ctx || scene?.available) return;
     const canvas = $('fallback'), box = canvas.getBoundingClientRect();
-    const w = Math.max(240, box.width), h = Math.max(210, box.height), dpr = Math.min(devicePixelRatio || 1, 1.5);
+    const w = Math.max(160, box.width), h = Math.max(170, box.height), dpr = Math.min(devicePixelRatio || 1, 1.5);
     if (canvas.width !== Math.round(w*dpr) || canvas.height !== Math.round(h*dpr)) { canvas.width = Math.round(w*dpr); canvas.height = Math.round(h*dpr); }
     ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
     const gas = state.vaporFraction, liquid = state.liquidFraction;
@@ -97,125 +91,120 @@ export function mountWaterLab(host) {
       return '<circle cx="'+x+'" cy="'+y+'" r="3" fill="#b1dbe7" opacity="'+(.25+gas*.4)+'"/>';
     }).join('');
     $('heat-arrows').setAttribute('stroke', power>0?'#ffa66c':'#77ccff');
-    $('heat-arrows').innerHTML = power===0 ? '' : [85,130,175].map((x,i)=>{
+    $('heat-arrows').innerHTML = !running||power===0 ? '' : [85,130,175].map((x,i)=>{
       const dy=running?Math.sin(visualTime*4+i)*3:0;
       return power>0 ? '<path d="M'+x+' '+(242+dy)+'v-20m-5 5l5-5 5 5"/>' : '<path d="M'+x+' '+(222+dy)+'v20m-5-5l5 5 5-5"/>';
     }).join('');
     $('vessel').setAttribute('aria-label', names[state.phase]+', '+number(state.temperature)+' grader Celsius. Ett rörligt lock håller trycket konstant.');
   }
-  function insight(state) {
-    const heating = running && power > 0;
-    const changing = running && power !== 0;
-    if (!changing && state.phase === 'melting') return ['Is och flytande vatten vid 0 °C.', 'Provet innehåller båda faserna. Tillför energi för att smälta mer is, eller för bort energi för att frysa mer vatten.'];
-    if (!changing && state.phase === 'boiling') return ['Flytande vatten och gas vid 100 °C.', 'Provet innehåller båda faserna. Tillför energi för att bilda mer gas, eller för bort energi så att mer gas kondenserar.'];
-    if (state.phase === 'melting') return heating
-      ? ['Temperaturen står stilla – men något händer.', 'Vid 0 °C används energin till att smälta is. Följ hur andelen flytande vatten ökar medan H₂O-molekylerna finns kvar.']
-      : ['Vattnet fryser vid 0 °C.', 'Energi förs bort medan allt fler molekyler ordnas i isens öppna struktur. Temperaturen är oförändrad under fasövergången.'];
-    if (state.phase === 'boiling') return heating
-      ? ['100 °C: energin går till att bilda gas.', 'Andelen vattenånga ökar, men temperaturen stiger inte förrän hela provet har blivit gas. H₂O-molekylerna går inte sönder.']
-      : ['Vattenångan kondenserar vid 100 °C.', 'När energi förs bort blir mer av gasen flytande vatten. Samma molekyler kommer närmare varandra.'];
-    if (state.phase === 'solid') return ['Molekylerna rör sig även i is.', 'De vibrerar kring sina platser i en öppen struktur. När isen värms stiger temperaturen fram till smältningen vid 0 °C.'];
-    if (state.phase === 'gas') return ['Gas är fortfarande H₂O.', 'Molekylerna är glest fördelade och rör sig fritt i modellen. Vid kylning sjunker temperaturen till 100 °C innan kondensationen börjar.'];
-    return [!changing?'Vad händer om ni tillför energi?':heating?'Vattnet blir varmare.':'Vattnet blir kallare.', 'Temperatur visar inte hur mycket vatten ni har. Här följer ni samma 50 g: vid uppvärmning ökar molekylernas genomsnittliga rörelse.'];
-  }
-  function refresh() {
-    const state = model.state;
-    $('temp').textContent = number(state.temperature);
-    $('phase').textContent = names[state.phase];
-    $('phase').dataset.phase = state.phase;
-    const rounded = [state.iceFraction,state.liquidFraction,state.vaporFraction].map(v=>Math.round(v*100));
-    const sum = rounded.reduce((a,b)=>a+b,0); rounded[rounded.indexOf(Math.max(...rounded))] += 100-sum;
-    ['ice','water','vapor'].forEach((key,i) => {
-      $(key+'-pct').textContent=rounded[i]; $(key+'-bar').style.width=[state.iceFraction,state.liquidFraction,state.vaporFraction][i]*100+'%';
-    });
-    $('power-label').textContent = (power>0?'+':'')+power+' W';
-    $('power-label').dataset.direction = power>0?'heat':power<0?'cool':'zero';
-    $('play').textContent = running?'Ⅱ Pausa':'▶ Starta';
-    $('play').setAttribute('aria-pressed', String(running));
-    ['heat','cool','zero'].forEach(name=>$(name).setAttribute('aria-pressed',String(name==='heat'?power>0:name==='cool'?power<0:power===0)));
-    const [title,text] = insight(state); $('insight-title').textContent=title; $('insight').textContent=text;
-    const seconds = Math.floor(state.timeSeconds);
-    $('time').textContent=Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0');
-    const energy=(state.energyJ-startEnergy)/1000;
-    $('energy').textContent=(energy>0?'+':'')+number(energy)+' kJ';
-    drawVessel(state); const plotted=history.at(-1).timeSeconds<state.timeSeconds?[...history,{timeSeconds:state.timeSeconds,temperature:state.temperature}]:history; graph.update(plotted,reference);
-    if (performance.now()>inspectorUntil) $('graph-readout').textContent=running?'Nu: '+number(state.temperature)+' °C efter '+number(state.timeSeconds/60,2)+' minuter i modellen.':'Pausad · dra längs kurvan för att läsa av ett tidigare värde.';
-  }
-  function setPower(value) { recordCurrent(); power = Number(value); $('power').value=power; running=true;last=0;refresh();kick(); }
-  function preset(phase, clearReference=false) {
-    const temperatures={solid:-15,liquid:20,gas:110};
-    model.reset({temperature:temperatures[phase],phase});
-    startEnergy=model.state.energyJ;history=[{timeSeconds:0,temperature:model.state.temperature}];lastSample=0;
-    running=false;power=0;$('power').value=0;visualTime=0;previousPhase=model.state.phase;
-    host.querySelectorAll('[data-wl-preset]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.wlPreset===phase)));
-    if(clearReference){reference=[];$('reference').hidden=true;$('clear-curve').hidden=true;}
-    refresh();kick();announce('Nytt försök: '+names[phase]+', '+temperatures[phase]+' grader.');
-  }
-  function tick(now) {
-    frame=0;if(destroyed||!active||!inView||document.hidden||!host.isConnected){last=0;return;}
-    const dt = last ? Math.min(.08,(now-last)/1000) : 0;last=now;
-    if(running&&dt>0){
-      const before=model.state; const state=model.step(dt*speed,power);
-      if(state.timeSeconds-lastSample>=.5){
-        history.push({timeSeconds:state.timeSeconds,temperature:state.temperature});lastSample=state.timeSeconds;
-        if(history.length>1800)history=history.filter((_,i)=>i%2===0||i===history.length-1);
-      }
-      if(power!==0&&Math.abs(state.energyJ-before.energyJ)<1e-7){
-        running=false;recordCurrent();announce('Modellens temperaturgräns är nådd. Välj motsatt riktning för att fortsätta.');
-      }
-      if(state.phase!==previousPhase){previousPhase=state.phase;announce(names[state.phase]+', '+number(state.temperature)+' grader.');}
+
+  function stateExplanation(state){
+    const heating=power>0,cooling=power<0,changing=running&&power!==0;
+    if(running&&power===0)return 'Tiden går, men ingen energi förs till eller från provet. Temperaturen och andelarna är oförändrade.';
+    if(!changing){
+      if(state.phase==='melting')return 'Is och flytande vatten finns tillsammans vid 0 °C. Temperaturen ändras först när fasövergången är klar.';
+      if(state.phase==='boiling')return 'Flytande vatten och vattenånga finns tillsammans vid 100 °C. Följ andelarna när ni värmer eller kyler.';
+      if(state.phase==='solid')return 'Isens molekyler vibrerar kring sina platser. Samma H₂O-molekyler finns kvar.';
+      if(state.phase==='gas')return 'Vattenångans molekyler är glest fördelade. Det är fortfarande H₂O.';
+      return 'Flytande vattens molekyler ligger nära och kan röra sig förbi varandra.';
     }
+    if(state.phase==='melting')return heating?'Energi till provet → mer is blir vatten → temperaturen är kvar på 0 °C. Se den plana kurvan och den minskande isandelen.':'Energi från provet → mer vatten fryser till is → temperaturen är kvar på 0 °C.';
+    if(state.phase==='boiling')return heating?'Energi till provet → mer vatten blir gas → temperaturen är kvar på 100 °C. Samma H₂O-molekyler finns kvar.':'Energi från provet → vattenånga kondenserar → gasandelen minskar medan temperaturen är 100 °C.';
+    if(heating)return 'Energi till provet → molekylernas genomsnittliga rörelse ökar → temperaturen stiger.';
+    if(cooling)return 'Energi från provet → molekylernas genomsnittliga rörelse minskar → temperaturen sjunker.';
+    return 'Tiden går, men ingen energi förs till eller från provet. Temperaturen är oförändrad.';
+  }
+  function stateTitle(state){
+    if(!running)return 'Pausat vid '+number(state.temperature)+' °C';
+    if(power===0)return 'Följ provet utan värmeöverföring';
+    if(state.phase==='melting')return power>0?'0 °C: isen smälter':'0 °C: vattnet fryser';
+    if(state.phase==='boiling')return power>0?'100 °C: vatten blir vattenånga':'100 °C: ångan kondenserar';
+    return names[state.phase]+(power>0?' värms':' kyls');
+  }
+  function refresh(){
+    const s=model.state,row=guide[guideIndex],band=Math.abs(s.temperature)<1e-7?'0':Math.abs(s.temperature-100)<1e-7?'100':'';
+    root.dataset.temperatureBand=band;root.dataset.runDirection=running?(power>0?'heat':power<0?'cool':'zero'):'pause';
+    put('temp',number(s.temperature));put('phase',names[s.phase]);
+    const rounded=[s.iceFraction,s.liquidFraction,s.vaporFraction].map(v=>Math.round(v*100));rounded[rounded.indexOf(Math.max(...rounded))]+=100-rounded.reduce((a,b)=>a+b,0);
+    ['ice','water','vapor'].forEach((key,i)=>{put(key+'-pct',rounded[i]);$(key+'-bar').style.width=[s.iceFraction,s.liquidFraction,s.vaporFraction][i]*100+'%';});
+    put('guide-counter',mode==='guide'?(guideIndex<7?'Steg '+(guideIndex+1)+' av 7':'Guiden är klar'):'Eget försök');
+    put('guide-title',mode==='guide'&&!running&&!goal?row.title:stateTitle(s));
+    put('guide-copy',running||goal?stateExplanation(s):mode==='guide'?row.copy:stateExplanation(s));
+    $('pause').disabled=!running;
+    let action=mode==='guide'?row.action:power>0?'Värm vidare':power<0?'Kyl vidare':'Fortsätt utan värmeöverföring';
+    if(goal&&!running)action=power>0?'Fortsätt värma':power<0?'Fortsätt kyla':action;
+    put('next',running?(power>0?'Värmer…':power<0?'Kyler…':'Följer tiden…'):action);$('next').disabled=running;
+    put('run-state',running?(power>0?'Uppvärmning pågår':power<0?'Kylning pågår':'0 W: tiden fortsätter'):'Pausat: tid och värmeöverföring står stilla');
+    put('speed-note',mode==='guide'?'Guiden stannar automatiskt. Tiden visas '+(goal?speed:row.speed||10)+'× snabbare.':'Tiden visas '+speed+'× snabbare. Värm och Kyl startar direkt.');
+    const group=mode==='guide'&&!running&&!goal?row.group:power<0?4:({solid:0,melting:1,liquid:2,boiling:3,gas:3}[s.phase]);
+    root.querySelectorAll('[data-guide-group]').forEach(node=>{const index=Number(node.dataset.guideGroup);node.classList.toggle('wl-step-done',mode==='guide'&&index<group);if(index===group)node.setAttribute('aria-current','step');else node.removeAttribute('aria-current');});
+    put('power-label',magnitude+' W');put('own-note',mode==='guide'?'Guiden är aktiv. Egna val startar ett fritt försök.':'Eget försök. Använd Värm eller Kyl, eller gå tillbaka till guiden.');
+    const seconds=Math.floor(s.timeSeconds);put('time',Math.floor(seconds/60)+':'+String(seconds%60).padStart(2,'0'));const energy=(s.energyJ-startEnergy)/1000;put('energy',(energy>0?'+':'')+number(energy)+' kJ');
+    drawVessel(s);const plotted=history.at(-1).timeSeconds<s.timeSeconds?[...history,{timeSeconds:s.timeSeconds,temperature:s.temperature}]:history;graph.update(plotted,reference);
+    if(performance.now()>inspectorUntil)put('graph-readout','Nu: '+number(s.temperature)+' °C · provets tid '+number(s.timeSeconds/60,2)+' min.'+(band?' Temperaturen ligger vid '+band+' °C.':''));
+  }
+  function pause(message='Pausat. Tid och värmeöverföring står stilla.'){running=false;last=0;recordCurrent(true);refresh();announce(message);}
+  function nextAction(){
+    if(running)return;
+    if(mode==='guide'){
+      if(guideIndex===7){resetGuide();return;}
+      if(!goal){const row=guide[guideIndex];goal={energy:row.target,index:guideIndex};power=row.power;speed=row.speed;}
+    }
+    running=true;last=0;refresh();kick();announce(power>0?'Ni värmer provet.':power<0?'Ni kyler provet.':'Tiden går utan värmeöverföring.');
+  }
+  function manualAction(direction){recordCurrent(true);mode='manual';goal=null;speed=manualSpeed;power=direction*magnitude;running=true;last=0;refresh();kick();announce(direction>0?'Eget försök: uppvärmningen startar.':direction<0?'Eget försök: kylningen startar.':'Ingen energi förs till eller från provet. Tiden fortsätter.');}
+  function resetState(phase,temperature){model.reset({phase,temperature});startEnergy=model.state.energyJ;history=[{timeSeconds:0,temperature:model.state.temperature,milestone:true}];lastSample=0;running=false;power=0;goal=null;visualTime=0;last=0;}
+  function resetGuide(){mode='guide';guideIndex=0;speed=2;resetState('solid',-15);refresh();kick();announce('Guiden börjar med is vid minus15 grader. Tryck Värm isen.');}
+  function preset(phase){mode='manual';speed=manualSpeed;resetState(phase,{solid:-15,liquid:20,gas:110}[phase]);refresh();kick();announce('Nytt eget prov: '+names[model.state.phase]+', '+number(model.state.temperature)+' grader.');}
+  function finishGoal(){recordCurrent(true);running=false;goal=null;guideIndex=Math.min(7,guideIndex+1);last=0;refresh();announce(guide[guideIndex].title+'. Guiden har pausat.');}
+  function advance(dt){
+    const before=model.state;let seconds=dt*speed;
+    if(power!==0){
+      const boundary=goal?.energy??energyForState({massKg:before.massKg,temperature:power>0?120:-30,phase:power>0?'gas':'solid'});
+      const remaining=(boundary-before.energyJ)/power;
+      if(remaining<=1e-10){if(goal)finishGoal();else pause('Provet har nått modellens temperaturgräns. Välj motsatt riktning.');return;}
+      seconds=Math.min(seconds,remaining);
+    }
+    if(seconds<=0)return;
+    const after=model.step(seconds,power),fusion=before.massKg*C.fusion,boil=before.massKg*(C.fusion+100*C.cpLiquid),end=boil+before.massKg*C.vaporization;
+    if(power!==0){const sign=Math.sign(power),crossings=[0,fusion,boil,end].filter(e=>(e-before.energyJ)*sign>1e-9&&(after.energyJ-e)*sign>=-1e-9).sort((a,b)=>(a-b)*sign);for(const e of crossings)appendPoint({timeSeconds:before.timeSeconds+(e-before.energyJ)/power,temperature:e<=fusion?0:100,milestone:true});}
+    if(after.timeSeconds-lastSample>=.3){recordCurrent();lastSample=after.timeSeconds;}
+    if(history.length>3600)history=history.filter((p,i)=>p.milestone||i%2===0||i===history.length-1);
+    if(goal&&Math.abs(after.energyJ-goal.energy)<1e-6)finishGoal();
+    else if(power!==0&&(after.temperature<=-30||after.temperature>=120))pause('Temperaturgränsen är nådd. Välj motsatt riktning för att fortsätta.');
+  }
+  function tick(now){
+    frame=0;if(destroyed||!active||!inView||document.hidden||!root.isConnected){last=0;return;}
+    const dt=last?Math.min(.08,Math.max(0,(now-last)/1000)):0;last=now;
+    if(running&&dt>0)advance(dt);
     if(running&&!motionOff)visualTime+=dt;
-    scene?.setMotion(!motionOff&&running);
-    scene?.update(model.state, running&&!motionOff?dt:0);
-    drawFallback(model.state);
+    scene?.setMotion(running&&!motionOff);scene?.update(model.state,running&&!motionOff?dt:0);drawFallback(model.state);
     if(now-lastUI>100){refresh();lastUI=now;}
-    frame=requestAnimationFrame(tick);
+    if(!frame&&!destroyed&&active&&inView&&!document.hidden)frame=requestAnimationFrame(tick);
   }
   function kick(){if(!frame&&active&&inView&&!destroyed&&!document.hidden)frame=requestAnimationFrame(tick);}
-  const onVisibility=()=>{last=0;if(document.hidden){cancelAnimationFrame(frame);frame=0;}else kick();};
-  document.addEventListener('visibilitychange',onVisibility);
-  const observer = typeof IntersectionObserver==='function'?new IntersectionObserver(entries=>{
-    inView=entries[0].isIntersecting;last=0;if(inView)kick();else{cancelAnimationFrame(frame);frame=0;}
-  },{rootMargin:'180px'}):null;
-  observer?.observe(host);
-  host.querySelectorAll('[data-wl-preset]').forEach(b=>b.onclick=()=>preset(b.dataset.wlPreset));
-  $('heat').onclick=()=>setPower(300);$('cool').onclick=()=>setPower(-300);$('zero').onclick=()=>setPower(0);
-  $('power').oninput=e=>setPower(e.target.value);
-  $('play').onclick=()=>{running=!running;if(!running)recordCurrent();last=0;refresh();kick();};
-  $('speed').onchange=e=>{speed=Number(e.target.value);$('speed-note').textContent='1 sekund här = '+speed+' sekund'+(speed===1?'':'er')+' i modellen.';};
-  $('zoom').oninput=e=>scene?.setZoom(Number(e.target.value)/100);
-  $('follow').onclick=()=>{select(!selected);kick();};
-  $('camera').onclick=()=>{scene?.resetView();$('zoom').value=35;kick();};
-  $('motion').onchange=e=>{motionOff=e.target.checked;scene?.setMotion(!motionOff&&running);kick();};
-  $('reset').onclick=()=>{preset('liquid',true);select(false);scene?.resetView();$('zoom').value=35;};
-  $('save-curve').onclick=()=>{
-    recordCurrent();
-    if(history.length<2){announce('Starta först ett försök för att kunna spara en kurva.');$('graph-readout').textContent='Värm eller kyl först. Sedan kan ni spara kurvan och jämföra ett nytt försök.';inspectorUntil=performance.now()+4000;return;}
-    reference=history.map(p=>({...p}));$('reference').hidden=false;$('clear-curve').hidden=false;refresh();announce('Kurvan är sparad. Välj ett starttillstånd för ett nytt försök.');
-  };
-  $('clear-curve').onclick=()=>{reference=[];$('reference').hidden=true;$('clear-curve').hidden=true;refresh();};
-  $('csv').onclick=()=>{
-    recordCurrent();
-    const rows=['modelltid_s;temperatur_C;forsok',...history.map(p=>number(p.timeSeconds,2)+';'+number(p.temperature,2)+';aktuellt'),...reference.map(p=>number(p.timeSeconds,2)+';'+number(p.temperature,2)+';sparat')];
-    const url=URL.createObjectURL(new Blob(['\uFEFF'+rows.join('\n')],{type:'text/csv;charset=utf-8'}));
-    const link=document.createElement('a');link.href=url;link.download='Vattenlabbet_matdata.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
-  };
-  import('./water-scene.js?v=20261110-labs3').then(({createWaterScene})=>{
-    if(destroyed)return;
-    scene=createWaterScene($('scene'),{
-      onReady(){if(destroyed)return;$('fallback').hidden=true;$('mode').textContent='3D · 48 H₂O';scene.setZoom(.35);refresh();kick();},
-      onSelect(value){select(value.selected);},
-      onError(){if(destroyed)return;$('scene').hidden=true;$('fallback').hidden=false;$('mode').textContent='2D · molekylmodell';$('scene-hint').textContent='Samma energimodell i en förenklad molekylvy.';$('camera').hidden=true;$('zoom').closest('label').hidden=true;kick();}
-    });
-    if(!scene.available){$('scene').hidden=true;$('fallback').hidden=false;}
-  }).catch(()=>{
-    if(destroyed)return;$('scene').hidden=true;$('fallback').hidden=false;$('mode').textContent='2D · molekylmodell';$('scene-hint').textContent='Samma energimodell i en förenklad molekylvy.';$('camera').hidden=true;$('zoom').closest('label').hidden=true;
-  });
+  const visibility=()=>{last=0;if(document.hidden){cancelAnimationFrame(frame);frame=0;}else kick();};document.addEventListener('visibilitychange',visibility);
+  const observer=typeof IntersectionObserver==='function'?new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;last=0;if(inView)kick();else{cancelAnimationFrame(frame);frame=0;}},{rootMargin:'180px'}):null;observer?.observe(root);
+  function setFocus(value){
+    if(focused===value)return;focused=value;root.classList.toggle('wl-focus',focused);$('focus').setAttribute('aria-expanded',String(focused));put('focus',focused?'Tillbaka till kemisidan':'Visa allt tillsammans');
+    if(focused){focusReturn=document.activeElement;previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.scrollTop=0;$('focus').focus();}
+    else{document.body.style.overflow=previousOverflow;root.removeAttribute('role');root.removeAttribute('aria-modal');focusReturn?.focus?.({preventScroll:true});}
+    inView=true;last=0;kick();
+  }
+  on('focus','click',()=>setFocus(!focused));on('close-focus','click',()=>setFocus(false));
+  on(root,'keydown',e=>{if(!focused)return;if(e.key==='Escape'){e.preventDefault();setFocus(false);}if(e.key==='Tab'){const nodes=[...root.querySelectorAll('button,input,select,summary,canvas[tabindex],svg[tabindex],a[href]')].filter(n=>!n.disabled&&n.tabIndex>=0&&n.getClientRects().length);const first=nodes[0],final=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();final?.focus();}else if(!e.shiftKey&&document.activeElement===final){e.preventDefault();first?.focus();}}});
+  on('next','click',nextAction);on('pause','click',()=>pause());on('reset','click',resetGuide);on('back-guide','click',()=>{resetGuide();$('advanced').open=false;$('next').focus({preventScroll:true});$('next').scrollIntoView({block:'center'});});
+  root.querySelectorAll('[data-wl-preset]').forEach(button=>on(button,'click',()=>preset(button.dataset.wlPreset)));
+  on('heat','click',()=>manualAction(1));on('cool','click',()=>manualAction(-1));on('zero','click',()=>manualAction(0));
+  on('power','input',e=>{magnitude=Number(e.target.value);put('power-label',magnitude+' W');if(mode==='manual'&&power!==0){recordCurrent(true);power=Math.sign(power)*magnitude;}});
+  on('speed','change',e=>{manualSpeed=Number(e.target.value);if(mode==='manual'){recordCurrent(true);speed=manualSpeed;refresh();}});
+  on('zoom','input',e=>scene?.setZoom(Number(e.target.value)/100));on('follow','click',()=>{select(!selected);kick();});on('camera','click',()=>{scene?.resetView();$('zoom').value=35;scene?.setZoom(.35);kick();});
+  on('motion','change',e=>{motionOff=e.target.checked;scene?.setMotion(running&&!motionOff);kick();});
+  on('save-curve','click',()=>{recordCurrent(true);if(history.length<2){announce('Värm eller kyl först. Spara sedan kurvan.');return;}reference=history.map(p=>({...p}));$('reference').hidden=false;$('clear-curve').hidden=false;refresh();announce('Kurvan är sparad. Välj ett nytt startprov för att jämföra.');});
+  on('clear-curve','click',()=>{reference=[];$('reference').hidden=true;$('clear-curve').hidden=true;refresh();});
+  on('csv','click',()=>{recordCurrent(true);const rows=['modelltid_s;temperatur_C;forsok',...history.map(p=>number(p.timeSeconds,2)+';'+number(p.temperature,2)+';aktuellt'),...reference.map(p=>number(p.timeSeconds,2)+';'+number(p.temperature,2)+';sparat')];const url=URL.createObjectURL(new Blob(['\uFEFF'+rows.join('\n')],{type:'text/csv;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='Vattenlabbet_matdata.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
+  import('./water-scene.js?v=20261110-labs3').then(({createWaterScene})=>{if(destroyed)return;scene=createWaterScene($('scene'),{onReady(){if(destroyed)return;$('fallback').hidden=true;put('mode','3D · samma H₂O');scene.setZoom(.35);refresh();kick();},onSelect(value){select(value.selected);},onError(){if(destroyed)return;fallback();}});if(!scene.available)fallback();}).catch(()=>{if(!destroyed)fallback();});
+  function fallback(){$('scene').hidden=true;$('fallback').hidden=false;put('mode','Molekylvy');put('scene-hint','Följ de hela vattenmolekylerna.');$('camera').hidden=true;$('zoom').closest('label').hidden=true;kick();}
   refresh();kick();
-  return {
-    setActive(value){active=!!value;last=0;if(active)kick();else{cancelAnimationFrame(frame);frame=0;}},
-    destroy(){destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',onVisibility);restoreDOMTeX();restoreCanvasTeX();scene?.destroy();graph.destroy();},
-    get state(){return model.state;}
-  };
+  return{setActive(value){active=Boolean(value);last=0;if(active)kick();else{if(focused)setFocus(false);cancelAnimationFrame(frame);frame=0;}},destroy(){if(destroyed)return;if(focused)setFocus(false);destroyed=true;cancelAnimationFrame(frame);observer?.disconnect();document.removeEventListener('visibilitychange',visibility);listeners.forEach(remove=>remove());restoreDOMTeX();restoreCanvasTeX();scene?.destroy();graph.destroy();},get state(){return model.state;}};
 }

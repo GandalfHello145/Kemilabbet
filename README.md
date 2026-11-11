@@ -14,7 +14,7 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 
 ## Labb och bildförklaringar
 
-[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs3#omrade-1). Områdena 1, 2, 3, 5 och 6 har labb överst i steg 2, Förstå. Förändring och Giftfri miljö har bildförklaringar utan simulering. Länken med lab=alla öppnar steg 2 direkt även när ni växlar område.
+[Öppna labben](https://gandalfhello145.github.io/Kemilabbet/?lab=alla&v=20261110-labs3#omrade-1). Områdena 1, 2, 3 och 6 har labb överst i steg 2, Förstå. Förändring, Egenskaper och Giftfri miljö har bildförklaringar utan simulering. Länken med lab=alla öppnar steg 2 direkt även när ni växlar område.
 
 | Område | Labb | Undersök |
 |---|---|---|
@@ -22,13 +22,13 @@ Interaktiv kemi med sju områden. Förklaringarna är skrivna för högstadiet o
 | 2 | Atomdetektiven | Börja med Thomson, fortsätt med Rutherford och jämför sedan samma strålstart; förklara orsak och slutsats utan vinkelmått. |
 | 3 | Bindningslabbet | Flytta en elektron, räkna laddningar och jämför jongitter med delat elektronpar. |
 | 4 | Bildförklaring | Jämför kemiska och fysikaliska förändringar utan simulering. |
-| 5 | Materialdetektiven | Undersök fyra definierade prov med fyra tester och samla belägg om ett okänt prov. |
+| 5 | Bildförklaring | Jämför egenskaper och välj material utan simulering. |
 | 6 | Vattenlabbet | Värm/kyl 50 g vatten och koppla ihop fasandelar, molekylvy och temperaturkurva. |
 | 7 | Scenariobild | Följ målarfärg från spill till vatten och jämför förebyggande handlingar. |
 
-De fem aktiva labben har tydliga elevknappar, direkta handlingar och förklarande återkoppling. Atomdetektiven visar en atommodell i taget innan båda kan jämföras, med slowmotion och närbild av kraften. Grader, histogram och tekniska laddningsreglage har tagits bort. Den extra sektionen Undersök vidare tillsammans visas inte i labben. Text i gränssnitt, knappar, diagram och canvas sätts som LaTeX med lokalt MathJax och SVG. Vattenlabbet behåller sin 3D-vy och 2D-reservvy.
+De fyra aktiva labben har tydliga elevknappar, direkta handlingar och förklarande återkoppling. Atomdetektiven visar en atommodell i taget innan båda kan jämföras, med slowmotion och närbild av kraften. Grader, histogram och tekniska laddningsreglage har tagits bort. Den extra sektionen Undersök vidare tillsammans visas inte i labben. Text i gränssnitt, knappar, diagram och canvas sätts som LaTeX med lokalt MathJax och SVG. Vattenlabbet behåller sin 3D-vy och 2D-reservvy.
 
-lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje labb har separat gränssnitt, ren modellfil och modelltester. Äldre modell- och testfiler för de två borttagna labben finns kvar som källhistorik men laddas inte på elevsidan. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
+lab-kit.js innehåller gemensam layout, rendering och livscykel. lab-router.js laddar bara valt experiment. Varje labb har separat gränssnitt, ren modellfil och modelltester. Äldre modell- och testfiler för de borttagna labben finns kvar som källhistorik men laddas inte på elevsidan. Rörelser stannar när området, lektionssteget eller webbläsarfliken inte visas. Era befintliga svar använder samma lagringsnyckel och schema.
 
 Kör alla 61 modellkontroller med node --test water-model.test.mjs lab-*.test.mjs från webbplatsens projektmapp.
 
@@ -38,9 +38,9 @@ assets/environment/giftfri-miljo-scenarier.webp är webbkopian av en AI-generera
 
 ## Vattenlabbet
 
-[Öppna experimentet](https://gandalfhello145.github.io/Kemilabbet/?lab=vatten&v=20261109-water1#omrade-6). Det finns överst i steg 2, Förstå, i område 6 och nås också med knappen Öppna Vattenlabbet ovanför filmen.
+[Öppna experimentet](https://gandalfhello145.github.io/Kemilabbet/?lab=vatten&v=20261111-water2#omrade-6). Det finns överst i steg 2, Förstå, i område 6 och nås också med knappen Öppna Vattenlabbet ovanför filmen.
 
-Eleverna kan värma och kyla 50 g rent vatten, vrida och zooma en 3D-modell med 48 representativa H₂O-molekyler, följa en markerad molekyl och undersöka temperaturkurvan. Ett försök kan sparas som jämförelse och mätdata exporteras som CSV. Hastighet kan väljas till 1×, 10× eller 30×. Simuleringen stannar när den döljs eller när sidan lämnas; pausen bevarar försöket mellan lektionsstegen.
+Det guidade försöket börjar med is vid −15 °C. En tydlig huvudknapp leder eleverna genom uppvärmning, smältning, kokning och kylning, med observationer innan de fortsätter. Temperatur, molekylvy och temperaturkurva samlas i samma arbetsyta. Förklaringarna kopplar ihop energin med molekylernas rörelse och det som händer vid 0 och 100 °C. Värm och Kyl startar respektive handling; Pausa stannar försöket. Egna effekt- och hastighetsreglage, jämförelsekurva och CSV finns under fördjupning. 3D-vyn med zoom och en markerad molekyl finns kvar. Simuleringen pausar när området eller lektionssteget döljs och bevarar försöket när eleven kommer tillbaka.
 
 water-model.js använder en entalpimodell med konstanta, avrundade värmekapaciteter och latenta värmen. Smältning/frysning sker vid 0 °C och kokning/kondensation vid 100 °C. Massan och det yttre trycket hålls konstanta med ett schematiskt rörligt lock. Modellen inkluderar inte värmeförluster, temperaturgradienter eller avdunstning under kokpunkten. Modellkort och primärkällor finns i experimentet.
 

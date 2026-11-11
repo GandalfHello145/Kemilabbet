@@ -1,4 +1,4 @@
-import { LABS, mountSubjectLab } from './lab-router.js?v=20261110-labs3';
+import { LABS, mountSubjectLab } from './lab-router.js?v=20261111-water2';
 let activeLab = null;
 import { renderStudyGalleries, connectStudyGalleries } from './study-galleries.js?v=20261110-labs3';
 // Authored Swedish learning content. New explanations are rendered as plain text; existing exact-match LaTeX entries remain available for unchanged text.
@@ -6753,7 +6753,7 @@ function moduleView(m) {
  const setStage=(number,focus=true)=>{const target=Math.max(1,Math.min(3,Number(number)));if(target!==1)document.querySelector('#lesson-film')?.pause();if(target!==2)cancelAnimationFrame(animation);activeLab?.setActive(target===2);const launch=document.querySelector('.cl-launch');if(launch)launch.hidden=target===2;currentStage=target;document.querySelectorAll('[data-stage]').forEach(tab=>{const active=Number(tab.dataset.stage)===target;tab.classList.toggle('active',active);tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});document.querySelectorAll('.lesson-stage').forEach((panel,i)=>panel.hidden=i+1!==target);if(target===2){s.revealed=true;save();setupWidget(m,s);}applyTextRendering(main);if(focus){document.querySelector('#step-panel-'+target).focus({preventScroll:true});document.querySelector('.lesson-steps').scrollIntoView({block:'start',behavior:'auto'});}};
  document.querySelectorAll('[data-stage]').forEach(tab=>{tab.onclick=()=>setStage(tab.dataset.stage);tab.onkeydown=e=>{let next;if(e.key==='ArrowRight')next=currentStage===3?1:currentStage+1;else if(e.key==='ArrowLeft')next=currentStage===1?3:currentStage-1;else if(e.key==='Home')next=1;else if(e.key==='End')next=3;else return;e.preventDefault();setStage(next);document.querySelector('#step-tab-'+next).focus({preventScroll:true});};});
  document.querySelectorAll('[data-go-stage]').forEach(button=>button.onclick=()=>setStage(button.dataset.goStage));
- setStage(['alla',LABS[m.id]?.slug,String(m.id),m.id===4?'reaktioner':m.id===7?'miljo':''].includes(new URLSearchParams(location.search).get('lab'))?2:1,false);
+ setStage(['alla',LABS[m.id]?.slug,String(m.id),m.id===4?'reaktioner':m.id===5?'material':m.id===7?'miljo':''].includes(new URLSearchParams(location.search).get('lab'))?2:1,false);
 }
 function showCheck(m,s){const e=document.querySelector('#check-feedback'),ok=s.choice===m.check.correct;e.hidden=false;e.className='feedback'+(ok?'':' wrong');e.textContent=(ok?'Det stämmer. ':'Titta en gång till. ')+m.check.feedback;applyTextRendering(e);}
 function tools(labels,action,current){return `<div class="tools">${labels.map(([v,label])=>`<button type="button" data-action="${action}" data-value="${v}" ${current!==undefined?`aria-pressed="${String(current)===String(v)}"`:''}>${label}</button>`).join('')}</div>`;}
